@@ -1,8 +1,50 @@
+"use client";
+
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
+import CategoryCard from "@/components/CategoryCard";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      quote: "Tsurov's photography elevated our interiors to another level.",
+      author: "Emily Ross",
+      role: "Interior Designer"
+    },
+    {
+      quote: "Exceptional attention to detail and lighting. Every shot tells a story.",
+      author: "Michael Chen",
+      role: "Architect"
+    },
+    {
+      quote: "The images captured the essence of our luxury spaces perfectly.",
+      author: "Sarah Williams",
+      role: "Real Estate Developer"
+    },
+    {
+      quote: "Professional, creative, and delivers stunning results every time.",
+      author: "David Martinez",
+      role: "Hotel Manager"
+    },
+    {
+      quote: "Their work showcases our designs in the most beautiful way possible.",
+      author: "Lisa Anderson",
+      role: "Design Studio Owner"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Change testimonial every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
   const residentialSpaces = [
     { title: "Luxury Villas", image: "/images/7.png", href: "/residential#villas" },
     { title: "Apartments", image: "/images/4.png", href: "/residential#apartments" },
@@ -77,142 +119,135 @@ export default function Home() {
       </section>
 
       {/* Residential Spaces */}
-      <section className="py-24 md:py-32 px-6 md:px-16 bg-white">
+      <section className="pt-12 md:pt-16 pb-12 md:pb-16 px-6 md:px-16 bg-[#F8F3F4]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center mb-16">
-            Residential Spaces
-          </h2>
+          <div className="flex items-center mb-16">
+            <div className="flex-1 border-t border-stone-300"></div>
+            <h2 className="px-8 text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center whitespace-nowrap">
+              Residential Spaces
+            </h2>
+            <div className="flex-1 border-t border-stone-300"></div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {residentialSpaces.map((space) => (
-              <Link
+              <CategoryCard
                 key={space.title}
+                title={space.title}
+                image={space.image}
                 href={space.href}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-[4/5] bg-stone-200 mb-4 overflow-hidden">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover group-hover:scale-103 transition-transform duration-[600ms] ease-out"
-                    style={{ transition: "transform 600ms cubic-bezier(0.4, 0, 0.2, 1)" }}
-                  />
-                </div>
-                <h3 className="text-[28px] font-serif font-medium text-stone-900 text-center">
-                  {space.title}
-                </h3>
-              </Link>
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Hotels & Hospitality */}
-      <section className="py-24 md:py-32 px-6 md:px-16 bg-stone-50">
+      <section className="pt-4 md:pt-6 pb-12 md:pb-16 px-6 md:px-16 bg-[#F8F3F4]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center mb-16">
-            Hotels & Hospitality
-          </h2>
+          <div className="flex items-center mb-16">
+            <div className="flex-1 border-t border-stone-300"></div>
+            <h2 className="px-8 text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center whitespace-nowrap">
+              Hotels & Hospitality
+            </h2>
+            <div className="flex-1 border-t border-stone-300"></div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {hospitalitySpaces.map((space, index) => (
-              <Link
+              <CategoryCard
                 key={`${space.title}-${index}`}
+                title={space.title}
+                image={space.image}
                 href={space.href}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-[4/5] bg-stone-200 mb-4 overflow-hidden">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                    style={{ transition: "transform 600ms cubic-bezier(0.4, 0, 0.2, 1)" }}
-                  />
-                </div>
-                <h3 className="text-[28px] font-serif font-medium text-stone-900 text-center">
-                  {space.title}
-                </h3>
-              </Link>
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Commercial & Industry */}
-      <section className="py-24 md:py-32 px-6 md:px-16 bg-white">
+      <section className="pt-4 md:pt-6 pb-12 md:pb-16 px-6 md:px-16 bg-[#F8F3F4]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center mb-16">
-            Commercial & Industry
-          </h2>
+          <div className="flex items-center mb-16">
+            <div className="flex-1 border-t border-stone-300"></div>
+            <h2 className="px-8 text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center whitespace-nowrap">
+              Commercial & Industry
+            </h2>
+            <div className="flex-1 border-t border-stone-300"></div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {commercialSpaces.map((space) => (
-              <Link
+              <CategoryCard
                 key={space.title}
+                title={space.title}
+                image={space.image}
                 href={space.href}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-[4/5] bg-stone-200 mb-4 overflow-hidden">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                    style={{ transition: "transform 600ms cubic-bezier(0.4, 0, 0.2, 1)" }}
-                  />
-                </div>
-                <h3 className="text-[28px] font-serif font-medium text-stone-900 text-center">
-                  {space.title}
-                </h3>
-              </Link>
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Custom Interiors */}
-      <section className="py-24 md:py-32 px-6 md:px-16 bg-stone-50">
+      <section className="pt-4 md:pt-6 pb-16 md:pb-20 px-6 md:px-16 bg-[#F8F3F4]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center mb-16">
-            Custom Interiors
-          </h2>
+          <div className="flex items-center mb-16">
+            <div className="flex-1 border-t border-stone-300"></div>
+            <h2 className="px-8 text-4xl md:text-5xl lg:text-[48px] font-serif font-normal text-stone-900 text-center whitespace-nowrap">
+              Custom Interiors
+            </h2>
+            <div className="flex-1 border-t border-stone-300"></div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {customInteriorsSpaces.map((space) => (
-              <Link
+              <CategoryCard
                 key={space.title}
+                title={space.title}
+                image={space.image}
                 href={space.href}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-[4/5] bg-stone-200 mb-4 overflow-hidden">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                    style={{ transition: "transform 600ms cubic-bezier(0.4, 0, 0.2, 1)" }}
-                  />
-                </div>
-                <h3 className="text-[28px] font-serif font-medium text-stone-900 text-center">
-                  {space.title}
-                </h3>
-              </Link>
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-24 md:py-32 px-6 md:px-16 bg-stone-100">
-        <div className="max-w-4xl mx-auto text-center">
-          <blockquote className="text-3xl md:text-4xl font-serif font-light italic text-stone-700 mb-8 leading-relaxed">
-            "Tsurov's photography elevated our interiors to another level."
-          </blockquote>
-          <p className="text-lg text-stone-500 tracking-wide">
-            — Emily Ross, Interior Designer
-          </p>
+      {/* Testimonials */}
+      <section className="py-16 md:py-20 px-6 md:px-16 bg-stone-100">
+        <div className="max-w-4xl mx-auto text-center relative">
+          <div className="relative min-h-[200px] flex items-center justify-center">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ${
+                  index === currentTestimonial ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <blockquote className="text-3xl md:text-4xl font-serif font-light italic text-stone-700 mb-8 leading-relaxed">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </blockquote>
+                <p className="text-lg text-stone-500 tracking-wide">
+                  — {testimonial.author}, {testimonial.role}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentTestimonial(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentTestimonial ? 'bg-stone-900 w-8' : 'bg-stone-400'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </div>

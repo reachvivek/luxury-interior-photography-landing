@@ -16,7 +16,7 @@ export default function Navigation() {
   ];
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-[#f5f3f0] border-b border-stone-200/50">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-[#EBE6E5] border-b border-stone-200/50">
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-5 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-2xl font-serif font-light text-stone-900 tracking-[0.02em]">
