@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
-import CategoryCard from "@/components/CategoryCard";
+import CategorySection from "@/components/CategorySection";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -152,278 +152,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Residential Spaces */}
-      <section className="h-screen relative bg-[#F8F3F4]">
-        {/* Featured Image */}
-        <div className="relative h-[75vh]">
-          <Image
-            src={residentialSpaces[residentialIndex].image}
-            alt={residentialSpaces[residentialIndex].title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      <CategorySection
+        title="Residential Spaces"
+        spaces={residentialSpaces}
+        currentIndex={residentialIndex}
+        onIndexChange={setResidentialIndex}
+        onNext={() => setResidentialIndex((prev) => (prev + 1) % residentialSpaces.length)}
+        onPrevious={() => setResidentialIndex((prev) => (prev - 1 + residentialSpaces.length) % residentialSpaces.length)}
+      />
 
-          {/* Title and Navigation */}
-          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-16 py-8 flex items-end justify-between">
-            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-serif font-light text-white">
-              Residential Spaces
-            </h2>
+      <CategorySection
+        title="Hotels & Hospitality"
+        spaces={hospitalitySpaces}
+        currentIndex={hospitalityIndex}
+        onIndexChange={setHospitalityIndex}
+        onNext={() => setHospitalityIndex((prev) => (prev + 1) % hospitalitySpaces.length)}
+        onPrevious={() => setHospitalityIndex((prev) => (prev - 1 + hospitalitySpaces.length) % hospitalitySpaces.length)}
+      />
 
-            <div className="flex gap-4">
-              <button
-                onClick={() => setResidentialIndex((prev) => (prev - 1 + residentialSpaces.length) % residentialSpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Previous"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setResidentialIndex((prev) => (prev + 1) % residentialSpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Next"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
+      <CategorySection
+        title="Commercial & Industry"
+        spaces={commercialSpaces}
+        currentIndex={commercialIndex}
+        onIndexChange={setCommercialIndex}
+        onNext={() => setCommercialIndex((prev) => (prev + 1) % commercialSpaces.length)}
+        onPrevious={() => setCommercialIndex((prev) => (prev - 1 + commercialSpaces.length) % commercialSpaces.length)}
+      />
 
-        {/* Thumbnail Cards */}
-        <div className="h-[25vh] px-6 md:px-16 py-6 overflow-x-auto">
-          <div className="flex gap-4 h-full max-w-7xl mx-auto">
-            {residentialSpaces.map((space, index) => (
-              <Link
-                key={space.title}
-                href={space.href}
-                onClick={() => setResidentialIndex(index)}
-                className={`flex-shrink-0 w-48 group cursor-pointer transition-all duration-300 ${
-                  index === residentialIndex ? 'opacity-100 scale-105' : 'opacity-60 hover:opacity-100'
-                }`}
-              >
-                <div className="relative h-32 rounded-lg overflow-hidden mb-2">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-sm font-serif text-stone-900 text-center">{space.title}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Hotels & Hospitality */}
-      <section className="h-screen relative bg-[#F8F3F4]">
-        {/* Featured Image */}
-        <div className="relative h-[75vh]">
-          <Image
-            src={hospitalitySpaces[hospitalityIndex].image}
-            alt={hospitalitySpaces[hospitalityIndex].title}
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-          {/* Title and Navigation */}
-          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-16 py-8 flex items-end justify-between">
-            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-serif font-light text-white">
-              Hotels & Hospitality
-            </h2>
-
-            <div className="flex gap-4">
-              <button
-                onClick={() => setHospitalityIndex((prev) => (prev - 1 + hospitalitySpaces.length) % hospitalitySpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Previous"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setHospitalityIndex((prev) => (prev + 1) % hospitalitySpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Next"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Thumbnail Cards */}
-        <div className="h-[25vh] px-6 md:px-16 py-6 overflow-x-auto">
-          <div className="flex gap-4 h-full max-w-7xl mx-auto">
-            {hospitalitySpaces.map((space, index) => (
-              <Link
-                key={`${space.title}-${index}`}
-                href={space.href}
-                onClick={() => setHospitalityIndex(index)}
-                className={`flex-shrink-0 w-48 group cursor-pointer transition-all duration-300 ${
-                  index === hospitalityIndex ? 'opacity-100 scale-105' : 'opacity-60 hover:opacity-100'
-                }`}
-              >
-                <div className="relative h-32 rounded-lg overflow-hidden mb-2">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-sm font-serif text-stone-900 text-center">{space.title}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Commercial & Industry */}
-      <section className="h-screen relative bg-[#F8F3F4]">
-        {/* Featured Image */}
-        <div className="relative h-[75vh]">
-          <Image
-            src={commercialSpaces[commercialIndex].image}
-            alt={commercialSpaces[commercialIndex].title}
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-          {/* Title and Navigation */}
-          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-16 py-8 flex items-end justify-between">
-            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-serif font-light text-white">
-              Commercial & Industry
-            </h2>
-
-            <div className="flex gap-4">
-              <button
-                onClick={() => setCommercialIndex((prev) => (prev - 1 + commercialSpaces.length) % commercialSpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Previous"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setCommercialIndex((prev) => (prev + 1) % commercialSpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Next"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Thumbnail Cards */}
-        <div className="h-[25vh] px-6 md:px-16 py-6 overflow-x-auto">
-          <div className="flex gap-4 h-full max-w-7xl mx-auto">
-            {commercialSpaces.map((space, index) => (
-              <Link
-                key={space.title}
-                href={space.href}
-                onClick={() => setCommercialIndex(index)}
-                className={`flex-shrink-0 w-48 group cursor-pointer transition-all duration-300 ${
-                  index === commercialIndex ? 'opacity-100 scale-105' : 'opacity-60 hover:opacity-100'
-                }`}
-              >
-                <div className="relative h-32 rounded-lg overflow-hidden mb-2">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-sm font-serif text-stone-900 text-center">{space.title}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Custom Interiors */}
-      <section className="h-screen relative bg-[#F8F3F4]">
-        {/* Featured Image */}
-        <div className="relative h-[75vh]">
-          <Image
-            src={customInteriorsSpaces[customIndex].image}
-            alt={customInteriorsSpaces[customIndex].title}
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-          {/* Title and Navigation */}
-          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-16 py-8 flex items-end justify-between">
-            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-serif font-light text-white">
-              Custom Interiors
-            </h2>
-
-            <div className="flex gap-4">
-              <button
-                onClick={() => setCustomIndex((prev) => (prev - 1 + customInteriorsSpaces.length) % customInteriorsSpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Previous"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setCustomIndex((prev) => (prev + 1) % customInteriorsSpaces.length)}
-                className="w-12 h-12 rounded-full border-2 border-white/80 text-white hover:bg-white hover:text-stone-900 transition-all duration-200 flex items-center justify-center"
-                aria-label="Next"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Thumbnail Cards */}
-        <div className="h-[25vh] px-6 md:px-16 py-6 overflow-x-auto">
-          <div className="flex gap-4 h-full max-w-7xl mx-auto">
-            {customInteriorsSpaces.map((space, index) => (
-              <Link
-                key={space.title}
-                href={space.href}
-                onClick={() => setCustomIndex(index)}
-                className={`flex-shrink-0 w-48 group cursor-pointer transition-all duration-300 ${
-                  index === customIndex ? 'opacity-100 scale-105' : 'opacity-60 hover:opacity-100'
-                }`}
-              >
-                <div className="relative h-32 rounded-lg overflow-hidden mb-2">
-                  <Image
-                    src={space.image}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-sm font-serif text-stone-900 text-center">{space.title}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CategorySection
+        title="Custom Interiors"
+        spaces={customInteriorsSpaces}
+        currentIndex={customIndex}
+        onIndexChange={setCustomIndex}
+        onNext={() => setCustomIndex((prev) => (prev + 1) % customInteriorsSpaces.length)}
+        onPrevious={() => setCustomIndex((prev) => (prev - 1 + customInteriorsSpaces.length) % customInteriorsSpaces.length)}
+      />
 
       {/* Testimonials */}
       <section className="py-16 md:py-20 px-6 md:px-16 bg-stone-100">
