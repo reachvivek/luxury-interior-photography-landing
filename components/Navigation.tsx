@@ -9,12 +9,14 @@ export default function Navigation() {
 
   const leftNavLinks = [
     { href: "/", label: "Home" },
-    { href: "/#about", label: "About" },
+    { href: "/#portfolio", label: "Portfolio" },
     { href: "/#services", label: "Services" },
+    { href: "/#about", label: "About" },
   ];
 
   const rightNavLinks = [
-    { href: "/#portfolio", label: "Portfolio" },
+    { href: "/blog", label: "Blog" },
+    { href: "/#faq", label: "FAQ" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -57,9 +59,9 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="px-6 py-2.5 bg-stone-800 text-white hover:bg-stone-900 transition-all duration-200 text-xs font-medium tracking-wide uppercase"
+              className="px-6 py-2.5 border-2 border-stone-400 text-stone-800 hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-200 text-xs font-medium tracking-wide uppercase"
             >
-              Book
+              Get in Touch
             </Link>
           </div>
         </div>
@@ -96,9 +98,9 @@ export default function Navigation() {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="px-6 py-3 bg-stone-800 text-white hover:bg-stone-900 transition-all duration-200 text-sm font-medium tracking-wide text-center mt-4 uppercase"
+              className="px-6 py-3 border-2 border-stone-400 text-stone-800 hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-200 text-sm font-medium tracking-wide text-center mt-4 uppercase"
             >
-              Book
+              Get in Touch
             </Link>
           </nav>
         </div>
