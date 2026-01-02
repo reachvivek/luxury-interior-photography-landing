@@ -250,6 +250,24 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-4 px-6 md:px-16 bg-stone-100">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-center text-[10px] text-stone-300 tracking-wider">
+            Designed by{' '}
+            <a
+              href="https://linkedin.com/in/reachvivek"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-stone-400 transition-colors"
+            >
+              Vivek Kumar Singh
+            </a>
+            {' '}• +971 501480042
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
