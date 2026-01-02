@@ -65,11 +65,11 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/images/hero.png",
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "TSUROV - Exceptional Interior Photography",
-        type: "image/png",
+        type: "image/jpeg",
       }
     ],
   },
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteName} | Luxury Interior Photography`,
     description: siteDescription,
-    images: ["/images/hero.png"],
+    images: ["/images/og-image.jpg"],
     creator: "@tsurov", // Update with actual Twitter handle
   },
   robots: {
@@ -114,7 +114,7 @@ export default function RootLayout({
     "description": siteDescription,
     "url": siteUrl,
     "logo": `${siteUrl}/images/logo.png`,
-    "image": `${siteUrl}/images/hero.png`,
+    "image": `${siteUrl}/images/og-image.jpg`,
     "priceRange": "$$$",
     "areaServed": {
       "@type": "Country",
