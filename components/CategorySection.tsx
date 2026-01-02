@@ -86,8 +86,8 @@ export default function CategorySection({
                   index === currentIndex ? 'scale-105' : 'hover:scale-105'
                 }`}
               >
-                <div className={`relative aspect-[4/3] rounded-lg overflow-hidden mb-3 ${
-                  index === currentIndex ? 'ring-4 ring-stone-900' : 'ring-2 ring-stone-300'
+                <div className={`relative aspect-square rounded-lg overflow-hidden mb-3 ${
+                  index === currentIndex ? 'ring-4 ring-stone-900' : 'ring-2 ring-[#EBE6E5]'
                 }`}>
                   <Image
                     src={space.image}
