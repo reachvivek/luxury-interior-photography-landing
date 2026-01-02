@@ -257,14 +257,13 @@ export default function Home() {
           <p className="text-center text-[10px] text-stone-300 tracking-wider">
             Designed by{' '}
             <a
-              href="https://linkedin.com/in/reachvivek"
+              href="https://wa.me/971501480042?text=Hi%20Vivek,%20I%20saw%20your%20work%20on%20the%20Tsurov%20website"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-stone-400 transition-colors"
             >
               Vivek Kumar Singh
             </a>
-            {' '}• +971 501480042
           </p>
         </div>
       </footer>
