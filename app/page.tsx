@@ -95,7 +95,7 @@ export default function Home() {
         {/* Desktop Image */}
         <div className="hidden md:block relative w-full aspect-[16/11]">
           <Image
-            src="/images/hero.png"
+            src="/images/_DSC4757.jpg"
             alt="Luxury Interior"
             fill
             className="object-cover object-top"
@@ -121,7 +121,7 @@ export default function Home() {
             {/* Desktop Layout - text + button centered */}
             <div className="hidden md:flex md:items-start md:justify-center md:h-full md:pt-[90px] md:pb-32">
               <div className="max-w-5xl mx-auto text-center mt-2">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[72px] font-serif font-light text-stone-900 mb-6 md:whitespace-nowrap">
+                {/* <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[72px] font-serif font-light text-[stone]-900 mb-6 md:whitespace-nowrap">
                   Photography that{" "}
                   <span
                     key={currentPhraseIndex}
@@ -129,20 +129,20 @@ export default function Home() {
                   >
                     {heroRotatingPhrases[currentPhraseIndex]}
                   </span>
-                </h1>
-                <p className="text-lg sm:text-xl md:text-[20px] text-stone-600 mb-12 max-w-2xl mx-auto leading-relaxed tracking-wide">
+                </h1> */}
+                {/* <p className="text-lg sm:text-xl md:text-[20px] text-stone-600 mb-12 max-w-2xl mx-auto leading-relaxed tracking-wide">
                   For architects, developers, and luxury brands who demand excellence.
-                </p>
-                <div className="flex flex-col items-center gap-4 mt-12">
-                  <Link
+                </p> */}
+                <div className="flex flex-col items-center gap-4 mt-32">
+                  {/* <Link
                     href="/contact"
                     className="px-8 py-4 border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-200 text-sm font-medium tracking-widest uppercase"
                   >
                     Book a Shoot
-                  </Link>
-                  <p className="text-xs text-stone-500 tracking-wide">
+                  </Link> */}
+                  {/* <p className="text-xs text-stone-500 tracking-wide">
                     Trusted by architects, developers, and hospitality brands across the UAE
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function Home() {
             {/* Mobile Layout - text at top, button at bottom */}
             <div className="md:hidden flex flex-col justify-between h-full pt-36 pb-8">
               <div className="w-full text-center px-4 pt-2">
-                <h1 className="text-4xl font-serif font-light text-stone-900 mb-4 leading-tight">
+                {/* <h1 className="text-4xl font-serif font-light text-stone-900 mb-4 leading-tight">
                   Photography that{" "}
                   <span
                     key={currentPhraseIndex}
@@ -161,7 +161,7 @@ export default function Home() {
                 </h1>
                 <p className="text-base text-stone-600 leading-relaxed">
                   For architects, developers, and luxury brands who demand excellence.
-                </p>
+                </p> */}
               </div>
 
               <div className="flex flex-col items-center gap-3 pb-20">
@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
       {/* Value Statement & Trusted By */}
-      <section id="about" className="py-16 md:py-20 px-6 md:px-16 bg-[#EBE6E5]">
+      <section id="about" className="py-16 md:py-20 px-6 md:px-16 bg-[#FFF8F2]">
         <div className="max-w-6xl mx-auto">
           {/* Value Statement */}
           <div
@@ -259,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Divider */}
-      <section id="portfolio" className="py-24 px-6 md:px-16 bg-[#EBE6E5]">
+      <section id="portfolio" className="py-24 px-6 md:px-16 bg-[#FFF8F2]">
         <div
           ref={portfolioDividerAnimation.elementRef}
           className={`max-w-7xl mx-auto text-center transition-all duration-1000 ease-out ${

@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
             <Image
-              src="/images/_DSC7185.jpg"
+              src="/images/7.png"
               alt="About Tsurov Photography"
               fill
               className="object-cover"
