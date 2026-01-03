@@ -107,7 +107,7 @@ export default function Home() {
         {/* Mobile Image - Full Height */}
         <div className="md:hidden relative w-full h-screen">
           <Image
-            src="/images/hero.png"
+            src="/images/_DSC4757.jpg"
             alt="Luxury Interior"
             fill
             className="object-cover object-center"
