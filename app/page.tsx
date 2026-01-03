@@ -381,24 +381,31 @@ export default function Home() {
       <TestimonialsSection />
 
       {/* Final CTA */}
-      <section className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-[#EBE6E5]">
+      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-16">
+        <Image
+          src="/images/_DSC7185.jpg"
+          alt="Interior Photography Background"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
         <div
           ref={ctaAnimation.elementRef}
-          className={`max-w-3xl mx-auto text-center w-full transition-all duration-1000 ease-out ${
+          className={`relative z-10 max-w-3xl mx-auto text-center w-full transition-all duration-1000 ease-out ${
             ctaAnimation.isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-12'
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-light text-stone-900 mb-8">
+          <h2 className="text-3xl md:text-4xl font-serif font-light text-white mb-8">
             Ready to elevate your space?
           </h2>
-          <p className="text-lg text-stone-600 mb-10">
+          <p className="text-lg text-stone-200 mb-10">
             Schedule a consultation to discuss your project and vision.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 bg-stone-900 text-white hover:bg-stone-800 hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
+            className="inline-block px-10 py-4 bg-white text-stone-900 hover:bg-stone-100 hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
           >
             Request Availability
           </Link>

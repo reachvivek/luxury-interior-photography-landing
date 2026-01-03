@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const categories = {
   suites: [
@@ -37,6 +38,26 @@ const tabs = [
 
 export default function HospitalityPage() {
   const [activeTab, setActiveTab] = useState<keyof typeof categories>("suites");
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFeaturedIndex((prev) => (prev + 1) % categories[activeTab].length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [activeTab]);
+
+  useEffect(() => {
+    setFeaturedIndex(0);
+  }, [activeTab]);
+
+  const handlePrevious = () => {
+    setFeaturedIndex((prev) => (prev - 1 + categories[activeTab].length) % categories[activeTab].length);
+  };
+
+  const handleNext = () => {
+    setFeaturedIndex((prev) => (prev + 1) % categories[activeTab].length);
+  };
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -57,7 +78,7 @@ export default function HospitalityPage() {
       {/* Category Filters */}
       <section className="py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-4">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -72,11 +93,50 @@ export default function HospitalityPage() {
               </button>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Gallery Grid */}
+      {/* Featured Image Carousel */}
+      <section className="relative w-full h-screen">
+        <Image
+          src={categories[activeTab][featuredIndex]}
+          alt={`${tabs.find(t => t.id === activeTab)?.label} Featured ${featuredIndex + 1}`}
+          fill
+          className="object-cover"
+          priority
+        />
+        <button
+          onClick={handlePrevious}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/80 hover:bg-white rounded-full transition-all"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-6 h-6 text-stone-900" />
+        </button>
+        <button
+          onClick={handleNext}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/80 hover:bg-white rounded-full transition-all"
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-6 h-6 text-stone-900" />
+        </button>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 px-4 py-2 bg-black/50 text-white rounded-full text-sm">
+          {featuredIndex + 1} / {categories[activeTab].length}
+        </div>
+      </section>
+
+      {/* Gallery Grid */}
+      <section className="py-20 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-serif font-light text-stone-900 mb-12 text-center">
+            {tabs.find(t => t.id === activeTab)?.label}
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories[activeTab].map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+              <div
+                key={index}
+                className="relative aspect-[4/3] rounded-lg overflow-hidden group cursor-pointer"
+                onClick={() => setFeaturedIndex(index)}
+              >
                 <Image
                   src={image}
                   alt={`${tabs.find(t => t.id === activeTab)?.label} ${index + 1}`}
