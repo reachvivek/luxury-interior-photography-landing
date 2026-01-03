@@ -87,7 +87,7 @@ export default function CategorySection({
                 }`}
               >
                 <div className={`relative aspect-square rounded-lg overflow-hidden mb-3 ${
-                  index === currentIndex ? 'ring-4 ring-stone-900' : 'ring-2 ring-[#EBE6E5]'
+                  index === currentIndex ? 'ring-4 ring-[#EBE6E5]' : 'ring-2 ring-[#EBE6E5]'
                 }`}>
                   <Image
                     src={space.image}
