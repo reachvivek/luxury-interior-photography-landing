@@ -87,26 +87,7 @@ export default function ResidentialPage() {
         </div>
       </section>
 
-      {/* Category Filters */}
-      <section className="py-12 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
-                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
-                  activeTab === tab.id
-                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
-                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Featured Image Carousel - Full Width 100vh */}
       <section className="relative w-full h-screen">
@@ -137,6 +118,27 @@ export default function ResidentialPage() {
         {/* Image Counter */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 px-4 py-2 bg-black/50 text-white rounded-full text-sm">
           {featuredIndex + 1} / {categories[activeTab].length}
+        </div>
+      </section>
+
+      {/* Category Filters */}
+      <section className="py-12 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
+                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
+                  activeTab === tab.id
+                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
+                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 

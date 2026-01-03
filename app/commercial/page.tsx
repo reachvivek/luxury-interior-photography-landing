@@ -76,26 +76,7 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      {/* Category Filters */}
-      <section className="py-12 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
-                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
-                  activeTab === tab.id
-                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
-                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Featured Image Carousel */}
       <section className="relative w-full h-screen">
@@ -125,6 +106,26 @@ export default function CommercialPage() {
         </div>
       </section>
 
+ {/* Category Filters */}
+      <section className="py-12 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
+                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
+                  activeTab === tab.id
+                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
+                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Gallery Grid */}
       <section className="py-20 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
