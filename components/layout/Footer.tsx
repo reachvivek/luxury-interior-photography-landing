@@ -4,8 +4,8 @@ import { CONTACT } from "@/data/contact";
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-900 text-stone-300">
-      <div className="max-w-7xl mx-auto px-6 md:px-16 py-6 md:py-8">
+    <footer className="min-h-screen md:min-h-0 bg-stone-900 text-stone-300 flex items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-8 w-full">
         {/* Top Section */}
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}

@@ -148,7 +148,7 @@ export default function Home() {
             </div>
 
             {/* Mobile Layout - text at top, button at bottom */}
-            <div className="md:hidden flex flex-col justify-between h-full pt-56 pb-8">
+            <div className="md:hidden flex flex-col justify-between h-full pt-36 pb-8">
               <div className="w-full text-center px-4 pt-2">
                 <h1 className="text-4xl font-serif font-light text-stone-900 mb-4 leading-tight">
                   Photography that{" "}
