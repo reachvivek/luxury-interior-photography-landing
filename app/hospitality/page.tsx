@@ -1,97 +1,128 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
-import Image from "next/image";
-import { useState } from "react";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+
+const suitesImages = [
+  "/images/_DSC6300.jpg",
+  "/images/_DSC7072.jpg",
+  "/images/_DSC7075.jpg",
+];
+
+const restaurantsImages = [
+  "/images/_DSC6309.jpg",
+  "/images/_DSC7079.jpg",
+  "/images/_DSC7081.jpg",
+  "/images/_DSC7084.jpg",
+];
+
+const eventsImages = [
+  "/images/_DSC6314.jpg",
+  "/images/_DSC7088.jpg",
+];
+
+const lobbiesImages = [
+  "/images/_DSC7069.jpg",
+];
 
 export default function HospitalityPage() {
-  const [activeTab, setActiveTab] = useState("suites");
-
-  const categories = {
-    suites: [
-      { id: 1, title: "Luxury Suite Living", image: "/images/12.png" },
-      { id: 2, title: "Presidential Suite", image: "/images/4.png" },
-      { id: 3, title: "Suite Living Area", image: "/images/9.png" },
-      { id: 4, title: "Contemporary Suite", image: "/images/12.png" },
-      { id: 5, title: "Penthouse Suite", image: "/images/13.png" },
-      { id: 6, title: "Elegant Interior", image: "/images/4.png" },
-    ],
-    restaurants: [
-      { id: 1, title: "Fine Dining Space", image: "/images/10.png" },
-      { id: 2, title: "Contemporary Restaurant", image: "/images/11.png" },
-      { id: 3, title: "Dining Hall", image: "/images/10.png" },
-      { id: 4, title: "Restaurant Interior", image: "/images/11.png" },
-      { id: 5, title: "Modern Kitchen", image: "/images/8.png" },
-      { id: 6, title: "Dining Area", image: "/images/9.png" },
-    ],
-    events: [
-      { id: 1, title: "Event Space", image: "/images/11.png" },
-      { id: 2, title: "Conference Hall", image: "/images/10.png" },
-      { id: 3, title: "Grand Hall", image: "/images/11.png" },
-      { id: 4, title: "Meeting Space", image: "/images/10.png" },
-      { id: 5, title: "Banquet Area", image: "/images/9.png" },
-      { id: 6, title: "VIP Lounge", image: "/images/12.png" },
-    ],
-  };
-
-  const tabs = [
-    { id: "suites", label: "Hotel Suites" },
-    { id: "restaurants", label: "Restaurants" },
-    { id: "events", label: "Event Spaces" },
-  ];
-
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-stone-900 mb-6">
+      <section className="pt-32 pb-16 px-6 md:px-16 bg-[#EBE6E5]">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-stone-900 mb-6">
             Hotels & Hospitality
           </h1>
-          <p className="text-lg sm:text-xl text-stone-600 max-w-3xl mx-auto font-inter">
-            Professional photography that elevates your hospitality brand. We capture the
-            ambiance, elegance, and attention to detail that sets your venue apart.
+          <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+            Professional photography that elevates your hospitality brand and attracts guests.
           </p>
         </div>
       </section>
 
-      {/* Category Tabs */}
-      <section className="py-12 px-4 sm:px-6 bg-stone-50">
+      {/* Hotel Suites */}
+      <section id="suites" className="py-20 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 text-sm font-medium font-inter transition-all ${
-                  activeTab === tab.id
-                    ? "border border-stone-900 bg-white text-stone-900"
-                    : "bg-transparent text-stone-600 hover:text-stone-900"
-                }`}
-              >
-                {tab.label}
-              </button>
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Hotel Suites
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {suitesImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Hotel Suite ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories[activeTab as keyof typeof categories].map((item) => (
-              <div key={item.id} className="group cursor-pointer">
-                <div className="relative aspect-[4/5] bg-stone-200 mb-4 overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-lg font-serif font-medium text-stone-900">
-                  {item.title}
-                </h3>
+      {/* Restaurants */}
+      <section id="restaurants" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Restaurants
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {restaurantsImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Restaurant ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Event Spaces */}
+      <section id="events" className="py-20 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Event Spaces
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {eventsImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Event Space ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lobbies */}
+      <section id="lobbies" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Lobbies
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {lobbiesImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Lobby ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             ))}
           </div>
@@ -99,22 +130,25 @@ export default function HospitalityPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section className="py-20 px-6 md:px-16 bg-stone-900">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-6">
-            Showcase Your Hospitality Space
+          <h2 className="text-4xl md:text-5xl font-serif font-light text-white mb-6">
+            Showcase your hospitality space
           </h2>
-          <p className="text-lg text-stone-600 mb-8 font-inter">
+          <p className="text-xl text-stone-300 mb-10">
             Professional photography that attracts guests and elevates your brand presence.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-all text-base font-medium font-inter"
+            className="inline-block px-10 py-4 bg-white text-stone-900 hover:bg-stone-100 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
           >
             Book a Shoot
           </Link>
         </div>
       </section>
+
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }

@@ -1,106 +1,129 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
-import Image from "next/image";
-import { useState } from "react";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+
+const officesImages = [
+  "/images/_DSC7135.jpg",
+  "/images/_DSC7175.jpg",
+  "/images/_DSC7176.jpg",
+];
+
+const coworkingImages = [
+  "/images/_DSC7144.jpg",
+  "/images/_DSC7177.jpg",
+  "/images/_DSC7179.jpg",
+];
+
+const retailImages = [
+  "/images/_DSC7172.jpg",
+  "/images/_DSC7180.jpg",
+  "/images/_DSC7181.jpg",
+];
+
+const showroomsImages = [
+  "/images/_DSC7174.jpg",
+  "/images/_DSC7183.jpg",
+];
 
 export default function CommercialPage() {
-  const [activeTab, setActiveTab] = useState("offices");
-
-  const categories = {
-    offices: [
-      { id: 1, title: "Executive Office", image: "/images/12.png" },
-      { id: 2, title: "Modern Workspace", image: "/images/10.png" },
-      { id: 3, title: "Conference Room", image: "/images/11.png" },
-      { id: 4, title: "Open Plan Office", image: "/images/9.png" },
-      { id: 5, title: "Meeting Space", image: "/images/10.png" },
-      { id: 6, title: "Professional Interior", image: "/images/4.png" },
-    ],
-    coworking: [
-      { id: 1, title: "Collaborative Space", image: "/images/11.png" },
-      { id: 2, title: "Hot Desk Area", image: "/images/9.png" },
-      { id: 3, title: "Meeting Pods", image: "/images/10.png" },
-      { id: 4, title: "Lounge & Café", image: "/images/12.png" },
-      { id: 5, title: "Work Environment", image: "/images/4.png" },
-      { id: 6, title: "Shared Workspace", image: "/images/11.png" },
-    ],
-    retail: [
-      { id: 1, title: "Retail Interior", image: "/images/9.png" },
-      { id: 2, title: "Store Design", image: "/images/4.png" },
-      { id: 3, title: "Display Area", image: "/images/12.png" },
-      { id: 4, title: "Sales Floor", image: "/images/9.png" },
-      { id: 5, title: "Modern Retail", image: "/images/8.png" },
-      { id: 6, title: "Shopping Space", image: "/images/4.png" },
-    ],
-    showrooms: [
-      { id: 1, title: "Design Showroom", image: "/images/1.png" },
-      { id: 2, title: "Product Display", image: "/images/5.png" },
-      { id: 3, title: "Exhibition Space", image: "/images/11.png" },
-      { id: 4, title: "Presentation Area", image: "/images/10.png" },
-      { id: 5, title: "Gallery Setup", image: "/images/9.png" },
-      { id: 6, title: "Architectural Space", image: "/images/2.png" },
-    ],
-  };
-
-  const tabs = [
-    { id: "offices", label: "Office Spaces" },
-    { id: "coworking", label: "Co-working Spaces" },
-    { id: "retail", label: "Retail Stores" },
-    { id: "showrooms", label: "Showrooms" },
-  ];
-
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-stone-900 mb-6">
+      <section className="pt-32 pb-16 px-6 md:px-16 bg-[#EBE6E5]">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-stone-900 mb-6">
             Commercial & Industry
           </h1>
-          <p className="text-lg sm:text-xl text-stone-600 max-w-3xl mx-auto font-inter">
-            Showcase your commercial space with professional photography that highlights
-            functionality, design, and brand identity.
+          <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+            Showcase your commercial space with photography that highlights design and brand identity.
           </p>
         </div>
       </section>
 
-      {/* Category Tabs */}
-      <section className="py-12 px-4 sm:px-6 bg-stone-50">
+      {/* Office Spaces */}
+      <section id="offices" className="py-20 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 text-sm font-medium font-inter transition-all ${
-                  activeTab === tab.id
-                    ? "border border-stone-900 bg-white text-stone-900"
-                    : "bg-transparent text-stone-600 hover:text-stone-900"
-                }`}
-              >
-                {tab.label}
-              </button>
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Office Spaces
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {officesImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Office Space ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories[activeTab as keyof typeof categories].map((item) => (
-              <div key={item.id} className="group cursor-pointer">
-                <div className="relative aspect-[4/5] bg-stone-200 mb-4 overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-lg font-serif font-medium text-stone-900">
-                  {item.title}
-                </h3>
+      {/* Co-working Spaces */}
+      <section id="coworking" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Co-working Spaces
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {coworkingImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Co-working Space ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Retail Stores */}
+      <section id="retail" className="py-20 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Retail Stores
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {retailImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Retail Store ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Showrooms */}
+      <section id="showrooms" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
+            Showrooms
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {showroomsImages.map((image, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                <Image
+                  src={image}
+                  alt={`Showroom ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             ))}
           </div>
@@ -108,22 +131,25 @@ export default function CommercialPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section className="py-20 px-6 md:px-16 bg-stone-900">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-6">
-            Elevate Your Commercial Space
+          <h2 className="text-4xl md:text-5xl font-serif font-light text-white mb-6">
+            Elevate your commercial space
           </h2>
-          <p className="text-lg text-stone-600 mb-8 font-inter">
+          <p className="text-xl text-stone-300 mb-10">
             Professional photography that showcases your business in the best light.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-all text-base font-medium font-inter"
+            className="inline-block px-10 py-4 bg-white text-stone-900 hover:bg-stone-100 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
           >
             Book a Shoot
           </Link>
         </div>
       </section>
+
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }

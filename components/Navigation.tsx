@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
 import { ANIMATION } from "@/constants/animation";
+import PortfolioDropdown from "@/components/PortfolioDropdown";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,15 +43,19 @@ export default function Navigation() {
       <div className="hidden lg:block max-w-7xl mx-auto px-6 md:px-16 py-5 backdrop-blur-sm">
         <div className="grid grid-cols-3 items-center gap-8">
           {/* Left Navigation */}
-          <nav className="flex gap-8 text-sm text-stone-700 justify-start">
+          <nav className="flex gap-8 text-sm text-stone-700 justify-start items-center">
             {NAV_LINKS.left.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-stone-900 transition-colors duration-150 font-medium tracking-wide uppercase text-xs"
-              >
-                {link.label}
-              </Link>
+              link.label === "Portfolio" ? (
+                <PortfolioDropdown key={link.href} />
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-stone-900 transition-colors duration-150 font-medium tracking-wide uppercase text-xs"
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
 

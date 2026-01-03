@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
       {/* Value Statement & Trusted By */}
-      <section className="py-16 md:py-20 px-6 md:px-16 bg-[#EBE6E5]">
+      <section id="about" className="py-16 md:py-20 px-6 md:px-16 bg-[#EBE6E5]">
         <div className="max-w-6xl mx-auto">
           {/* Value Statement */}
           <div
@@ -259,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Divider */}
-      <section className="py-24 px-6 md:px-16 bg-[#EBE6E5]">
+      <section id="portfolio" className="py-24 px-6 md:px-16 bg-[#EBE6E5]">
         <div
           ref={portfolioDividerAnimation.elementRef}
           className={`max-w-7xl mx-auto text-center transition-all duration-1000 ease-out ${
@@ -321,7 +321,7 @@ export default function Home() {
       />
 
       {/* How It Works */}
-      <section className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-[#F5F0ED]">
+      <section id="services" className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-[#F5F0ED]">
         <div
           ref={howItWorksAnimation.elementRef}
           className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
