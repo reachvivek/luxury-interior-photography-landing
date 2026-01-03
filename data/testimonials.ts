@@ -5,27 +5,35 @@ export const testimonials: Testimonial[] = [
     id: "test-001",
     name: "Emily Ross",
     role: "Interior Designer",
-    company: "Ross Design Studio",
-    quote:
-      "Incredible photos that truly captured the essence of our designs. Tsurov's attention to detail and professional approach made the entire process seamless.",
+    quote: "Tsurov's photography elevated our interiors to another level.",
     rating: 5,
   },
   {
     id: "test-002",
-    name: "Ahmed Al Mansoori",
-    role: "Real Estate Developer",
-    company: "Mansoori Properties",
-    quote:
-      "The quality of photography exceeded our expectations. Our properties now stand out in the market, and we've seen a significant increase in inquiries.",
+    name: "Michael Chen",
+    role: "Architect",
+    quote: "Exceptional attention to detail and lighting. Every shot tells a story.",
     rating: 5,
   },
   {
     id: "test-003",
-    name: "Sarah Thompson",
+    name: "Sarah Williams",
+    role: "Real Estate Developer",
+    quote: "The images captured the essence of our luxury spaces perfectly.",
+    rating: 5,
+  },
+  {
+    id: "test-004",
+    name: "David Martinez",
     role: "Hotel Manager",
-    company: "The Grand Dubai",
-    quote:
-      "Working with Tsurov was a game-changer for our marketing. The images perfectly showcase the luxury experience we offer to our guests.",
+    quote: "Professional, creative, and delivers stunning results every time.",
+    rating: 5,
+  },
+  {
+    id: "test-005",
+    name: "Lisa Anderson",
+    role: "Design Studio Owner",
+    quote: "Their work showcases our designs in the most beautiful way possible.",
     rating: 5,
   },
 ];

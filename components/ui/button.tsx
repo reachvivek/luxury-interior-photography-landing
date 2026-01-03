@@ -10,22 +10,22 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "primary", size = "md", className, children, ...props }, ref) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+      "inline-flex items-center justify-center font-medium transition-all duration-200 ease-in-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
 
     const variants = {
       primary:
-        "bg-amber-600 hover:bg-amber-500 text-white shadow-lg shadow-amber-600/30",
+        "bg-stone-900 hover:bg-stone-800 hover:-translate-y-0.5 text-white tracking-widest uppercase text-sm",
       secondary:
-        "bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm border border-white/20",
+        "bg-[#EBE6E5] hover:bg-stone-200 text-stone-900 tracking-widest uppercase text-sm",
       outline:
-        "border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white",
-      ghost: "text-white hover:bg-white/10",
+        "border-2 border-stone-400 text-stone-800 hover:bg-stone-800 hover:text-white hover:border-stone-800 tracking-widest uppercase text-sm",
+      ghost: "text-stone-700 hover:text-stone-900 hover:bg-stone-100",
     };
 
     const sizes = {
-      sm: "px-4 py-2 text-sm rounded-md",
-      md: "px-6 py-3 text-base rounded-lg",
-      lg: "px-8 py-4 text-lg rounded-xl",
+      sm: "px-6 py-2.5 text-xs",
+      md: "px-8 py-4 text-sm",
+      lg: "px-10 py-4 text-sm",
     };
 
     return (

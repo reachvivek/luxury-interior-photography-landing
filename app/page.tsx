@@ -1,83 +1,78 @@
 "use client";
 
 import Link from "next/link";
-import Navigation from "@/components/Navigation";
-import CategorySection from "@/components/CategorySection";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Navigation from "@/components/Navigation";
+import CategorySection from "@/components/CategorySection";
+import Footer from "@/components/layout/Footer";
+import StatsSection from "@/components/sections/StatsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import { residentialSpaces, hospitalitySpaces, commercialSpaces, customInteriorsSpaces } from "@/data/categories";
+import { trustedByLogos } from "@/data/trustedBy";
+import { ANIMATION } from "@/constants/animation";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+const heroRotatingPhrases = [
+  "Elevates Design",
+  "Tells Your Story",
+  "Converts Buyers",
+  "Defines Luxury",
+  "Sells Properties"
+];
 
 export default function Home() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  // Scroll animations
+  const valueStatementAnimation = useScrollAnimation(0.2);
+  const trustedByAnimation = useScrollAnimation(0.2);
+  const portfolioDividerAnimation = useScrollAnimation(0.2);
+  const howItWorksAnimation = useScrollAnimation(0.2);
+  const ctaAnimation = useScrollAnimation(0.3);
 
-  const testimonials = [
-    {
-      quote: "Tsurov's photography elevated our interiors to another level.",
-      author: "Emily Ross",
-      role: "Interior Designer"
-    },
-    {
-      quote: "Exceptional attention to detail and lighting. Every shot tells a story.",
-      author: "Michael Chen",
-      role: "Architect"
-    },
-    {
-      quote: "The images captured the essence of our luxury spaces perfectly.",
-      author: "Sarah Williams",
-      role: "Real Estate Developer"
-    },
-    {
-      quote: "Professional, creative, and delivers stunning results every time.",
-      author: "David Martinez",
-      role: "Hotel Manager"
-    },
-    {
-      quote: "Their work showcases our designs in the most beautiful way possible.",
-      author: "Lisa Anderson",
-      role: "Design Studio Owner"
-    }
-  ];
+  // Hero rotating text
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Change testimonial every 5 seconds
+  // Smooth scroll to next section
+  const scrollToNextSection = () => {
+    const start = window.scrollY;
+    const target = window.innerHeight;
+    const duration = 3000; // 3 seconds
+    const startTime = performance.now();
 
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
+    const easeInOutCubic = (t: number) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
 
-  const residentialSpaces = [
-    { title: "Luxury Villas", image: "/images/7.png", href: "/residential#villas" },
-    { title: "Apartments", image: "/images/4.png", href: "/residential#apartments" },
-    { title: "Penthouses", image: "/images/13.png", href: "/residential#penthouses" },
-    { title: "Home Offices", image: "/images/12.png", href: "/residential#offices" },
-  ];
+    const scroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOutCubic(progress);
 
-  const hospitalitySpaces = [
-    { title: "Hotel Suites", image: "/images/12.png", href: "/hospitality#suites" },
-    { title: "Restaurants", image: "/images/10.png", href: "/hospitality#restaurants" },
-    { title: "Event Spaces", image: "/images/11.png", href: "/hospitality#events" },
-    { title: "Event Spaces", image: "/images/10.png", href: "/hospitality#events" },
-  ];
+      window.scrollTo(0, start + (target - start) * eased);
 
-  const commercialSpaces = [
-    { title: "Office Spaces", image: "/images/12.png", href: "/commercial#offices" },
-    { title: "Co-working Spaces", image: "/images/11.png", href: "/commercial#coworking" },
-    { title: "Retail Stores", image: "/images/9.png", href: "/commercial#retail" },
-    { title: "Showrooms", image: "/images/1.png", href: "/commercial#showrooms" },
-  ];
+      if (progress < 1) {
+        requestAnimationFrame(scroll);
+      }
+    };
 
-  const customInteriorsSpaces = [
-    { title: "Unique Architectural Elements", image: "/images/1.png", href: "/custom-interiors#architecture" },
-    { title: "Custom Furniture Photography", image: "/images/5.png", href: "/custom-interiors#furniture" },
-    { title: "Material Close-Ups", image: "/images/3.png", href: "/custom-interiors#materials" },
-    { title: "Design Details", image: "/images/8.png", href: "/custom-interiors#details" },
-  ];
+    requestAnimationFrame(scroll);
+  };
 
   // Featured image state for each section
   const [residentialIndex, setResidentialIndex] = useState(0);
   const [hospitalityIndex, setHospitalityIndex] = useState(0);
   const [commercialIndex, setCommercialIndex] = useState(0);
   const [customIndex, setCustomIndex] = useState(0);
+
+  // Auto-rotate hero text
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentPhraseIndex((prev) => (prev + 1) % heroRotatingPhrases.length);
+    }, 3000); // Change phrase every 3 seconds
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Auto-rotate featured images
   useEffect(() => {
@@ -86,18 +81,19 @@ export default function Home() {
       setHospitalityIndex((prev) => (prev + 1) % hospitalitySpaces.length);
       setCommercialIndex((prev) => (prev + 1) % commercialSpaces.length);
       setCustomIndex((prev) => (prev + 1) % customInteriorsSpaces.length);
-    }, 3000);
+    }, ANIMATION.CATEGORY_ROTATION);
 
     return () => clearInterval(timer);
-  }, [residentialSpaces.length, hospitalitySpaces.length, commercialSpaces.length, customInteriorsSpaces.length]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section>
-        <div className="relative h-screen">
+      <section className="relative min-h-screen">
+        {/* Desktop Image */}
+        <div className="hidden md:block relative w-full aspect-[16/11]">
           <Image
             src="/images/hero.png"
             alt="Luxury Interior"
@@ -106,39 +102,172 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/30 to-white/50"></div>
+        </div>
+
+        {/* Mobile Image - Full Height */}
+        <div className="md:hidden relative w-full h-screen">
+          <Image
+            src="/images/hero.png"
+            alt="Luxury Interior"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/30 to-white/50"></div>
+        </div>
 
           {/* Content */}
-          <div className="relative z-10 flex items-start justify-center h-full pt-[58px] md:pt-[90px] pb-32 px-6 md:px-16">
-            <div className="max-w-5xl mx-auto text-center">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[72px] font-serif font-light text-stone-900 mb-6 md:whitespace-nowrap">
-                Exceptional Interior Photography
-              </h1>
-              <p className="text-lg sm:text-xl md:text-[20px] text-stone-600 mb-12 max-w-2xl mx-auto leading-relaxed tracking-wide">
-                Capturing Luxury, Elegance, and Detail.
-              </p>
+          <div className="absolute inset-0 z-10 h-full px-6 md:px-16">
+            {/* Desktop Layout - text + button centered */}
+            <div className="hidden md:flex md:items-start md:justify-center md:h-full md:pt-[90px] md:pb-32">
+              <div className="max-w-5xl mx-auto text-center mt-2">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[72px] font-serif font-light text-stone-900 mb-6 md:whitespace-nowrap">
+                  Photography that{" "}
+                  <span
+                    key={currentPhraseIndex}
+                    className="inline-block animate-[fadeIn_0.7s_ease-in]"
+                  >
+                    {heroRotatingPhrases[currentPhraseIndex]}
+                  </span>
+                </h1>
+                <p className="text-lg sm:text-xl md:text-[20px] text-stone-600 mb-12 max-w-2xl mx-auto leading-relaxed tracking-wide">
+                  For architects, developers, and luxury brands who demand excellence.
+                </p>
+                <div className="flex flex-col items-center gap-4 mt-12">
+                  <Link
+                    href="/contact"
+                    className="px-8 py-4 border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-200 text-sm font-medium tracking-widest uppercase"
+                  >
+                    Book a Shoot
+                  </Link>
+                  <p className="text-xs text-stone-500 tracking-wide">
+                    Trusted by architects, developers, and hospitality brands across the UAE
+                  </p>
+                </div>
+              </div>
+            </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-                <Link
-                  href="/portfolio"
-                  className="px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
-                >
-                  View Portfolio
-                </Link>
+            {/* Mobile Layout - text at top, button at bottom */}
+            <div className="md:hidden flex flex-col justify-between h-full pt-56 pb-8">
+              <div className="w-full text-center px-4 pt-2">
+                <h1 className="text-4xl font-serif font-light text-stone-900 mb-4 leading-tight">
+                  Photography that{" "}
+                  <span
+                    key={currentPhraseIndex}
+                    className="inline-block animate-[fadeIn_0.7s_ease-in]"
+                  >
+                    {heroRotatingPhrases[currentPhraseIndex]}
+                  </span>
+                </h1>
+                <p className="text-base text-stone-600 leading-relaxed">
+                  For architects, developers, and luxury brands who demand excellence.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center gap-3 pb-20">
                 <Link
                   href="/contact"
-                  className="px-8 py-4 border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-200 text-sm font-medium tracking-widest uppercase"
+                  className="px-8 py-3.5 border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-200 text-xs font-medium tracking-widest uppercase"
                 >
                   Book a Shoot
                 </Link>
+                <p className="text-xs text-stone-500 tracking-wide">
+                  Trusted by brands across the UAE
+                </p>
               </div>
+            </div>
+          </div>
+
+        {/* Scroll Down Arrow */}
+        <button
+          onClick={scrollToNextSection}
+          className="absolute left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 group cursor-pointer animate-bounce"
+          style={{ top: 'calc(100vh - 52px)' }}
+          aria-label="Scroll to next section"
+        >
+          <svg
+            className="w-8 h-8 text-stone-600 group-hover:text-stone-900 transition-colors"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </button>
+      </section>
+
+      {/* Value Statement & Trusted By */}
+      <section className="py-16 md:py-20 px-6 md:px-16 bg-[#EBE6E5]">
+        <div className="max-w-6xl mx-auto">
+          {/* Value Statement */}
+          <div
+            ref={valueStatementAnimation.elementRef}
+            className={`max-w-4xl mx-auto text-center mb-16 transition-all duration-1000 ease-out ${
+              valueStatementAnimation.isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <p className="text-xl md:text-2xl font-serif font-light text-stone-800 leading-relaxed">
+              Precision-driven interior photography for architects, developers, and luxury brands.
+            </p>
+            <p className="text-sm md:text-base text-stone-500 mt-6 tracking-wide">
+              Based in Dubai. Working across the UAE & beyond.
+            </p>
+          </div>
+
+          {/* Trusted By */}
+          <div
+            ref={trustedByAnimation.elementRef}
+            className={`transition-all duration-1000 ease-out ${
+              trustedByAnimation.isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <p className="text-center text-xs md:text-sm text-stone-400 tracking-widest uppercase mb-10">
+              Trusted By
+            </p>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 md:gap-12 items-center">
+              {trustedByLogos.map((logo, index) => (
+                <div
+                  key={index}
+                  className={`flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-700 ${
+                    trustedByAnimation.isVisible ? 'translate-y-0' : 'translate-y-4'
+                  }`}
+                  style={{
+                    transitionDelay: trustedByAnimation.isVisible ? `${index * 100}ms` : '0ms'
+                  }}
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={120}
+                    height={60}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Portfolio Divider */}
-      <section className="py-24 px-6 md:px-16 bg-stone-50">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="py-24 px-6 md:px-16 bg-[#EBE6E5]">
+        <div
+          ref={portfolioDividerAnimation.elementRef}
+          className={`max-w-7xl mx-auto text-center transition-all duration-1000 ease-out ${
+            portfolioDividerAnimation.isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="flex items-center mb-8">
             <div className="flex-1 border-t border-stone-300"></div>
             <h2 className="px-8 text-5xl md:text-6xl lg:text-[64px] font-serif font-light text-stone-900">
@@ -146,8 +275,11 @@ export default function Home() {
             </h2>
             <div className="flex-1 border-t border-stone-300"></div>
           </div>
-          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+          <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-6">
             Explore our curated collection of interior photography showcasing luxury spaces across different categories
+          </p>
+          <p className="text-sm text-stone-400 tracking-wider">
+            150+ projects across residential, hospitality, and commercial spaces
           </p>
         </div>
       </section>
@@ -188,59 +320,96 @@ export default function Home() {
         onPrevious={() => setCustomIndex((prev) => (prev - 1 + customInteriorsSpaces.length) % customInteriorsSpaces.length)}
       />
 
-      {/* Testimonials */}
-      <section className="py-16 md:py-20 px-6 md:px-16 bg-stone-100">
-        <div className="max-w-4xl mx-auto text-center relative">
-          <div className="relative min-h-[200px] flex items-center justify-center">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ${
-                  index === currentTestimonial ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <blockquote className="text-3xl md:text-4xl font-serif font-light italic text-stone-700 mb-8 leading-relaxed">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-                <p className="text-lg text-stone-500 tracking-wide">
-                  — {testimonial.author}, {testimonial.role}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentTestimonial(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? 'bg-stone-900 w-8' : 'bg-stone-400'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
+      {/* How It Works */}
+      <section className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-[#F5F0ED]">
+        <div
+          ref={howItWorksAnimation.elementRef}
+          className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
+            howItWorksAnimation.isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-12'
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
+            How It Works
+          </h2>
+          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+            <div className={`text-center transition-all duration-700 delay-100 ${
+              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Consultation</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Understanding Your Vision & Requirements
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                We discuss your space, brand, and specific needs to ensure every detail is captured perfectly.
+              </p>
+            </div>
+            <div className={`text-center transition-all duration-700 delay-300 ${
+              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">On-Site Shoot</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Precision Lighting & Composition
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                Professional photography session with expert lighting and angles tailored to your design.
+              </p>
+            </div>
+            <div className={`text-center transition-all duration-700 delay-500 ${
+              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Curated Delivery</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Polished, Ready-to-Use Images
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                High-resolution files expertly edited for portfolio, marketing, and publication.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-4 px-6 md:px-16 bg-stone-100">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-center text-[10px] text-stone-300 tracking-wider">
-            Designed by{' '}
-            <a
-              href="https://wa.me/971501480042?text=Hi%20Vivek,%20I%20saw%20your%20work%20on%20the%20Tsurov%20website"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-stone-400 transition-colors"
-            >
-              Vivek Kumar Singh
-            </a>
+      {/* Stats Section */}
+      <StatsSection />
+
+      {/* Testimonials */}
+      <TestimonialsSection />
+
+      {/* Final CTA */}
+      <section className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-[#EBE6E5]">
+        <div
+          ref={ctaAnimation.elementRef}
+          className={`max-w-3xl mx-auto text-center w-full transition-all duration-1000 ease-out ${
+            ctaAnimation.isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-12'
+          }`}
+        >
+          <h2 className="text-3xl md:text-4xl font-serif font-light text-stone-900 mb-8">
+            Ready to elevate your space?
+          </h2>
+          <p className="text-lg text-stone-600 mb-10">
+            Schedule a consultation to discuss your project and vision.
           </p>
+          <Link
+            href="/contact"
+            className="inline-block px-10 py-4 bg-stone-900 text-white hover:bg-stone-800 hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
+          >
+            Request Availability
+          </Link>
         </div>
-      </footer>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 }

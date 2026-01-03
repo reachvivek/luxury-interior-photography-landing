@@ -184,3 +184,12 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

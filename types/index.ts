@@ -51,3 +51,20 @@ export interface HowItWorksStep {
   description: string;
   icon: string;
 }
+
+export interface CategorySpace {
+  title: string;
+  image: string;
+  href: string;
+}
+
+export interface StatItem {
+  label: string;
+  value: number;
+  suffix?: string;
+}
+
+export interface TrustedByLogo {
+  src: string;
+  alt: string;
+}

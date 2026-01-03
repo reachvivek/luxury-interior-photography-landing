@@ -1,12 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
-interface CategorySpace {
-  title: string;
-  image: string;
-  href: string;
-}
+import { CategorySpace } from "@/types";
 
 interface CategorySectionProps {
   title: string;
@@ -93,7 +88,7 @@ export default function CategorySection({
                     src={space.image}
                     alt={space.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
                 </div>
                 <p className={`text-center font-serif transition-colors ${

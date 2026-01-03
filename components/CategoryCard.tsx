@@ -10,15 +10,15 @@ interface CategoryCardProps {
 export default function CategoryCard({ title, image, href }: CategoryCardProps) {
   return (
     <Link href={href} className="group cursor-pointer relative">
-      <div className="bg-[#f5f3f0] rounded-lg overflow-hidden transition-transform duration-300 ease-out group-hover:scale-[1.02] shadow-md">
+      <div className="bg-[#f5f3f0] rounded-lg overflow-hidden transition-all duration-300 ease-out group-hover:scale-[1.02] shadow-md">
         <div className="relative aspect-[5/4] bg-stone-200 overflow-hidden">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
         </div>
         <div className="px-6 py-5 bg-[#EBE6E5]">
           <h3 className="text-[24px] font-serif font-medium text-stone-900 text-center">
