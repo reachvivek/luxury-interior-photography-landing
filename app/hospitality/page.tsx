@@ -1,34 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 
-const suitesImages = [
-  "/images/_DSC6300.jpg",
-  "/images/_DSC7072.jpg",
-  "/images/_DSC7075.jpg",
-];
+const categories = {
+  suites: [
+    "/images/_DSC6300.jpg",
+    "/images/_DSC7072.jpg",
+    "/images/_DSC7075.jpg",
+  ],
+  restaurants: [
+    "/images/_DSC6309.jpg",
+    "/images/_DSC7079.jpg",
+    "/images/_DSC7081.jpg",
+    "/images/_DSC7084.jpg",
+  ],
+  events: [
+    "/images/_DSC6314.jpg",
+    "/images/_DSC7088.jpg",
+  ],
+  lobbies: [
+    "/images/_DSC7069.jpg",
+  ],
+};
 
-const restaurantsImages = [
-  "/images/_DSC6309.jpg",
-  "/images/_DSC7079.jpg",
-  "/images/_DSC7081.jpg",
-  "/images/_DSC7084.jpg",
-];
-
-const eventsImages = [
-  "/images/_DSC6314.jpg",
-  "/images/_DSC7088.jpg",
-];
-
-const lobbiesImages = [
-  "/images/_DSC7069.jpg",
+const tabs = [
+  { id: "suites", label: "Hotel Suites" },
+  { id: "restaurants", label: "Restaurants" },
+  { id: "events", label: "Event Spaces" },
+  { id: "lobbies", label: "Lobbies" },
 ];
 
 export default function HospitalityPage() {
+  const [activeTab, setActiveTab] = useState<keyof typeof categories>("suites");
+
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
@@ -45,81 +54,32 @@ export default function HospitalityPage() {
         </div>
       </section>
 
-      {/* Hotel Suites */}
-      <section id="suites" className="py-20 px-6 md:px-16">
+      {/* Category Filters */}
+      <section className="py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Hotel Suites
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {suitesImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Hotel Suite ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
+                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
+                  activeTab === tab.id
+                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
+                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
+                }`}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Restaurants */}
-      <section id="restaurants" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Restaurants
-          </h2>
+          {/* Gallery Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {restaurantsImages.map((image, index) => (
+            {categories[activeTab].map((image, index) => (
               <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
                 <Image
                   src={image}
-                  alt={`Restaurant ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Event Spaces */}
-      <section id="events" className="py-20 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Event Spaces
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {eventsImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Event Space ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Lobbies */}
-      <section id="lobbies" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Lobbies
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {lobbiesImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Lobby ${index + 1}`}
+                  alt={`${tabs.find(t => t.id === activeTab)?.label} ${index + 1}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

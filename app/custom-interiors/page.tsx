@@ -1,34 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 
-const architectureImages = [
-  "/images/_DSC7185.jpg",
-  "/images/_DSC7183_1.jpg",
-  "/images/_DSC7184.jpg",
-];
+const categories = {
+  architecture: [
+    "/images/_DSC7185.jpg",
+    "/images/_DSC7183_1.jpg",
+    "/images/_DSC7184.jpg",
+  ],
+  furniture: [
+    "/images/_DSC7186.jpg",
+    "/images/_DSC7428.jpg",
+    "/images/_DSC7472.jpg",
+  ],
+  materials: [
+    "/images/_DSC7341.jpg",
+    "/images/_DSC7473.jpg",
+    "/images/_DSC5807_1.jpg",
+  ],
+  details: [
+    "/images/_DSC7417.jpg",
+  ],
+};
 
-const furnitureImages = [
-  "/images/_DSC7186.jpg",
-  "/images/_DSC7428.jpg",
-  "/images/_DSC7472.jpg",
-];
-
-const materialsImages = [
-  "/images/_DSC7341.jpg",
-  "/images/_DSC7473.jpg",
-  "/images/_DSC5807_1.jpg",
-];
-
-const detailsImages = [
-  "/images/_DSC7417.jpg",
+const tabs = [
+  { id: "architecture", label: "Unique Architectural Elements" },
+  { id: "furniture", label: "Custom Furniture Photography" },
+  { id: "materials", label: "Material Close-Ups" },
+  { id: "details", label: "Design Details" },
 ];
 
 export default function CustomInteriorsPage() {
+  const [activeTab, setActiveTab] = useState<keyof typeof categories>("architecture");
+
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
@@ -45,81 +54,32 @@ export default function CustomInteriorsPage() {
         </div>
       </section>
 
-      {/* Unique Architectural Elements */}
-      <section id="architecture" className="py-20 px-6 md:px-16">
+      {/* Category Filters */}
+      <section className="py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Unique Architectural Elements
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {architectureImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Architectural Element ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
+                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
+                  activeTab === tab.id
+                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
+                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
+                }`}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Custom Furniture Photography */}
-      <section id="furniture" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Custom Furniture Photography
-          </h2>
+          {/* Gallery Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {furnitureImages.map((image, index) => (
+            {categories[activeTab].map((image, index) => (
               <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
                 <Image
                   src={image}
-                  alt={`Custom Furniture ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Material Close-Ups */}
-      <section id="materials" className="py-20 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Material Close-Ups
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {materialsImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Material Close-Up ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Design Details */}
-      <section id="details" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Design Details
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {detailsImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Design Detail ${index + 1}`}
+                  alt={`${tabs.find(t => t.id === activeTab)?.label} ${index + 1}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

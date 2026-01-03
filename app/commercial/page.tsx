@@ -1,35 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 
-const officesImages = [
-  "/images/_DSC7135.jpg",
-  "/images/_DSC7175.jpg",
-  "/images/_DSC7176.jpg",
-];
+const categories = {
+  offices: [
+    "/images/_DSC7135.jpg",
+    "/images/_DSC7175.jpg",
+    "/images/_DSC7176.jpg",
+  ],
+  coworking: [
+    "/images/_DSC7144.jpg",
+    "/images/_DSC7177.jpg",
+    "/images/_DSC7179.jpg",
+  ],
+  retail: [
+    "/images/_DSC7172.jpg",
+    "/images/_DSC7180.jpg",
+    "/images/_DSC7181.jpg",
+  ],
+  showrooms: [
+    "/images/_DSC7174.jpg",
+    "/images/_DSC7183.jpg",
+  ],
+};
 
-const coworkingImages = [
-  "/images/_DSC7144.jpg",
-  "/images/_DSC7177.jpg",
-  "/images/_DSC7179.jpg",
-];
-
-const retailImages = [
-  "/images/_DSC7172.jpg",
-  "/images/_DSC7180.jpg",
-  "/images/_DSC7181.jpg",
-];
-
-const showroomsImages = [
-  "/images/_DSC7174.jpg",
-  "/images/_DSC7183.jpg",
+const tabs = [
+  { id: "offices", label: "Office Spaces" },
+  { id: "coworking", label: "Co-working Spaces" },
+  { id: "retail", label: "Retail Stores" },
+  { id: "showrooms", label: "Showrooms" },
 ];
 
 export default function CommercialPage() {
+  const [activeTab, setActiveTab] = useState<keyof typeof categories>("offices");
+
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
@@ -46,81 +55,32 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      {/* Office Spaces */}
-      <section id="offices" className="py-20 px-6 md:px-16">
+      {/* Category Filters */}
+      <section className="py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Office Spaces
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {officesImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Office Space ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
+                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
+                  activeTab === tab.id
+                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
+                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
+                }`}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Co-working Spaces */}
-      <section id="coworking" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Co-working Spaces
-          </h2>
+          {/* Gallery Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coworkingImages.map((image, index) => (
+            {categories[activeTab].map((image, index) => (
               <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
                 <Image
                   src={image}
-                  alt={`Co-working Space ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Retail Stores */}
-      <section id="retail" className="py-20 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Retail Stores
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {retailImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Retail Store ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Showrooms */}
-      <section id="showrooms" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Showrooms
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {showroomsImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Showroom ${index + 1}`}
+                  alt={`${tabs.find(t => t.id === activeTab)?.label} ${index + 1}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

@@ -1,43 +1,52 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 
-const villasImages = [
-  "/images/_DSC4745.jpg",
-  "/images/_DSC4761.jpg",
-  "/images/_DSC4762.jpg",
-  "/images/_DSC4763.jpg",
-  "/images/_DSC4764.jpg",
-  "/images/_DSC4765.jpg",
-];
+const categories = {
+  villas: [
+    "/images/_DSC4745.jpg",
+    "/images/_DSC4761.jpg",
+    "/images/_DSC4762.jpg",
+    "/images/_DSC4763.jpg",
+    "/images/_DSC4764.jpg",
+    "/images/_DSC4765.jpg",
+  ],
+  apartments: [
+    "/images/_DSC4757.jpg",
+    "/images/_DSC4766.jpg",
+    "/images/_DSC4767.jpg",
+    "/images/_DSC4821.jpg",
+    "/images/_DSC4834.jpg",
+    "/images/_DSC4845.jpg",
+  ],
+  penthouses: [
+    "/images/_DSC4758.jpg",
+    "/images/_DSC4925.JPG",
+    "/images/_DSC4936.JPG",
+    "/images/_DSC4937.JPG",
+    "/images/_DSC4940.JPG",
+  ],
+  offices: [
+    "/images/_DSC4759.jpg",
+    "/images/_DSC5807_1.jpg",
+  ],
+};
 
-const apartmentsImages = [
-  "/images/_DSC4757.jpg",
-  "/images/_DSC4766.jpg",
-  "/images/_DSC4767.jpg",
-  "/images/_DSC4821.jpg",
-  "/images/_DSC4834.jpg",
-  "/images/_DSC4845.jpg",
-];
-
-const penthousesImages = [
-  "/images/_DSC4758.jpg",
-  "/images/_DSC4925.JPG",
-  "/images/_DSC4936.JPG",
-  "/images/_DSC4937.JPG",
-  "/images/_DSC4940.JPG",
-];
-
-const officesImages = [
-  "/images/_DSC4759.jpg",
-  "/images/_DSC5807_1.jpg",
+const tabs = [
+  { id: "villas", label: "Luxury Villas" },
+  { id: "apartments", label: "Apartments" },
+  { id: "penthouses", label: "Penthouses" },
+  { id: "offices", label: "Home Offices" },
 ];
 
 export default function ResidentialPage() {
+  const [activeTab, setActiveTab] = useState<keyof typeof categories>("villas");
+
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
@@ -54,81 +63,32 @@ export default function ResidentialPage() {
         </div>
       </section>
 
-      {/* Luxury Villas */}
-      <section id="villas" className="py-20 px-6 md:px-16">
+      {/* Category Filters */}
+      <section className="py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Luxury Villas
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {villasImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Luxury Villa ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
+                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
+                  activeTab === tab.id
+                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
+                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
+                }`}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Apartments */}
-      <section id="apartments" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Apartments
-          </h2>
+          {/* Gallery Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {apartmentsImages.map((image, index) => (
+            {categories[activeTab].map((image, index) => (
               <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
                 <Image
                   src={image}
-                  alt={`Apartment ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Penthouses */}
-      <section id="penthouses" className="py-20 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Penthouses
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {penthousesImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Penthouse ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Home Offices */}
-      <section id="offices" className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-light text-stone-900 mb-12">
-            Home Offices
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {officesImages.map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                <Image
-                  src={image}
-                  alt={`Home Office ${index + 1}`}
+                  alt={`${tabs.find(t => t.id === activeTab)?.label} ${index + 1}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
