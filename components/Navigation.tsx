@@ -54,7 +54,7 @@ export default function Navigation() {
             }`}>
               {NAV_LINKS.left.map((link) => (
                 link.label === "Portfolio" ? (
-                  <PortfolioDropdown key={link.href} />
+                  <PortfolioDropdown key={link.href} isScrolled={isScrolled} />
                 ) : (
                   <Link
                     key={link.href}
