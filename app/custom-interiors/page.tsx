@@ -161,7 +161,7 @@ export default function CustomInteriorsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 bg-white text-stone-900 hover:bg-stone-100 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
+            className="inline-block px-10 py-4 bg-white text-stone-900 hover:bg-stone-100 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-full"
           >
             Book a Shoot
           </Link>

@@ -134,7 +134,7 @@ export default function ContactPage() {
               </div>
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-200 text-sm font-medium tracking-widest uppercase"
+                className="w-full px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-full"
               >
                 Send Message via WhatsApp
               </button>

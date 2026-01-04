@@ -83,7 +83,7 @@ export default function Navigation() {
               </nav>
               <Link
                 href="/contact"
-                className="px-6 py-2.5 border-2 border-white text-white hover:bg-white hover:text-stone-800 hover:border-white transition-all duration-200 text-xs font-semibold tracking-wide uppercase whitespace-nowrap"
+                className="px-6 py-2.5 border-2 border-white text-white hover:bg-white hover:text-stone-800 hover:border-white transition-all duration-200 text-xs font-semibold tracking-wide uppercase whitespace-nowrap rounded-full"
               >
                 Get in Touch
               </Link>
@@ -166,7 +166,7 @@ export default function Navigation() {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="block w-full px-6 py-3 bg-stone-800 text-white hover:bg-stone-900 transition-all duration-200 text-sm font-semibold tracking-wide text-center uppercase"
+              className="block w-full px-6 py-3 bg-stone-800 text-white hover:bg-stone-900 transition-all duration-200 text-sm font-semibold tracking-wide text-center uppercase rounded-full"
             >
               Get in Touch
             </Link>

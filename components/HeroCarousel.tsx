@@ -106,7 +106,7 @@ export default function HeroCarousel() {
           {/* Explore Button */}
           <Link
             href={current.link}
-            className="inline-block px-6 md:px-8 py-2.5 md:py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 transition-all duration-300 text-xs md:text-sm font-semibold tracking-wide uppercase"
+            className="inline-block px-6 md:px-8 py-2.5 md:py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 transition-all duration-300 text-xs md:text-sm font-semibold tracking-wide uppercase rounded-full"
           >
             EXPLORE
           </Link>
