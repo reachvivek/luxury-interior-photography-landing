@@ -11,7 +11,7 @@ export default function HeroCarousel() {
   const [nextSlide, setNextSlide] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
-  const autoPlayRef = useRef<NodeJS.Timeout>();
+  const autoPlayRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const goToNextSlide = () => {
     if (isAnimating) return;
@@ -91,22 +91,22 @@ export default function HeroCarousel() {
       <div className="absolute inset-0 z-10 flex items-center justify-center px-6 md:px-16">
         <div
           key={currentSlide}
-          className="text-center max-w-4xl animate-fadeIn"
+          className="text-center max-w-4xl w-full animate-fadeIn"
         >
           {/* Category */}
-          <p className="text-white text-xs md:text-sm font-semibold tracking-[0.3em] uppercase mb-4 opacity-90">
+          <p className="text-white text-xs md:text-sm font-semibold tracking-[0.3em] uppercase mb-3 md:mb-4 opacity-90">
             {current.category}
           </p>
 
           {/* Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-white mb-8 tracking-wide">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-light text-white mb-6 md:mb-8 tracking-wide px-4">
             {current.title}
           </h1>
 
           {/* Explore Button */}
           <Link
             href={current.link}
-            className="inline-block px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 transition-all duration-300 text-sm font-semibold tracking-wide uppercase"
+            className="inline-block px-6 md:px-8 py-2.5 md:py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 transition-all duration-300 text-xs md:text-sm font-semibold tracking-wide uppercase"
           >
             EXPLORE
           </Link>

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import Navigation from "@/components/Navigation";
 import HeroCarousel from "@/components/HeroCarousel";
 import CategorySection from "@/components/CategorySection";
 import Footer from "@/components/layout/Footer";
@@ -43,8 +42,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-stone-50">
-      <Navigation />
-
       {/* Hero Carousel */}
       <HeroCarousel />
 
