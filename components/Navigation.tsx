@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
@@ -36,14 +37,14 @@ export default function Navigation() {
 
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-transform duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       {/* Desktop Navigation */}
-      <div className="hidden lg:block max-w-7xl mx-auto px-6 md:px-16 py-5 backdrop-blur-sm">
-        <div className="grid grid-cols-3 items-center gap-8">
-          {/* Left Navigation */}
-          <nav className="flex gap-8 text-sm text-stone-700 justify-start items-center">
+      <div className="hidden lg:block w-full px-6 md:px-16 py-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center gap-8">
+          {/* Left - Navigation Links */}
+          <nav className="flex gap-6 text-sm text-white items-center">
             {NAV_LINKS.left.map((link) => (
               link.label === "Portfolio" ? (
                 <PortfolioDropdown key={link.href} />
@@ -51,7 +52,7 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="hover:text-stone-900 transition-colors duration-150 font-medium tracking-wide uppercase text-xs"
+                  className="hover:text-stone-200 transition-colors duration-150 font-semibold tracking-wide uppercase text-xs whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
@@ -59,28 +60,29 @@ export default function Navigation() {
             ))}
           </nav>
 
-          {/* Centered Logo */}
-          <Link
-            href="/"
-            className="text-2xl font-serif font-light text-stone-900 tracking-[0.02em] text-center drop-shadow-sm"
-          >
-            TSUROV
+          {/* Center - Brand Name */}
+          <Link href="/" className="flex justify-center">
+            <h1 className="font-serif text-3xl font-light text-white tracking-[0.3em] cursor-pointer hover:text-stone-200 transition-colors">
+              TSUROV
+            </h1>
           </Link>
 
-          {/* Right Navigation */}
-          <div className="flex gap-8 items-center justify-end">
-            {NAV_LINKS.right.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-stone-900 transition-colors duration-150 font-medium tracking-wide uppercase text-xs text-stone-700"
-              >
-                {link.label}
-              </Link>
-            ))}
+          {/* Right - Navigation Links & Button */}
+          <div className="flex gap-6 items-center justify-end">
+            <nav className="flex gap-6 text-sm text-white items-center">
+              {NAV_LINKS.right.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-stone-200 transition-colors duration-150 font-semibold tracking-wide uppercase text-xs whitespace-nowrap"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
             <Link
               href="/contact"
-              className="px-6 py-2.5 border-2 border-stone-400 text-stone-800 hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-200 text-xs font-medium tracking-wide uppercase"
+              className="px-6 py-2.5 border-2 border-white text-white hover:bg-white hover:text-stone-800 hover:border-white transition-all duration-200 text-xs font-semibold tracking-wide uppercase whitespace-nowrap"
             >
               Get in Touch
             </Link>
@@ -89,13 +91,20 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-serif font-light text-stone-900 tracking-[0.02em] drop-shadow-sm">
-          TSUROV
+      <div className="lg:hidden w-full px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo/tsurov-white.png"
+            alt="TSUROV"
+            width={70}
+            height={70}
+            priority
+            className="cursor-pointer object-contain"
+          />
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 text-stone-900 drop-shadow-sm"
+          className="p-2 text-white drop-shadow-sm"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}

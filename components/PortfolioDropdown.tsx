@@ -69,7 +69,7 @@ export default function PortfolioDropdown() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button className="flex items-center gap-1 hover:text-stone-900 transition-colors duration-150 font-medium tracking-wide uppercase text-xs text-stone-700">
+      <button className="flex items-center gap-1 hover:text-stone-200 transition-colors duration-150 font-semibold tracking-wide uppercase text-xs text-white">
         Portfolio
         <ChevronDown className={`w-3 h-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>

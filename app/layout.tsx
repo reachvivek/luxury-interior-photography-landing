@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import Preloader from "@/components/Preloader";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -51,10 +52,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/1.png", sizes: "any" },
-      { url: "/images/1.png", type: "image/png" },
+      { url: "/logo/1.png", sizes: "any" },
+      { url: "/logo/1.png", type: "image/png" },
     ],
-    apple: "/images/1.png",
+    apple: "/logo/1.png",
   },
   openGraph: {
     type: "website",
@@ -113,7 +114,7 @@ export default function RootLayout({
     "name": siteName,
     "description": siteDescription,
     "url": siteUrl,
-    "logo": `${siteUrl}/images/logo.png`,
+    "logo": `${siteUrl}/logo/tsurov.png`,
     "image": `${siteUrl}/images/og-image.jpg`,
     "priceRange": "$$$",
     "areaServed": {
@@ -152,6 +153,7 @@ export default function RootLayout({
         className={`${cormorant.variable} ${dmSans.variable} antialiased`}
         suppressHydrationWarning
       >
+        <Preloader />
         {children}
       </body>
     </html>
