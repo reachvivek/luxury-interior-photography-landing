@@ -74,10 +74,10 @@ export default function Home() {
             {/* Description Paragraphs */}
             <div className="max-w-4xl mx-auto space-y-6 text-stone-600 leading-relaxed">
               <p className="text-base md:text-lg">
-                At Tsurov, we are passionate about transforming interior spaces into captivating visual stories. With a keen eye for detail and a commitment to excellence, we specialize in creating stunning architectural and interior photography that showcases luxury. Our team of experienced professionals brings a harmonious blend of technical expertise and artistic vision to every project, ensuring that each image we deliver reflects the unique character and elegance of the space.
+                Tsurov is passionate about transforming interior spaces into captivating visual stories. With a keen eye for detail and a commitment to excellence, specializing in creating stunning architectural and interior photography that showcases luxury. Every project brings a harmonious blend of technical expertise and artistic vision, ensuring that each image delivered reflects the unique character and elegance of the space.
               </p>
               <p className="text-base md:text-lg">
-                With an unwavering dedication to craftsmanship and innovation, Tsurov has earned a reputation for delivering exceptional results across the UAE. From elegant residential properties to cutting-edge commercial developments, we seamlessly integrate timeless composition with contemporary techniques. By meticulously capturing every detail of the design, we strive to exceed expectations, bringing your vision to life and creating imagery that inspires, elevates your brand, and truly embodies the essence of luxury.
+                With an unwavering dedication to craftsmanship and innovation, Tsurov has earned a reputation for delivering exceptional results across the UAE. From elegant residential properties to cutting-edge commercial developments, seamlessly integrating timeless composition with contemporary techniques. By meticulously capturing every detail of the design, exceeding expectations, bringing your vision to life and creating imagery that inspires, elevates your brand, and truly embodies the essence of luxury.
               </p>
             </div>
           </div>
