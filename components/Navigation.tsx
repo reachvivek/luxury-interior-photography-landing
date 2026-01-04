@@ -44,12 +44,14 @@ export default function Navigation() {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${isScrolled ? 'bg-black/90' : 'bg-transparent'}`}>
+      }`}>
         {/* Desktop Navigation */}
         <div className="hidden lg:block w-full px-6 md:px-16 py-4">
           <div className="max-w-7xl mx-auto grid grid-cols-3 items-center gap-8">
             {/* Left - Navigation Links */}
-            <nav className="flex gap-6 text-sm text-white items-center">
+            <nav className={`flex gap-6 text-sm items-center transition-colors duration-300 ${
+              isScrolled ? 'text-stone-900' : 'text-white'
+            }`}>
               {NAV_LINKS.left.map((link) => (
                 link.label === "Portfolio" ? (
                   <PortfolioDropdown key={link.href} />
@@ -57,7 +59,9 @@ export default function Navigation() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="hover:text-stone-200 transition-colors duration-150 font-semibold tracking-wide uppercase text-xs whitespace-nowrap"
+                    className={`transition-colors duration-300 font-semibold tracking-wide uppercase text-xs whitespace-nowrap ${
+                      isScrolled ? 'hover:text-stone-600' : 'hover:text-stone-200'
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -67,19 +71,25 @@ export default function Navigation() {
 
             {/* Center - Brand Name */}
             <Link href="/" className="flex justify-center">
-              <h1 className="font-serif text-3xl font-light text-white tracking-[0.3em] cursor-pointer hover:text-stone-200 transition-colors">
+              <h1 className={`font-serif text-3xl font-light tracking-[0.3em] cursor-pointer transition-colors duration-300 ${
+                isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
+              }`}>
                 TSUROV
               </h1>
             </Link>
 
             {/* Right - Navigation Links & Button */}
             <div className="flex gap-6 items-center justify-end">
-              <nav className="flex gap-6 text-sm text-white items-center">
+              <nav className={`flex gap-6 text-sm items-center transition-colors duration-300 ${
+                isScrolled ? 'text-stone-900' : 'text-white'
+              }`}>
                 {NAV_LINKS.right.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="hover:text-stone-200 transition-colors duration-150 font-semibold tracking-wide uppercase text-xs whitespace-nowrap"
+                    className={`transition-colors duration-300 font-semibold tracking-wide uppercase text-xs whitespace-nowrap ${
+                      isScrolled ? 'hover:text-stone-600' : 'hover:text-stone-200'
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -87,7 +97,11 @@ export default function Navigation() {
               </nav>
               <Link
                 href="/contact"
-                className="px-6 py-2.5 border-2 border-white text-white hover:bg-white hover:text-stone-800 hover:border-white transition-all duration-200 text-xs font-semibold tracking-wide uppercase whitespace-nowrap rounded-full"
+                className={`px-6 py-2.5 border-2 transition-all duration-300 text-xs font-semibold tracking-wide uppercase whitespace-nowrap rounded-full ${
+                  isScrolled
+                    ? 'border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white'
+                    : 'border-white text-white hover:bg-white hover:text-stone-800'
+                }`}
               >
                 Get in Touch
               </Link>
@@ -108,14 +122,18 @@ export default function Navigation() {
             />
           </Link>
           <Link href="/" className="flex justify-center">
-            <h1 className="font-serif text-xl font-light text-white tracking-[0.3em] cursor-pointer">
+            <h1 className={`font-serif text-xl font-light tracking-[0.3em] cursor-pointer transition-colors duration-300 ${
+              isScrolled ? 'text-stone-900' : 'text-white'
+            }`}>
               TSUROV
             </h1>
           </Link>
           <div className="flex justify-end">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-white drop-shadow-sm"
+              className={`p-2 drop-shadow-sm transition-colors duration-300 ${
+                isScrolled ? 'text-stone-900' : 'text-white'
+              }`}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
