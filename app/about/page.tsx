@@ -8,11 +8,11 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 md:px-16 bg-[#EBE6E5]">
+      <section className="pt-32 pb-16 px-6 md:px-16 bg-white">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-stone-900 mb-6">
             About Tsurov
@@ -54,7 +54,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 px-6 md:px-16 bg-[#F5F0ED]">
+      <section className="py-20 px-6 md:px-16 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-serif font-light text-stone-900 text-center mb-16">
             Our Values

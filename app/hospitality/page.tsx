@@ -60,7 +60,7 @@ export default function HospitalityPage() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section */}

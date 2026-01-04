@@ -41,31 +41,52 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Carousel */}
       <HeroCarousel />
 
-      {/* Value Statement & Trusted By */}
-      <section id="about" className="py-16 md:py-20 px-6 md:px-16 bg-[#FFF8F2]">
+      {/* About Us Section */}
+      <section id="about" className="py-20 md:py-32 px-6 md:px-16 bg-white">
         <div className="max-w-6xl mx-auto">
-          {/* Value Statement */}
           <div
             ref={valueStatementAnimation.elementRef}
-            className={`max-w-4xl mx-auto text-center mb-16 transition-all duration-1000 ease-out ${
+            className={`text-center transition-all duration-1000 ease-out ${
               valueStatementAnimation.isVisible
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-8'
             }`}
           >
-            <p className="text-xl md:text-2xl font-serif font-light text-stone-800 leading-relaxed">
-              Precision-driven interior photography for architects, developers, and luxury brands.
-            </p>
-            <p className="text-sm md:text-base text-stone-500 mt-6 tracking-wide">
-              Based in Dubai. Working across the UAE & beyond.
-            </p>
-          </div>
+            {/* Decorative Line */}
+            <div className="flex justify-center mb-8">
+              <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+            </div>
 
-          {/* Trusted By */}
+            {/* Section Label */}
+            <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-500 mb-8">
+              About Us
+            </p>
+
+            {/* Main Heading */}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 leading-tight mb-12 max-w-4xl mx-auto">
+              We capture your spaces with precision, artistry, and vision.
+            </h2>
+
+            {/* Description Paragraphs */}
+            <div className="max-w-4xl mx-auto space-y-6 text-stone-600 leading-relaxed">
+              <p className="text-base md:text-lg">
+                At Tsurov, we are passionate about transforming interior spaces into captivating visual stories. With a keen eye for detail and a commitment to excellence, we specialize in creating stunning architectural and interior photography that showcases luxury. Our team of experienced professionals brings a harmonious blend of technical expertise and artistic vision to every project, ensuring that each image we deliver reflects the unique character and elegance of the space.
+              </p>
+              <p className="text-base md:text-lg">
+                With an unwavering dedication to craftsmanship and innovation, Tsurov has earned a reputation for delivering exceptional results across the UAE. From elegant residential properties to cutting-edge commercial developments, we seamlessly integrate timeless composition with contemporary techniques. By meticulously capturing every detail of the design, we strive to exceed expectations, bringing your vision to life and creating imagery that inspires, elevates your brand, and truly embodies the essence of luxury.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted By */}
+      <section className="py-16 md:py-20 px-6 md:px-16 bg-white">
+        <div className="max-w-6xl mx-auto">
           <div
             ref={trustedByAnimation.elementRef}
             className={`transition-all duration-1000 ease-out ${
@@ -103,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Divider */}
-      <section id="portfolio" className="py-24 px-6 md:px-16 bg-[#FFF8F2]">
+      <section id="portfolio" className="py-24 px-6 md:px-16 bg-white">
         <div
           ref={portfolioDividerAnimation.elementRef}
           className={`max-w-7xl mx-auto text-center transition-all duration-1000 ease-out ${
@@ -165,7 +186,7 @@ export default function Home() {
       />
 
       {/* How It Works */}
-      <section id="services" className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-[#F5F0ED]">
+      <section id="services" className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-white">
         <div
           ref={howItWorksAnimation.elementRef}
           className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${

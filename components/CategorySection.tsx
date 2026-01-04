@@ -23,7 +23,7 @@ export default function CategorySection({
   return (
     <>
       {/* Featured Image Section */}
-      <section className="h-screen relative bg-[#F8F3F4]">
+      <section className="h-screen relative bg-white">
         <div className="relative h-screen">
           <Image
             src={spaces[currentIndex].image}
@@ -70,7 +70,7 @@ export default function CategorySection({
       </section>
 
       {/* Category Cards Section */}
-      <section className="py-12 px-6 md:px-16 bg-[#F8F3F4]">
+      <section className="py-12 px-6 md:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {spaces.map((space, index) => (
