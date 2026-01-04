@@ -93,6 +93,11 @@ export default function HeroCarousel() {
           key={currentSlide}
           className="text-center max-w-4xl w-full animate-fadeIn"
         >
+          {/* Decorative Line */}
+          <div className="flex justify-center mb-6">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+          </div>
+
           {/* Category */}
           <p className="text-white text-xs md:text-sm font-semibold tracking-[0.3em] uppercase mb-3 md:mb-4 opacity-90">
             {current.category}
