@@ -12,10 +12,14 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
+
+      // Check if scrolled past hero section (viewport height)
+      setIsScrolled(currentScrollY > window.innerHeight * 0.8);
 
       if (currentScrollY < ANIMATION.HEADER_HIDE_THRESHOLD) {
         // Always show header at the top of the page
@@ -38,9 +42,9 @@ export default function Navigation() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm transition-transform duration-300 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}>
+      } ${isScrolled ? 'bg-black/90' : 'bg-transparent'}`}>
         {/* Desktop Navigation */}
         <div className="hidden lg:block w-full px-6 md:px-16 py-4">
           <div className="max-w-7xl mx-auto grid grid-cols-3 items-center gap-8">
