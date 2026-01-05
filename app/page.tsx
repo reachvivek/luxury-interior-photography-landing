@@ -28,7 +28,7 @@ export default function Home() {
       <HeroCarousel />
 
       {/* How It Works */}
-      <section id="services" className="py-20 md:py-32 px-6 md:px-16 bg-white">
+      <section id="services" className="py-20 md:py-32 px-6 md:px-16 bg-[#faf9f7]">
         <div
           ref={howItWorksAnimation.elementRef}
           className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
@@ -45,7 +45,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
             How It Works
           </h2>
-          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+          <div className="grid md:grid-cols-3 gap-12 md:gap-14">
             <div className={`text-center transition-all duration-700 delay-100 ${
               howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 md:py-32 px-6 md:px-16 bg-stone-50">
+      <section className="py-20 md:py-32 px-6 md:px-16 bg-white">
         <div
           ref={whyChooseUsAnimation.elementRef}
           className="max-w-6xl mx-auto w-full"
@@ -100,44 +100,39 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
             Why Choose Us
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-10">
-            <div className="text-center">
-              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Proven Experience</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Expertise You Can Trust
-              </p>
-              <p className="text-stone-600 leading-relaxed">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 01 */}
+            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
+              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">01</div>
+              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">Proven Experience</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
                 Years of experience photographing residential, hospitality, and commercial interiors across the UAE.
               </p>
             </div>
-            <div className="text-center">
-              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Transparent Payments</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Fair Payment Terms
-              </p>
-              <p className="text-stone-600 leading-relaxed">
+
+            {/* Card 02 */}
+            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
+              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">02</div>
+              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">Transparent Payments</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
                 50% upfront, 50% upon delivery. No hidden fees.
               </p>
             </div>
-            <div className="text-center">
-              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">First-Time Client Offer</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                New Client Discount
-              </p>
-              <p className="text-stone-600 leading-relaxed">
+
+            {/* Card 03 */}
+            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
+              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">03</div>
+              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">First-Time Client Offer</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
                 First-time clients receive a 20% discount on their first project.
               </p>
             </div>
-            <div className="text-center">
-              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">04</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Fast Turnaround</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Efficient Delivery
-              </p>
-              <p className="text-stone-600 leading-relaxed">
+
+            {/* Card 04 */}
+            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
+              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">04</div>
+              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">Fast Turnaround</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
                 Short lead times and efficient post-production ensure timely delivery.
               </p>
             </div>
