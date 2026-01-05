@@ -68,10 +68,10 @@ export default function Home() {
             <div className={`text-center transition-all duration-700 delay-100 ${
               howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
+              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Consultation</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Understanding Your Vision & Requirements
+                Understanding Your Requirements
               </p>
               <p className="text-stone-600 leading-relaxed">
                 We discuss your space, objectives, and photography requirements to align on what needs to be captured.
@@ -80,7 +80,7 @@ export default function Home() {
             <div className={`text-center transition-all duration-700 delay-300 ${
               howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
+              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">On-Site Shoot</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
                 Lighting & Composition
@@ -92,10 +92,10 @@ export default function Home() {
             <div className={`text-center transition-all duration-700 delay-500 ${
               howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
+              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Curated Delivery</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Edited, Ready-to-Use Images
+                Ready-to-Use Images
               </p>
               <p className="text-stone-600 leading-relaxed">
                 High-resolution files edited and delivered for your portfolio, website, and marketing use.
@@ -121,43 +121,43 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-10">
             <div className="text-center">
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Extensive Experience</h3>
+              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Proven Experience</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Professional Expertise You Can Trust
+                Expertise You Can Trust
               </p>
               <p className="text-stone-600 leading-relaxed">
-                Years of experience capturing luxury interiors across the UAE, with a proven track record in residential, hospitality, and commercial photography.
+                Years of experience photographing residential, hospitality, and commercial interiors across the UAE.
               </p>
             </div>
             <div className="text-center">
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
+              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Transparent Payments</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Simple, Fair Payment Structure
+                Fair Payment Terms
               </p>
               <p className="text-stone-600 leading-relaxed">
-                50% payment upfront to secure your booking, 50% upon final delivery. No hidden fees, no surprises.
+                50% upfront, 50% upon delivery. No hidden fees.
               </p>
             </div>
             <div className="text-center">
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
+              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">First-Time Client Offer</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Welcome Discount Available
+                New Client Discount
               </p>
               <p className="text-stone-600 leading-relaxed">
-                New clients receive 20% off their first project, making it easy to experience premium interior photography.
+                First-time clients receive a 20% discount on their first project.
               </p>
             </div>
             <div className="text-center">
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">04</div>
+              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">04</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Fast Turnaround</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Quick Delivery Without Compromise
+                Efficient Delivery
               </p>
               <p className="text-stone-600 leading-relaxed">
-                Short lead times for booking and efficient post-production process ensure your images are ready when you need them.
+                Short lead times and efficient post-production ensure timely delivery.
               </p>
             </div>
           </div>
