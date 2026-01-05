@@ -81,29 +81,16 @@ export default function PortfolioDropdown({ isScrolled = false }: PortfolioDropd
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-[800px] bg-white shadow-xl border border-stone-200 rounded-lg p-8 z-50">
-          <div className="grid grid-cols-2 gap-10">
+        <div className="absolute top-full left-0 mt-2 w-72 bg-white shadow-xl border border-stone-200 rounded-lg p-6 z-50">
+          <div className="flex flex-col space-y-3">
             {portfolioCategories.map((category) => (
-              <div key={category.href}>
-                <Link
-                  href={category.href}
-                  className="text-lg font-serif font-light text-stone-900 hover:text-stone-600 transition-colors mb-4 block tracking-wide"
-                >
-                  {category.title}
-                </Link>
-                <ul className="space-y-2.5 pl-1">
-                  {category.items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="text-sm font-normal text-stone-500 hover:text-stone-900 transition-colors block"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Link
+                key={category.href}
+                href={category.href}
+                className="text-base font-serif font-light text-stone-900 hover:text-stone-600 transition-colors py-2 block"
+              >
+                {category.title}
+              </Link>
             ))}
           </div>
         </div>
