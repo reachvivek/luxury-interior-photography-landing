@@ -6,8 +6,7 @@ export interface NavLink {
 export const NAV_LINKS = {
   left: [
     { href: "/", label: "Home" },
-    { href: "/#portfolio", label: "Portfolio" },
-    { href: "/#services", label: "Services" },
+    { href: "/services", label: "Services" }, // Now a dropdown with 4 main directions
     { href: "/#about", label: "About" },
   ] as NavLink[],
   right: [

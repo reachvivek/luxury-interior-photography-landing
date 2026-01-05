@@ -3,16 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
 import { ANIMATION } from "@/constants/animation";
-import PortfolioDropdown from "@/components/PortfolioDropdown";
+import ServicesDropdown from "@/components/ServicesDropdown";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -63,8 +64,8 @@ export default function Navigation() {
                 isScrolled ? 'text-stone-900' : 'text-white'
               }`}>
                 {NAV_LINKS.left.map((link) => (
-                  link.label === "Portfolio" ? (
-                    <PortfolioDropdown key={link.href} isScrolled={isScrolled} />
+                  link.label === "Services" ? (
+                    <ServicesDropdown key={link.href} isScrolled={isScrolled} />
                   ) : (
                     <Link
                       key={link.href}
@@ -165,14 +166,58 @@ export default function Navigation() {
           <nav className="flex-1 overflow-y-auto px-6 py-8">
             <div className="flex flex-col space-y-6">
               {[...NAV_LINKS.left, ...NAV_LINKS.right].map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-stone-700 hover:text-stone-900 transition-colors font-medium tracking-wide text-base py-2 uppercase border-b border-stone-100 hover:border-stone-300"
-                >
-                  {link.label}
-                </Link>
+                link.label === "Services" ? (
+                  <div key={link.href}>
+                    <button
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      className="w-full flex items-center justify-between text-stone-700 hover:text-stone-900 transition-colors font-medium tracking-wide text-base py-2 uppercase border-b border-stone-100 hover:border-stone-300"
+                    >
+                      {link.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileServicesOpen && (
+                      <div className="pl-4 mt-3 space-y-3">
+                        <Link
+                          href="/residential"
+                          onClick={() => setIsOpen(false)}
+                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
+                        >
+                          Residential
+                        </Link>
+                        <Link
+                          href="/hospitality"
+                          onClick={() => setIsOpen(false)}
+                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
+                        >
+                          Hotels & Hospitality
+                        </Link>
+                        <Link
+                          href="/commercial"
+                          onClick={() => setIsOpen(false)}
+                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
+                        >
+                          Commercial & Industry
+                        </Link>
+                        <Link
+                          href="/custom-interiors"
+                          onClick={() => setIsOpen(false)}
+                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
+                        >
+                          Custom Interiors
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-stone-700 hover:text-stone-900 transition-colors font-medium tracking-wide text-base py-2 uppercase border-b border-stone-100 hover:border-stone-300"
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
             </div>
           </nav>
