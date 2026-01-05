@@ -95,7 +95,7 @@ export default function HeroCarousel() {
       )}
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 z-10 flex items-center px-6 md:px-16 lg:px-24">
+      <div className="absolute inset-0 z-10 flex items-center px-20 md:px-28 lg:px-32">
         <div
           key={currentSlide}
           className="max-w-3xl animate-fadeIn"
