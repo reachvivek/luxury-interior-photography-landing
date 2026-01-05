@@ -16,10 +16,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Home() {
   // Scroll animations
+  const howItWorksAnimation = useScrollAnimation(0.2);
+  const whyChooseUsAnimation = useScrollAnimation(0.2);
   const valueStatementAnimation = useScrollAnimation(0.2);
   const trustedByAnimation = useScrollAnimation(0.2);
   const portfolioDividerAnimation = useScrollAnimation(0.2);
-  const howItWorksAnimation = useScrollAnimation(0.2);
   const ctaAnimation = useScrollAnimation(0.3);
 
   // Featured image state for each section
@@ -103,6 +104,82 @@ export default function Home() {
               </p>
               <p className="text-stone-600 leading-relaxed">
                 High-resolution files expertly edited for portfolio, marketing, and publication.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 md:py-32 px-6 md:px-16 bg-stone-50">
+        <div
+          ref={whyChooseUsAnimation.elementRef}
+          className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
+            whyChooseUsAnimation.isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-12'
+          }`}
+        >
+          {/* Decorative Line */}
+          <div className="flex justify-center mb-8">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+          </div>
+
+          {/* Section Label */}
+          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-500 mb-8 text-center">
+            Why Clients Choose Us
+          </p>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
+            Why Choose Us
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-10">
+            <div className={`text-center transition-all duration-700 delay-100 ${
+              whyChooseUsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Extensive Experience</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Professional Expertise You Can Trust
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                Years of experience capturing luxury interiors across the UAE, with a proven track record in residential, hospitality, and commercial photography.
+              </p>
+            </div>
+            <div className={`text-center transition-all duration-700 delay-200 ${
+              whyChooseUsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Transparent Payments</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Simple, Fair Payment Structure
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                50% payment upfront to secure your booking, 50% upon final delivery. No hidden fees, no surprises.
+              </p>
+            </div>
+            <div className={`text-center transition-all duration-700 delay-300 ${
+              whyChooseUsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">First-Time Client Offer</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Welcome Discount Available
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                New clients receive 20% off their first project, making it easy to experience premium interior photography.
+              </p>
+            </div>
+            <div className={`text-center transition-all duration-700 delay-400 ${
+              whyChooseUsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">04</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Fast Turnaround</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Quick Delivery Without Compromise
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                Short lead times for booking and efficient post-production process ensure your images are ready when you need them.
               </p>
             </div>
           </div>
