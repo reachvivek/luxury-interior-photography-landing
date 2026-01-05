@@ -1,29 +1,28 @@
 import { CategorySpace } from "@/types";
 
 export const residentialSpaces: CategorySpace[] = [
-  { title: "Luxury Villas", image: "/images/_DSC4745.jpg", href: "/residential#villas" },
-  { title: "Apartments", image: "/images/_DSC4757.jpg", href: "/residential#apartments" },
-  { title: "Penthouses", image: "/images/_DSC4758.jpg", href: "/residential#penthouses" },
-  { title: "Home Offices", image: "/images/_DSC4759.jpg", href: "/residential#offices" },
+  { title: "Luxury Villas", image: "/images/residential/villas/luxury-stone-villa-exterior.jpg", href: "/residential#villas" },
+  { title: "Apartments", image: "/images/residential/apartments/modern-apartment-building-exterior.jpg", href: "/residential#apartments" },
+  { title: "Penthouses", image: "/images/residential/penthouses/penthouse-interior-1.jpg", href: "/residential#penthouses" },
+  { title: "Home Offices", image: "/images/residential/penthouses/penthouse-interior-2.jpg", href: "/residential#offices" },
 ];
 
 export const hospitalitySpaces: CategorySpace[] = [
-  { title: "Hotel Suites", image: "/images/_DSC6300.jpg", href: "/hospitality#suites" },
-  { title: "Restaurants", image: "/images/_DSC6309.jpg", href: "/hospitality#restaurants" },
-  { title: "Event Spaces", image: "/images/_DSC6314.jpg", href: "/hospitality#events" },
-  { title: "Lobbies", image: "/images/_DSC7069.jpg", href: "/hospitality#lobbies" },
+  { title: "Hotel Suites", image: "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg", href: "/hospitality#suites" },
+  { title: "Restaurants", image: "/images/hospitality/restaurants/restaurant-decorative-chandelier.jpg", href: "/hospitality#restaurants" },
+  { title: "Event Spaces", image: "/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg", href: "/hospitality#events" },
 ];
 
 export const commercialSpaces: CategorySpace[] = [
-  { title: "Office Spaces", image: "/images/_DSC7135.jpg", href: "/commercial#offices" },
-  { title: "Co-working Spaces", image: "/images/_DSC7144.jpg", href: "/commercial#coworking" },
-  { title: "Retail Stores", image: "/images/_DSC7172.jpg", href: "/commercial#retail" },
-  { title: "Showrooms", image: "/images/_DSC7174.jpg", href: "/commercial#showrooms" },
+  { title: "Office Spaces", image: "/images/commercial/office-spaces/modern-commercial-building-night.jpg", href: "/commercial#offices" },
+  { title: "Co-working Spaces", image: "/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg", href: "/commercial#coworking" },
+  { title: "Retail Stores", image: "/images/commercial/retail-stores/retail-store-product-shelving.jpg", href: "/commercial#retail" },
+  { title: "Showrooms", image: "/images/residential/villas/luxury-villa-with-porsche.jpg", href: "/commercial#showrooms" },
 ];
 
 export const customInteriorsSpaces: CategorySpace[] = [
-  { title: "Unique Architectural Elements", image: "/images/_DSC7185.jpg", href: "/custom-interiors#architecture" },
-  { title: "Custom Furniture Photography", image: "/images/_DSC7186.jpg", href: "/custom-interiors#furniture" },
-  { title: "Material Close-Ups", image: "/images/_DSC7341.jpg", href: "/custom-interiors#materials" },
-  { title: "Design Details", image: "/images/_DSC7417.jpg", href: "/custom-interiors#details" },
+  { title: "Unique Architectural Elements", image: "/images/custom/architectural-elements/outdoor-architectural-stairs-cityscape.jpg", href: "/custom-interiors#architecture" },
+  { title: "Custom Furniture Photography", image: "/images/custom/custom-furniture/art-gallery-custom-seating.jpg", href: "/custom-interiors#furniture" },
+  { title: "Material Close-Ups", image: "/images/custom/material-closeups/material-texture-detail.jpg", href: "/custom-interiors#materials" },
+  { title: "Design Details", image: "/images/custom/design-details/art-gallery-blue-seating.jpg", href: "/custom-interiors#details" },
 ];

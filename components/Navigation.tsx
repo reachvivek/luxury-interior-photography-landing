@@ -46,49 +46,43 @@ export default function Navigation() {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         {/* Desktop Navigation */}
-        <div className="hidden lg:block w-full px-6 md:px-16 py-4">
-          <div className="max-w-7xl mx-auto grid grid-cols-3 items-center gap-8">
-            {/* Left - Navigation Links */}
-            <nav className={`flex gap-6 text-sm items-center transition-colors duration-300 ${
-              isScrolled ? 'text-stone-900' : 'text-white'
-            }`}>
-              {NAV_LINKS.left.map((link) => (
-                link.label === "Portfolio" ? (
-                  <PortfolioDropdown key={link.href} isScrolled={isScrolled} />
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`transition-colors duration-300 font-semibold tracking-wide uppercase text-xs whitespace-nowrap ${
-                      isScrolled ? 'hover:text-stone-600' : 'hover:text-stone-200'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              ))}
-            </nav>
-
-            {/* Center - Brand Name */}
-            <Link href="/" className="flex justify-center">
-              <h1 className={`font-serif text-3xl font-light tracking-[0.3em] cursor-pointer transition-colors duration-300 ${
-                isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
+        <div className="hidden lg:block w-full px-6 md:px-16 lg:px-24 py-5">
+          <div className="max-w-[1600px] mx-auto flex items-center justify-between">
+            {/* Left - Brand Name */}
+            <Link href="/" className="flex">
+              <h1 className={`font-bold text-2xl md:text-3xl tracking-wider cursor-pointer transition-colors duration-300 uppercase ${
+                isScrolled ? 'text-stone-900 hover:text-amber-600' : 'text-white hover:text-amber-500'
               }`}>
                 TSUROV
               </h1>
             </Link>
 
             {/* Right - Navigation Links & Button */}
-            <div className="flex gap-6 items-center justify-end">
-              <nav className={`flex gap-6 text-sm items-center transition-colors duration-300 ${
+            <div className="flex gap-8 items-center">
+              <nav className={`flex gap-8 items-center transition-colors duration-300 ${
                 isScrolled ? 'text-stone-900' : 'text-white'
               }`}>
+                {NAV_LINKS.left.map((link) => (
+                  link.label === "Portfolio" ? (
+                    <PortfolioDropdown key={link.href} isScrolled={isScrolled} />
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`transition-colors duration-300 font-semibold tracking-wider uppercase text-sm whitespace-nowrap ${
+                        isScrolled ? 'hover:text-amber-600' : 'hover:text-amber-500'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                ))}
                 {NAV_LINKS.right.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`transition-colors duration-300 font-semibold tracking-wide uppercase text-xs whitespace-nowrap ${
-                      isScrolled ? 'hover:text-stone-600' : 'hover:text-stone-200'
+                    className={`transition-colors duration-300 font-semibold tracking-wider uppercase text-sm whitespace-nowrap ${
+                      isScrolled ? 'hover:text-amber-600' : 'hover:text-amber-500'
                     }`}
                   >
                     {link.label}
@@ -97,10 +91,10 @@ export default function Navigation() {
               </nav>
               <Link
                 href="/contact"
-                className={`px-6 py-2.5 border-2 transition-all duration-300 text-xs font-semibold tracking-wide uppercase whitespace-nowrap rounded-full ${
+                className={`px-6 py-3 border-2 transition-all duration-300 text-sm font-semibold tracking-wider uppercase whitespace-nowrap ${
                   isScrolled
-                    ? 'border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white'
-                    : 'border-white text-white hover:bg-white hover:text-stone-800'
+                    ? 'border-stone-900 text-stone-900 hover:bg-amber-600 hover:text-white hover:border-amber-600'
+                    : 'border-white text-white hover:bg-amber-500 hover:text-white hover:border-amber-500'
                 }`}
               >
                 Get in Touch

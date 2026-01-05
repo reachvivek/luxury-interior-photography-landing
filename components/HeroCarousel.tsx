@@ -46,7 +46,14 @@ export default function HeroCarousel() {
     }, 600);
   };
 
-  // Removed auto-play - images only change on arrow click
+  // Auto-play: Change slides every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNextSlide();
+    }, 5000); // 5 seconds
+
+    return () => clearInterval(interval);
+  }, [currentSlide, isAnimating]);
 
   const current = HERO_SLIDES[currentSlide];
   const next = HERO_SLIDES[nextSlide];
@@ -88,32 +95,32 @@ export default function HeroCarousel() {
       )}
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center px-6 md:px-16">
+      <div className="absolute inset-0 z-10 flex items-center px-6 md:px-16 lg:px-24">
         <div
           key={currentSlide}
-          className="text-center max-w-4xl w-full animate-fadeIn"
+          className="max-w-3xl animate-fadeIn"
         >
-          {/* Decorative Line */}
-          <div className="flex justify-center mb-6">
-            <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
-          </div>
-
           {/* Category */}
-          <p className="text-white text-xs md:text-sm font-semibold tracking-[0.3em] uppercase mb-3 md:mb-4 opacity-90">
+          <p className="text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4 md:mb-6 opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             {current.category}
           </p>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-light text-white mb-6 md:mb-8 tracking-wide px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] uppercase">
             {current.title}
           </h1>
 
-          {/* Explore Button */}
+          {/* Description */}
+          <p className="text-white text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-xl opacity-90 leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]">
+            {current.description}
+          </p>
+
+          {/* Order Button */}
           <Link
-            href={current.link}
-            className="inline-block px-6 md:px-8 py-2.5 md:py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 transition-all duration-300 text-xs md:text-sm font-semibold tracking-wide uppercase rounded-full"
+            href={current.ctaLink}
+            className="inline-block px-8 md:px-10 py-3 md:py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-stone-900 transition-all duration-300 text-sm md:text-base font-semibold tracking-wider uppercase"
           >
-            EXPLORE
+            {current.ctaText}
           </Link>
         </div>
       </div>
@@ -142,7 +149,12 @@ export default function HeroCarousel() {
       </div>
 
       {/* Gradient Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60 pointer-events-none" />
+
+      {/* Additional center overlay for text protection */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute w-full max-w-5xl h-[600px] bg-black/30 blur-3xl"></div>
+      </div>
 
       <style jsx>{`
         @keyframes slideUpIn {

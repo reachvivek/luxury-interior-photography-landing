@@ -2,121 +2,47 @@ export interface HeroSlide {
   id: number;
   category: string;
   title: string;
+  description: string;
   image: string;
-  link: string;
+  ctaText: string;
+  ctaLink: string;
 }
 
 export const HERO_SLIDES: HeroSlide[] = [
-  // Residential
   {
     id: 1,
-    category: "RESIDENTIAL",
-    title: "Luxury Villas",
-    image: "/images/_DSC7069.jpg",
-    link: "/residential#villas",
+    category: "RESIDENTIAL PHOTOGRAPHY",
+    title: "Luxury Living Spaces",
+    description: "Professional photography for villas, apartments, and penthouses that showcase every detail of your property",
+    image: "/images/residential/villas/luxury-stone-villa-exterior.jpg",
+    ctaText: "Order Now",
+    ctaLink: "/contact",
   },
   {
     id: 2,
-    category: "RESIDENTIAL",
-    title: "Apartments",
-    image: "/images/_DSC7175.jpg",
-    link: "/residential#apartments",
+    category: "HOTELS PHOTOGRAPHY",
+    title: "Hospitality Excellence",
+    description: "Capture the ambiance of hotel suites, restaurants, and event spaces with stunning imagery that attracts guests",
+    image: "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg",
+    ctaText: "Order Now",
+    ctaLink: "/contact",
   },
   {
     id: 3,
-    category: "RESIDENTIAL",
-    title: "Penthouses",
-    image: "/images/_DSC7177.jpg",
-    link: "/residential#penthouses",
+    category: "COMMERCIAL PHOTOGRAPHY",
+    title: "Business Spaces",
+    description: "Showcase offices, co-working spaces, retail stores, and showrooms with professional photography that drives business",
+    image: "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg",
+    ctaText: "Order Now",
+    ctaLink: "/contact",
   },
   {
     id: 4,
-    category: "RESIDENTIAL",
-    title: "Home Offices",
-    image: "/images/_DSC4765.jpg",
-    link: "/residential#offices",
-  },
-
-  // Hotels & Hospitality
-  {
-    id: 5,
-    category: "HOTELS & HOSPITALITY",
-    title: "Hotel Suites",
-    image: "/images/_DSC7184.jpg",
-    link: "/hospitality#suites",
-  },
-  {
-    id: 6,
-    category: "HOTELS & HOSPITALITY",
-    title: "Restaurants",
-    image: "/images/_DSC4834.jpg",
-    link: "/hospitality#restaurants",
-  },
-  {
-    id: 7,
-    category: "HOTELS & HOSPITALITY",
-    title: "Event Spaces",
-    image: "/images/_DSC7181.jpg",
-    link: "/hospitality#events",
-  },
-
-  // Commercial & Industry
-  {
-    id: 8,
-    category: "COMMERCIAL & INDUSTRY",
-    title: "Office Spaces",
-    image: "/images/_DSC4757.jpg",
-    link: "/commercial#offices",
-  },
-  {
-    id: 9,
-    category: "COMMERCIAL & INDUSTRY",
-    title: "Co-working Spaces",
-    image: "/images/_DSC4762.jpg",
-    link: "/commercial#coworking",
-  },
-  {
-    id: 10,
-    category: "COMMERCIAL & INDUSTRY",
-    title: "Retail Stores",
-    image: "/images/_DSC7135.jpg",
-    link: "/commercial#retail",
-  },
-  {
-    id: 11,
-    category: "COMMERCIAL & INDUSTRY",
-    title: "Showrooms",
-    image: "/images/_DSC7417.jpg",
-    link: "/commercial#showrooms",
-  },
-
-  // Custom Interiors
-  {
-    id: 12,
-    category: "CUSTOM INTERIORS",
-    title: "Unique Architectural Elements",
-    image: "/images/_DSC7341.jpg",
-    link: "/custom-interiors#architecture",
-  },
-  {
-    id: 13,
-    category: "CUSTOM INTERIORS",
-    title: "Custom Furniture Photography",
-    image: "/images/_DSC6309.jpg",
-    link: "/custom-interiors#furniture",
-  },
-  {
-    id: 14,
-    category: "CUSTOM INTERIORS",
-    title: "Material Close-Ups",
-    image: "/images/_DSC7472.jpg",
-    link: "/custom-interiors#materials",
-  },
-  {
-    id: 15,
-    category: "CUSTOM INTERIORS",
-    title: "Design Details",
-    image: "/images/_DSC4821.jpg",
-    link: "/custom-interiors#details",
+    category: "CUSTOM INTERIOR PHOTOGRAPHY",
+    title: "Unique Design Details",
+    description: "Highlight architectural elements, custom furniture, and design details that make your spaces truly unique",
+    image: "/images/custom/architectural-elements/flame-towers-night-illuminated.jpg",
+    ctaText: "Order Now",
+    ctaLink: "/contact",
   },
 ];
