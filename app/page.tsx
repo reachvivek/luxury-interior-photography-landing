@@ -4,14 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import HeroCarousel from "@/components/HeroCarousel";
-import CategorySection from "@/components/CategorySection";
+import CategoryPreview from "@/components/CategoryPreview";
 import Footer from "@/components/layout/Footer";
 import StatsSection from "@/components/sections/StatsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import { residentialSpaces, hospitalitySpaces, commercialSpaces, customInteriorsSpaces } from "@/data/categories";
 import { trustedByLogos } from "@/data/trustedBy";
-import { ANIMATION } from "@/constants/animation";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Home() {
@@ -22,24 +21,6 @@ export default function Home() {
   const trustedByAnimation = useScrollAnimation(0.2);
   const portfolioDividerAnimation = useScrollAnimation(0.2);
   const ctaAnimation = useScrollAnimation(0.3);
-
-  // Featured image state for each section
-  const [residentialIndex, setResidentialIndex] = useState(0);
-  const [hospitalityIndex, setHospitalityIndex] = useState(0);
-  const [commercialIndex, setCommercialIndex] = useState(0);
-  const [customIndex, setCustomIndex] = useState(0);
-
-  // Auto-rotate featured images
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setResidentialIndex((prev) => (prev + 1) % residentialSpaces.length);
-      setHospitalityIndex((prev) => (prev + 1) % hospitalitySpaces.length);
-      setCommercialIndex((prev) => (prev + 1) % commercialSpaces.length);
-      setCustomIndex((prev) => (prev + 1) % customInteriorsSpaces.length);
-    }, ANIMATION.CATEGORY_ROTATION);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -252,56 +233,42 @@ export default function Home() {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="flex items-center mb-8">
-            <div className="flex-1 border-t border-stone-300"></div>
-            <h2 className="px-8 text-5xl md:text-6xl lg:text-[64px] font-serif font-light text-stone-900">
-              Portfolio
-            </h2>
-            <div className="flex-1 border-t border-stone-300"></div>
+          {/* Decorative Line */}
+          <div className="flex justify-center mb-8">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
           </div>
-          <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-6">
-            Explore our curated collection of interior photography showcasing luxury spaces across different categories
-          </p>
-          <p className="text-sm text-stone-400 tracking-wider">
-            150+ projects across residential, hospitality, and commercial spaces
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-6">
+            Portfolio
+          </h2>
+          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+            Explore our work across four main categories
           </p>
         </div>
       </section>
 
-      <CategorySection
+      <CategoryPreview
         title="Residential Spaces"
+        href="/residential"
         spaces={residentialSpaces}
-        currentIndex={residentialIndex}
-        onIndexChange={setResidentialIndex}
-        onNext={() => setResidentialIndex((prev) => (prev + 1) % residentialSpaces.length)}
-        onPrevious={() => setResidentialIndex((prev) => (prev - 1 + residentialSpaces.length) % residentialSpaces.length)}
       />
 
-      <CategorySection
+      <CategoryPreview
         title="Hotels & Hospitality"
+        href="/hospitality"
         spaces={hospitalitySpaces}
-        currentIndex={hospitalityIndex}
-        onIndexChange={setHospitalityIndex}
-        onNext={() => setHospitalityIndex((prev) => (prev + 1) % hospitalitySpaces.length)}
-        onPrevious={() => setHospitalityIndex((prev) => (prev - 1 + hospitalitySpaces.length) % hospitalitySpaces.length)}
       />
 
-      <CategorySection
+      <CategoryPreview
         title="Commercial & Industry"
+        href="/commercial"
         spaces={commercialSpaces}
-        currentIndex={commercialIndex}
-        onIndexChange={setCommercialIndex}
-        onNext={() => setCommercialIndex((prev) => (prev + 1) % commercialSpaces.length)}
-        onPrevious={() => setCommercialIndex((prev) => (prev - 1 + commercialSpaces.length) % commercialSpaces.length)}
       />
 
-      <CategorySection
+      <CategoryPreview
         title="Custom Interiors"
+        href="/custom-interiors"
         spaces={customInteriorsSpaces}
-        currentIndex={customIndex}
-        onIndexChange={setCustomIndex}
-        onNext={() => setCustomIndex((prev) => (prev + 1) % customInteriorsSpaces.length)}
-        onPrevious={() => setCustomIndex((prev) => (prev - 1 + customInteriorsSpaces.length) % customInteriorsSpaces.length)}
       />
 
       {/* Stats Section */}
