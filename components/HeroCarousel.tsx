@@ -101,7 +101,7 @@ export default function HeroCarousel() {
           className="max-w-3xl animate-fadeIn"
         >
           {/* Category */}
-          <p className="text-white text-[10px] md:text-xs font-normal tracking-[0.35em] uppercase mb-6 md:mb-8 opacity-70 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+          <p className="text-white text-[10px] md:text-xs font-normal tracking-[0.4em] uppercase mb-8 md:mb-10 opacity-65 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             {current.category}
           </p>
 
@@ -126,7 +126,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* Navigation Arrows */}
-      <div className="absolute inset-0 z-20 flex items-center justify-between px-6 md:px-12 pointer-events-none">
+      <div className="absolute inset-0 z-20 flex items-center justify-between px-8 md:px-16 lg:px-20 pointer-events-none">
         {/* Left Arrow */}
         <button
           onClick={goToPrevSlide}
