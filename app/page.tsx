@@ -61,11 +61,6 @@ export default function Home() {
             <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
           </div>
 
-          {/* Section Label */}
-          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-500 mb-8 text-center">
-            How We Work
-          </p>
-
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
             How It Works
           </h2>
@@ -114,21 +109,12 @@ export default function Home() {
       <section className="py-20 md:py-32 px-6 md:px-16 bg-stone-50">
         <div
           ref={whyChooseUsAnimation.elementRef}
-          className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
-            whyChooseUsAnimation.isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-12'
-          }`}
+          className="max-w-6xl mx-auto w-full"
         >
           {/* Decorative Line */}
           <div className="flex justify-center mb-8">
             <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
           </div>
-
-          {/* Section Label */}
-          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-500 mb-8 text-center">
-            Why Clients Choose Us
-          </p>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
             Why Choose Us
