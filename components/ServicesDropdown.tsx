@@ -58,12 +58,12 @@ export default function ServicesDropdown({ isScrolled = false }: ServicesDropdow
         }`}
       >
         Services
-        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-3 h-3 opacity-70 transition-all duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-72 bg-white shadow-xl border border-stone-200 rounded-lg p-6 z-50">
-          <div className="flex flex-col space-y-3">
+        <div className="absolute top-full left-0 mt-2 w-72 bg-stone-50 shadow-lg border border-stone-200 rounded-lg p-6 z-50">
+          <div className="flex flex-col space-y-4">
             {serviceDirections.map((service) => (
               <Link
                 key={service.href}
