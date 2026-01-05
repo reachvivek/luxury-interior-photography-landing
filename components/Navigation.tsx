@@ -50,8 +50,8 @@ export default function Navigation() {
           <div className="max-w-[1600px] mx-auto flex items-center justify-between">
             {/* Left - Brand Name */}
             <Link href="/" className="flex">
-              <h1 className={`font-bold text-2xl md:text-3xl tracking-wider cursor-pointer transition-colors duration-300 uppercase ${
-                isScrolled ? 'text-stone-900 hover:text-amber-600' : 'text-white hover:text-amber-500'
+              <h1 className={`font-serif text-2xl md:text-3xl tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase font-light ${
+                isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
               }`}>
                 TSUROV
               </h1>
@@ -69,8 +69,8 @@ export default function Navigation() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`transition-colors duration-300 font-semibold tracking-wider uppercase text-sm whitespace-nowrap ${
-                        isScrolled ? 'hover:text-amber-600' : 'hover:text-amber-500'
+                      className={`transition-colors duration-300 font-normal tracking-wide uppercase text-xs whitespace-nowrap ${
+                        isScrolled ? 'hover:text-stone-600' : 'hover:text-stone-200'
                       }`}
                     >
                       {link.label}
@@ -81,8 +81,8 @@ export default function Navigation() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`transition-colors duration-300 font-semibold tracking-wider uppercase text-sm whitespace-nowrap ${
-                      isScrolled ? 'hover:text-amber-600' : 'hover:text-amber-500'
+                    className={`transition-colors duration-300 font-normal tracking-wide uppercase text-xs whitespace-nowrap ${
+                      isScrolled ? 'hover:text-stone-600' : 'hover:text-stone-200'
                     }`}
                   >
                     {link.label}
@@ -91,10 +91,10 @@ export default function Navigation() {
               </nav>
               <Link
                 href="/contact"
-                className={`px-6 py-3 border-2 transition-all duration-300 text-sm font-semibold tracking-wider uppercase whitespace-nowrap ${
+                className={`px-6 py-3 border transition-all duration-300 text-xs font-normal tracking-wide uppercase whitespace-nowrap rounded-full ${
                   isScrolled
-                    ? 'border-stone-900 text-stone-900 hover:bg-amber-600 hover:text-white hover:border-amber-600'
-                    : 'border-white text-white hover:bg-amber-500 hover:text-white hover:border-amber-500'
+                    ? 'border-stone-300 text-stone-900 hover:bg-stone-900 hover:text-white hover:border-stone-900'
+                    : 'border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-stone-900 hover:border-white'
                 }`}
               >
                 Get in Touch
@@ -116,7 +116,7 @@ export default function Navigation() {
             />
           </Link>
           <Link href="/" className="flex justify-center">
-            <h1 className={`font-serif text-xl font-light tracking-[0.3em] cursor-pointer transition-colors duration-300 ${
+            <h1 className={`font-serif text-xl font-light tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase ${
               isScrolled ? 'text-stone-900' : 'text-white'
             }`}>
               TSUROV
@@ -182,7 +182,7 @@ export default function Navigation() {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="block w-full px-6 py-3 bg-stone-800 text-white hover:bg-stone-900 transition-all duration-200 text-sm font-semibold tracking-wide text-center uppercase rounded-full"
+              className="block w-full px-6 py-3 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-200 text-xs font-normal tracking-wide text-center uppercase rounded-full"
             >
               Get in Touch
             </Link>

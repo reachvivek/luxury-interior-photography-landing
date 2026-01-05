@@ -101,24 +101,24 @@ export default function HeroCarousel() {
           className="max-w-3xl animate-fadeIn"
         >
           {/* Category */}
-          <p className="text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4 md:mb-6 opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+          <p className="text-white text-[10px] md:text-xs font-normal tracking-[0.35em] uppercase mb-6 md:mb-8 opacity-70 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             {current.category}
           </p>
 
           {/* Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] uppercase">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal text-white mb-5 md:mb-7 leading-[1.1] tracking-normal drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
             {current.title}
           </h1>
 
           {/* Description */}
-          <p className="text-white text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-xl opacity-90 leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]">
+          <p className="text-white text-sm md:text-base lg:text-lg mb-8 md:mb-10 max-w-xl opacity-85 leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] font-light">
             {current.description}
           </p>
 
-          {/* Order Button */}
+          {/* CTA Button */}
           <Link
             href={current.ctaLink}
-            className="inline-block px-8 md:px-10 py-3 md:py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-stone-900 transition-all duration-300 text-sm md:text-base font-semibold tracking-wider uppercase"
+            className="inline-block px-8 md:px-10 py-3 md:py-4 bg-transparent border border-white/70 text-white hover:bg-white hover:text-stone-900 hover:border-white transition-all duration-300 text-xs md:text-sm font-normal tracking-widest uppercase rounded-full"
           >
             {current.ctaText}
           </Link>
@@ -149,12 +149,10 @@ export default function HeroCarousel() {
       </div>
 
       {/* Gradient Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 pointer-events-none" />
 
-      {/* Additional center overlay for text protection */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-full max-w-5xl h-[600px] bg-black/30 blur-3xl"></div>
-      </div>
+      {/* Additional gradient from left for text protection */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
 
       <style jsx>{`
         @keyframes slideUpIn {

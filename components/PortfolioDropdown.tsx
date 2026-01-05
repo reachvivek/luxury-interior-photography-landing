@@ -73,7 +73,7 @@ export default function PortfolioDropdown({ isScrolled = false }: PortfolioDropd
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button className={`flex items-center gap-1 transition-colors duration-300 font-semibold tracking-wide uppercase text-xs ${
+      <button className={`flex items-center gap-1 transition-colors duration-300 font-normal tracking-wide uppercase text-xs ${
         isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
       }`}>
         Portfolio

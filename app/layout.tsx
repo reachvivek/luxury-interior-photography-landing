@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Inter } from "next/font/google";
+import { Montserrat, Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
 import Navigation from "@/components/Navigation";
@@ -13,6 +13,13 @@ const montserrat = Montserrat({
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
@@ -151,7 +158,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${montserrat.variable} ${inter.variable} antialiased`}
+        className={`${montserrat.variable} ${inter.variable} ${cormorantGaramond.variable} antialiased`}
         suppressHydrationWarning
       >
         <Preloader />
