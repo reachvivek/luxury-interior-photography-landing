@@ -133,6 +133,120 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services - Main Directions */}
+      <section className="py-20 md:py-32 px-6 md:px-16 bg-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            {/* Decorative Line */}
+            <div className="flex justify-center mb-8">
+              <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 mb-6">
+              Services – Main Directions
+            </h2>
+            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+              Specialized photography services for every space
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Residential Photography */}
+            <Link
+              href="/residential"
+              className="group block bg-stone-50/50 rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/residential/penthouses/penthouse-interior-1.jpg"
+                  alt="Residential Photography"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-2 group-hover:text-amber-900 transition-colors">
+                  Residential Photography
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Luxury villas, apartments, and penthouses captured with elegance
+                </p>
+              </div>
+            </Link>
+
+            {/* Hotels Photography */}
+            <Link
+              href="/hospitality"
+              className="group block bg-stone-50/50 rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg"
+                  alt="Hotels Photography"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-2 group-hover:text-amber-900 transition-colors">
+                  Hotels Photography
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Hotel suites, restaurants, and hospitality spaces with refined detail
+                </p>
+              </div>
+            </Link>
+
+            {/* Commercial Photography */}
+            <Link
+              href="/commercial"
+              className="group block bg-stone-50/50 rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg"
+                  alt="Commercial Photography"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-2 group-hover:text-amber-900 transition-colors">
+                  Commercial Photography
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Office spaces, retail stores, and showrooms with professional precision
+                </p>
+              </div>
+            </Link>
+
+            {/* Custom Interior Photography */}
+            <Link
+              href="/custom-interiors"
+              className="group block bg-stone-50/50 rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/custom/design-details/luxury-chandelier-interior.jpg"
+                  alt="Custom Interior Photography"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-2 group-hover:text-amber-900 transition-colors">
+                  Custom Interior Photography
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Architectural elements, furniture, and design details beautifully composed
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-20 md:py-32 px-6 md:px-16 bg-white">
         <div
