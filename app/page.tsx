@@ -223,53 +223,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Divider */}
-      <section id="portfolio" className="py-24 px-6 md:px-16 bg-white">
-        <div
-          ref={portfolioDividerAnimation.elementRef}
-          className={`max-w-7xl mx-auto text-center transition-all duration-1000 ease-out ${
-            portfolioDividerAnimation.isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
-          }`}
-        >
-          {/* Decorative Line */}
-          <div className="flex justify-center mb-8">
-            <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-20 md:py-32 px-6 md:px-16 bg-white">
+        <div className="max-w-[1600px] mx-auto">
+          {/* Section Header */}
+          <div
+            ref={portfolioDividerAnimation.elementRef}
+            className={`text-center mb-12 md:mb-16 transition-all duration-1000 ease-out ${
+              portfolioDividerAnimation.isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
+            {/* Decorative Line */}
+            <div className="flex justify-center mb-8">
+              <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 mb-6">
+              Portfolio
+            </h2>
+            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+              Explore our work across four main categories
+            </p>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-6">
-            Portfolio
-          </h2>
-          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-            Explore our work across four main categories
-          </p>
+          {/* Category Grid */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <CategoryPreview
+              title="Residential"
+              href="/residential"
+              spaces={residentialSpaces}
+            />
+
+            <CategoryPreview
+              title="Hotels & Hospitality"
+              href="/hospitality"
+              spaces={hospitalitySpaces}
+            />
+
+            <CategoryPreview
+              title="Commercial"
+              href="/commercial"
+              spaces={commercialSpaces}
+            />
+
+            <CategoryPreview
+              title="Custom Interiors"
+              href="/custom-interiors"
+              spaces={customInteriorsSpaces}
+            />
+          </div>
         </div>
       </section>
-
-      <CategoryPreview
-        title="Residential Spaces"
-        href="/residential"
-        spaces={residentialSpaces}
-      />
-
-      <CategoryPreview
-        title="Hotels & Hospitality"
-        href="/hospitality"
-        spaces={hospitalitySpaces}
-      />
-
-      <CategoryPreview
-        title="Commercial & Industry"
-        href="/commercial"
-        spaces={commercialSpaces}
-      />
-
-      <CategoryPreview
-        title="Custom Interiors"
-        href="/custom-interiors"
-        spaces={customInteriorsSpaces}
-      />
 
       {/* Stats Section */}
       <StatsSection />
