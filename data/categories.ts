@@ -21,8 +21,8 @@ export const commercialSpaces: CategorySpace[] = [
 ];
 
 export const customInteriorsSpaces: CategorySpace[] = [
-  { title: "Unique Architectural Elements", image: "/images/custom/architectural-elements/outdoor-architectural-stairs-cityscape.jpg", href: "/custom-interiors#architecture" },
   { title: "Custom Furniture Photography", image: "/images/custom/custom-furniture/art-gallery-custom-seating.jpg", href: "/custom-interiors#furniture" },
-  { title: "Material Close-Ups", image: "/images/custom/material-closeups/material-texture-detail.jpg", href: "/custom-interiors#materials" },
   { title: "Design Details", image: "/images/custom/design-details/art-gallery-blue-seating.jpg", href: "/custom-interiors#details" },
+  { title: "Material Close-Ups", image: "/images/custom/material-closeups/material-texture-detail.jpg", href: "/custom-interiors#materials" },
+  { title: "Unique Architectural Elements", image: "/images/custom/design-details/art-gallery-colorful-artwork-wall.jpg", href: "/custom-interiors#architecture" },
 ];
