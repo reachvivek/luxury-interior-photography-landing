@@ -95,10 +95,10 @@ export default function HeroCarousel() {
       )}
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 z-10 flex items-center px-20 md:px-28 lg:px-32">
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-6 md:px-16 lg:px-24">
         <div
           key={currentSlide}
-          className="max-w-3xl animate-fadeIn"
+          className="max-w-4xl w-full animate-fadeIn text-center"
         >
           {/* Category */}
           <p className="text-white text-[10px] md:text-xs font-normal tracking-[0.4em] uppercase mb-8 md:mb-10 opacity-65 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
@@ -111,7 +111,7 @@ export default function HeroCarousel() {
           </h1>
 
           {/* Description */}
-          <p className="text-white text-sm md:text-base lg:text-lg mb-8 md:mb-10 max-w-xl opacity-85 leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] font-light">
+          <p className="text-white text-sm md:text-base lg:text-lg mb-8 md:mb-10 max-w-2xl mx-auto opacity-85 leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] font-light">
             {current.description}
           </p>
 
