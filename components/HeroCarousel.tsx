@@ -106,12 +106,12 @@ export default function HeroCarousel() {
           </p>
 
           {/* Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal text-white mb-5 md:mb-7 leading-[1.1] tracking-normal drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal text-white mb-5 md:mb-7 leading-[1.05] tracking-normal drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
             {current.title}
           </h1>
 
           {/* Description */}
-          <p className="text-white text-sm md:text-base lg:text-lg mb-8 md:mb-10 max-w-2xl mx-auto opacity-85 leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] font-light">
+          <p className="text-white text-sm md:text-base lg:text-lg mb-8 md:mb-10 max-w-2xl mx-auto opacity-95 leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] font-light">
             {current.description}
           </p>
 
@@ -131,7 +131,7 @@ export default function HeroCarousel() {
         <button
           onClick={goToPrevSlide}
           disabled={isAnimating}
-          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/50 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:border-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/40 bg-black/10 backdrop-blur-sm flex items-center justify-center text-white opacity-60 hover:opacity-100 hover:bg-white/20 hover:border-white/70 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
@@ -141,7 +141,7 @@ export default function HeroCarousel() {
         <button
           onClick={goToNextSlide}
           disabled={isAnimating}
-          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/50 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:border-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/40 bg-black/10 backdrop-blur-sm flex items-center justify-center text-white opacity-60 hover:opacity-100 hover:bg-white/20 hover:border-white/70 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
