@@ -9,7 +9,7 @@ export const residentialSpaces: CategorySpace[] = [
 
 export const hospitalitySpaces: CategorySpace[] = [
   { title: "Hotel Suites", image: "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg", href: "/hospitality#suites" },
-  { title: "Restaurants", image: "/images/hospitality/restaurants/restaurant-decorative-chandelier.jpg", href: "/hospitality#restaurants" },
+  { title: "Restaurants", image: "/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg", href: "/hospitality#restaurants" },
   { title: "Event Spaces", image: "/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg", href: "/hospitality#events" },
 ];
 
@@ -21,8 +21,8 @@ export const commercialSpaces: CategorySpace[] = [
 ];
 
 export const customInteriorsSpaces: CategorySpace[] = [
+  { title: "Design Details", image: "/images/custom/design-details/luxury-chandelier-interior.jpg", href: "/custom-interiors#details" },
   { title: "Custom Furniture Photography", image: "/images/custom/custom-furniture/art-gallery-custom-seating.jpg", href: "/custom-interiors#furniture" },
-  { title: "Design Details", image: "/images/custom/design-details/art-gallery-blue-seating.jpg", href: "/custom-interiors#details" },
   { title: "Material Close-Ups", image: "/images/custom/material-closeups/material-texture-detail.jpg", href: "/custom-interiors#materials" },
   { title: "Unique Architectural Elements", image: "/images/custom/design-details/art-gallery-colorful-artwork-wall.jpg", href: "/custom-interiors#architecture" },
 ];

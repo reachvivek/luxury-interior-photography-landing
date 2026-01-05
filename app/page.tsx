@@ -102,39 +102,63 @@ export default function Home() {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 01 */}
-            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
-              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">01</div>
-              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">Proven Experience</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Years of experience photographing residential, hospitality, and commercial interiors across the UAE.
-              </p>
+            <div className="relative bg-gradient-to-br from-stone-50 to-stone-100/50 border border-stone-200/60 rounded-xl p-8 transition-all duration-500 hover:shadow-xl hover:border-amber-600/30 hover:-translate-y-1 group overflow-hidden">
+              {/* Decorative Corner Accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/5 to-transparent rounded-bl-[60px] transition-all duration-500 group-hover:from-amber-600/10"></div>
+
+              <div className="relative">
+                <div className="text-amber-600/40 text-6xl font-serif font-light mb-6 group-hover:text-amber-600/60 transition-colors duration-500">01</div>
+                <div className="h-px w-12 bg-gradient-to-r from-amber-600/40 to-transparent mb-5 group-hover:w-16 transition-all duration-500"></div>
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-3 group-hover:text-amber-900 transition-colors">Proven Experience</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  Years of experience photographing residential, hospitality, and commercial interiors across the UAE.
+                </p>
+              </div>
             </div>
 
             {/* Card 02 */}
-            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
-              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">02</div>
-              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">Transparent Payments</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                50% upfront, 50% upon delivery. No hidden fees.
-              </p>
+            <div className="relative bg-gradient-to-br from-stone-50 to-stone-100/50 border border-stone-200/60 rounded-xl p-8 transition-all duration-500 hover:shadow-xl hover:border-amber-600/30 hover:-translate-y-1 group overflow-hidden">
+              {/* Decorative Corner Accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/5 to-transparent rounded-bl-[60px] transition-all duration-500 group-hover:from-amber-600/10"></div>
+
+              <div className="relative">
+                <div className="text-amber-600/40 text-6xl font-serif font-light mb-6 group-hover:text-amber-600/60 transition-colors duration-500">02</div>
+                <div className="h-px w-12 bg-gradient-to-r from-amber-600/40 to-transparent mb-5 group-hover:w-16 transition-all duration-500"></div>
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-3 group-hover:text-amber-900 transition-colors">Transparent Payments</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  50% upfront, 50% upon delivery. No hidden fees.
+                </p>
+              </div>
             </div>
 
             {/* Card 03 */}
-            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
-              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">03</div>
-              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">First-Time Client Offer</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                First-time clients receive a 20% discount on their first project.
-              </p>
+            <div className="relative bg-gradient-to-br from-stone-50 to-stone-100/50 border border-stone-200/60 rounded-xl p-8 transition-all duration-500 hover:shadow-xl hover:border-amber-600/30 hover:-translate-y-1 group overflow-hidden">
+              {/* Decorative Corner Accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/5 to-transparent rounded-bl-[60px] transition-all duration-500 group-hover:from-amber-600/10"></div>
+
+              <div className="relative">
+                <div className="text-amber-600/40 text-6xl font-serif font-light mb-6 group-hover:text-amber-600/60 transition-colors duration-500">03</div>
+                <div className="h-px w-12 bg-gradient-to-r from-amber-600/40 to-transparent mb-5 group-hover:w-16 transition-all duration-500"></div>
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-3 group-hover:text-amber-900 transition-colors">First-Time Client Offer</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  First-time clients receive a 20% discount on their first project.
+                </p>
+              </div>
             </div>
 
             {/* Card 04 */}
-            <div className="bg-stone-50/50 border border-stone-200/60 rounded-lg p-8 transition-all duration-300 hover:shadow-md hover:border-stone-300/80 group">
-              <div className="text-stone-400 text-5xl font-serif font-light mb-6 group-hover:text-stone-500 transition-colors">04</div>
-              <h3 className="text-lg font-serif font-light text-stone-900 mb-3">Fast Turnaround</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Short lead times and efficient post-production ensure timely delivery.
-              </p>
+            <div className="relative bg-gradient-to-br from-stone-50 to-stone-100/50 border border-stone-200/60 rounded-xl p-8 transition-all duration-500 hover:shadow-xl hover:border-amber-600/30 hover:-translate-y-1 group overflow-hidden">
+              {/* Decorative Corner Accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/5 to-transparent rounded-bl-[60px] transition-all duration-500 group-hover:from-amber-600/10"></div>
+
+              <div className="relative">
+                <div className="text-amber-600/40 text-6xl font-serif font-light mb-6 group-hover:text-amber-600/60 transition-colors duration-500">04</div>
+                <div className="h-px w-12 bg-gradient-to-r from-amber-600/40 to-transparent mb-5 group-hover:w-16 transition-all duration-500"></div>
+                <h3 className="text-xl font-serif font-light text-stone-900 mb-3 group-hover:text-amber-900 transition-colors">Fast Turnaround</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  Short lead times and efficient post-production ensure timely delivery.
+                </p>
+              </div>
             </div>
           </div>
         </div>
