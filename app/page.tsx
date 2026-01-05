@@ -45,6 +45,70 @@ export default function Home() {
       {/* Hero Carousel */}
       <HeroCarousel />
 
+      {/* How It Works */}
+      <section id="services" className="py-20 md:py-32 px-6 md:px-16 bg-white">
+        <div
+          ref={howItWorksAnimation.elementRef}
+          className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
+            howItWorksAnimation.isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-12'
+          }`}
+        >
+          {/* Decorative Line */}
+          <div className="flex justify-center mb-8">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+          </div>
+
+          {/* Section Label */}
+          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-500 mb-8 text-center">
+            How We Work
+          </p>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
+            How It Works
+          </h2>
+          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+            <div className={`text-center transition-all duration-700 delay-100 ${
+              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Consultation</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Understanding Your Vision & Requirements
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                We discuss your space, brand, and specific needs to ensure every detail is captured perfectly.
+              </p>
+            </div>
+            <div className={`text-center transition-all duration-700 delay-300 ${
+              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">On-Site Shoot</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Precision Lighting & Composition
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                Professional photography session with expert lighting and angles tailored to your design.
+              </p>
+            </div>
+            <div className={`text-center transition-all duration-700 delay-500 ${
+              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Curated Delivery</h3>
+              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
+                Polished, Ready-to-Use Images
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                High-resolution files expertly edited for portfolio, marketing, and publication.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Us Section */}
       <section id="about" className="py-20 md:py-32 px-6 md:px-16 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -184,60 +248,6 @@ export default function Home() {
         onNext={() => setCustomIndex((prev) => (prev + 1) % customInteriorsSpaces.length)}
         onPrevious={() => setCustomIndex((prev) => (prev - 1 + customInteriorsSpaces.length) % customInteriorsSpaces.length)}
       />
-
-      {/* How It Works */}
-      <section id="services" className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-white">
-        <div
-          ref={howItWorksAnimation.elementRef}
-          className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
-            howItWorksAnimation.isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-12'
-          }`}
-        >
-          <h2 className="text-4xl md:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
-            How It Works
-          </h2>
-          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-            <div className={`text-center transition-all duration-700 delay-100 ${
-              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Consultation</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Understanding Your Vision & Requirements
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                We discuss your space, brand, and specific needs to ensure every detail is captured perfectly.
-              </p>
-            </div>
-            <div className={`text-center transition-all duration-700 delay-300 ${
-              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">On-Site Shoot</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Precision Lighting & Composition
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                Professional photography session with expert lighting and angles tailored to your design.
-              </p>
-            </div>
-            <div className={`text-center transition-all duration-700 delay-500 ${
-              howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Curated Delivery</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Polished, Ready-to-Use Images
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                High-resolution files expertly edited for portfolio, marketing, and publication.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Stats Section */}
       <StatsSection />
