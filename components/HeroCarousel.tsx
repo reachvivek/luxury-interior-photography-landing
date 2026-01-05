@@ -125,9 +125,9 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      {/* Navigation Arrows - Stacked Vertically on Right */}
-      <div className="absolute right-8 md:right-12 bottom-12 md:bottom-16 z-20 flex flex-col gap-3 pointer-events-none">
-        {/* Previous Arrow (Up) */}
+      {/* Navigation Arrows - On Edges at Center Vertical */}
+      <div className="absolute inset-0 z-20 flex items-center justify-between px-8 md:px-16 lg:px-20 pointer-events-none">
+        {/* Left Arrow */}
         <button
           onClick={goToPrevSlide}
           disabled={isAnimating}
@@ -137,7 +137,7 @@ export default function HeroCarousel() {
           <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
         </button>
 
-        {/* Next Arrow (Down) */}
+        {/* Right Arrow */}
         <button
           onClick={goToNextSlide}
           disabled={isAnimating}
