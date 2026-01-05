@@ -79,7 +79,7 @@ export default function Home() {
                 Understanding Your Vision & Requirements
               </p>
               <p className="text-stone-600 leading-relaxed">
-                We discuss your space, brand, and specific needs to ensure every detail is captured perfectly.
+                We discuss your space, objectives, and photography requirements to align on what needs to be captured.
               </p>
             </div>
             <div className={`text-center transition-all duration-700 delay-300 ${
@@ -88,10 +88,10 @@ export default function Home() {
               <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">On-Site Shoot</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Precision Lighting & Composition
+                Lighting & Composition
               </p>
               <p className="text-stone-600 leading-relaxed">
-                Professional photography session with expert lighting and angles tailored to your design.
+                Photography session with lighting setup and multiple angles to capture each space.
               </p>
             </div>
             <div className={`text-center transition-all duration-700 delay-500 ${
@@ -100,10 +100,10 @@ export default function Home() {
               <div className="text-stone-300 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
               <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Curated Delivery</h3>
               <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Polished, Ready-to-Use Images
+                Edited, Ready-to-Use Images
               </p>
               <p className="text-stone-600 leading-relaxed">
-                High-resolution files expertly edited for portfolio, marketing, and publication.
+                High-resolution files edited and delivered for your portfolio, website, and marketing use.
               </p>
             </div>
           </div>
