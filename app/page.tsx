@@ -28,7 +28,7 @@ export default function Home() {
       <HeroCarousel />
 
       {/* How It Works */}
-      <section id="services" className="py-20 md:py-32 px-6 md:px-16 bg-[#faf9f7]">
+      <section id="services" className="py-20 md:py-32 px-6 md:px-16 bg-gradient-to-b from-stone-50 to-white">
         <div
           ref={howItWorksAnimation.elementRef}
           className={`max-w-6xl mx-auto w-full transition-all duration-1000 ease-out ${
@@ -45,42 +45,89 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 text-center mb-16 md:mb-20">
             How It Works
           </h2>
-          <div className="grid md:grid-cols-3 gap-12 md:gap-14">
-            <div className={`text-center transition-all duration-700 delay-100 ${
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+            {/* Step 01 */}
+            <div className={`relative bg-white border-2 border-stone-200/80 rounded-2xl p-10 transition-all duration-500 hover:border-amber-600/40 hover:shadow-2xl hover:shadow-amber-600/5 group ${
               howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">01</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Consultation</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Understanding Your Requirements
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                We discuss your space, objectives, and photography requirements to align on what needs to be captured.
-              </p>
+              {/* Step Number Badge */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-600/30 group-hover:scale-110 transition-transform duration-500">
+                  <span className="text-white text-lg font-serif font-light">01</span>
+                </div>
+              </div>
+
+              {/* Vertical Accent Line */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-600/20 via-amber-600/5 to-transparent rounded-l-2xl group-hover:from-amber-600/40 transition-all duration-500"></div>
+
+              <div className="text-center pt-8">
+                <h3 className="text-2xl font-serif font-light text-stone-900 mb-3 group-hover:text-amber-900 transition-colors">Consultation</h3>
+                <div className="flex justify-center mb-5">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-600/30 to-transparent group-hover:w-24 transition-all duration-500"></div>
+                </div>
+                <p className="text-xs text-amber-700/70 font-medium tracking-wider uppercase mb-4 group-hover:text-amber-700 transition-colors">
+                  Understanding Your Requirements
+                </p>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  We discuss your space, objectives, and photography requirements to align on what needs to be captured.
+                </p>
+              </div>
             </div>
-            <div className={`text-center transition-all duration-700 delay-300 ${
+
+            {/* Step 02 */}
+            <div className={`relative bg-white border-2 border-stone-200/80 rounded-2xl p-10 transition-all duration-500 hover:border-amber-600/40 hover:shadow-2xl hover:shadow-amber-600/5 group ${
               howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">02</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">On-Site Shoot</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Lighting & Composition
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                Photography session with lighting setup and multiple angles to capture each space.
-              </p>
+            }`} style={{ transitionDelay: '200ms' }}>
+              {/* Step Number Badge */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-600/30 group-hover:scale-110 transition-transform duration-500">
+                  <span className="text-white text-lg font-serif font-light">02</span>
+                </div>
+              </div>
+
+              {/* Vertical Accent Line */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-600/20 via-amber-600/5 to-transparent rounded-l-2xl group-hover:from-amber-600/40 transition-all duration-500"></div>
+
+              <div className="text-center pt-8">
+                <h3 className="text-2xl font-serif font-light text-stone-900 mb-3 group-hover:text-amber-900 transition-colors">On-Site Shoot</h3>
+                <div className="flex justify-center mb-5">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-600/30 to-transparent group-hover:w-24 transition-all duration-500"></div>
+                </div>
+                <p className="text-xs text-amber-700/70 font-medium tracking-wider uppercase mb-4 group-hover:text-amber-700 transition-colors">
+                  Lighting & Composition
+                </p>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  Photography session with lighting setup and multiple angles to capture each space.
+                </p>
+              </div>
             </div>
-            <div className={`text-center transition-all duration-700 delay-500 ${
+
+            {/* Step 03 */}
+            <div className={`relative bg-white border-2 border-stone-200/80 rounded-2xl p-10 transition-all duration-500 hover:border-amber-600/40 hover:shadow-2xl hover:shadow-amber-600/5 group ${
               howItWorksAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              <div className="text-stone-400 text-6xl md:text-7xl font-serif font-light mb-6">03</div>
-              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2">Curated Delivery</h3>
-              <p className="text-sm text-stone-500 font-medium tracking-wide mb-4">
-                Ready-to-Use Images
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                High-resolution files edited and delivered for your portfolio, website, and marketing use.
-              </p>
+            }`} style={{ transitionDelay: '400ms' }}>
+              {/* Step Number Badge */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-600/30 group-hover:scale-110 transition-transform duration-500">
+                  <span className="text-white text-lg font-serif font-light">03</span>
+                </div>
+              </div>
+
+              {/* Vertical Accent Line */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-600/20 via-amber-600/5 to-transparent rounded-l-2xl group-hover:from-amber-600/40 transition-all duration-500"></div>
+
+              <div className="text-center pt-8">
+                <h3 className="text-2xl font-serif font-light text-stone-900 mb-3 group-hover:text-amber-900 transition-colors">Curated Delivery</h3>
+                <div className="flex justify-center mb-5">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-600/30 to-transparent group-hover:w-24 transition-all duration-500"></div>
+                </div>
+                <p className="text-xs text-amber-700/70 font-medium tracking-wider uppercase mb-4 group-hover:text-amber-700 transition-colors">
+                  Ready-to-Use Images
+                </p>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  High-resolution files edited and delivered for your portfolio, website, and marketing use.
+                </p>
+              </div>
             </div>
           </div>
         </div>
