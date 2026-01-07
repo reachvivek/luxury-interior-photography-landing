@@ -67,6 +67,7 @@ export default function HeroCarousel() {
             src={current.image}
             alt={current.title}
             fill
+            sizes="100vw"
             className="object-cover object-center"
             priority
           />
@@ -87,6 +88,7 @@ export default function HeroCarousel() {
               src={next.image}
               alt={next.title}
               fill
+              sizes="100vw"
               className="object-cover object-center"
               priority
             />
