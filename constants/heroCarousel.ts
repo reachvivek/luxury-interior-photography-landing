@@ -41,7 +41,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     category: "CUSTOM INTERIORS",
     title: "Architectural Artistry",
     description: "Highlight architectural elements and design details that make spaces unique",
-    image: "/images/custom/architectural-elements/flame-towers-night-illuminated.jpg",
+    image: "/images/custom/design-details/luxury-chandelier-interior.jpg",
     ctaText: "View Portfolio",
     ctaLink: "/custom-interiors",
   },

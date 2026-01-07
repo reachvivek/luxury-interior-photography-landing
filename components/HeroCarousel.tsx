@@ -125,26 +125,26 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      {/* Navigation Arrows - On Edges at Center Vertical */}
-      <div className="absolute inset-0 z-20 flex items-center justify-between px-8 md:px-16 lg:px-20 pointer-events-none">
+      {/* Navigation Arrows - Bottom on Mobile, Sides on Desktop */}
+      <div className="absolute inset-x-0 bottom-8 md:inset-0 z-20 flex items-end md:items-center justify-center md:justify-between gap-4 md:gap-0 md:px-8 lg:px-12 pointer-events-none">
         {/* Left Arrow */}
         <button
           onClick={goToPrevSlide}
           disabled={isAnimating}
-          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/40 bg-black/10 backdrop-blur-sm flex items-center justify-center text-white opacity-60 hover:opacity-100 hover:bg-white/20 hover:border-white/70 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="pointer-events-auto w-11 h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full border border-white/50 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/25 hover:border-white/80 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
         </button>
 
         {/* Right Arrow */}
         <button
           onClick={goToNextSlide}
           disabled={isAnimating}
-          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/40 bg-black/10 backdrop-blur-sm flex items-center justify-center text-white opacity-60 hover:opacity-100 hover:bg-white/20 hover:border-white/70 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="pointer-events-auto w-11 h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full border border-white/50 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/25 hover:border-white/80 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
         </button>
       </div>
 

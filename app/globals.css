@@ -194,3 +194,57 @@
     opacity: 1;
   }
 }
+
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-rtl {
+  animation: scroll-rtl 20s linear infinite;
+}
+
+.animate-scroll-rtl:hover {
+  animation-play-state: paused;
+}
+
+/* Gallery horizontal scroll animations tied to page scroll */
+@keyframes gallery-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-400%);
+  }
+}
+
+.animate-scroll-left {
+  animation: gallery-scroll linear;
+  animation-timeline: scroll(root);
+  animation-range: 0% 100%;
+}
+
+.animate-scroll-right {
+  animation: gallery-scroll linear;
+  animation-timeline: scroll(root);
+  animation-direction: reverse;
+  animation-range: 0% 100%;
+}
+
+.animate-scroll-left:hover,
+.animate-scroll-right:hover {
+  animation-play-state: paused;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
