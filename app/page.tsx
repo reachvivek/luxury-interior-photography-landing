@@ -626,9 +626,9 @@ export default function Home() {
         </div>
 
         {/* Scrolling Gallery - Row 1 */}
-        <div className="relative mb-4 md:mb-6">
-          <div className="flex items-end gap-4 md:gap-6 overflow-x-auto scrollbar-hide">
-            {galleryRow1Images.map((src, index) => {
+        <div className="relative mb-4 md:mb-6 overflow-hidden">
+          <div className="flex items-end gap-4 md:gap-6 animate-scroll-left">
+            {[...galleryRow1Images, ...galleryRow1Images, ...galleryRow1Images].map((src, index) => {
               // Alternating pattern: big, small landscape (all 16:9)
               const isBig = index % 2 === 0;
               const sizeClasses = isBig
@@ -655,9 +655,9 @@ export default function Home() {
         </div>
 
         {/* Scrolling Gallery - Row 2 */}
-        <div className="relative">
-          <div className="flex items-start gap-4 md:gap-6 overflow-x-auto scrollbar-hide">
-            {galleryRow2Images.map((src, index) => {
+        <div className="relative overflow-hidden">
+          <div className="flex items-start gap-4 md:gap-6 animate-scroll-right">
+            {[...galleryRow2Images, ...galleryRow2Images, ...galleryRow2Images].map((src, index) => {
               // Offset pattern for row 2: start with small, then big (all 16:9)
               const isBig = index % 2 === 1;
               const sizeClasses = isBig
