@@ -1,166 +1,205 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const categories = {
-  villas: [
-    "/images/_DSC4745.jpg",
-    "/images/_DSC4761.jpg",
-    "/images/_DSC4762.jpg",
-    "/images/_DSC4763.jpg",
-    "/images/_DSC4764.jpg",
-    "/images/_DSC4765.jpg",
-  ],
-  apartments: [
-    "/images/_DSC4757.jpg",
-    "/images/_DSC4766.jpg",
-    "/images/_DSC4767.jpg",
-    "/images/_DSC4821.jpg",
-    "/images/_DSC4834.jpg",
-    "/images/_DSC4845.jpg",
-  ],
-  penthouses: [
-    "/images/_DSC4758.jpg",
-    "/images/_DSC4925.JPG",
-    "/images/_DSC4936.JPG",
-    "/images/_DSC4937.JPG",
-    "/images/_DSC4940.JPG",
-  ],
-  offices: [
-    "/images/_DSC4759.jpg",
-    "/images/_DSC5807_1.jpg",
-  ],
-};
-
-const tabs = [
-  { id: "villas", label: "Luxury Villas" },
-  { id: "apartments", label: "Apartments" },
-  { id: "penthouses", label: "Penthouses" },
-  { id: "offices", label: "Home Offices" },
+// Portfolio categories
+const portfolioCategories = [
+  {
+    id: "villas",
+    title: "Luxury Villas",
+    description: "Spacious estates and contemporary villas showcasing refined living",
+    images: [
+      "/images/residential/villas/luxury-villa-with-porsche.jpg",
+      "/images/residential/villas/luxury-stone-villa-exterior.jpg",
+      "/images/residential/villas/stone-villa-entrance-car.jpg",
+    ]
+  },
+  {
+    id: "penthouses",
+    title: "Penthouses",
+    description: "Sophisticated penthouses with panoramic views and modern design",
+    images: [
+      "/images/residential/penthouses/penthouse-interior-1.jpg",
+      "/images/residential/penthouses/penthouse-interior-2.jpg",
+      "/images/residential/penthouses/penthouse-interior-3.jpg",
+      "/images/residential/penthouses/penthouse-interior-4.jpg",
+    ]
+  },
+  {
+    id: "apartments",
+    title: "Modern Apartments",
+    description: "Contemporary living spaces designed for urban sophistication",
+    images: [
+      "/images/residential/apartments/modern-apartment-building-exterior.jpg",
+    ]
+  }
 ];
 
 export default function ResidentialPage() {
-  const [activeTab, setActiveTab] = useState<keyof typeof categories>("villas");
-  const [featuredIndex, setFeaturedIndex] = useState(0);
-
-  // Auto-rotate featured image
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setFeaturedIndex((prev) => (prev + 1) % categories[activeTab].length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [activeTab]);
-
-  // Reset featured index when category changes
-  useEffect(() => {
-    setFeaturedIndex(0);
-  }, [activeTab]);
-
-  const handlePrevious = () => {
-    setFeaturedIndex((prev) => (prev - 1 + categories[activeTab].length) % categories[activeTab].length);
-  };
-
-  const handleNext = () => {
-    setFeaturedIndex((prev) => (prev + 1) % categories[activeTab].length);
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 md:px-16 bg-[#EBE6E5]">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-stone-900 mb-6">
-            Residential Spaces
-          </h1>
-          <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Luxury villas, penthouses, and apartments captured with precision and artistry.
-          </p>
-        </div>
-      </section>
-
-      
-
-      {/* Featured Image Carousel - Full Width 100vh */}
-      <section className="relative w-full h-screen">
+      {/* Hero Section - Full Height */}
+      <section className="relative h-screen w-full">
         <Image
-          src={categories[activeTab][featuredIndex]}
-          alt={`${tabs.find(t => t.id === activeTab)?.label} Featured ${featuredIndex + 1}`}
+          src="/images/residential/penthouses/penthouse-interior-1.jpg"
+          alt="Luxury Residential Interior"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={handlePrevious}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/80 hover:bg-white rounded-full transition-all"
-          aria-label="Previous image"
-        >
-          <ChevronLeft className="w-6 h-6 text-stone-900" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/80 hover:bg-white rounded-full transition-all"
-          aria-label="Next image"
-        >
-          <ChevronRight className="w-6 h-6 text-stone-900" />
-        </button>
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
 
-        {/* Image Counter */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 px-4 py-2 bg-black/50 text-white rounded-full text-sm">
-          {featuredIndex + 1} / {categories[activeTab].length}
+        {/* Hero Content */}
+        <div className="absolute inset-0 flex items-center justify-center px-6 md:px-16">
+          <div className="max-w-4xl w-full text-center">
+            <p className="text-white text-xs md:text-sm tracking-[0.4em] uppercase mb-6 md:mb-8 opacity-90">
+              Residential Photography
+            </p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light text-white mb-6 md:mb-8 leading-tight">
+              Luxury Living Spaces
+            </h1>
+            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed font-light">
+              Professional photography for villas, penthouses, and apartments that showcase architectural excellence and refined living.
+            </p>
+            <Link
+              href="#portfolio"
+              className="inline-block px-10 py-4 bg-transparent border border-white/70 text-white hover:bg-white hover:text-stone-900 transition-all duration-300 text-sm tracking-widest uppercase rounded-full"
+            >
+              View Portfolio
+            </Link>
+          </div>
         </div>
-      </section>
 
-      {/* Category Filters */}
-      <section className="py-12 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as keyof typeof categories)}
-                className={`px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all ${
-                  activeTab === tab.id
-                    ? "border-2 border-[#EBE6E5] bg-[#EBE6E5] text-stone-900"
-                    : "border-2 border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-900"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-2 bg-white/70 rounded-full" />
           </div>
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="py-20 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-serif font-light text-stone-900 mb-12 text-center">
-            {tabs.find(t => t.id === activeTab)?.label}
+      {/* About Section */}
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-gradient-to-b from-white to-stone-50">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Decorative Line */}
+          <div className="flex justify-center mb-6 md:mb-8">
+            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
+          </div>
+
+          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-400 mb-6">
+            Our Approach
+          </p>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 mb-6 md:mb-8">
+            Capturing the Essence of Home
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories[activeTab].map((image, index) => (
-              <div
-                key={index}
-                className="relative aspect-[4/3] rounded-lg overflow-hidden group cursor-pointer"
-                onClick={() => setFeaturedIndex(index)}
-              >
-                <Image
-                  src={image}
-                  alt={`${tabs.find(t => t.id === activeTab)?.label} ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-3xl mx-auto">
+            Every residential space tells a story. We specialize in photographing luxury villas, contemporary penthouses, and refined apartments across the UAE, creating imagery that highlights architectural detail, natural light, and the unique character of each property.
+          </p>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-16 md:py-24 px-6 md:px-16 bg-stone-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <div className="flex justify-center mb-6 md:mb-8">
+              <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
+            </div>
+            <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-400 mb-4">
+              Portfolio
+            </p>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900">
+              Featured Projects
+            </h2>
+          </div>
+
+          {/* Portfolio Categories */}
+          <div className="space-y-20 md:space-y-32">
+            {portfolioCategories.map((category, categoryIndex) => (
+              <div key={category.id} className="w-full">
+                {/* Category Header */}
+                <div className="mb-8 md:mb-12">
+                  <h3 className="text-xl md:text-3xl font-serif font-light text-stone-900 mb-3">
+                    {category.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-stone-600">
+                    {category.description}
+                  </p>
+                </div>
+
+                {/* Image Grid - Alternating Layouts */}
+                {categoryIndex % 2 === 0 ? (
+                  // Layout 1: Large left, 2 stacked right
+                  <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+                    {category.images[0] && (
+                      <div className="relative aspect-[4/3] md:aspect-[3/4] rounded-lg overflow-hidden group">
+                        <Image
+                          src={category.images[0]}
+                          alt={`${category.title} 1`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                    )}
+                    <div className="grid grid-rows-2 gap-4 md:gap-6">
+                      {category.images.slice(1, 3).map((image, idx) => (
+                        <div key={idx} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                          <Image
+                            src={image}
+                            alt={`${category.title} ${idx + 2}`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  // Layout 2: 3-column grid
+                  <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+                    {category.images.slice(0, 3).map((image, idx) => (
+                      <div key={idx} className="relative aspect-[4/5] rounded-lg overflow-hidden group">
+                        <Image
+                          src={image}
+                          alt={`${category.title} ${idx + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Show remaining images in a row if more than 3 */}
+                {category.images.length > 3 && (
+                  <div className="grid md:grid-cols-4 gap-4 md:gap-6 mt-4 md:mt-6">
+                    {category.images.slice(3).map((image, idx) => (
+                      <div key={idx} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                        <Image
+                          src={image}
+                          alt={`${category.title} ${idx + 4}`}
+                          fill
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -168,17 +207,26 @@ export default function ResidentialPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 md:px-16 bg-stone-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-serif font-light text-white mb-6">
+      <section className="relative min-h-[60vh] flex items-center justify-center px-6 md:px-16">
+        <Image
+          src="/images/residential/villas/luxury-villa-with-porsche.jpg"
+          alt="Contact Background"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-white mb-6 md:mb-8">
             Ready to showcase your property?
           </h2>
-          <p className="text-xl text-stone-300 mb-10">
-            Let's create stunning visuals that capture the unique character of your space.
+          <p className="text-base md:text-lg text-stone-200 mb-8 md:mb-10 max-w-2xl mx-auto">
+            Let's create stunning visuals that capture the unique character and luxury of your residential space.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 bg-white text-stone-900 hover:bg-stone-100 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-full"
+            className="inline-block px-10 py-4 bg-white text-stone-900 hover:bg-stone-100 hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-full"
           >
             Book a Shoot
           </Link>
