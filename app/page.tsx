@@ -140,16 +140,18 @@ export default function Home() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-20 md:pb-5 md:px-6">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
                   <div className="flex items-end justify-between gap-4">
                     {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1">
+                    <div className="flex-1 min-h-0">
                       <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
                         Residential Photography
                       </h3>
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:opacity-0 md:max-h-0 md:mt-0 md:group-hover:opacity-100 md:group-hover:max-h-20 md:group-hover:mt-2 transition-all duration-500 overflow-hidden">
-                        Luxury villas, apartments, and penthouses captured with elegance
-                      </p>
+                      <div className="md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
+                        <p className="text-sm text-white/80 leading-relaxed mt-2">
+                          Luxury villas, apartments, and penthouses captured with elegance
+                        </p>
+                      </div>
                     </div>
 
                     {/* Right Column - Explore Button */}
@@ -178,16 +180,18 @@ export default function Home() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-20 md:pb-5 md:px-6">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
                   <div className="flex items-end justify-between gap-4">
                     {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1">
+                    <div className="flex-1 min-h-0">
                       <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
                         Hotels Photography
                       </h3>
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:opacity-0 md:max-h-0 md:mt-0 md:group-hover:opacity-100 md:group-hover:max-h-20 md:group-hover:mt-2 transition-all duration-500 overflow-hidden">
-                        Hotel suites, restaurants, and hospitality spaces with refined detail
-                      </p>
+                      <div className="md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
+                        <p className="text-sm text-white/80 leading-relaxed mt-2">
+                          Hotel suites, restaurants, and hospitality spaces with refined detail
+                        </p>
+                      </div>
                     </div>
 
                     {/* Right Column - Explore Button */}
@@ -216,16 +220,18 @@ export default function Home() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-20 md:pb-5 md:px-6">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
                   <div className="flex items-end justify-between gap-4">
                     {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1">
+                    <div className="flex-1 min-h-0">
                       <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
                         Commercial Photography
                       </h3>
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:opacity-0 md:max-h-0 md:mt-0 md:group-hover:opacity-100 md:group-hover:max-h-20 md:group-hover:mt-2 transition-all duration-500 overflow-hidden">
-                        Office spaces, retail stores, and showrooms with professional precision
-                      </p>
+                      <div className="md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
+                        <p className="text-sm text-white/80 leading-relaxed mt-2">
+                          Office spaces, retail stores, and showrooms with professional precision
+                        </p>
+                      </div>
                     </div>
 
                     {/* Right Column - Explore Button */}
@@ -254,16 +260,18 @@ export default function Home() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-20 md:pb-5 md:px-6">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
                   <div className="flex items-end justify-between gap-4">
                     {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1">
+                    <div className="flex-1 min-h-0">
                       <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
                         Custom Interior Photography
                       </h3>
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:opacity-0 md:max-h-0 md:mt-0 md:group-hover:opacity-100 md:group-hover:max-h-20 md:group-hover:mt-2 transition-all duration-500 overflow-hidden">
-                        Architectural elements, furniture, and design details beautifully composed
-                      </p>
+                      <div className="md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
+                        <p className="text-sm text-white/80 leading-relaxed mt-2">
+                          Architectural elements, furniture, and design details beautifully composed
+                        </p>
+                      </div>
                     </div>
 
                     {/* Right Column - Explore Button */}
@@ -589,7 +597,7 @@ export default function Home() {
           {/* Subtle CTA */}
           <div className="flex justify-center mt-12 md:mt-16">
             <Link
-              href="/journal"
+              href="/blog"
               className="group inline-flex items-center gap-2 text-sm tracking-wide text-stone-700 hover:text-stone-900 transition-colors duration-300"
             >
               <span>Explore the Journal</span>

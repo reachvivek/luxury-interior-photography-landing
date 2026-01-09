@@ -1,10 +1,24 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+
+// Gallery images with categories
+const galleryImages = [
+  { src: "/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg", category: "Restaurants" },
+  { src: "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg", category: "Hotels" },
+  { src: "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg", category: "Hotels" },
+  { src: "/images/hospitality/restaurants/restaurant-decorative-chandelier.jpg", category: "Restaurants" },
+  { src: "/images/hospitality/restaurants/restaurant-dining-gallery.jpg", category: "Restaurants" },
+  { src: "/images/hospitality/restaurants/salt-restaurant-outdoor-terrace-1.jpg", category: "Restaurants" },
+  { src: "/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg", category: "Event Spaces" },
+  { src: "/images/hospitality/event-spaces/lake-resort-panoramic-view-1.jpg", category: "Event Spaces" },
+  { src: "/images/hospitality/event-spaces/cityscape-sunset-view.jpg", category: "Event Spaces" },
+];
 
 // Portfolio categories
 const portfolioCategories = [
@@ -41,71 +55,103 @@ const portfolioCategories = [
 ];
 
 export default function HospitalityPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-rotate images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentImage = galleryImages[currentImageIndex];
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section - Full Height */}
-      <section className="relative h-screen w-full">
+      {/* Hero Section - Full Height Image */}
+      <section className="relative w-full h-screen">
         <Image
-          src="/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg"
-          alt="Luxury Hospitality Interior"
+          src={currentImage.src}
+          alt={`Hospitality ${currentImage.category}`}
           fill
           sizes="100vw"
           className="object-cover"
           priority
         />
+        {/* Subtle Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10" />
 
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex items-center justify-center px-6 md:px-16">
-          <div className="max-w-4xl w-full text-center">
-            <p className="text-white text-xs md:text-sm tracking-[0.4em] uppercase mb-6 md:mb-8 opacity-90">
-              Hospitality Photography
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light text-white mb-6 md:mb-8 leading-tight">
-              Elevating Guest Experiences
-            </h1>
-            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed font-light">
-              Professional photography for hotels, restaurants, and event spaces that attract guests and create lasting impressions.
-            </p>
-            <Link
-              href="#portfolio"
-              className="inline-block px-10 py-4 bg-transparent border border-white/70 text-white hover:bg-white hover:text-stone-900 transition-all duration-300 text-sm tracking-widest uppercase rounded-full"
-            >
-              View Portfolio
-            </Link>
+        {/* Bottom Labels */}
+        <div className="absolute inset-x-0 bottom-0 z-20 px-6 md:px-16 py-6 md:py-8">
+          {/* Left: Main Category and Sub-category */}
+          <div className="text-white">
+            <p className="text-xs md:text-sm tracking-[0.3em] uppercase opacity-80 mb-1">Hospitality Photography</p>
+            <p className="text-sm md:text-base font-light">{currentImage.category}</p>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-white/70 rounded-full" />
-          </div>
+        {/* Navigation Arrows - Bottom Right */}
+        <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-20 flex items-center gap-3">
+          {/* Previous Button */}
+          <button
+            onClick={() => setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
+            className="group w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/40 hover:border-white/80 backdrop-blur-sm bg-black/20 hover:bg-black/40 transition-all duration-300 flex items-center justify-center"
+            aria-label="Previous image"
+          >
+            <svg
+              className="w-4 h-4 md:w-5 md:h-5 text-white/80 group-hover:text-white transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={() => setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length)}
+            className="group w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/40 hover:border-white/80 backdrop-blur-sm bg-black/20 hover:bg-black/40 transition-all duration-300 flex items-center justify-center"
+            aria-label="Next image"
+          >
+            <svg
+              className="w-4 h-4 md:w-5 md:h-5 text-white/80 group-hover:text-white transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-16 md:py-24 px-6 md:px-16 bg-gradient-to-b from-white to-stone-50">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Decorative Line */}
-          <div className="flex justify-center mb-6 md:mb-8">
-            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
-          </div>
-
-          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-400 mb-6">
-            Our Approach
-          </p>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 mb-6 md:mb-8">
-            Capturing Hospitality Excellence
-          </h2>
-          <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-3xl mx-auto">
-            From five-star hotels to intimate dining spaces, we create imagery that showcases the atmosphere, service quality, and unique character of hospitality venues. Our photography helps attract guests and elevate brand presence across the UAE.
-          </p>
+      {/* Thumbnail Navigation */}
+      <section className="relative bg-black px-6 md:px-16 py-10 md:py-12">
+        <div className="flex gap-4 md:gap-5 overflow-x-auto scrollbar-hide justify-center py-2 px-2">
+          {galleryImages.map((image, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-300 ${
+                currentImageIndex === index
+                  ? 'ring-2 ring-white scale-105'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
+            >
+              <Image
+                src={image.src}
+                alt={`${image.category} thumbnail`}
+                fill
+                sizes="100px"
+                className="object-cover"
+              />
+            </button>
+          ))}
         </div>
       </section>
 
@@ -134,9 +180,28 @@ export default function HospitalityPage() {
                   <h3 className="text-xl md:text-3xl font-serif font-light text-stone-900 mb-3">
                     {category.title}
                   </h3>
-                  <p className="text-sm md:text-base text-stone-600">
+                  <p className="text-sm md:text-base text-stone-600 mb-6">
                     {category.description}
                   </p>
+
+                  {/* WhatsApp Book Now Button */}
+                  <div className="flex justify-center">
+                    <a
+                      href={`https://wa.me/971502060674?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session%20for%20${encodeURIComponent(category.title)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-2.5 border border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 hover:shadow-md transition-all duration-300 text-sm font-medium tracking-wide rounded-full group"
+                    >
+                      <svg
+                        className="w-4 h-4 group-hover:scale-110 transition-transform duration-300"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                      Book Now
+                    </a>
+                  </div>
                 </div>
 
                 {/* Image Grid - Alternating Layouts */}

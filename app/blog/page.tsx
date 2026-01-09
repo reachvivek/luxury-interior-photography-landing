@@ -36,15 +36,9 @@ export default function BlogPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light text-white mb-6 md:mb-8 leading-tight">
               Insights & Perspectives
             </h1>
-            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed font-light">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light">
               Thoughts on photography, design, and the art of capturing exceptional spaces.
             </p>
-            <Link
-              href="#articles"
-              className="inline-block px-10 py-4 bg-transparent border border-white/70 text-white hover:bg-white hover:text-stone-900 transition-all duration-300 text-sm tracking-widest uppercase rounded-full"
-            >
-              Read Articles
-            </Link>
           </div>
         </div>
 
