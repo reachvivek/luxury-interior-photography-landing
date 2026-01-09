@@ -1,3 +1,13 @@
+export interface Comment {
+  id: string;
+  author: string;
+  role?: string;
+  avatar?: string;
+  content: string;
+  date: string;
+  likes: number;
+}
+
 export interface JournalPost {
   id: string;
   title: string;
@@ -16,6 +26,11 @@ export interface JournalPost {
   };
   readTime?: string;
   author?: string;
+  engagement?: {
+    views: number;
+    likes: number;
+    comments: Comment[];
+  };
 }
 
 export const journalPosts: JournalPost[] = [
@@ -55,6 +70,36 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'Mastering light in interior photography is an ongoing practice. Each space presents unique challenges and opportunities. By treating light as a language—understanding its grammar and learning to speak it fluently—we can reveal the true character and quality of architectural spaces.'
+    },
+    engagement: {
+      views: 2847,
+      likes: 156,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Sarah Mitchell',
+          role: 'Interior Designer',
+          content: 'This is exactly what I needed to understand for my next project collaboration with photographers. The section on layering artificial light really opened my eyes to why some shoots work better than others.',
+          date: 'Jan 8, 2026',
+          likes: 12
+        },
+        {
+          id: 'c2',
+          author: 'Marcus Chen',
+          role: 'Architecture Student',
+          content: 'Brilliant breakdown of the technical aspects. I\'ve been struggling with getting depth in my shots and this really helps explain the contrast ratios.',
+          date: 'Jan 7, 2026',
+          likes: 8
+        },
+        {
+          id: 'c3',
+          author: 'Elena Rodriguez',
+          role: 'Property Developer',
+          content: 'Working with Tsurov has completely changed how we present our properties. This article gives great insight into their process.',
+          date: 'Jan 6, 2026',
+          likes: 15
+        }
+      ]
     }
   },
   {
@@ -93,6 +138,28 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'Material photography is about respect—for the designer\'s vision, the craftsperson\'s skill, and the material\'s inherent qualities. By capturing textures with honesty and precision, we create images that communicate not just the appearance of a space, but its physical presence and tactile reality.'
+    },
+    engagement: {
+      views: 1923,
+      likes: 98,
+      comments: [
+        {
+          id: 'c1',
+          author: 'David Thompson',
+          role: 'Architect',
+          content: 'Your attention to material textures is outstanding. This post perfectly captures why we always request Tsurov for our project documentation.',
+          date: 'Dec 28, 2025',
+          likes: 9
+        },
+        {
+          id: 'c2',
+          author: 'Laila Ahmed',
+          role: 'Materials Consultant',
+          content: 'The raking light technique you mentioned is a game-changer. I\'ve shared this with my entire team.',
+          date: 'Dec 27, 2025',
+          likes: 11
+        }
+      ]
     }
   },
   {
@@ -133,6 +200,36 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'The preparation phase often takes longer than the actual photography. But this investment is essential. A well-prepared space allows us to focus on capturing its best angles and qualities rather than managing distractions. The result is photography that honors the design, satisfies the client, and effectively communicates the space\'s character and quality.'
+    },
+    engagement: {
+      views: 3245,
+      likes: 172,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Rachel Anderson',
+          role: 'Property Stylist',
+          content: 'This is such valuable insight into the preparation process! I always emphasize to clients that styling isn\'t just about making things pretty, it\'s about creating the right narrative. Your technical preparation checklist is spot on.',
+          date: 'Nov 24, 2025',
+          likes: 14
+        },
+        {
+          id: 'c2',
+          author: 'Omar Hassan',
+          role: 'Real Estate Developer',
+          content: 'The walkthrough process you describe is exactly why we always schedule pre-shoot meetings. The difference in results when photographers take this preparation seriously is remarkable.',
+          date: 'Nov 22, 2025',
+          likes: 9
+        },
+        {
+          id: 'c3',
+          author: 'Jennifer Cole',
+          role: 'Interior Designer',
+          content: 'The section on furniture arrangement resonates so much. Those small adjustments make all the difference. I\'ve learned to arrive early on shoot days just to fine-tune these details.',
+          date: 'Nov 21, 2025',
+          likes: 11
+        }
+      ]
     }
   },
   {
@@ -173,6 +270,44 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'Stillness is not the absence of work but a different kind of work. It is the practice of receptivity, of allowing a space to reveal itself rather than imposing my ideas upon it. The photographs that result from this approach carry a quality that technique alone cannot achieve. They feel inhabited, authentic, true. They show not just what a space looks like, but what it feels like to be there.'
+    },
+    engagement: {
+      views: 2156,
+      likes: 143,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Thomas Wright',
+          role: 'Photographer',
+          content: 'This article touched something deep in me. I\'ve been chasing efficiency and productivity for years, but your words about stillness have made me reconsider my entire approach. Thank you for this.',
+          date: 'Oct 29, 2025',
+          likes: 18
+        },
+        {
+          id: 'c2',
+          author: 'Sophia Dimitriou',
+          role: 'Architect',
+          content: 'Beautiful reflection on presence and observation. This is exactly what I try to teach my students about understanding space before designing it.',
+          date: 'Oct 27, 2025',
+          likes: 13
+        },
+        {
+          id: 'c3',
+          author: 'James Liu',
+          role: 'Hotel Manager',
+          content: 'The concept of architecture having memory really resonates. Our spaces do accumulate experience, and the best photographers capture that intangible quality.',
+          date: 'Oct 26, 2025',
+          likes: 10
+        },
+        {
+          id: 'c4',
+          author: 'Nina Patel',
+          role: 'Design Consultant',
+          content: 'This is why your work stands out. There\'s an emotional depth that goes beyond technical excellence. This article explains what I\'ve always sensed in your photographs.',
+          date: 'Oct 25, 2025',
+          likes: 16
+        }
+      ]
     }
   },
   {
@@ -212,6 +347,36 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'Photographing empty spaces is not about sterility or coldness. It is about clarity and respect. Clarity about what the photograph aims to communicate. Respect for the space as the primary subject, and respect for viewers, allowing them room to bring their own interpretation and imagination to what they see.'
+    },
+    engagement: {
+      views: 2891,
+      likes: 167,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Michael Brennan',
+          role: 'Marketing Director',
+          content: 'This completely changed my perspective on our hotel photography. I always pushed for people in shots, but your explanation about invitation through absence makes perfect sense.',
+          date: 'Sep 19, 2025',
+          likes: 15
+        },
+        {
+          id: 'c2',
+          author: 'Fatima Al-Rashid',
+          role: 'Interior Designer',
+          content: 'Yes! I\'ve tried explaining this philosophy to clients for years. Your article articulates it perfectly. Sending this to everyone I work with.',
+          date: 'Sep 18, 2025',
+          likes: 12
+        },
+        {
+          id: 'c3',
+          author: 'Alex Foster',
+          role: 'Real Estate Agent',
+          content: 'The distinction between documentary and portrait photography of spaces is brilliant. This helps me understand why certain listings perform better than others.',
+          date: 'Sep 16, 2025',
+          likes: 8
+        }
+      ]
     }
   },
   {
@@ -251,6 +416,36 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'Color temperature is one of the most powerful yet least discussed tools in architectural photography. It shapes perception, creates mood, and influences memory. Learning to see and control it deliberately rather than leaving it to chance has been one of the most significant evolutions in my work. Every space has its optimal color temperature, the one that best expresses its character and purpose. Finding that temperature is part of the craft.'
+    },
+    engagement: {
+      views: 1847,
+      likes: 124,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Daniel Kowalski',
+          role: 'Lighting Designer',
+          content: 'Finally, someone talking about color temperature with the nuance it deserves! The section on memory bias toward warmth is fascinating and completely accurate in my experience.',
+          date: 'Aug 22, 2025',
+          likes: 17
+        },
+        {
+          id: 'c2',
+          author: 'Yasmin Ibrahim',
+          role: 'Photographer',
+          content: 'The mixed lighting challenge is my biggest struggle. Your three approaches are really helpful. I\'ve been relying too heavily on post-production and need to think more about timing and gels.',
+          date: 'Aug 21, 2025',
+          likes: 9
+        },
+        {
+          id: 'c3',
+          author: 'Robert Fitzgerald',
+          role: 'Hospitality Designer',
+          content: 'This is exactly why we specify every light fixture\'s color temperature in our designs. The emotional impact is huge, and your photography always captures that intention perfectly.',
+          date: 'Aug 19, 2025',
+          likes: 12
+        }
+      ]
     }
   },
   {
@@ -292,6 +487,44 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'Professional photography is only partly about cameras and light. It is equally about understanding people, reading situations, and recognizing unspoken needs. The technical craft gets you in the door. The ability to see what clients truly need, even when they cannot articulate it themselves, is what builds a sustainable practice. Every project is ultimately about human needs, aspirations, and anxieties. The photography is simply the medium through which we address them.'
+    },
+    engagement: {
+      views: 2634,
+      likes: 178,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Catherine Reynolds',
+          role: 'Brand Consultant',
+          content: 'This is essential reading for anyone in client services. The architecture of conversation section is pure gold. Understanding unspoken needs is what separates good professionals from exceptional ones.',
+          date: 'Jul 15, 2025',
+          likes: 16
+        },
+        {
+          id: 'c2',
+          author: 'Ahmed Malik',
+          role: 'Property Developer',
+          content: 'As someone who has been on the client side many times, this is incredibly insightful. You\'re absolutely right about the fear behind requests. The best vendors have always been the ones who understood what we needed beyond the brief.',
+          date: 'Jul 14, 2025',
+          likes: 14
+        },
+        {
+          id: 'c3',
+          author: 'Isabella Santos',
+          role: 'Photographer',
+          content: 'This changed how I approach client meetings. I\'ve started asking the deeper questions you mention and the quality of my work has improved because I truly understand what I\'m trying to achieve.',
+          date: 'Jul 12, 2025',
+          likes: 11
+        },
+        {
+          id: 'c4',
+          author: 'Paul Anderson',
+          role: 'Architect',
+          content: 'Your point about delivering unplanned images that serve the client is spot on. The best collaborations happen when everyone brings their expertise to exceed expectations.',
+          date: 'Jul 11, 2025',
+          likes: 10
+        }
+      ]
     }
   },
   {
@@ -333,6 +566,36 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'Perfection in photography is like salt in cooking. Essential but dangerous in excess. The goal is not to abandon technical excellence but to deploy it in service of truth rather than as an end in itself. The best architectural photographs are not flawless. They are true. They show spaces as they deserve to be seen, with both their designed perfection and their lived reality intact. This balance is what I continue to pursue, knowing it is a moving target that shifts with every project and every space.'
+    },
+    engagement: {
+      views: 1623,
+      likes: 89,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Hannah Levine',
+          role: 'Interior Designer',
+          content: 'This article gave me goosebumps. I\'ve been pushing back against overly styled, perfect imagery in my projects but struggled to articulate why. You\'ve captured it beautifully.',
+          date: 'Jun 26, 2025',
+          likes: 13
+        },
+        {
+          id: 'c2',
+          author: 'Marco Esposito',
+          role: 'Architect',
+          content: 'The wabi-sabi influence really shows in your work. That balance between precision and authenticity is exactly what we aim for in our designs, and you capture it perfectly.',
+          date: 'Jun 24, 2025',
+          likes: 10
+        },
+        {
+          id: 'c3',
+          author: 'Grace Kim',
+          role: 'Photography Student',
+          content: 'Thank you for this. I\'ve been torturing myself trying to make everything flawless. Understanding selective perfection changes everything about my approach.',
+          date: 'Jun 23, 2025',
+          likes: 7
+        }
+      ]
     }
   },
   {
@@ -382,6 +645,44 @@ export const journalPosts: JournalPost[] = [
         }
       ],
       conclusion: 'After years of working in Dubai, I have come to see its challenging light as a gift rather than an obstacle. It has taught me patience, precision, and the ability to see possibilities in difficult conditions. The brilliant intensity that initially seemed like a technical problem has become a signature element of the work. Every location teaches you something if you pay attention long enough. Dubai has taught me to work with power and intensity, to find subtlety within extremes, and to respect the profound influence of light on how we perceive and experience architectural spaces.'
+    },
+    engagement: {
+      views: 3187,
+      likes: 165,
+      comments: [
+        {
+          id: 'c1',
+          author: 'Khalid Al-Mansoori',
+          role: 'Architect',
+          content: 'As a Dubai-based architect, this resonates deeply. The unique quality of our light is something we design for constantly, and your photography always captures it authentically.',
+          date: 'May 28, 2025',
+          likes: 15
+        },
+        {
+          id: 'c2',
+          author: 'Emma Richardson',
+          role: 'Photographer',
+          content: 'I just relocated to Dubai and have been struggling with the extreme light conditions. This article is incredibly helpful for understanding how to work with rather than against the environment.',
+          date: 'May 26, 2025',
+          likes: 11
+        },
+        {
+          id: 'c3',
+          author: 'Ravi Shankar',
+          role: 'Property Developer',
+          content: 'The section on golden hour being compressed near the equator explains so much about timing shoots here. Your technical understanding combined with artistic vision is unmatched.',
+          date: 'May 24, 2025',
+          likes: 9
+        },
+        {
+          id: 'c4',
+          author: 'Nadia Farah',
+          role: 'Hotel Marketing Manager',
+          content: 'Your ability to capture the warmth and atmosphere of Dubai light while managing the technical challenges is why our properties always look their best in your photographs.',
+          date: 'May 23, 2025',
+          likes: 12
+        }
+      ]
     }
   }
 ];

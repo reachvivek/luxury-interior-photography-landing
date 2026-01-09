@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import EngagementStats from "@/components/blog/EngagementStats";
+import CommentsSection from "@/components/blog/CommentsSection";
 import { journalPosts } from "@/data/journalPosts";
 
 export default function BlogPostPage() {
@@ -53,13 +55,23 @@ export default function BlogPostPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6">
               {post.title}
             </h1>
-            <div className="flex items-center gap-4 md:gap-6 text-white/90 text-sm">
+            <div className="flex flex-wrap items-center gap-3 md:gap-6 text-white/90 text-sm mb-4">
               <span>{post.author}</span>
               <span className="w-1 h-1 rounded-full bg-white/60"></span>
               <span>{post.date}</span>
               <span className="w-1 h-1 rounded-full bg-white/60"></span>
               <span>{post.readTime}</span>
             </div>
+            {post.engagement && (
+              <div className="mt-4">
+                <EngagementStats
+                  views={post.engagement.views}
+                  likes={post.engagement.likes}
+                  commentCount={post.engagement.comments.length}
+                  variant="full"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -132,6 +144,11 @@ export default function BlogPostPage() {
           </div>
         </div>
       </article>
+
+      {/* Comments Section */}
+      {post.engagement && post.engagement.comments && post.engagement.comments.length > 0 && (
+        <CommentsSection comments={post.engagement.comments} />
+      )}
 
       {/* Related Articles */}
       {relatedPosts.length > 0 && (
