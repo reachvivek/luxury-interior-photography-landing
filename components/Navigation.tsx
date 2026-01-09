@@ -43,8 +43,10 @@ export default function Navigation() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-all duration-300 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${
+        isScrolled ? 'backdrop-blur-md bg-white/95' : 'backdrop-blur-[2px] bg-black/10'
       }`}>
         {/* Desktop Navigation */}
         <div className="hidden lg:block w-full px-6 md:px-16 lg:px-24 py-5">
