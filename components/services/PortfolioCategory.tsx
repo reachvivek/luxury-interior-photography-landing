@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { CONTACT } from "@/data/contact";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface PortfolioCategoryProps {
   category: {
@@ -17,14 +18,23 @@ export default function PortfolioCategory({
   category,
   categoryIndex,
 }: PortfolioCategoryProps) {
+  const categoryAnimation = useScrollAnimation(0.15);
+
   return (
-    <div className="w-full">
+    <div
+      ref={categoryAnimation.elementRef}
+      className={`w-full transition-all duration-700 ${
+        categoryAnimation.isVisible
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-12'
+      }`}
+    >
       {/* Category Header */}
       <div className="mb-8 md:mb-12">
-        <h3 className="text-xl md:text-3xl font-serif font-light text-stone-900 mb-3">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-light text-stone-900 mb-3">
           {category.title}
         </h3>
-        <p className="text-sm md:text-base text-stone-600 mb-6">
+        <p className="text-sm sm:text-sm md:text-base text-stone-600 mb-6">
           {category.description}
         </p>
 
@@ -34,7 +44,7 @@ export default function PortfolioCategory({
             href={`${CONTACT.whatsapp.url}?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session%20for%20${encodeURIComponent(category.title)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 border border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 hover:shadow-md transition-all duration-300 text-sm font-medium tracking-wide rounded-full group"
+            className="inline-flex items-center gap-2 px-7 py-3 sm:px-8 sm:py-3.5 border border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 hover:shadow-md transition-all duration-300 text-sm sm:text-base font-medium tracking-wide rounded-full group"
           >
             <svg
               className="w-4 h-4 group-hover:scale-110 transition-transform duration-300"
@@ -53,7 +63,7 @@ export default function PortfolioCategory({
         // Layout 1: Large left, 2 stacked right
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {category.images[0] && (
-            <div className="relative aspect-[4/3] md:aspect-[3/4] rounded-lg overflow-hidden group">
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden group">
               <Image
                 src={category.images[0]}
                 alt={`${category.title} 1`}

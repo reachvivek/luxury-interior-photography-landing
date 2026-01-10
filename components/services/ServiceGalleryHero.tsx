@@ -22,6 +22,13 @@ export default function ServiceGalleryHero({
   const [previousImageIndex, setPreviousImageIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState<'up' | 'down'>('down');
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Trigger entrance animation after mount
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Auto-rotate images every 3 seconds
   useEffect(() => {
@@ -87,8 +94,8 @@ export default function ServiceGalleryHero({
 
   return (
     <>
-      {/* Hero Section - Full Height Image */}
-      <section className="relative w-full h-screen overflow-hidden">
+      {/* Hero Section - Responsive Height (avoids browser chrome issues on mobile) */}
+      <section className="relative w-full min-h-[85vh] sm:min-h-[90vh] md:h-screen overflow-hidden">
         {/* Previous Image - Sliding Out */}
         {isTransitioning && (
           <Image
@@ -123,22 +130,43 @@ export default function ServiceGalleryHero({
           priority
         />
 
-        {/* Subtle Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10" />
+        {/* Gradient Overlay - Enhanced for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 z-10" />
 
-        {/* Bottom Labels */}
-        <div className="absolute inset-x-0 bottom-0 z-20 px-6 md:px-16 py-6 md:py-8">
+        {/* Bottom Labels - Enhanced visibility with shadows and entrance animation */}
+        <div className="absolute inset-x-0 bottom-0 z-20 px-6 md:px-16 py-8 md:py-10">
           {/* Left: Main Category and Sub-category */}
-          <div className="text-white">
-            <p className="text-xs md:text-sm tracking-[0.3em] uppercase opacity-80 mb-1">
+          <div
+            className={`text-white drop-shadow-lg transition-all duration-800 ${
+              isLoaded
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-6'
+            }`}
+          >
+            <p
+              className="text-xs sm:text-sm tracking-[0.3em] uppercase opacity-90 mb-2 drop-shadow-md transition-all duration-800"
+              style={{ transitionDelay: isLoaded ? '200ms' : '0ms' }}
+            >
               {mainCategory}
             </p>
-            <p className="text-sm md:text-base font-light">{currentImage.category}</p>
+            <h1
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-light drop-shadow-md transition-all duration-800"
+              style={{ transitionDelay: isLoaded ? '400ms' : '0ms' }}
+            >
+              {currentImage.category}
+            </h1>
           </div>
         </div>
 
-        {/* Navigation Arrows - Bottom Right (Vertical) */}
-        <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-20 flex flex-col items-center gap-3">
+        {/* Navigation Arrows - Bottom Right (Vertical) - Raised for mobile visibility */}
+        <div
+          className={`absolute bottom-16 sm:bottom-20 md:bottom-24 right-6 md:right-8 z-20 flex flex-col items-center gap-3 transition-all duration-800 ${
+            isLoaded
+              ? 'opacity-100 translate-x-0'
+              : 'opacity-0 translate-x-6'
+          }`}
+          style={{ transitionDelay: isLoaded ? '600ms' : '0ms' }}
+        >
           {/* Previous Button (Up) */}
           <button
             onClick={handlePrevious}
@@ -180,7 +208,7 @@ export default function ServiceGalleryHero({
             <button
               key={index}
               onClick={() => handleThumbnailClick(index)}
-              className={`relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-300 ${
+              className={`relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-lg overflow-hidden transition-all duration-300 ${
                 currentImageIndex === index
                   ? 'ring-2 ring-white scale-105'
                   : 'opacity-60 hover:opacity-100'

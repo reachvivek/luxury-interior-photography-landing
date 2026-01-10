@@ -13,10 +13,10 @@ export default function BlogPage() {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section - Full Height */}
-      <section className="relative h-screen w-full">
+      {/* Hero Section - Responsive Height */}
+      <section className="relative min-h-[85vh] sm:min-h-screen w-full">
         <Image
-          src="/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg"
+          src="/images/hospitality/restaurants/art-gallery-dining-room.jpg"
           alt="Blog & Insights"
           fill
           sizes="100vw"
@@ -63,8 +63,8 @@ export default function BlogPage() {
             Featured Article
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-stone-50 rounded-2xl overflow-hidden">
-            <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[300px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center bg-stone-50 rounded-2xl overflow-hidden">
+            <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[250px] sm:min-h-[300px]">
               <Image
                 src={journalPosts[0].image}
                 alt={journalPosts[0].title}
@@ -73,7 +73,7 @@ export default function BlogPage() {
                 className="object-cover"
               />
             </div>
-            <div className="p-8 md:p-12">
+            <div className="p-6 sm:p-8 md:p-10 lg:p-12">
               <span className="inline-block px-3 py-1 bg-white text-[10px] tracking-wide uppercase text-stone-700 rounded-full mb-4">
                 {journalPosts[0].category}
               </span>
@@ -124,7 +124,7 @@ export default function BlogPage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {journalPosts.slice(1).map((post) => (
               <article
                 key={post.id}
@@ -182,7 +182,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="relative min-h-[50vh] flex items-center justify-center px-6 md:px-16">
+      <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center justify-center px-6 md:px-16">
         <Image
           src="/images/residential/penthouses/penthouse-interior-3.jpg"
           alt="Newsletter Background"
@@ -199,13 +199,13 @@ export default function BlogPage() {
           <p className="text-base md:text-lg text-stone-200 mb-8 md:mb-10">
             Subscribe to receive insights on interior photography and design trends.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+          <div className="flex flex-col gap-3 sm:gap-4 max-w-xl mx-auto w-full">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-4 bg-white/95 backdrop-blur-sm rounded-lg text-stone-900 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+              className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/95 backdrop-blur-sm rounded-lg text-sm sm:text-base text-stone-900 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
             />
-            <button className="px-8 py-4 bg-white text-stone-900 hover:bg-stone-100 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-lg">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-stone-900 hover:bg-stone-100 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-lg">
               Subscribe
             </button>
           </div>
