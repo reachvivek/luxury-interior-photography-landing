@@ -1,6 +1,7 @@
 "use client";
 
 import { Comment } from "@/data/journalPosts";
+import { CONTACT } from "@/data/contact";
 
 interface CommentsSectionProps {
   comments: Comment[];
@@ -119,7 +120,7 @@ export default function CommentsSection({ comments }: CommentsSectionProps) {
             Want to share your thoughts on this article?
           </p>
           <a
-            href={`https://wa.me/971502060674?text=Hi%20Tsurov,%20I'd%20like%20to%20comment%20on%20your%20article`}
+            href={`${CONTACT.whatsapp.url}?text=Hi%20Tsurov,%20I'd%20like%20to%20comment%20on%20your%20article`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-200 text-sm font-medium tracking-wider uppercase rounded-full"

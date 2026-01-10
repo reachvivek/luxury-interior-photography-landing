@@ -10,6 +10,7 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import EngagementStats from "@/components/blog/EngagementStats";
 import CommentsSection from "@/components/blog/CommentsSection";
 import { journalPosts } from "@/data/journalPosts";
+import { CONTACT } from "@/data/contact";
 
 export default function BlogPostPage() {
   const params = useParams();
@@ -139,7 +140,7 @@ export default function BlogPostPage() {
           {/* WhatsApp CTA */}
           <div className="flex justify-center pt-8 md:pt-12">
             <a
-              href={`https://wa.me/971502060674?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session`}
+              href={`${CONTACT.whatsapp.url}?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 hover:shadow-lg transition-all duration-300 text-sm font-medium tracking-widest uppercase rounded-full group"

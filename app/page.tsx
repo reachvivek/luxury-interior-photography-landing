@@ -13,6 +13,7 @@ import ProcessStep from "@/components/cards/ProcessStep";
 import FeatureCard from "@/components/cards/FeatureCard";
 import { trustedByLogos } from "@/data/trustedBy";
 import { journalPosts } from "@/data/journalPosts";
+import { CONTACT } from "@/data/contact";
 import { processSteps } from "@/data/processSteps";
 import { features } from "@/data/features";
 import { galleryRow1Images, galleryRow2Images } from "@/data/gallery";
@@ -38,9 +39,8 @@ export default function Home() {
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const whatsappNumber = '994503442505'; // Tsurov's WhatsApp number
     const messageText = `Hello, I'm ${formData.name}.\n\nEmail: ${formData.email}\n\n${formData.message}`;
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText)}`;
+    const whatsappURL = `${CONTACT.whatsapp.url}?text=${encodeURIComponent(messageText)}`;
 
     window.open(whatsappURL, '_blank');
   };
@@ -581,7 +581,7 @@ export default function Home() {
 
           {/* Journal Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mt-12 md:mt-16">
-            {journalPosts.map((post, index) => (
+            {journalPosts.slice(0, 3).map((post, index) => (
               <div
                 key={post.id}
                 className="transition-all duration-700 ease-out opacity-100"

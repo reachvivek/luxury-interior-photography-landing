@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import { CONTACT } from "@/data/contact";
 
 // Portfolio categories
 const portfolioCategories = [
@@ -107,7 +108,7 @@ export default function CustomInteriorsPage() {
                   {/* WhatsApp Book Now Button */}
                   <div className="flex justify-center">
                     <a
-                      href={`https://wa.me/971502060674?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session%20for%20${encodeURIComponent(category.title)}`}
+                      href={`{CONTACT.whatsapp.url}?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session%20for%20${encodeURIComponent(category.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-6 py-2.5 border border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 hover:shadow-md transition-all duration-300 text-sm font-medium tracking-wide rounded-full group"
