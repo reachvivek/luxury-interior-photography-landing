@@ -124,8 +124,20 @@ export default function BlogPostPage() {
             </p>
           </div>
 
+          {/* Article Engagement Stats */}
+          {post.engagement && (
+            <div className="flex justify-center py-8 md:py-10 border-y border-stone-200 mb-8 md:mb-12">
+              <EngagementStats
+                views={post.engagement.views}
+                likes={post.engagement.likes}
+                commentCount={post.engagement.comments.length}
+                variant="full"
+              />
+            </div>
+          )}
+
           {/* WhatsApp CTA */}
-          <div className="flex justify-center pt-8 md:pt-12 border-t border-stone-200">
+          <div className="flex justify-center pt-8 md:pt-12">
             <a
               href={`https://wa.me/971502060674?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session`}
               target="_blank"
