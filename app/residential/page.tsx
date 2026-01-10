@@ -10,13 +10,14 @@ import { CONTACT } from "@/data/contact";
 
 // Gallery images with categories
 const galleryImages = [
-  { src: "/images/residential/penthouses/penthouse-interior-1.jpg", category: "Penthouses" },
-  { src: "/images/residential/villas/luxury-villa-with-porsche.jpg", category: "Villas" },
-  { src: "/images/residential/penthouses/penthouse-interior-2.jpg", category: "Penthouses" },
-  { src: "/images/residential/villas/luxury-stone-villa-exterior.jpg", category: "Villas" },
-  { src: "/images/residential/penthouses/penthouse-interior-3.jpg", category: "Penthouses" },
-  { src: "/images/residential/penthouses/penthouse-interior-4.jpg", category: "Penthouses" },
-  { src: "/images/residential/villas/stone-villa-entrance-car.jpg", category: "Villas" },
+  { src: "/images/residential/penthouses/modern-penthouse-living-room.jpg", category: "Penthouses" },
+  { src: "/images/residential/villas/luxury-villa-grand-entrance.jpg", category: "Villas" },
+  { src: "/images/residential/penthouses/penthouse-bedroom-cityview.jpg", category: "Penthouses" },
+  { src: "/images/residential/villas/luxury-villa-staircase.jpg", category: "Villas" },
+  { src: "/images/residential/home-offices/modern-workspace-window-seating.jpg", category: "Home Offices" },
+  { src: "/images/residential/penthouses/penthouse-bathroom-skyline.jpg", category: "Penthouses" },
+  { src: "/images/residential/villas/luxury-villa-master-bedroom.jpg", category: "Villas" },
+  { src: "/images/residential/villas/luxury-villa-patio-view.jpg", category: "Villas" },
   { src: "/images/residential/apartments/modern-apartment-building-exterior.jpg", category: "Apartments" },
 ];
 
@@ -27,9 +28,10 @@ const portfolioCategories = [
     title: "Luxury Villas",
     description: "Spacious estates and contemporary villas showcasing refined living",
     images: [
-      "/images/residential/villas/luxury-villa-with-porsche.jpg",
-      "/images/residential/villas/luxury-stone-villa-exterior.jpg",
-      "/images/residential/villas/stone-villa-entrance-car.jpg",
+      "/images/residential/villas/luxury-villa-grand-entrance.jpg",
+      "/images/residential/villas/luxury-villa-staircase.jpg",
+      "/images/residential/villas/luxury-villa-master-bedroom.jpg",
+      "/images/residential/villas/luxury-villa-patio-view.jpg",
     ]
   },
   {
@@ -37,10 +39,10 @@ const portfolioCategories = [
     title: "Penthouses",
     description: "Sophisticated penthouses with panoramic views and modern design",
     images: [
-      "/images/residential/penthouses/penthouse-interior-1.jpg",
-      "/images/residential/penthouses/penthouse-interior-2.jpg",
-      "/images/residential/penthouses/penthouse-interior-3.jpg",
-      "/images/residential/penthouses/penthouse-interior-4.jpg",
+      "/images/residential/penthouses/modern-penthouse-living-room.jpg",
+      "/images/residential/penthouses/penthouse-bedroom-cityview.jpg",
+      "/images/residential/penthouses/penthouse-bathroom-skyline.jpg",
+      "/images/residential/penthouses/contemporary-penthouse-bedroom.png",
     ]
   },
   {
@@ -50,34 +52,86 @@ const portfolioCategories = [
     images: [
       "/images/residential/apartments/modern-apartment-building-exterior.jpg",
     ]
+  },
+  {
+    id: "home-offices",
+    title: "Home Offices",
+    description: "Dedicated workspaces designed for productivity and comfort",
+    images: [
+      "/images/residential/home-offices/modern-workspace-window-seating.jpg",
+      "/images/residential/home-offices/contemporary-office-space.jpg",
+      "/images/residential/home-offices/home-office-storage-design.jpg",
+    ]
   }
 ];
 
 export default function ResidentialPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [previousImageIndex, setPreviousImageIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState<'up' | 'down'>('down');
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Auto-rotate images every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
+      setPreviousImageIndex(currentImageIndex);
       setSlideDirection('down');
+      setIsTransitioning(true);
       setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+      setTimeout(() => setIsTransitioning(false), 900);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentImageIndex]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        handlePrevious();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentImageIndex]);
 
   const handlePrevious = () => {
+    setPreviousImageIndex(currentImageIndex);
     setSlideDirection('up');
+    setIsTransitioning(true);
     setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    setTimeout(() => setIsTransitioning(false), 900);
   };
 
   const handleNext = () => {
+    setPreviousImageIndex(currentImageIndex);
     setSlideDirection('down');
+    setIsTransitioning(true);
     setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    setTimeout(() => setIsTransitioning(false), 900);
+  };
+
+  const handleThumbnailClick = (index: number) => {
+    if (index === currentImageIndex) return;
+    setPreviousImageIndex(currentImageIndex);
+    setIsTransitioning(true);
+    // Determine direction based on whether we're moving forward or backward
+    if (index > currentImageIndex) {
+      setSlideDirection('down');
+    } else if (index < currentImageIndex) {
+      setSlideDirection('up');
+    }
+    setCurrentImageIndex(index);
+    setTimeout(() => setIsTransitioning(false), 900);
   };
 
   const currentImage = galleryImages[currentImageIndex];
+  const previousImage = galleryImages[previousImageIndex];
 
   return (
     <div className="min-h-screen bg-white">
@@ -85,19 +139,40 @@ export default function ResidentialPage() {
 
       {/* Hero Section - Full Height Image */}
       <section className="relative w-full h-screen overflow-hidden">
+        {/* Previous Image - Sliding Out */}
+        {isTransitioning && (
+          <Image
+            key={`prev-${previousImageIndex}`}
+            src={previousImage.src}
+            alt={`Residential ${previousImage.category}`}
+            fill
+            sizes="100vw"
+            className={`object-cover absolute inset-0 ${
+              slideDirection === 'down'
+                ? 'animate-slideOutToBottom'
+                : 'animate-slideOutToTop'
+            }`}
+            priority
+          />
+        )}
+
+        {/* Current Image - Sliding In */}
         <Image
-          key={currentImageIndex}
+          key={`current-${currentImageIndex}`}
           src={currentImage.src}
           alt={`Residential ${currentImage.category}`}
           fill
           sizes="100vw"
-          className={`object-cover ${
-            slideDirection === 'down'
-              ? 'animate-slideInFromTop'
-              : 'animate-slideInFromBottom'
+          className={`object-cover absolute inset-0 ${
+            isTransitioning
+              ? slideDirection === 'down'
+                ? 'animate-slideInFromTop'
+                : 'animate-slideInFromBottom'
+              : ''
           }`}
           priority
         />
+
         {/* Subtle Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10" />
 
@@ -152,7 +227,7 @@ export default function ResidentialPage() {
           {galleryImages.map((image, index) => (
             <button
               key={index}
-              onClick={() => setCurrentImageIndex(index)}
+              onClick={() => handleThumbnailClick(index)}
               className={`relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-300 ${
                 currentImageIndex === index
                   ? 'ring-2 ring-white scale-105'
@@ -203,7 +278,7 @@ export default function ResidentialPage() {
                   {/* WhatsApp Book Now Button */}
                   <div className="flex justify-center">
                     <a
-                      href={`{CONTACT.whatsapp.url}?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session%20for%20${encodeURIComponent(category.title)}`}
+                      href={`${CONTACT.whatsapp.url}?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session%20for%20${encodeURIComponent(category.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-6 py-2.5 border border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 hover:shadow-md transition-all duration-300 text-sm font-medium tracking-wide rounded-full group"
@@ -291,7 +366,7 @@ export default function ResidentialPage() {
       {/* CTA Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center px-6 md:px-16">
         <Image
-          src="/images/residential/villas/luxury-villa-with-porsche.jpg"
+          src="/images/residential/villas/luxury-villa-patio-view.jpg"
           alt="Contact Background"
           fill
           sizes="100vw"
