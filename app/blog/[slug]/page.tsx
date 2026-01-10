@@ -7,7 +7,10 @@ import { notFound } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import EngagementStats from "@/components/blog/EngagementStats";
+import CommentsSection from "@/components/blog/CommentsSection";
 import { journalPosts } from "@/data/journalPosts";
+import { CONTACT } from "@/data/contact";
 
 export default function BlogPostPage() {
   const params = useParams();
@@ -53,13 +56,23 @@ export default function BlogPostPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6">
               {post.title}
             </h1>
-            <div className="flex items-center gap-4 md:gap-6 text-white/90 text-sm">
+            <div className="flex flex-wrap items-center gap-3 md:gap-6 text-white/90 text-sm mb-4">
               <span>{post.author}</span>
               <span className="w-1 h-1 rounded-full bg-white/60"></span>
               <span>{post.date}</span>
               <span className="w-1 h-1 rounded-full bg-white/60"></span>
               <span>{post.readTime}</span>
             </div>
+            {post.engagement && (
+              <div className="mt-4">
+                <EngagementStats
+                  views={post.engagement.views}
+                  likes={post.engagement.likes}
+                  commentCount={post.engagement.comments.length}
+                  variant="full"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -112,10 +125,22 @@ export default function BlogPostPage() {
             </p>
           </div>
 
+          {/* Article Engagement Stats */}
+          {post.engagement && (
+            <div className="flex justify-center py-8 md:py-10 border-y border-stone-200 mb-8 md:mb-12">
+              <EngagementStats
+                views={post.engagement.views}
+                likes={post.engagement.likes}
+                commentCount={post.engagement.comments.length}
+                variant="full"
+              />
+            </div>
+          )}
+
           {/* WhatsApp CTA */}
-          <div className="flex justify-center pt-8 md:pt-12 border-t border-stone-200">
+          <div className="flex justify-center pt-8 md:pt-12">
             <a
-              href={`https://wa.me/971502060674?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session`}
+              href={`${CONTACT.whatsapp.url}?text=Hi%20Tsurov,%20I'm%20interested%20in%20booking%20a%20photography%20session`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 hover:shadow-lg transition-all duration-300 text-sm font-medium tracking-widest uppercase rounded-full group"
@@ -132,6 +157,11 @@ export default function BlogPostPage() {
           </div>
         </div>
       </article>
+
+      {/* Comments Section */}
+      {post.engagement && post.engagement.comments && post.engagement.comments.length > 0 && (
+        <CommentsSection comments={post.engagement.comments} />
+      )}
 
       {/* Related Articles */}
       {relatedPosts.length > 0 && (

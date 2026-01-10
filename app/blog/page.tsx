@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import EngagementStats from "@/components/blog/EngagementStats";
 import { journalPosts } from "@/data/journalPosts";
 
 export default function BlogPage() {
@@ -82,7 +83,7 @@ export default function BlogPage() {
               <p className="text-sm md:text-base text-stone-600 leading-relaxed mb-6">
                 {journalPosts[0].description}
               </p>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-4">
                 <span className="text-xs md:text-sm text-stone-500">{journalPosts[0].date}</span>
                 <Link
                   href={`/blog/${journalPosts[0].slug}`}
@@ -94,6 +95,14 @@ export default function BlogPage() {
                   </svg>
                 </Link>
               </div>
+              {journalPosts[0].engagement && (
+                <EngagementStats
+                  views={journalPosts[0].engagement.views}
+                  likes={journalPosts[0].engagement.likes}
+                  commentCount={journalPosts[0].engagement.comments.length}
+                  variant="full"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -145,14 +154,24 @@ export default function BlogPage() {
                     <p className="text-sm md:text-base text-stone-600 leading-relaxed mb-4">
                       {post.description}
                     </p>
-                    <div className="flex items-center justify-between pt-3 border-t border-stone-200">
-                      <span className="text-xs text-stone-500">{post.date}</span>
-                      <span className="text-xs font-medium tracking-wider uppercase text-stone-900 group-hover:text-stone-600 transition-colors flex items-center gap-1">
-                        Read More
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </span>
+                    <div className="pt-3 border-t border-stone-200 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-stone-500">{post.date}</span>
+                        <span className="text-xs font-medium tracking-wider uppercase text-stone-900 group-hover:text-stone-600 transition-colors flex items-center gap-1">
+                          Read More
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </div>
+                      {post.engagement && (
+                        <EngagementStats
+                          views={post.engagement.views}
+                          likes={post.engagement.likes}
+                          commentCount={post.engagement.comments.length}
+                          variant="compact"
+                        />
+                      )}
                     </div>
                   </div>
                 </Link>

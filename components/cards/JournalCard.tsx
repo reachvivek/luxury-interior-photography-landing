@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { JournalPost } from "@/data/journalPosts";
+import EngagementStats from "@/components/blog/EngagementStats";
 
 interface JournalCardProps {
   post: JournalPost;
@@ -38,17 +39,31 @@ export default function JournalCard({ post }: JournalCardProps) {
             {post.description}
           </p>
 
-          <div className="flex items-center justify-between">
-            <p className="text-xs text-stone-500">
-              {post.date}
-            </p>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-stone-500">
+                {post.date}
+              </p>
 
-            <div className="flex items-center gap-1.5 text-stone-700 group-hover:text-stone-900 transition-colors">
-              <span className="text-xs font-light">Continue Reading</span>
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <div className="flex items-center gap-1.5 text-stone-700 group-hover:text-stone-900 transition-colors">
+                <span className="text-xs font-light">Continue Reading</span>
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
             </div>
+
+            {/* Engagement Stats */}
+            {post.engagement && (
+              <div className="pt-3 border-t border-stone-200">
+                <EngagementStats
+                  views={post.engagement.views}
+                  likes={post.engagement.likes}
+                  commentCount={post.engagement.comments.length}
+                  variant="compact"
+                />
+              </div>
+            )}
           </div>
         </div>
       </Link>
