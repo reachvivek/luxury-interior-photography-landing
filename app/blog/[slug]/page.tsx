@@ -70,6 +70,7 @@ export default function BlogPostPage() {
                   likes={post.engagement.likes}
                   commentCount={post.engagement.comments.length}
                   variant="full"
+                  theme="dark"
                 />
               </div>
             )}

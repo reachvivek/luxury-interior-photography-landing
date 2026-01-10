@@ -5,6 +5,7 @@ interface EngagementStatsProps {
   likes: number;
   commentCount: number;
   variant?: "compact" | "full";
+  theme?: "light" | "dark";
 }
 
 export default function EngagementStats({
@@ -12,6 +13,7 @@ export default function EngagementStats({
   likes,
   commentCount,
   variant = "compact",
+  theme = "light",
 }: EngagementStatsProps) {
   const formatNumber = (num: number): string => {
     if (num >= 1000) {
@@ -20,9 +22,12 @@ export default function EngagementStats({
     return num.toString();
   };
 
+  const textColor = theme === "dark" ? "text-white/80" : "text-stone-500";
+  const iconColor = theme === "dark" ? "text-white/90" : "currentColor";
+
   if (variant === "compact") {
     return (
-      <div className="flex items-center gap-4 text-xs text-stone-500">
+      <div className={`flex items-center gap-4 text-xs ${textColor}`}>
         <div className="flex items-center gap-1.5">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -66,8 +71,11 @@ export default function EngagementStats({
     );
   }
 
+  const fullTextColor = theme === "dark" ? "text-white" : "text-stone-600";
+  const fullLabelColor = theme === "dark" ? "text-white/70" : "text-stone-500";
+
   return (
-    <div className="flex items-center gap-6 md:gap-8 text-sm text-stone-600">
+    <div className={`flex items-center gap-6 md:gap-8 text-sm ${fullTextColor}`}>
       <div className="flex items-center gap-2">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -84,7 +92,7 @@ export default function EngagementStats({
           />
         </svg>
         <span className="font-medium">{views.toLocaleString()}</span>
-        <span className="text-stone-500">views</span>
+        <span className={fullLabelColor}>views</span>
       </div>
       <div className="flex items-center gap-2">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,7 +104,7 @@ export default function EngagementStats({
           />
         </svg>
         <span className="font-medium">{likes.toLocaleString()}</span>
-        <span className="text-stone-500">likes</span>
+        <span className={fullLabelColor}>likes</span>
       </div>
       <div className="flex items-center gap-2">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +116,7 @@ export default function EngagementStats({
           />
         </svg>
         <span className="font-medium">{commentCount}</span>
-        <span className="text-stone-500">{commentCount === 1 ? "comment" : "comments"}</span>
+        <span className={fullLabelColor}>{commentCount === 1 ? "comment" : "comments"}</span>
       </div>
     </div>
   );
