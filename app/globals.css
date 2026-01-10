@@ -263,3 +263,74 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Smooth Gallery Slide Animations - Continuous Flow */
+/* Slide In Animations */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Slide Out Animations */
+@keyframes slideOutToBottom {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%) scale(1);
+    z-index: 1;
+  }
+}
+
+@keyframes slideOutToTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%) scale(1);
+    z-index: 1;
+  }
+}
+
+.animate-slideInFromTop {
+  animation: slideInFromTop 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  z-index: 2;
+}
+
+.animate-slideInFromBottom {
+  animation: slideInFromBottom 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  z-index: 2;
+}
+
+.animate-slideOutToBottom {
+  animation: slideOutToBottom 0.9s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  z-index: 1;
+}
+
+.animate-slideOutToTop {
+  animation: slideOutToTop 0.9s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  z-index: 1;
+}
