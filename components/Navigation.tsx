@@ -86,6 +86,54 @@ export default function Navigation() {
 
   return (
     <>
+      <style jsx>{`
+        .logo-container-desktop,
+        .logo-container-mobile,
+        .logo-container-drawer {
+          background: rgba(255, 255, 255, 0.75);
+          backdrop-filter: blur(12px) saturate(180%);
+          -webkit-backdrop-filter: blur(12px) saturate(180%);
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+          overflow: hidden;
+          padding: 0 !important;
+          margin: 0 !important;
+          line-height: 0;
+        }
+
+        .logo-container-desktop {
+          width: 70px;
+          height: 70px;
+        }
+
+        .logo-container-mobile {
+          width: 60px;
+          height: 60px;
+        }
+
+        .logo-container-drawer {
+          width: 60px;
+          height: 60px;
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(12px) saturate(180%);
+          -webkit-backdrop-filter: blur(12px) saturate(180%);
+          border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .logo-container-desktop :global(img),
+        .logo-container-mobile :global(img),
+        .logo-container-drawer :global(img) {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
+          vertical-align: top !important;
+        }
+      `}</style>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
@@ -95,7 +143,17 @@ export default function Navigation() {
         <div className="hidden lg:block w-full px-6 md:px-16 lg:px-24 py-5">
           <div className="max-w-[1600px] mx-auto flex items-center justify-between">
             {/* Left - Brand Name */}
-            <Link href="/" className="flex">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="logo-container-desktop">
+                <Image
+                  src="/logo/LOGO-NASHRAY.png"
+                  alt="NASHRAY"
+                  width={70}
+                  height={70}
+                  priority
+                  className="logo-image"
+                />
+              </div>
               <h1 className={`font-serif text-2xl md:text-3xl tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase font-light ${
                 isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
               }`}>
@@ -152,14 +210,16 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         <div className="lg:hidden w-full px-6 py-4 grid grid-cols-3 items-center">
           <Link href="/" className="flex items-center">
-            <Image
-              src="/logo/LOGO-NASHRAY.png"
-              alt="NASHRAY"
-              width={50}
-              height={50}
-              priority
-              className="cursor-pointer object-contain"
-            />
+            <div className="logo-container-mobile">
+              <Image
+                src="/logo/LOGO-NASHRAY.png"
+                alt="NASHRAY"
+                width={60}
+                height={60}
+                priority
+                className="logo-image"
+              />
+            </div>
           </Link>
           <Link href="/" className="flex justify-center">
             <h1 className={`font-serif text-xl font-light tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase ${
@@ -197,7 +257,18 @@ export default function Navigation() {
         <div className="flex flex-col h-full">
           {/* Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-stone-200">
-            <h2 className="font-serif text-2xl font-light text-stone-800 tracking-[0.2em]">MENU</h2>
+            <div className="flex items-center gap-3">
+              <div className="logo-container-drawer">
+                <Image
+                  src="/logo/LOGO-NASHRAY.png"
+                  alt="NASHRAY"
+                  width={60}
+                  height={60}
+                  className="logo-image"
+                />
+              </div>
+              <h2 className="font-serif text-2xl font-light text-stone-800 tracking-[0.2em]">MENU</h2>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 text-stone-600 hover:text-stone-900 transition-colors"

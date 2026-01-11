@@ -58,7 +58,7 @@ export default function Preloader() {
           {/* Animated logo */}
           <div className="preloader-logo">
             <Image
-              src="/logo/tsurov-white.png"
+              src="/logo/LOGO-NASHRAY.png"
               alt="TSUROV"
               width={320}
               height={320}
