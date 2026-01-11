@@ -2,25 +2,48 @@
 
 import Link from "next/link";
 import { useState, useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
-const serviceDirections = [
+const servicesData = [
   {
     title: "Residential",
     href: "/residential",
+    subcategories: [
+      { title: "Luxury Villas", href: "/residential#villas" },
+      { title: "Apartments", href: "/residential#apartments" },
+      { title: "Penthouses", href: "/residential#penthouses" },
+      { title: "Home Offices", href: "/residential#home-offices" }
+    ]
   },
   {
     title: "Hotels & Hospitality",
     href: "/hospitality",
+    subcategories: [
+      { title: "Hotel Suites", href: "/hospitality#hotel-suites" },
+      { title: "Restaurants", href: "/hospitality#restaurants" },
+      { title: "Event Spaces", href: "/hospitality#event-spaces" }
+    ]
   },
   {
     title: "Commercial & Industry",
     href: "/commercial",
+    subcategories: [
+      { title: "Office Spaces", href: "/commercial#office-spaces" },
+      { title: "Co-working Spaces", href: "/commercial#coworking-spaces" },
+      { title: "Retail Stores", href: "/commercial#retail-stores" },
+      { title: "Showrooms", href: "/commercial#showrooms" }
+    ]
   },
   {
     title: "Custom Interiors",
     href: "/custom-interiors",
-  },
+    subcategories: [
+      { title: "Architectural Elements", href: "/custom-interiors#architectural-elements" },
+      { title: "Custom Furniture", href: "/custom-interiors#custom-furniture" },
+      { title: "Material Close-ups", href: "/custom-interiors#materials" },
+      { title: "Design Details", href: "/custom-interiors#design-details" }
+    ]
+  }
 ];
 
 interface ServicesDropdownProps {
@@ -62,16 +85,35 @@ export default function ServicesDropdown({ isScrolled = false }: ServicesDropdow
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-72 bg-stone-50 shadow-lg border border-stone-200 rounded-lg p-6 z-50">
-          <div className="flex flex-col space-y-4">
-            {serviceDirections.map((service) => (
-              <Link
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[580px] max-w-[calc(100vw-2rem)] bg-white shadow-2xl border border-stone-200/60 rounded-2xl overflow-hidden z-50">
+          <div className="grid grid-cols-2 divide-x divide-stone-200/50">
+            {servicesData.map((service, index) => (
+              <div
                 key={service.href}
-                href={service.href}
-                className="text-base font-serif font-light text-stone-900 hover:text-stone-600 transition-colors py-2 block"
+                className="p-5 hover:bg-stone-50/50 transition-all duration-200"
               >
-                {service.title}
-              </Link>
+                <Link
+                  href={service.href}
+                  className="group flex items-center justify-between mb-3 pb-2 border-b border-stone-200"
+                >
+                  <h3 className="text-sm font-serif font-medium text-stone-900 group-hover:text-stone-600 transition-colors uppercase tracking-wide">
+                    {service.title}
+                  </h3>
+                  <ChevronRight className="w-3.5 h-3.5 text-stone-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                </Link>
+                <ul className="space-y-1.5 pl-0">
+                  {service.subcategories.map((sub) => (
+                    <li key={sub.href}>
+                      <Link
+                        href={sub.href}
+                        className="text-xs text-stone-600 hover:text-stone-900 transition-all block py-1 hover:pl-1.5 rounded hover:bg-stone-100/50"
+                      >
+                        {sub.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>

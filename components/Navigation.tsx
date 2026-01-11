@@ -8,12 +8,55 @@ import { NAV_LINKS } from "@/constants/navigation";
 import { ANIMATION } from "@/constants/animation";
 import ServicesDropdown from "@/components/ServicesDropdown";
 
+const servicesData = [
+  {
+    title: "Residential",
+    href: "/residential",
+    subcategories: [
+      { title: "Luxury Villas", href: "/residential#villas" },
+      { title: "Apartments", href: "/residential#apartments" },
+      { title: "Penthouses", href: "/residential#penthouses" },
+      { title: "Home Offices", href: "/residential#home-offices" }
+    ]
+  },
+  {
+    title: "Hotels & Hospitality",
+    href: "/hospitality",
+    subcategories: [
+      { title: "Hotel Suites", href: "/hospitality#hotel-suites" },
+      { title: "Restaurants", href: "/hospitality#restaurants" },
+      { title: "Event Spaces", href: "/hospitality#event-spaces" }
+    ]
+  },
+  {
+    title: "Commercial & Industry",
+    href: "/commercial",
+    subcategories: [
+      { title: "Office Spaces", href: "/commercial#office-spaces" },
+      { title: "Co-working Spaces", href: "/commercial#coworking-spaces" },
+      { title: "Retail Stores", href: "/commercial#retail-stores" },
+      { title: "Showrooms", href: "/commercial#showrooms" }
+    ]
+  },
+  {
+    title: "Custom Interiors",
+    href: "/custom-interiors",
+    subcategories: [
+      { title: "Architectural Elements", href: "/custom-interiors#architectural-elements" },
+      { title: "Custom Furniture", href: "/custom-interiors#custom-furniture" },
+      { title: "Material Close-ups", href: "/custom-interiors#materials" },
+      { title: "Design Details", href: "/custom-interiors#design-details" }
+    ]
+  }
+];
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [expandedService, setExpandedService] = useState<string | null>(null);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -178,35 +221,43 @@ export default function Navigation() {
                       <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {mobileServicesOpen && (
-                      <div className="pl-4 mt-3 space-y-3">
-                        <Link
-                          href="/residential"
-                          onClick={() => setIsOpen(false)}
-                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
-                        >
-                          Residential
-                        </Link>
-                        <Link
-                          href="/hospitality"
-                          onClick={() => setIsOpen(false)}
-                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
-                        >
-                          Hotels & Hospitality
-                        </Link>
-                        <Link
-                          href="/commercial"
-                          onClick={() => setIsOpen(false)}
-                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
-                        >
-                          Commercial & Industry
-                        </Link>
-                        <Link
-                          href="/custom-interiors"
-                          onClick={() => setIsOpen(false)}
-                          className="block text-stone-600 hover:text-stone-900 transition-colors text-sm py-1"
-                        >
-                          Custom Interiors
-                        </Link>
+                      <div className="mt-3 space-y-2">
+                        {servicesData.map((service) => (
+                          <div key={service.href} className="border-l-2 border-stone-200 pl-4">
+                            <div className="flex items-center justify-between">
+                              <Link
+                                href={service.href}
+                                onClick={() => setIsOpen(false)}
+                                className="flex-1 text-stone-700 hover:text-stone-900 transition-colors text-sm py-2 font-medium"
+                              >
+                                {service.title}
+                              </Link>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setExpandedService(expandedService === service.href ? null : service.href);
+                                }}
+                                className="p-1 text-stone-500 hover:text-stone-900 transition-colors"
+                              >
+                                <ChevronDown className={`w-3 h-3 transition-transform ${expandedService === service.href ? 'rotate-180' : ''}`} />
+                              </button>
+                            </div>
+                            {expandedService === service.href && (
+                              <div className="ml-2 mt-1 space-y-1 border-l border-stone-200 pl-3">
+                                {service.subcategories.map((sub) => (
+                                  <Link
+                                    key={sub.href}
+                                    href={sub.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block text-stone-600 hover:text-stone-900 transition-colors text-xs py-1.5"
+                                  >
+                                    {sub.title}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
                       </div>
                     )}
                   </div>
