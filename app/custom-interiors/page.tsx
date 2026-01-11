@@ -1,6 +1,6 @@
 "use client";
 
-import ServiceGalleryLayout from "@/components/services/ServiceGalleryLayout";
+import CategoryPageLayout from "@/components/layouts/CategoryPageLayout";
 
 // Gallery images with categories
 const galleryImages = [
@@ -57,17 +57,26 @@ const portfolioCategories = [
   }
 ];
 
+// Category filter options
+const categoryFilters = [
+  { id: 'all', label: 'All' },
+  { id: 'architectural-elements', label: 'Architectural' },
+  { id: 'custom-furniture', label: 'Furniture' },
+  { id: 'materials', label: 'Materials' },
+  { id: 'design-details', label: 'Details' }
+];
+
 export default function CustomInteriorsPage() {
   return (
-    <ServiceGalleryLayout
-      galleryImages={galleryImages}
+    <CategoryPageLayout
       mainCategory="Custom Interior Photography"
+      galleryImages={galleryImages}
       portfolioCategories={portfolioCategories}
-      cta={{
-        imageSrc: "/images/custom-interiors/design-details/custom-drapery-detail.jpg",
-        title: "Ready to highlight your craftsmanship?",
-        description: "Let's create stunning imagery that showcases the unique details and artistry of your custom interior work.",
-      }}
+      categoryFilters={categoryFilters}
+      ctaImage="/images/custom-interiors/design-details/custom-drapery-detail.jpg"
+      ctaTitle="Ready to highlight your craftsmanship?"
+      ctaDescription="Let's create stunning imagery that showcases the unique details and artistry of your custom interior work."
+      basePath="/custom-interiors"
     />
   );
 }

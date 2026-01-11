@@ -13,39 +13,39 @@ const servicesData = [
     title: "Residential",
     href: "/residential",
     subcategories: [
-      { title: "Luxury Villas", href: "/residential#villas" },
-      { title: "Apartments", href: "/residential#apartments" },
-      { title: "Penthouses", href: "/residential#penthouses" },
-      { title: "Home Offices", href: "/residential#home-offices" }
+      { title: "Luxury Villas", href: "/residential/villas" },
+      { title: "Apartments", href: "/residential/apartments" },
+      { title: "Penthouses", href: "/residential/penthouses" },
+      { title: "Home Offices", href: "/residential/home-offices" }
     ]
   },
   {
     title: "Hotels & Hospitality",
     href: "/hospitality",
     subcategories: [
-      { title: "Hotel Suites", href: "/hospitality#hotel-suites" },
-      { title: "Restaurants", href: "/hospitality#restaurants" },
-      { title: "Event Spaces", href: "/hospitality#event-spaces" }
+      { title: "Hotel Suites", href: "/hospitality/hotel-suites" },
+      { title: "Restaurants", href: "/hospitality/restaurants" },
+      { title: "Event Spaces", href: "/hospitality/event-spaces" }
     ]
   },
   {
     title: "Commercial & Industry",
     href: "/commercial",
     subcategories: [
-      { title: "Office Spaces", href: "/commercial#office-spaces" },
-      { title: "Co-working Spaces", href: "/commercial#coworking-spaces" },
-      { title: "Retail Stores", href: "/commercial#retail-stores" },
-      { title: "Showrooms", href: "/commercial#showrooms" }
+      { title: "Office Spaces", href: "/commercial/office-spaces" },
+      { title: "Co-working Spaces", href: "/commercial/coworking-spaces" },
+      { title: "Retail Stores", href: "/commercial/retail-stores" },
+      { title: "Showrooms", href: "/commercial/showrooms" }
     ]
   },
   {
     title: "Custom Interiors",
     href: "/custom-interiors",
     subcategories: [
-      { title: "Architectural Elements", href: "/custom-interiors#architectural-elements" },
-      { title: "Custom Furniture", href: "/custom-interiors#custom-furniture" },
-      { title: "Material Close-ups", href: "/custom-interiors#materials" },
-      { title: "Design Details", href: "/custom-interiors#design-details" }
+      { title: "Architectural Elements", href: "/custom-interiors/architectural-elements" },
+      { title: "Custom Furniture", href: "/custom-interiors/custom-furniture" },
+      { title: "Material Close-ups", href: "/custom-interiors/materials" },
+      { title: "Design Details", href: "/custom-interiors/design-details" }
     ]
   }
 ];

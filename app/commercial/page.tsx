@@ -1,9 +1,10 @@
 "use client";
 
-import ServiceGalleryLayout from "@/components/services/ServiceGalleryLayout";
+import CategoryPageLayout from "@/components/layouts/CategoryPageLayout";
 
 // Gallery images with categories
 const galleryImages = [
+  { src: "/images/commercial/office-spaces/modern-commercial-building-night.jpg", category: "Office Spaces" },
   { src: "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg", category: "Co-working Spaces" },
   { src: "/images/commercial/retail-stores/beauty-salon-interior-1.jpg", category: "Retail Stores" },
   { src: "/images/commercial/coworking-spaces/cofiesto-cafe-seating-area.jpg", category: "Co-working Spaces" },
@@ -16,8 +17,16 @@ const galleryImages = [
 // Portfolio categories
 const portfolioCategories = [
   {
+    id: "office-spaces",
+    title: "Office Spaces",
+    description: "Professional corporate environments designed for productivity and collaboration",
+    images: [
+      "/images/commercial/office-spaces/modern-commercial-building-night.jpg",
+    ]
+  },
+  {
     id: "coworking-spaces",
-    title: "Co-working Spaces & Cafes",
+    title: "Co-working Spaces",
     description: "Modern workspaces designed for collaboration and productivity",
     images: [
       "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg",
@@ -28,7 +37,7 @@ const portfolioCategories = [
   },
   {
     id: "retail-stores",
-    title: "Retail Stores & Showrooms",
+    title: "Retail Stores",
     description: "Commercial spaces that drive customer engagement and sales",
     images: [
       "/images/commercial/retail-stores/beauty-salon-interior-1.jpg",
@@ -37,20 +46,37 @@ const portfolioCategories = [
       "/images/commercial/retail-stores/hair-salon-wide-angle.jpg",
       "/images/commercial/retail-stores/salon-workstation-detail.jpg",
     ]
+  },
+  {
+    id: "showrooms",
+    title: "Showrooms",
+    description: "Elegant display spaces showcasing products and brands",
+    images: [
+      "/images/commercial/retail-stores/retail-store-product-shelving.jpg",
+    ]
   }
+];
+
+// Category filter options
+const categoryFilters = [
+  { id: 'all', label: 'All' },
+  { id: 'office-spaces', label: 'Office Spaces' },
+  { id: 'coworking-spaces', label: 'Co-working Spaces' },
+  { id: 'retail-stores', label: 'Retail Stores' },
+  { id: 'showrooms', label: 'Showrooms' }
 ];
 
 export default function CommercialPage() {
   return (
-    <ServiceGalleryLayout
-      galleryImages={galleryImages}
+    <CategoryPageLayout
       mainCategory="Commercial Photography"
+      galleryImages={galleryImages}
       portfolioCategories={portfolioCategories}
-      cta={{
-        imageSrc: "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg",
-        title: "Ready to elevate your brand?",
-        description: "Let's create professional imagery that showcases your commercial space and strengthens your brand presence.",
-      }}
+      categoryFilters={categoryFilters}
+      ctaImage="/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg"
+      ctaTitle="Ready to elevate your brand?"
+      ctaDescription="Let's create professional imagery that showcases your commercial space and strengthens your brand presence."
+      basePath="/commercial"
     />
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import ServiceGalleryLayout from "@/components/services/ServiceGalleryLayout";
+import CategoryPageLayout from "@/components/layouts/CategoryPageLayout";
 
 // Gallery images with categories
 const galleryImages = [
@@ -53,17 +53,25 @@ const portfolioCategories = [
   }
 ];
 
+// Category filter options
+const categoryFilters = [
+  { id: 'all', label: 'All' },
+  { id: 'hotel-suites', label: 'Hotels' },
+  { id: 'restaurants', label: 'Restaurants' },
+  { id: 'event-spaces', label: 'Event Spaces' }
+];
+
 export default function HospitalityPage() {
   return (
-    <ServiceGalleryLayout
-      galleryImages={galleryImages}
+    <CategoryPageLayout
       mainCategory="Hospitality Photography"
+      galleryImages={galleryImages}
       portfolioCategories={portfolioCategories}
-      cta={{
-        imageSrc: "/images/hospitality/restaurants/art-gallery-dining-room.jpg",
-        title: "Ready to showcase your venue?",
-        description: "Let's create captivating imagery that attracts guests and elevates your hospitality brand.",
-      }}
+      categoryFilters={categoryFilters}
+      ctaImage="/images/hospitality/restaurants/art-gallery-dining-room.jpg"
+      ctaTitle="Ready to showcase your venue?"
+      ctaDescription="Let's create captivating imagery that attracts guests and elevates your hospitality brand."
+      basePath="/hospitality"
     />
   );
 }
