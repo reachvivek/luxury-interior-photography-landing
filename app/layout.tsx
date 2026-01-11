@@ -25,8 +25,8 @@ const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
 });
 
-const siteUrl = "https://tsurov.com"; // Update with your actual domain
-const siteName = "TSUROV";
+const siteUrl = "https://nashray.com"; // Update with your actual domain
+const siteName = "NASHRAY";
 const siteDescription = "Exceptional interior photography capturing luxury, elegance, and detail. Specializing in residential, hospitality, commercial, and custom interior spaces.";
 
 export const metadata: Metadata = {
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "TSUROV - Exceptional Interior Photography",
+        alt: "NASHRAY - Exceptional Interior Photography",
         type: "image/jpeg",
       }
     ],
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     title: `${siteName} | Luxury Interior Photography`,
     description: siteDescription,
     images: ["/images/og-image.jpg"],
-    creator: "@tsurov", // Update with actual Twitter handle
+    creator: "@nashray", // Update with actual Twitter handle
   },
   robots: {
     index: true,
@@ -122,7 +122,7 @@ export default function RootLayout({
     "name": siteName,
     "description": siteDescription,
     "url": siteUrl,
-    "logo": `${siteUrl}/logo/tsurov.png`,
+    "logo": `${siteUrl}/logo/LOGO-NASHRAY.png`,
     "image": `${siteUrl}/images/og-image.jpg`,
     "priceRange": "$$$",
     "areaServed": {

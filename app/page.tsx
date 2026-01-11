@@ -382,7 +382,7 @@ export default function Home() {
 
                 {/* Lead Line */}
                 <p className="text-lg md:text-xl text-stone-900 font-medium leading-relaxed mb-6">
-                  Tsurov specializes in architectural and interior photography.
+                  Nashray specializes in architectural and interior photography.
                 </p>
 
                 {/* Body Copy - What you do */}
@@ -798,8 +798,8 @@ export default function Home() {
             <div className="mt-10 pt-8 border-t border-stone-200/50">
               <p className="text-xs text-stone-500 text-center">
                 Or reach us directly at{' '}
-                <a href="mailto:hello@tsurov.com" className="text-stone-700 hover:text-stone-900 underline">
-                  hello@tsurov.com
+                <a href="mailto:hello@nashray.com" className="text-stone-700 hover:text-stone-900 underline">
+                  hello@nashray.com
                 </a>
               </p>
             </div>

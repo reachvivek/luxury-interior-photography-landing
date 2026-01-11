@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <h3 className="text-3xl font-serif font-light text-white tracking-[0.02em] mb-4">
-              TSUROV
+              NASHRAY
             </h3>
             <p className="text-sm text-stone-400 leading-relaxed">
               Precision-driven interior photography for luxury spaces.
@@ -84,7 +84,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-stone-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-stone-500">
-              © {new Date().getFullYear()} Tsurov Photography. All rights reserved.
+              © {new Date().getFullYear()} Nashray Photography. All rights reserved.
             </p>
             <p className="text-xs text-stone-500">
               Designed by{' '}

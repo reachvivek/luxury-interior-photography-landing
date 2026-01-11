@@ -15,7 +15,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-16 px-6 md:px-16 bg-white">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-stone-900 mb-6">
-            About Tsurov
+            About Nashray
           </h1>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             Precision-driven interior photography for architects, developers, and luxury brands.
@@ -29,7 +29,7 @@ export default function AboutPage() {
           <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
             <Image
               src="/images/7.png"
-              alt="About Tsurov Photography"
+              alt="About Nashray Photography"
               fill
               className="object-cover"
             />
@@ -40,7 +40,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg text-stone-600 leading-relaxed">
               <p>
-                Tsurov Photography specializes in capturing the essence of luxury interior spaces across the UAE. Based in Dubai, we work with architects, developers, and hospitality brands who demand excellence in every shot.
+                Nashray Photography specializes in capturing the essence of luxury interior spaces across the UAE. Based in Dubai, we work with architects, developers, and hospitality brands who demand excellence in every shot.
               </p>
               <p>
                 Our approach combines technical precision with artistic vision, ensuring every image tells the story of your space. From high-end residential properties to commercial developments, we bring years of expertise to every project.

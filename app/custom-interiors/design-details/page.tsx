@@ -8,7 +8,7 @@ export default function DesignDetailsPage() {
       description="Artistic close-up photography of design elements that make spaces unique, from hardware and fixtures to decorative accents and finishing touches."
       heroImage="/images/custom-interiors/design-details/gold-tableware-display.jpg"
       approachTitle="The Devil Is in the Details"
-      approachDescription="Tsurov understands that luxury lives in the details - the weight of a custom door handle, the precision of a lighting fixture, the artistry in decorative hardware, the finishing touches that separate exceptional from ordinary. Our detail photography elevates these elements from functional necessities to design statements, creating a visual language of quality that resonates with clients who expect perfection. These images tell the story of thoughtful design and meticulous execution."
+      approachDescription="Nashray understands that luxury lives in the details - the weight of a custom door handle, the precision of a lighting fixture, the artistry in decorative hardware, the finishing touches that separate exceptional from ordinary. Our detail photography elevates these elements from functional necessities to design statements, creating a visual language of quality that resonates with clients who expect perfection. These images tell the story of thoughtful design and meticulous execution."
       processTitle="Capturing Refined Excellence"
       processSteps={[
         "Careful identification of signature details that define the space's character and quality level",

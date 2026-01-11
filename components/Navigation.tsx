@@ -99,7 +99,7 @@ export default function Navigation() {
               <h1 className={`font-serif text-2xl md:text-3xl tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase font-light ${
                 isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
               }`}>
-                TSUROV
+                NASHRAY
               </h1>
             </Link>
 
@@ -153,8 +153,8 @@ export default function Navigation() {
         <div className="lg:hidden w-full px-6 py-4 grid grid-cols-3 items-center">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo/tsurov-model.png"
-              alt="TSUROV"
+              src="/logo/LOGO-NASHRAY.png"
+              alt="NASHRAY"
               width={50}
               height={50}
               priority
@@ -165,7 +165,7 @@ export default function Navigation() {
             <h1 className={`font-serif text-xl font-light tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase ${
               isScrolled ? 'text-stone-900' : 'text-white'
             }`}>
-              TSUROV
+              NASHRAY
             </h1>
           </Link>
           <div className="flex justify-end">
