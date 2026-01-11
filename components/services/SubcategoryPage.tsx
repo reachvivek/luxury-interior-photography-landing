@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
@@ -32,6 +32,7 @@ export default function SubcategoryPage({
   const galleryAnimation = useScrollAnimation(0.15);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageTransitioning, setImageTransitioning] = useState(false);
 
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
@@ -43,12 +44,38 @@ export default function SubcategoryPage({
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    if (!imageTransitioning) {
+      setImageTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+        setImageTransitioning(false);
+      }, 300);
+    }
   };
 
   const previousImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    if (!imageTransitioning) {
+      setImageTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+        setImageTransitioning(false);
+      }, 300);
+    }
   };
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!lightboxOpen) return;
+
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') previousImage();
+      if (e.key === 'ArrowRight') nextImage();
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [lightboxOpen, currentImageIndex]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -173,10 +200,10 @@ export default function SubcategoryPage({
           {/* Close Button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
+            className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 cursor-pointer group"
             aria-label="Close lightbox"
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -184,10 +211,10 @@ export default function SubcategoryPage({
           {/* Previous Button */}
           <button
             onClick={previousImage}
-            className="absolute left-6 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+            className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 cursor-pointer"
             aria-label="Previous image"
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
@@ -195,48 +222,66 @@ export default function SubcategoryPage({
           {/* Next Button */}
           <button
             onClick={nextImage}
-            className="absolute right-6 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 cursor-pointer"
             aria-label="Next image"
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
           {/* Image Counter */}
-          <div className="absolute top-6 left-6 z-50 text-white text-sm backdrop-blur-sm bg-black/30 px-4 py-2 rounded-full">
+          <div className="absolute top-4 left-4 md:top-6 md:left-6 z-50 text-white text-xs md:text-sm backdrop-blur-sm bg-black/30 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
             {currentImageIndex + 1} / {galleryImages.length}
+          </div>
+
+          {/* Keyboard Instructions - Top Center */}
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-4 text-white/70 text-xs backdrop-blur-sm bg-black/30 px-4 py-2 rounded-full">
+            <div className="flex items-center gap-1.5">
+              <kbd className="px-2 py-0.5 bg-white/10 rounded text-white border border-white/20">ESC</kbd>
+              <span>to exit</span>
+            </div>
+            <div className="w-px h-4 bg-white/20" />
+            <div className="flex items-center gap-1.5">
+              <kbd className="px-2 py-0.5 bg-white/10 rounded text-white border border-white/20">←</kbd>
+              <kbd className="px-2 py-0.5 bg-white/10 rounded text-white border border-white/20">→</kbd>
+              <span>to navigate</span>
+            </div>
           </div>
 
           {/* Current Image - 16:9 Full Stretch */}
           <div className="relative w-screen aspect-video">
-            <Image
-              src={galleryImages[currentImageIndex].src}
-              alt={galleryImages[currentImageIndex].alt}
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
+            <div className={`absolute inset-0 transition-opacity duration-300 ${imageTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+              <Image
+                key={currentImageIndex}
+                src={galleryImages[currentImageIndex].src}
+                alt={galleryImages[currentImageIndex].alt}
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+              />
+            </div>
 
             {/* Bottom Gradient for Text Readability */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+            <div className="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
 
             {/* Bottom Left - Image Description */}
-            <div className="absolute bottom-6 left-6 md:left-12 z-20 max-w-xl">
-              <p className="text-white text-sm md:text-base font-light leading-relaxed" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-12 z-20 max-w-xs md:max-w-xl">
+              <p className="text-white text-xs md:text-sm lg:text-base font-light leading-relaxed" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
                 {galleryImages[currentImageIndex].alt}
               </p>
-              <p className="text-white/70 text-xs md:text-sm mt-1 tracking-wide">
+              <p className="text-white/70 text-[10px] md:text-xs lg:text-sm mt-0.5 md:mt-1 tracking-wide">
                 {subcategoryTitle}
               </p>
             </div>
 
             {/* Bottom Right - Photography Credit */}
-            <div className="absolute bottom-6 right-6 md:right-12 z-20 text-right">
-              <p className="text-white/80 text-xs md:text-sm tracking-widest uppercase" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+            <div className="absolute bottom-4 right-4 md:bottom-6 md:right-12 z-20 text-right">
+              <p className="text-white/80 text-[10px] md:text-xs lg:text-sm tracking-widest uppercase" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
                 Photography by Tsurov
               </p>
-              <p className="text-white/60 text-xs mt-1">
+              <p className="text-white/60 text-[9px] md:text-xs mt-0.5 md:mt-1">
                 Interior Photography Dubai
               </p>
             </div>
