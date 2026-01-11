@@ -20,6 +20,12 @@ interface SubcategoryPageProps {
   description: string;
   heroImage: string;
   galleryImages: SubcategoryImage[];
+  approachTitle: string;
+  approachDescription: string;
+  processTitle: string;
+  processSteps: string[];
+  impactTitle: string;
+  impactDescription: string;
 }
 
 export default function SubcategoryPage({
@@ -28,6 +34,12 @@ export default function SubcategoryPage({
   description,
   heroImage,
   galleryImages,
+  approachTitle,
+  approachDescription,
+  processTitle,
+  processSteps,
+  impactTitle,
+  impactDescription,
 }: SubcategoryPageProps) {
   const galleryAnimation = useScrollAnimation(0.15);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -135,6 +147,24 @@ export default function SubcategoryPage({
         </div>
       </section>
 
+      {/* The Approach - Storytelling Section */}
+      <section className="py-16 md:py-20 px-6 md:px-16 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-center mb-8 md:mb-10">
+            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
+          </div>
+
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-light text-stone-900 mb-6">
+              {approachTitle}
+            </h2>
+            <p className="text-sm md:text-base lg:text-lg text-stone-600 leading-relaxed max-w-3xl mx-auto">
+              {approachDescription}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Gallery Section - Masonry Grid */}
       <section className="py-16 md:py-24 px-6 md:px-16 bg-stone-50">
         <div className="max-w-7xl mx-auto">
@@ -190,6 +220,50 @@ export default function SubcategoryPage({
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Process - Experience Section */}
+      <section className="py-16 md:py-20 px-6 md:px-16 bg-white border-t border-stone-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Left: Process Details */}
+            <div>
+              <div className="flex mb-6 md:mb-8">
+                <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
+              </div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-light text-stone-900 mb-6">
+                {processTitle}
+              </h2>
+              <div className="space-y-4">
+                {processSteps.map((step, idx) => (
+                  <div key={idx} className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 text-sm font-medium">
+                      {idx + 1}
+                    </div>
+                    <p className="text-sm md:text-base text-stone-600 leading-relaxed pt-1">
+                      {step}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Impact Statement */}
+            <div className="bg-stone-50 p-8 md:p-10 rounded-lg">
+              <div className="mb-6">
+                <svg className="w-12 h-12 text-stone-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+              </div>
+              <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-4">
+                {impactTitle}
+              </h3>
+              <p className="text-sm md:text-base text-stone-600 leading-relaxed">
+                {impactDescription}
+              </p>
+            </div>
           </div>
         </div>
       </section>
