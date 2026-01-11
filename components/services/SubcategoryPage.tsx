@@ -208,14 +208,14 @@ export default function SubcategoryPage({
             {currentImageIndex + 1} / {galleryImages.length}
           </div>
 
-          {/* Current Image */}
-          <div className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center">
+          {/* Current Image - 16:9 Full Stretch */}
+          <div className="relative w-[90vw] aspect-video">
             <Image
               src={galleryImages[currentImageIndex].src}
               alt={galleryImages[currentImageIndex].alt}
-              width={1920}
-              height={1080}
-              className="max-w-full max-h-[90vh] w-auto h-auto object-contain"
+              fill
+              sizes="90vw"
+              className="object-cover"
             />
           </div>
         </div>
@@ -258,7 +258,7 @@ export default function SubcategoryPage({
       </section>
 
       <Footer />
-      <ScrollToTop />
+      {!lightboxOpen && <ScrollToTop />}
     </div>
   );
 }
