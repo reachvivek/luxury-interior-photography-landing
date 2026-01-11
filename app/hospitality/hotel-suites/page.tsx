@@ -34,7 +34,7 @@ export default function HotelSuitesPage() {
         },
       ]}
       approachTitle="Luxury Hospitality Reimagined"
-      approachDescription="Tsurov's hotel suite photography transforms rooms into destinations, capturing the indulgent experience that drives bookings and justifies premium rates. We go beyond standard room documentation to showcase the emotional journey guests crave—from the welcoming ambiance of thoughtfully designed spaces to the exquisite details that define five-star hospitality. Whether capturing intimate boutique suites or sprawling presidential accommodations, our imagery tells a story of escape, comfort, and memorable experiences that resonate with luxury travelers worldwide."
+      approachDescription="Tsurov's hotel suite photography transforms rooms into destinations, capturing the indulgent experience that drives bookings and justifies premium rates. We go beyond standard room documentation to showcase the emotional journey guests crave - from the welcoming ambiance of thoughtfully designed spaces to the exquisite details that define five-star hospitality. Whether capturing intimate boutique suites or sprawling presidential accommodations, our imagery tells a story of escape, comfort, and memorable experiences that resonate with luxury travelers worldwide."
       processTitle="Crafting Your Guest Experience Story"
       processSteps={[
         "Detailed briefing to understand your property's unique positioning, signature amenities, and target guest demographics",

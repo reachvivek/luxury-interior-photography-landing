@@ -34,11 +34,11 @@ export default function CoworkingSpacesPage() {
         },
       ]}
       approachTitle="Community and Productivity in Harmony"
-      approachDescription="Tsurov captures the unique energy of coworking spaces by balancing the dual narrative of professional productivity and vibrant community. Our photography highlights the versatility of these environments—from focused quiet zones to collaborative hubs—while showcasing the design elements that attract remote workers, freelancers, and startups. We understand that coworking photography must communicate flexibility, connectivity, and the lifestyle advantages that differentiate your space from traditional offices and home setups."
+      approachDescription="Tsurov captures the unique energy of coworking spaces by balancing the dual narrative of professional productivity and vibrant community. Our photography highlights the versatility of these environments - from focused quiet zones to collaborative hubs - while showcasing the design elements that attract remote workers, freelancers, and startups. We understand that coworking photography must communicate flexibility, connectivity, and the lifestyle advantages that differentiate your space from traditional offices and home setups."
       processTitle="Bringing Your Community to Life"
       processSteps={[
         "Site analysis identifying diverse work zones, amenity areas, and architectural features that define your brand",
-        "Timing shoots to capture authentic energy—both the buzz of peak hours and the serene productivity of quieter periods",
+        "Timing shoots to capture authentic energy - both the buzz of peak hours and the serene productivity of quieter periods",
         "Varied compositions showcasing hot desks, private offices, meeting rooms, and social spaces to appeal to different user types",
         "Emphasis on connectivity features, natural lighting, and design details that enhance productivity and creativity",
         "Dynamic editing that conveys the vibrant, entrepreneurial atmosphere while maintaining professional polish"

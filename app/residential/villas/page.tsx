@@ -8,12 +8,12 @@ export default function VillasPage() {
       description="Exquisite photography capturing the grandeur and elegance of luxury villa interiors, from spacious living areas to intimate private spaces."
       heroImage="/images/residential/villas/luxury-villa-grand-entrance.jpg"
       approachTitle="Harmonizing Exterior and Interior Excellence"
-      approachDescription="Villa photography requires a unique understanding of how exterior aesthetics harmonize with interior design and window views to create a unified atmosphere. The aesthetics of the villa's exterior, the interior spaces, and the views from the windows must work together seamlessly. We capture this holistic experience—whether showcasing day and night views, or the stunning colors of sunset moments that define luxury villa living. Each villa demands its own specific approach in technique and lighting strategy."
+      approachDescription="Villa photography requires a unique understanding of how exterior aesthetics harmonize with interior design and window views to create a unified atmosphere. The aesthetics of the villa's exterior, the interior spaces, and the views from the windows must work together seamlessly. We capture this holistic experience - whether showcasing day and night views, or the stunning colors of sunset moments that define luxury villa living. Each villa demands its own specific approach in technique and lighting strategy."
       processTitle="The Technical Excellence Behind Every Shot"
       processSteps={[
         "Pre-shoot consultation with detailed technical specifications, providing visual guidelines and clear photography direction tailored to your property's unique features.",
         "Strategic use of external light sources for both interior and exterior shots, creating attractive color tones that convey comfort and uniqueness while maintaining realism.",
-        "Diverse lens selection to capture volume, atmosphere, and depth—paying special attention to luxury details like unique furniture, expensive marble, wood, textiles, and glass reflections.",
+        "Diverse lens selection to capture volume, atmosphere, and depth - paying special attention to luxury details like unique furniture, expensive marble, wood, textiles, and glass reflections.",
         "Comprehensive shoot coverage including large interior shots, panoramic photography, day and evening sessions, timelapses, and aerial photography for villas and gated complexes.",
         "Professional space preparation with strategic furniture arrangement (coordinated with designers when needed) to create deeper, more attractive compositions with maximum visual impact."
       ]}

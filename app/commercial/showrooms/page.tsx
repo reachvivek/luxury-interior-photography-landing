@@ -34,7 +34,7 @@ export default function ShowroomsPage() {
         },
       ]}
       approachTitle="Prestige Products Presented Flawlessly"
-      approachDescription="Tsurov's showroom photography elevates product presentation to an art form, whether showcasing luxury automobiles, designer furniture, or architectural materials. We understand that showrooms are theater—every display is carefully curated to inspire desire and communicate quality. Our photography captures the aspirational essence of your products while highlighting the immersive brand experience your showroom provides. From dramatic automotive reveals to elegant furniture vignettes, we create imagery that drives qualified buyers through your doors."
+      approachDescription="Tsurov's showroom photography elevates product presentation to an art form, whether showcasing luxury automobiles, designer furniture, or architectural materials. We understand that showrooms are theater - every display is carefully curated to inspire desire and communicate quality. Our photography captures the aspirational essence of your products while highlighting the immersive brand experience your showroom provides. From dramatic automotive reveals to elegant furniture vignettes, we create imagery that drives qualified buyers through your doors."
       processTitle="Perfecting Product Presentation"
       processSteps={[
         "Detailed planning session to understand featured products, brand positioning, and target clientele",

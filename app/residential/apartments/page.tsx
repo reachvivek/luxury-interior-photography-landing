@@ -34,7 +34,7 @@ export default function ApartmentsPage() {
         },
       ]}
       approachTitle="Tailored Approach for Modern Living Spaces"
-      approachDescription="Apartment photography requires careful attention to specific color palettes and atmosphere created through interior lighting. We use additional artificial light with varying temperatures to achieve more professional and attractive images. Each apartment type—from compact studios to premium multi-bedroom units—cannot be photographed with the same techniques; all have their own specific characteristics both in terms of technique and lighting approach that maximize their appeal."
+      approachDescription="Apartment photography requires careful attention to specific color palettes and atmosphere created through interior lighting. We use additional artificial light with varying temperatures to achieve more professional and attractive images. Each apartment type - from compact studios to premium multi-bedroom units - cannot be photographed with the same techniques; all have their own specific characteristics both in terms of technique and lighting approach that maximize their appeal."
       processTitle="Professional Techniques for Every Space"
       processSteps={[
         "Detailed pre-shoot planning with technical specifications including color balancing, distortion preferences (straight lines vs. creative perspectives), and style requirements.",

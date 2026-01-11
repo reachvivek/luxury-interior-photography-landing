@@ -34,12 +34,12 @@ export default function HomeOfficesPage() {
         },
       ]}
       approachTitle="Specialized Approach for Workspace Photography"
-      approachDescription="Home office photography requires the same professional attention to color palettes and lighting atmosphere as other residential spaces. We use additional artificial light with varying temperatures to create professional, attractive images that showcase both functionality and design. Each workspace has unique characteristics—whether minimalist modern or executive traditional—and demands specific technical and lighting approaches to properly convey its value as part of premium residential properties."
+      approachDescription="Home office photography requires the same professional attention to color palettes and lighting atmosphere as other residential spaces. We use additional artificial light with varying temperatures to create professional, attractive images that showcase both functionality and design. Each workspace has unique characteristics - whether minimalist modern or executive traditional - and demands specific technical and lighting approaches to properly convey its value as part of premium residential properties."
       processTitle="Technical Excellence for Workspace Capture"
       processSteps={[
         "Pre-shoot consultation with detailed technical specifications for color balancing, line treatment, and style preferences aligned with the overall property marketing.",
         "Strategic use of external light sources to create attractive interior tones that highlight workspace comfort, functionality, and integration with the residential environment.",
-        "Diverse lens selection to capture volume and depth while paying attention to quality details—custom furniture, premium materials, technology integration, and design elements.",
+        "Diverse lens selection to capture volume and depth while paying attention to quality details - custom furniture, premium materials, technology integration, and design elements.",
         "Comprehensive shooting including wide interior shots showing workspace integration, detail captures of functional features, and proper representation of natural light advantages.",
         "Professional space preparation with strategic arrangement to create attractive compositions that demonstrate both professional capability and residential comfort."
       ]}

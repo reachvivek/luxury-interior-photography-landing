@@ -46,7 +46,7 @@ export default function AboutPage() {
                 Our approach combines technical precision with artistic vision, ensuring every image tells the story of your space. From high-end residential properties to commercial developments, we bring years of expertise to every project.
               </p>
               <p>
-                We understand that great interior photography goes beyond just taking pictures—it's about showcasing design, highlighting craftsmanship, and creating images that sell.
+                We understand that great interior photography goes beyond just taking pictures - it's about showcasing design, highlighting craftsmanship, and creating images that sell.
               </p>
             </div>
           </div>
