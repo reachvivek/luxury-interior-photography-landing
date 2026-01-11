@@ -209,14 +209,37 @@ export default function SubcategoryPage({
           </div>
 
           {/* Current Image - 16:9 Full Stretch */}
-          <div className="relative w-[90vw] aspect-video">
+          <div className="relative w-screen aspect-video">
             <Image
               src={galleryImages[currentImageIndex].src}
               alt={galleryImages[currentImageIndex].alt}
               fill
-              sizes="90vw"
+              sizes="100vw"
               className="object-cover"
             />
+
+            {/* Bottom Gradient for Text Readability */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+
+            {/* Bottom Left - Image Description */}
+            <div className="absolute bottom-6 left-6 md:left-12 z-20 max-w-xl">
+              <p className="text-white text-sm md:text-base font-light leading-relaxed" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                {galleryImages[currentImageIndex].alt}
+              </p>
+              <p className="text-white/70 text-xs md:text-sm mt-1 tracking-wide">
+                {subcategoryTitle}
+              </p>
+            </div>
+
+            {/* Bottom Right - Photography Credit */}
+            <div className="absolute bottom-6 right-6 md:right-12 z-20 text-right">
+              <p className="text-white/80 text-xs md:text-sm tracking-widest uppercase" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                Photography by Tsurov
+              </p>
+              <p className="text-white/60 text-xs mt-1">
+                Interior Photography Dubai
+              </p>
+            </div>
           </div>
         </div>
       )}
