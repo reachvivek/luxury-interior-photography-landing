@@ -1,32 +1,44 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FOOTER_LINKS } from "@/constants/navigation";
 import { CONTACT } from "@/data/contact";
 
 export default function Footer() {
   return (
-    <footer className="min-h-screen md:min-h-0 bg-stone-900 text-stone-300 flex items-center">
+    <footer className="min-h-screen md:min-h-0 bg-stone-50 text-stone-700 flex items-center">
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-8 w-full">
         {/* Top Section */}
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="text-3xl font-serif font-light text-white tracking-[0.02em] mb-4">
-              NASHRAY
-            </h3>
-            <p className="text-sm text-stone-400 leading-relaxed">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-white rounded-md p-0 shadow-sm w-[50px] h-[50px] overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/logo/LOGO-NASHRAY.png"
+                  alt="NASHRAY"
+                  width={50}
+                  height={50}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="text-3xl font-serif font-light text-stone-900 tracking-[0.02em]">
+                NASHRAY
+              </h3>
+            </div>
+            <p className="text-sm text-stone-600 leading-relaxed">
               Precision-driven interior photography for luxury spaces.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-medium text-white tracking-wider uppercase mb-6">Navigation</h4>
+            <h4 className="text-sm font-medium text-stone-900 tracking-wider uppercase mb-6">Navigation</h4>
             <nav className="flex flex-col gap-3">
               {FOOTER_LINKS.navigation.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-stone-400 hover:text-white transition-colors"
+                  className="text-sm text-stone-600 hover:text-stone-900 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -36,13 +48,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-sm font-medium text-white tracking-wider uppercase mb-6">Services</h4>
+            <h4 className="text-sm font-medium text-stone-900 tracking-wider uppercase mb-6">Services</h4>
             <nav className="flex flex-col gap-3">
               {FOOTER_LINKS.services.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-stone-400 hover:text-white transition-colors"
+                  className="text-sm text-stone-600 hover:text-stone-900 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -52,13 +64,13 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-medium text-white tracking-wider uppercase mb-6">Get in Touch</h4>
+            <h4 className="text-sm font-medium text-stone-900 tracking-wider uppercase mb-6">Get in Touch</h4>
             <div className="flex gap-4">
               <a
                 href={CONTACT.whatsapp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-400 hover:text-white transition-colors"
+                className="text-stone-600 hover:text-stone-900 transition-colors"
                 aria-label="WhatsApp"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -69,7 +81,7 @@ export default function Footer() {
                 href={CONTACT.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-400 hover:text-white transition-colors"
+                className="text-stone-600 hover:text-stone-900 transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -81,18 +93,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-stone-800">
+        <div className="pt-8 border-t border-stone-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-stone-600">
               © {new Date().getFullYear()} Nashray Photography. All rights reserved.
             </p>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-stone-600">
               Designed by{' '}
               <a
                 href={`https://wa.me/${CONTACT.designer.whatsapp}?text=${CONTACT.designer.message}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-stone-400 transition-colors"
+                className="hover:text-stone-900 transition-colors"
               >
                 {CONTACT.designer.name}
               </a>

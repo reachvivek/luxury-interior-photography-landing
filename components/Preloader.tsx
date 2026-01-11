@@ -59,7 +59,7 @@ export default function Preloader() {
           <div className="preloader-logo">
             <Image
               src="/logo/LOGO-NASHRAY.png"
-              alt="TSUROV"
+              alt="NASHRAY"
               width={320}
               height={320}
               priority
