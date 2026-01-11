@@ -177,7 +177,7 @@ export default function SubcategoryPage({
               Gallery
             </p>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900">
-              {galleryImages.length} Featured Images
+              Featured Work
             </h2>
           </div>
 
