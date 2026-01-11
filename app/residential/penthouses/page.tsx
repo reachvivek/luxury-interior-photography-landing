@@ -7,18 +7,18 @@ export default function PenthousesPage() {
       subcategoryTitle="Penthouses"
       description="Capturing the pinnacle of luxury living with breathtaking penthouse interiors featuring panoramic views, sophisticated design, and premium finishes."
       heroImage="/images/residential/penthouses/penthouse-interior-1.jpg"
-      approachTitle="Elevating Sky-High Luxury"
-      approachDescription="Penthouse photography demands a unique perspective—capturing the seamless blend of interior sophistication and breathtaking cityscape views. I specialize in showcasing how these elevated spaces command Dubai's skyline, emphasizing floor-to-ceiling windows, premium finishes, and the exclusive lifestyle of high-rise living. Every shot is composed to convey both intimacy and grandeur, making potential buyers feel the prestige of owning the sky."
-      processTitle="Precision at Every Level"
+      approachTitle="Mastering Color Palettes and Lighting Atmosphere"
+      approachDescription="Penthouse photography is conducted with careful consideration of specific color palettes and atmosphere created through interior lighting. To achieve professional and attractive results, we use additional artificial light with varying temperatures that complement the penthouse's design. Each penthouse demands its own unique technical approach—different from villas or standard apartments—with specific techniques for capturing both the luxury of the space and the dramatic city views that define elevated living."
+      processTitle="Technical Precision for Premium Results"
       processSteps={[
-        "Detailed space planning to identify key architectural features, view corridors, and unique selling points that set the penthouse apart.",
-        "Twilight and golden hour shoots to capture stunning cityscape views, interior ambiance, and the magical interplay of natural and city lights.",
-        "Advanced HDR techniques to perfectly balance bright window views with rich interior detail, avoiding blown-out skies or dark rooms.",
-        "Stylized composition highlighting luxury amenities—private terraces, wine cellars, smart home features, and bespoke design elements.",
-        "Curated image selection and retouching to create a cohesive visual story that positions the property among Dubai's most coveted residences."
+        "Pre-shoot technical planning including color balancing specifications, line distortion preferences, and style requirements—whether standard modern or creative with unusual tones.",
+        "Strategic use of external light sources that create and convey unique style through attractive interior color tones, maintaining realism while highlighting comfort and uniqueness.",
+        "Multiple lens types to capture volume and depth while paying special attention to expensive materials—marble, wood, textiles, and glass—including their reflections and colors.",
+        "Comprehensive shoot including daytime and evening photography, wide interior shots, and detail captures of exclusive amenities and bespoke design elements.",
+        "Professional color grading and post-production maintaining authentic representation while enhancing the luxury atmosphere that positions the property for premium marketing."
       ]}
-      impactTitle="Setting New Standards"
-      impactDescription="My penthouse photography transforms listings into aspirational showcases that command attention from ultra-high-net-worth individuals. Clients experience 40-60% faster engagement rates, with images that dominate luxury property portals and social media. By capturing the essence of elevated living, these visuals don't just show a home—they sell a lifestyle."
+      impactTitle="Quality, Speed, and Value"
+      impactDescription="Our penthouse photography delivers professional results quickly and effectively. We provide detailed pre-shoot consultations, clear technical specifications, and fast turnaround times that respect your schedule. The combination of technical excellence, competitive pricing, and efficient workflow makes our service both profitable and convenient for luxury penthouse marketing in Dubai's competitive real estate market."
       galleryImages={[
         {
           src: "/images/residential/penthouses/penthouse-interior-1.jpg",

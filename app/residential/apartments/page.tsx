@@ -33,18 +33,18 @@ export default function ApartmentsPage() {
           alt: "Apartment workspace with window seating",
         },
       ]}
-      approachTitle="Urban Sophistication Captured"
-      approachDescription="Tsurov understands that apartment photography isn't just about documenting rooms—it's about creating a lifestyle narrative that resonates with young professionals and modern urbanites. Every shot is carefully composed to maximize the perception of space, highlight natural light flow, and showcase the urban sophistication that makes city living irresistible. From compact studios to sprawling multi-bedroom units, we transform square footage into aspirational living."
-      processTitle="The Apartment Photography Experience"
+      approachTitle="Tailored Approach for Modern Living Spaces"
+      approachDescription="Apartment photography requires careful attention to specific color palettes and atmosphere created through interior lighting. We use additional artificial light with varying temperatures to achieve more professional and attractive images. Each apartment type—from compact studios to premium multi-bedroom units—cannot be photographed with the same techniques; all have their own specific characteristics both in terms of technique and lighting approach that maximize their appeal."
+      processTitle="Professional Techniques for Every Space"
       processSteps={[
-        "Pre-shoot consultation to understand target demographics and unique selling points of each unit",
-        "Strategic styling and staging to maximize spatial perception and create emotional connections",
-        "Golden hour and twilight shoots to capture both vibrant city views and intimate evening ambiance",
-        "Wide-angle mastery that makes even compact spaces feel expansive and inviting",
-        "Post-production optimization ensuring colors, lighting, and atmosphere perfectly represent the urban lifestyle"
+        "Detailed pre-shoot planning with technical specifications including color balancing, distortion preferences (straight lines vs. creative perspectives), and style requirements.",
+        "Strategic use of external light sources to create attractive interior color tones that convey comfort and uniqueness while maintaining realistic proximity to actual conditions.",
+        "Various lens types to capture volume, atmosphere, and depth of rooms, with special attention to materials and finishes that define quality living.",
+        "Comprehensive coverage including daytime and evening shots, wide interior perspectives, and panoramic photography that showcases the full apartment experience.",
+        "Professional space preparation with strategic furniture arrangement (coordinated with designers or client agreement) to create deeper, more attractive images with maximum visual effect."
       ]}
-      impactTitle="Accelerating Leasing Success"
-      impactDescription="Our apartment photography consistently drives 40-60% more qualified inquiries by creating an immediate emotional connection with prospective tenants. By showcasing not just the space but the lifestyle it enables, we help property managers reduce vacancy periods and command premium rental rates that reflect the true value of modern urban living."
+      impactTitle="Efficient, Professional Results"
+      impactDescription="Our apartment photography delivers maximum results in minimum time. We offer free consultations to discuss all project details, quickly prepare detailed work plans with dates and angle examples, and deliver high-quality images that effectively market your properties. This combination of quality, competitive pricing, and fast turnaround makes our service profitable and convenient for residential property marketing."
     />
   );
 }

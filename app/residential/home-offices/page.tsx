@@ -33,18 +33,18 @@ export default function HomeOfficesPage() {
           alt: "Compact home office with window view",
         },
       ]}
-      approachTitle="Where Productivity Meets Inspiration"
-      approachDescription="In the era of remote work, Tsurov's home office photography transcends traditional interior shots to capture the perfect balance of professionalism and personal style. We understand that home offices serve dual purposes—they must inspire productivity while reflecting individual personality. Our approach focuses on showcasing ergonomic design, natural lighting advantages, and the seamless integration of work zones into residential spaces, creating images that appeal to both remote professionals and property buyers seeking modern work-from-home solutions."
-      processTitle="Crafting Your Productive Haven"
+      approachTitle="Specialized Approach for Workspace Photography"
+      approachDescription="Home office photography requires the same professional attention to color palettes and lighting atmosphere as other residential spaces. We use additional artificial light with varying temperatures to create professional, attractive images that showcase both functionality and design. Each workspace has unique characteristics—whether minimalist modern or executive traditional—and demands specific technical and lighting approaches to properly convey its value as part of premium residential properties."
+      processTitle="Technical Excellence for Workspace Capture"
       processSteps={[
-        "Detailed assessment of workspace layout, lighting conditions, and functional zones",
-        "Strategic decluttering and styling to showcase both professional functionality and aesthetic appeal",
-        "Multi-angle compositions highlighting ergonomic features, storage solutions, and natural light sources",
-        "Capture of both wide shots showing space integration and detail shots of premium finishes and equipment",
-        "Professional editing that emphasizes clarity, focus, and the energizing qualities of a well-designed workspace"
+        "Pre-shoot consultation with detailed technical specifications for color balancing, line treatment, and style preferences aligned with the overall property marketing.",
+        "Strategic use of external light sources to create attractive interior tones that highlight workspace comfort, functionality, and integration with the residential environment.",
+        "Diverse lens selection to capture volume and depth while paying attention to quality details—custom furniture, premium materials, technology integration, and design elements.",
+        "Comprehensive shooting including wide interior shots showing workspace integration, detail captures of functional features, and proper representation of natural light advantages.",
+        "Professional space preparation with strategic arrangement to create attractive compositions that demonstrate both professional capability and residential comfort."
       ]}
-      impactTitle="Elevating Work-From-Home Value"
-      impactDescription="Our home office photography adds measurable value to residential listings by highlighting one of the most sought-after features in modern homes. Properties featuring professional home office imagery receive 35% more engagement from remote workers and professionals, and homes with dedicated office spaces photographed by Tsurov command price premiums of 8-12% in today's remote-work-driven market."
+      impactTitle="Fast, Professional Service"
+      impactDescription="Our home office photography delivers quality results efficiently. We provide free consultations to understand your specific needs, quickly prepare work plans with clear timelines and examples, and deliver images that effectively showcase this valuable feature of modern residential properties. The combination of technical quality, reasonable pricing, and fast delivery makes our service ideal for property marketing."
     />
   );
 }
