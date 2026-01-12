@@ -40,22 +40,21 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
         onEnterBack: () => setCurrentIndex(index),
       });
 
-      // Initial animation for content
+      // Subtle animation for content without hiding text
       const content = card.querySelector('.service-content');
       if (content) {
         gsap.fromTo(
           content.children,
-          { y: 60, opacity: 0 },
+          { y: 30 },
           {
             y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out",
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: card,
-              start: "top center",
-              toggleActions: "play none none reverse"
+              start: "top 80%",
+              toggleActions: "play none none none"
             }
           }
         );
@@ -66,16 +65,15 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
       if (image) {
         gsap.fromTo(
           image,
-          { scale: 1.3, opacity: 0.5 },
+          { scale: 1.15 },
           {
             scale: 1,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power3.out",
+            duration: 1,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: card,
-              start: "top center",
-              toggleActions: "play none none reverse"
+              start: "top 80%",
+              toggleActions: "play none none none"
             }
           }
         );
@@ -108,7 +106,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/40" />
           </div>
 
           {/* Content */}
