@@ -11,6 +11,7 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import JournalCard from "@/components/cards/JournalCard";
 import ProcessStep from "@/components/cards/ProcessStep";
 import FeatureCard from "@/components/cards/FeatureCard";
+import MobileServicesShowcase from "@/components/MobileServicesShowcase";
 import { trustedByLogos } from "@/data/trustedBy";
 import { journalPosts } from "@/data/journalPosts";
 import { CONTACT } from "@/data/contact";
@@ -20,6 +21,38 @@ import { galleryRow1Images, galleryRow2Images } from "@/data/gallery";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Home() {
+  // Services data for mobile showcase
+  const services = [
+    {
+      title: "Residential Photography",
+      description: "Luxury villas, apartments, and penthouses captured with elegance",
+      image: "/images/residential/penthouses/penthouse-interior-1.jpg",
+      href: "/residential",
+      number: "01"
+    },
+    {
+      title: "Hotels Photography",
+      description: "Hotel suites, restaurants, and hospitality spaces with refined detail",
+      image: "/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg",
+      href: "/hospitality",
+      number: "02"
+    },
+    {
+      title: "Commercial Photography",
+      description: "Office spaces, retail stores, and showrooms with professional precision",
+      image: "/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg",
+      href: "/commercial",
+      number: "03"
+    },
+    {
+      title: "Custom Interior Photography",
+      description: "Architectural elements, furniture, and design details beautifully composed",
+      image: "/images/custom/design-details/luxury-chandelier-interior.jpg",
+      href: "/custom-interiors",
+      number: "04"
+    }
+  ];
+
   // Scroll animations
   const howItWorksAnimation = useScrollAnimation(0.2);
   const whyChooseUsAnimation = useScrollAnimation(0.2);
@@ -112,33 +145,41 @@ export default function Home() {
       </section>
 
       {/* Services - Main Directions */}
-      <section className="py-12 md:py-32 px-6 md:px-16 bg-white">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-8 md:mb-16">
-            {/* Decorative Line */}
-            <div className="flex justify-center mb-4 md:mb-6">
-              <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+      <section className="bg-white">
+        {/* Mobile Full-Screen Showcase */}
+        <MobileServicesShowcase services={services} />
+
+        {/* Desktop Services Grid */}
+        <div className="hidden md:block py-12 md:py-32 px-6 md:px-16">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-8 md:mb-16">
+              {/* Decorative Line */}
+              <div className="flex justify-center mb-4 md:mb-6">
+                <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+              </div>
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 mb-3 md:mb-5">
+                Services
+              </h2>
+              <p className="text-sm md:text-base lg:text-lg text-stone-600 max-w-2xl mx-auto">
+                Specialized photography services for every space
+              </p>
             </div>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 mb-3 md:mb-5">
-              Services
-            </h2>
-            <p className="text-sm md:text-base lg:text-lg text-stone-600 max-w-2xl mx-auto">
-              Specialized photography services for every space
-            </p>
-          </div>
-          {/* Services Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8">
+            {/* Services Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8">
             {/* Residential Photography */}
-            <Link
-              href="/residential"
+            <div
               ref={service1Animation.elementRef}
-              className={`group block rounded-xl overflow-hidden transition-all duration-1000 ease-out hover:shadow-2xl hover:-translate-y-2 ${
+              className={`transition-all duration-1000 ease-out ${
                 service1Animation.isVisible
-                  ? 'opacity-100 scale-100 shadow-xl'
+                  ? 'opacity-100 scale-100'
                   : 'opacity-40 scale-85'
               }`}
             >
+              <Link
+                href="/residential"
+                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
+              >
               <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
                 <Image
                   src="/images/residential/penthouses/penthouse-interior-1.jpg"
@@ -174,17 +215,21 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+            </div>
 
             {/* Hotels Photography */}
-            <Link
-              href="/hospitality"
+            <div
               ref={service2Animation.elementRef}
-              className={`group block rounded-xl overflow-hidden transition-all duration-1000 ease-out delay-100 hover:shadow-2xl hover:-translate-y-2 ${
+              className={`transition-all duration-1000 ease-out delay-100 ${
                 service2Animation.isVisible
-                  ? 'opacity-100 scale-100 shadow-xl'
+                  ? 'opacity-100 scale-100'
                   : 'opacity-40 scale-85'
               }`}
             >
+              <Link
+                href="/hospitality"
+                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
+              >
               <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
                 <Image
                   src="/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg"
@@ -220,17 +265,21 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+            </div>
 
             {/* Commercial Photography */}
-            <Link
-              href="/commercial"
+            <div
               ref={service3Animation.elementRef}
-              className={`group block rounded-xl overflow-hidden transition-all duration-1000 ease-out delay-200 hover:shadow-2xl hover:-translate-y-2 ${
+              className={`transition-all duration-1000 ease-out delay-200 ${
                 service3Animation.isVisible
-                  ? 'opacity-100 scale-100 shadow-xl'
+                  ? 'opacity-100 scale-100'
                   : 'opacity-40 scale-85'
               }`}
             >
+              <Link
+                href="/commercial"
+                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
+              >
               <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
                 <Image
                   src="/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg"
@@ -266,17 +315,21 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+            </div>
 
             {/* Custom Interior Photography */}
-            <Link
-              href="/custom-interiors"
+            <div
               ref={service4Animation.elementRef}
-              className={`group block rounded-xl overflow-hidden transition-all duration-1000 ease-out delay-300 hover:shadow-2xl hover:-translate-y-2 ${
+              className={`transition-all duration-1000 ease-out delay-300 ${
                 service4Animation.isVisible
-                  ? 'opacity-100 scale-100 shadow-xl'
+                  ? 'opacity-100 scale-100'
                   : 'opacity-40 scale-85'
               }`}
             >
+              <Link
+                href="/custom-interiors"
+                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
+              >
               <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
                 <Image
                   src="/images/custom/design-details/luxury-chandelier-interior.jpg"
@@ -312,7 +365,9 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+            </div>
           </div>
+        </div>
         </div>
       </section>
 
