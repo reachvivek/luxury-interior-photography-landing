@@ -7,7 +7,7 @@ export const NAV_LINKS = {
   left: [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" }, // Now a dropdown with 4 main directions
-    { href: "/#about", label: "About" },
+    { href: "/about", label: "About" },
   ] as NavLink[],
   right: [
     { href: "/blog", label: "Blog" },
@@ -21,7 +21,7 @@ export const FOOTER_LINKS = {
     { href: "/", label: "Home" },
     { href: "/#portfolio", label: "Portfolio" },
     { href: "/#services", label: "Services" },
-    { href: "/#about", label: "About" },
+    { href: "/about", label: "About" },
     { href: "/blog", label: "Blog" },
     { href: "/#faq", label: "FAQ" },
     { href: "/contact", label: "Contact" },

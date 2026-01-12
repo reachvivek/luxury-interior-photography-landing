@@ -1,8 +1,8 @@
 import { StatItem } from "@/types";
 
 export const STATS_CONFIG = {
-  projects: 150,
-  experience: 8,
+  projects: 50,
+  experience: 4,
   properties: 200,
   satisfaction: 98,
 };
