@@ -67,35 +67,35 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/80" />
           </div>
 
           {/* Content */}
-          <div className="relative h-full flex flex-col justify-between p-6 pt-24 pb-8 z-10">
-            {/* Top: Number Badge and Content */}
-            <div className="service-content space-y-4">
+          <div className="relative h-full flex flex-col justify-between z-10">
+            {/* Top: Number Badge and Content with dark background */}
+            <div className="service-content space-y-4 bg-gradient-to-b from-black/70 via-black/40 to-transparent p-8 pt-24">
               <div className="inline-block">
-                <div className="w-12 h-12 bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10">
-                  <span className="text-white/80 text-sm font-light tracking-wider">
+                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
+                  <span className="text-white text-sm font-light tracking-wider">
                     {service.number}
                   </span>
                 </div>
               </div>
 
               {/* Title */}
-              <h2 className="text-3xl font-serif font-light text-white leading-tight max-w-xs drop-shadow-lg">
+              <h2 className="text-3xl font-serif font-light text-white leading-tight max-w-xs">
                 {service.title}
               </h2>
 
               {/* Description */}
-              <p className="text-sm text-white/90 leading-relaxed font-light max-w-sm drop-shadow-md">
+              <p className="text-sm text-white/95 leading-relaxed font-light max-w-sm">
                 {service.description}
               </p>
 
               {/* Explore Button */}
               <Link
                 href={service.href}
-                className="inline-flex items-center gap-1.5 text-white/80 hover:text-white transition-colors duration-300 group"
+                className="inline-flex items-center gap-1.5 text-white/95 hover:text-white transition-colors duration-300 group"
               >
                 <span className="text-xs font-light tracking-wider uppercase">Explore</span>
                 <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
             </div>
 
             {/* Bottom: Progress Indicators */}
-            <div className="space-y-3">
+            <div className="space-y-3 p-6 pb-8">
               <div className="flex gap-1.5 justify-center">
                 {services.map((_, idx) => (
                   <div
