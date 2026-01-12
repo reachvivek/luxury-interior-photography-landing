@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function CoworkingSpacesPage() {
   return (
     <SubcategoryPage
       mainCategory="Commercial & Industry"
-      subcategoryTitle="Co-working Spaces"
+      subcategoryTitle="Co-working Spaces Photography"
       description="Dynamic photography of collaborative co-working environments, hot desks, private booths, and community spaces that inspire creativity and connection."
       heroImage="/images/commercial/coworking-spaces/cofiesto-cafe-full-view.jpg"
       galleryImages={[

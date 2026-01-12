@@ -4,15 +4,14 @@ import CategoryPageLayout from "@/components/layouts/CategoryPageLayout";
 
 // Gallery images with categories
 const galleryImages = [
-  { src: "/images/residential/penthouses/modern-penthouse-living-room.jpg", category: "Penthouses" },
+  { src: "/images/residential/penthouses/modern-penthouse-living-room.jpg", category: "Apartments & Penthouses" },
   { src: "/images/residential/villas/luxury-villa-grand-entrance.jpg", category: "Villas" },
-  { src: "/images/residential/penthouses/penthouse-bedroom-cityview.jpg", category: "Penthouses" },
+  { src: "/images/residential/penthouses/penthouse-bedroom-cityview.jpg", category: "Apartments & Penthouses" },
   { src: "/images/residential/villas/luxury-villa-staircase.jpg", category: "Villas" },
-  { src: "/images/residential/home-offices/modern-workspace-window-seating.jpg", category: "Home Offices" },
-  { src: "/images/residential/penthouses/penthouse-bathroom-skyline.jpg", category: "Penthouses" },
-  { src: "/images/residential/villas/luxury-villa-master-bedroom.jpg", category: "Villas" },
-  { src: "/images/residential/villas/luxury-villa-patio-view.jpg", category: "Villas" },
-  { src: "/images/residential/apartments/modern-apartment-building-exterior.jpg", category: "Apartments" },
+  { src: "/images/residential/villas/luxury-villa-patio-view.jpg", category: "Vacation Rentals" },
+  { src: "/images/residential/apartments/modern-apartment-building-exterior.jpg", category: "Apartments & Penthouses" },
+  { src: "/images/residential/penthouses/penthouse-bathroom-skyline.jpg", category: "Apartments & Penthouses" },
+  { src: "/images/residential/villas/luxury-villa-master-bedroom.jpg", category: "Vacation Rentals" },
 ];
 
 // Portfolio categories
@@ -30,33 +29,26 @@ const portfolioCategories = [
     ]
   },
   {
-    id: "penthouses",
-    title: "Penthouses",
-    description: "High-rise luxury with panoramic city views and modern interiors",
+    id: "apartments-penthouses",
+    title: "Apartments & Penthouses",
+    description: "Contemporary urban living from modern apartments to luxury penthouses with panoramic city views",
     images: [
+      "/images/residential/apartments/modern-apartment-building-exterior.jpg",
       "/images/residential/penthouses/modern-penthouse-living-room.jpg",
       "/images/residential/penthouses/penthouse-bedroom-cityview.jpg",
       "/images/residential/penthouses/penthouse-bathroom-skyline.jpg",
       "/images/residential/penthouses/penthouse-interior-1.jpg",
-      "/images/residential/penthouses/penthouse-interior-3.jpg",
     ]
   },
   {
-    id: "apartments",
-    title: "Apartments",
-    description: "Contemporary urban apartments with thoughtful design and finishes",
+    id: "vacation-rentals",
+    title: "Vacation Rentals",
+    description: "Airbnb and short-term rental properties with lifestyle-focused photography that drives bookings",
     images: [
-      "/images/residential/apartments/modern-apartment-building-exterior.jpg",
-    ]
-  },
-  {
-    id: "home-offices",
-    title: "Home Offices",
-    description: "Inspiring workspaces designed for productivity and comfort",
-    images: [
-      "/images/residential/home-offices/modern-workspace-window-seating.jpg",
-      "/images/residential/home-offices/contemporary-office-space.jpg",
-      "/images/residential/home-offices/home-office-storage-design.jpg",
+      "/images/residential/villas/luxury-villa-patio-view.jpg",
+      "/images/residential/villas/luxury-villa-master-bedroom.jpg",
+      "/images/residential/penthouses/modern-penthouse-living-room.jpg",
+      "/images/residential/villas/luxury-villa-grand-entrance.jpg",
     ]
   }
 ];
@@ -65,9 +57,8 @@ const portfolioCategories = [
 const categoryFilters = [
   { id: 'all', label: 'All' },
   { id: 'villas', label: 'Villas' },
-  { id: 'penthouses', label: 'Penthouses' },
-  { id: 'apartments', label: 'Apartments' },
-  { id: 'home-offices', label: 'Home Offices' }
+  { id: 'apartments-penthouses', label: 'Apartments & Penthouses' },
+  { id: 'vacation-rentals', label: 'Vacation Rentals' }
 ];
 
 export default function ResidentialPage() {

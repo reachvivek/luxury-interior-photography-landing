@@ -5,13 +5,13 @@ import CategoryPageLayout from "@/components/layouts/CategoryPageLayout";
 // Gallery images with categories
 const galleryImages = [
   { src: "/images/hospitality/restaurants/art-gallery-dining-room.jpg", category: "Restaurants" },
-  { src: "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg", category: "Hotels" },
-  { src: "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg", category: "Hotels" },
+  { src: "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg", category: "Resorts" },
+  { src: "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg", category: "Resorts" },
   { src: "/images/hospitality/restaurants/modern-cafe-interior-1.jpg", category: "Restaurants" },
   { src: "/images/hospitality/restaurants/contemporary-cafe-lounge.jpg", category: "Restaurants" },
   { src: "/images/hospitality/restaurants/sunset-dining-terrace.jpg", category: "Restaurants" },
   { src: "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg", category: "Event Spaces" },
-  { src: "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg", category: "Hotels" },
+  { src: "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg", category: "Resorts" },
   { src: "/images/hospitality/event-spaces/pool-terrace-evening.jpg", category: "Event Spaces" },
 ];
 
@@ -22,10 +22,21 @@ const portfolioCategories = [
     title: "Hotel Suites & Lobbies",
     description: "Luxurious accommodations and welcoming spaces that define hospitality",
     images: [
-      "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg",
-      "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg",
-      "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg",
       "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg",
+      "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg",
+      "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg",
+      "/images/hospitality/hotel-suites/luxury-garden-terrace-night.jpg",
+    ]
+  },
+  {
+    id: "resorts",
+    title: "Resorts & Destinations",
+    description: "Paradise destinations where luxury meets natural beauty",
+    images: [
+      "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg",
+      "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg",
+      "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg",
+      "/images/hospitality/event-spaces/pool-terrace-evening.jpg",
     ]
   },
   {
@@ -43,12 +54,12 @@ const portfolioCategories = [
   },
   {
     id: "event-spaces",
-    title: "Event Spaces & Resorts",
+    title: "Event Spaces & Venues",
     description: "Venues designed for memorable experiences and celebrations",
     images: [
       "/images/hospitality/event-spaces/resort-event-pathway.jpg",
       "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg",
-      "/images/hospitality/event-spaces/pool-terrace-evening.jpg",
+      "/images/hospitality/event-spaces/lake-resort-panoramic-view-1.jpg",
     ]
   }
 ];
@@ -57,6 +68,7 @@ const portfolioCategories = [
 const categoryFilters = [
   { id: 'all', label: 'All' },
   { id: 'hotel-suites', label: 'Hotels' },
+  { id: 'resorts', label: 'Resorts' },
   { id: 'restaurants', label: 'Restaurants' },
   { id: 'event-spaces', label: 'Event Spaces' }
 ];

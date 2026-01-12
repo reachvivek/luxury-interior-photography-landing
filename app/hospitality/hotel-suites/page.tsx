@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function HotelSuitesPage() {
   return (
     <SubcategoryPage
       mainCategory="Hotels & Hospitality"
-      subcategoryTitle="Hotel Suites"
+      subcategoryTitle="Hotel Suites Photography"
       description="Elegant photography capturing the luxury and comfort of hotel suites, from boutique rooms to presidential suites with world-class amenities."
       heroImage="/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg"
       galleryImages={[

@@ -14,9 +14,8 @@ const servicesData = [
     href: "/residential",
     subcategories: [
       { title: "Luxury Villas", href: "/residential/villas" },
-      { title: "Apartments", href: "/residential/apartments" },
-      { title: "Penthouses", href: "/residential/penthouses" },
-      { title: "Home Offices", href: "/residential/home-offices" }
+      { title: "Apartments & Penthouses", href: "/residential/apartments-penthouses" },
+      { title: "Vacation Rentals", href: "/residential/vacation-rentals" }
     ]
   },
   {
@@ -24,6 +23,7 @@ const servicesData = [
     href: "/hospitality",
     subcategories: [
       { title: "Hotel Suites", href: "/hospitality/hotel-suites" },
+      { title: "Resorts", href: "/hospitality/resorts" },
       { title: "Restaurants", href: "/hospitality/restaurants" },
       { title: "Event Spaces", href: "/hospitality/event-spaces" }
     ]
@@ -137,7 +137,7 @@ export default function Navigation() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
-        isScrolled ? 'backdrop-blur-md bg-white/95' : 'backdrop-blur-[2px] bg-black/10'
+        isScrolled ? 'backdrop-blur-md bg-white/95' : 'backdrop-blur-md bg-black/30'
       }`}>
         {/* Desktop Navigation */}
         <div className="hidden lg:block w-full px-6 md:px-16 lg:px-24 py-5">
@@ -156,7 +156,7 @@ export default function Navigation() {
               </div>
               <h1 className={`font-serif text-2xl md:text-3xl tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase font-light ${
                 isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
-              }`}>
+              }`} style={!isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8)' } : {}}>
                 NASHRAY
               </h1>
             </Link>
@@ -165,7 +165,7 @@ export default function Navigation() {
             <div className="flex gap-8 items-center">
               <nav className={`flex gap-8 items-center transition-colors duration-300 ${
                 isScrolled ? 'text-stone-900' : 'text-white'
-              }`}>
+              }`} style={!isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8)' } : {}}>
                 {NAV_LINKS.left.map((link) => (
                   link.label === "Services" ? (
                     <ServicesDropdown key={link.href} isScrolled={isScrolled} />
@@ -224,7 +224,7 @@ export default function Navigation() {
           <Link href="/" className="flex justify-center">
             <h1 className={`font-serif text-xl font-light tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase ${
               isScrolled ? 'text-stone-900' : 'text-white'
-            }`}>
+            }`} style={!isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8)' } : {}}>
               NASHRAY
             </h1>
           </Link>

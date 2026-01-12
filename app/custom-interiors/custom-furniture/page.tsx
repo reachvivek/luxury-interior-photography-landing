@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function CustomFurniturePage() {
   return (
     <SubcategoryPage
       mainCategory="Custom Interiors"
-      subcategoryTitle="Custom Furniture"
+      subcategoryTitle="Custom Furniture Photography"
       description="Exquisite photography of bespoke furniture pieces, showcasing craftsmanship, materials, and unique design in custom-made furnishings."
       heroImage="/images/custom-interiors/custom-furniture/bespoke-bedroom-furniture.jpg"
       approachTitle="Artistry in Every Detail"

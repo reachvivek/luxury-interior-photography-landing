@@ -323,15 +323,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Us Section */}
-      <section id="about" className="flex items-center justify-center px-6 md:px-16 bg-gradient-to-b from-stone-50 to-white relative py-12 md:py-24">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-0 w-64 h-64 bg-stone-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-stone-100/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto w-full relative z-10">
+      {/* About Us Section - Brief with Read More */}
+      <section id="about" className="flex items-center justify-center px-6 md:px-16 bg-gradient-to-b from-stone-50 to-white relative py-16 md:py-20">
+        <div className="max-w-6xl mx-auto w-full relative z-10">
           <div
             ref={valueStatementAnimation.elementRef}
             className={`transition-all duration-1000 ease-out ${
@@ -351,161 +345,26 @@ export default function Home() {
             </p>
 
             {/* Main Heading */}
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 leading-tight mb-12 md:mb-16 max-w-4xl mx-auto px-4 text-center">
-              We capture your spaces with precision, artistry, and vision.
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 leading-tight mb-8 md:mb-12 max-w-4xl mx-auto px-4 text-center">
+              Precision-Driven Interior Photography for Dubai's Luxury Market
             </h2>
 
-            {/* Unified Content Card */}
-            <div className="max-w-3xl mx-auto">
-              {/* Image - Hero of the story */}
-              <div className="relative aspect-[3/4] md:aspect-[16/10] w-full rounded-t-2xl md:rounded-t-3xl rounded-b-lg overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg"
-                  alt="Modern workspace interior"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 768px"
-                  className="object-cover"
-                />
-              </div>
+            {/* Brief Description */}
+            <p className="text-base md:text-lg text-stone-600 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+              Nashray specializes in architectural and interior photography, transforming spaces into refined visual narratives. We work with architects, developers, and luxury brands who demand excellence, creating imagery that elevates brands and drives results.
+            </p>
 
-              {/* Text Content Card - Overlapping */}
-              <div className="bg-stone-50/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-stone-200/50 shadow-2xl -mt-10 mx-4 md:mx-8 relative z-10" style={{ boxShadow: '0 20px 60px -15px rgba(0, 0, 0, 0.15)' }}>
-                {/* Subtle Divider - Hairline */}
-                <div className="flex justify-center mb-6">
-                  <div className="w-6 h-px bg-stone-300"></div>
-                </div>
-
-                {/* Micro-Eyebrow */}
-                <p className="text-[10px] md:text-xs tracking-[0.12em] uppercase text-stone-400 mb-6 text-left">
-                  Architectural & Interior Photography
-                </p>
-
-                {/* Lead Line */}
-                <p className="text-lg md:text-xl text-stone-900 font-medium leading-relaxed mb-6">
-                  Nashray specializes in architectural and interior photography.
-                </p>
-
-                {/* Body Copy - What you do */}
-                <p className="text-sm md:text-base text-stone-600 leading-[1.75] mb-6 text-left">
-                  We transform spaces into refined visual narratives, balancing technical precision with artistic vision.
-                </p>
-
-                {/* Body Copy - Why it matters */}
-                <p className="text-sm md:text-base text-stone-600 leading-[1.75] text-left">
-                  Each project showcases luxury at its finest, creating imagery that elevates brands and inspires audiences.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Approach Section */}
-      <section className="flex items-center justify-center px-6 md:px-16 bg-gradient-to-b from-white to-stone-50 relative py-12 md:py-24">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/3 right-0 w-64 h-64 bg-stone-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-stone-100/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-6xl mx-auto w-full relative z-10">
-          {/* Decorative Line */}
-          <div className="flex justify-center mb-6 md:mb-8">
-            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
-          </div>
-
-          {/* Section Label */}
-          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-400 mb-4 md:mb-6 text-center">
-            Our Approach
-          </p>
-
-          {/* Main Heading */}
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-stone-900 leading-tight mb-12 md:mb-16 max-w-4xl mx-auto px-4 text-center">
-            Intentional. Calm. Precise.
-          </h2>
-
-          {/* Desktop: 2-column, Mobile: Stacked */}
-          <div className="grid md:grid-cols-2 gap-0 md:gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
-            {/* Image Block */}
-            <div className="order-1">
-              <div className="relative aspect-[5/7] md:aspect-[4/5] w-full rounded-t-2xl md:rounded-t-3xl rounded-b-lg overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg"
-                  alt="Interior design approach"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                {/* Subtle gradient at bottom for card connection */}
-                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/10 to-transparent pointer-events-none"></div>
-              </div>
-            </div>
-
-            {/* Overlapping Content Card */}
-            <div className="order-2 md:order-2">
-              <div className="bg-stone-50/95 backdrop-blur-sm rounded-xl pt-10 pb-8 px-8 md:pt-12 md:pb-10 md:px-10 border border-stone-200/60 shadow-2xl -mt-10 md:mt-0 mx-4 md:mx-0 relative z-10" style={{ boxShadow: '0 20px 60px -15px rgba(0, 0, 0, 0.15)' }}>
-                {/* Subtle Divider - Hairline */}
-                <div className="flex justify-center md:justify-start mb-8">
-                  <div className="w-6 h-px bg-stone-300"></div>
-                </div>
-
-                {/* Micro-Eyebrow */}
-                <p className="text-[10px] md:text-xs tracking-[0.12em] uppercase text-stone-400 mb-8 text-left">
-                  Three Principles
-                </p>
-
-                {/* Principles List */}
-                <div className="space-y-6 mb-8">
-                  {/* Principle 1 */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-px h-3 bg-stone-400 mt-1.5 flex-shrink-0"></div>
-                    <div>
-                      <h3 className="text-base md:text-lg font-semibold text-stone-900 mb-1">
-                        Clarity in Planning
-                      </h3>
-                      <p className="text-sm text-stone-600 leading-relaxed">
-                        Meticulous preparation for every space.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Principle 2 */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-px h-3 bg-stone-400 mt-1.5 flex-shrink-0"></div>
-                    <div>
-                      <h3 className="text-base md:text-lg font-semibold text-stone-900 mb-1">
-                        Respect for Design
-                      </h3>
-                      <p className="text-sm text-stone-600 leading-relaxed">
-                        Honoring architectural intent.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Principle 3 */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-px h-3 bg-stone-400 mt-1.5 flex-shrink-0"></div>
-                    <div>
-                      <h3 className="text-base md:text-lg font-semibold text-stone-900 mb-1">
-                        Refined Post-Production
-                      </h3>
-                      <p className="text-sm text-stone-600 leading-relaxed">
-                        Clean, timeless final imagery.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Micro-divider */}
-                <div className="flex justify-center my-6">
-                  <div className="w-8 h-px bg-stone-300"></div>
-                </div>
-
-                {/* Closing Paragraph */}
-                <p className="text-sm md:text-base text-stone-600 leading-[1.75] text-left">
-                  From refined residential interiors to contemporary commercial developments, we combine timeless composition with modern techniques to create imagery that elevates brands.
-                </p>
-              </div>
+            {/* Read More Button */}
+            <div className="flex justify-center">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-300 text-sm font-medium tracking-wide rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Learn More About Us
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
@@ -699,7 +558,7 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-stone-100/20 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="max-w-2xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Decorative Line */}
           <div className="flex justify-center mb-6 md:mb-8">
             <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
@@ -720,9 +579,28 @@ export default function Home() {
             Share a few details and we&apos;ll thoughtfully guide the next steps.
           </p>
 
-          {/* Form Card */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-stone-200/50 shadow-xl">
-              <form className="space-y-6" onSubmit={handleWhatsAppSubmit}>
+          {/* Desktop: Video & Form Side by Side | Mobile: Video Top, Form Bottom */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Video - Top on Mobile, Left on Desktop */}
+            <div className="order-1">
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/hQ0n9gxAAmc"
+                  title="Nashray Photography Showreel"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Form Card - Bottom on Mobile, Right on Desktop */}
+            <div className="order-2">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-stone-200/50 shadow-xl">
+                <form className="space-y-6" onSubmit={handleWhatsAppSubmit}>
                 {/* Name Field */}
                 <div>
                   <label
@@ -794,14 +672,16 @@ export default function Home() {
                 </div>
               </form>
 
-            {/* Contact info */}
-            <div className="mt-10 pt-8 border-t border-stone-200/50">
-              <p className="text-xs text-stone-500 text-center">
-                Or reach us directly at{' '}
-                <a href="mailto:hello@nashray.com" className="text-stone-700 hover:text-stone-900 underline">
-                  hello@nashray.com
-                </a>
-              </p>
+              {/* Contact info */}
+              <div className="mt-10 pt-8 border-t border-stone-200/50">
+                <p className="text-xs text-stone-500 text-center">
+                  Or reach us directly at{' '}
+                  <a href="mailto:hello@nashray.com" className="text-stone-700 hover:text-stone-900 underline">
+                    hello@nashray.com
+                  </a>
+                </p>
+              </div>
+            </div>
             </div>
           </div>
         </div>

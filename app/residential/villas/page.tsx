@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function VillasPage() {
   return (
     <SubcategoryPage
       mainCategory="Residential"
-      subcategoryTitle="Luxury Villas"
+      subcategoryTitle="Luxury Villas Photography"
       description="Exquisite photography capturing the grandeur and elegance of luxury villa interiors, from spacious living areas to intimate private spaces."
       heroImage="/images/residential/villas/luxury-villa-grand-entrance.jpg"
       approachTitle="Harmonizing Exterior and Interior Excellence"

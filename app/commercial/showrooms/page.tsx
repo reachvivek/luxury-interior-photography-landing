@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function ShowroomsPage() {
   return (
     <SubcategoryPage
       mainCategory="Commercial & Industry"
-      subcategoryTitle="Showrooms"
+      subcategoryTitle="Showrooms Photography"
       description="Professional showroom photography showcasing product displays, automotive showrooms, furniture galleries, and design exhibitions in their best light."
       heroImage="/images/residential/villas/luxury-villa-with-porsche.jpg"
       galleryImages={[

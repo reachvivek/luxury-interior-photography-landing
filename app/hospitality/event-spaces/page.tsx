@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function EventSpacesPage() {
   return (
     <SubcategoryPage
       mainCategory="Hotels & Hospitality"
-      subcategoryTitle="Event Spaces"
+      subcategoryTitle="Event Spaces Photography"
       description="Professional photography of event venues and spaces, showcasing versatile settings for weddings, conferences, and special occasions."
       heroImage="/images/hospitality/event-spaces/beach-wedding-pavilion.jpg"
       approachTitle="Spaces That Inspire Celebrations"

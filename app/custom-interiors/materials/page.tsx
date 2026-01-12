@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function MaterialsPage() {
   return (
     <SubcategoryPage
       mainCategory="Custom Interiors"
-      subcategoryTitle="Material Close-ups"
+      subcategoryTitle="Material Close-ups Photography"
       description="Detailed macro photography highlighting textures, finishes, and material quality in interior design, from luxurious fabrics to natural stone and exotic woods."
       heroImage="/images/custom-interiors/materials/marble-gold-bathroom.jpg"
       approachTitle="The Language of Luxury Materials"

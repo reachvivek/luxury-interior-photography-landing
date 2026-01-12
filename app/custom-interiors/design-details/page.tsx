@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function DesignDetailsPage() {
   return (
     <SubcategoryPage
       mainCategory="Custom Interiors"
-      subcategoryTitle="Design Details"
+      subcategoryTitle="Design Details Photography"
       description="Artistic close-up photography of design elements that make spaces unique, from hardware and fixtures to decorative accents and finishing touches."
       heroImage="/images/custom-interiors/design-details/gold-tableware-display.jpg"
       approachTitle="The Devil Is in the Details"

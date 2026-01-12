@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function RestaurantsPage() {
   return (
     <SubcategoryPage
       mainCategory="Hotels & Hospitality"
-      subcategoryTitle="Restaurants"
+      subcategoryTitle="Restaurants Photography"
       description="Stunning restaurant photography that captures the ambiance, design, and culinary atmosphere of fine dining establishments and casual eateries."
       heroImage="/images/hospitality/restaurants/salt-restaurant-outdoor-terrace-1.jpg"
       approachTitle="Where Ambiance Meets Appetite"

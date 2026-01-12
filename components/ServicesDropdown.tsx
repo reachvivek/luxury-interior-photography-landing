@@ -10,9 +10,8 @@ const servicesData = [
     href: "/residential",
     subcategories: [
       { title: "Luxury Villas", href: "/residential/villas" },
-      { title: "Apartments", href: "/residential/apartments" },
-      { title: "Penthouses", href: "/residential/penthouses" },
-      { title: "Home Offices", href: "/residential/home-offices" }
+      { title: "Apartments & Penthouses", href: "/residential/apartments-penthouses" },
+      { title: "Vacation Rentals", href: "/residential/vacation-rentals" }
     ]
   },
   {
@@ -20,6 +19,7 @@ const servicesData = [
     href: "/hospitality",
     subcategories: [
       { title: "Hotel Suites", href: "/hospitality/hotel-suites" },
+      { title: "Resorts", href: "/hospitality/resorts" },
       { title: "Restaurants", href: "/hospitality/restaurants" },
       { title: "Event Spaces", href: "/hospitality/event-spaces" }
     ]

@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function OfficeSpacesPage() {
   return (
     <SubcategoryPage
       mainCategory="Commercial & Industry"
-      subcategoryTitle="Office Spaces"
+      subcategoryTitle="Office Spaces Photography"
       description="Professional office photography showcasing modern workspaces, executive offices, and collaborative environments designed for productivity and innovation."
       heroImage="/images/commercial/office-spaces/modern-commercial-building-night.jpg"
       galleryImages={[

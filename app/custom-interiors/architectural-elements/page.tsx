@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function ArchitecturalElementsPage() {
   return (
     <SubcategoryPage
       mainCategory="Custom Interiors"
-      subcategoryTitle="Architectural Elements"
+      subcategoryTitle="Architectural Elements Photography"
       description="Detailed photography capturing unique architectural features, from custom staircases and columns to decorative ceilings and structural design elements."
       heroImage="/images/custom-interiors/architectural-elements/resort-archway-night.jpg"
       approachTitle="Celebrating Architectural Craftsmanship"

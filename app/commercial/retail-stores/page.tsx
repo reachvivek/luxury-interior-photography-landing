@@ -1,10 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 
+
 export default function RetailStoresPage() {
   return (
     <SubcategoryPage
       mainCategory="Commercial & Industry"
-      subcategoryTitle="Retail Stores"
+      subcategoryTitle="Retail Stores Photography"
       description="Captivating retail photography that highlights store layouts, product displays, and shopping experiences from boutiques to flagship stores."
       heroImage="/images/commercial/retail-stores/beauty-salon-interior-1.jpg"
       galleryImages={[
