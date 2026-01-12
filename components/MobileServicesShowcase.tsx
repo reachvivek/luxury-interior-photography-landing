@@ -31,7 +31,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
     cards.forEach((card, index) => {
       if (!card) return;
 
-      // Set up scroll trigger for each card
+      // Set up scroll trigger for progress tracking only
       ScrollTrigger.create({
         trigger: card,
         start: "top center",
@@ -39,45 +39,6 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
         onEnter: () => setCurrentIndex(index),
         onEnterBack: () => setCurrentIndex(index),
       });
-
-      // Subtle animation for content without hiding text
-      const content = card.querySelector('.service-content');
-      if (content) {
-        gsap.fromTo(
-          content.children,
-          { y: 30 },
-          {
-            y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            }
-          }
-        );
-      }
-
-      // Image scale animation
-      const image = card.querySelector('.service-image');
-      if (image) {
-        gsap.fromTo(
-          image,
-          { scale: 1.15 },
-          {
-            scale: 1,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            }
-          }
-        );
-      }
     });
 
     return () => {
@@ -122,12 +83,12 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               </div>
 
               {/* Title */}
-              <h2 className="text-3xl font-serif font-light text-white leading-tight max-w-xs">
+              <h2 className="text-3xl font-serif font-light text-white leading-tight max-w-xs drop-shadow-lg">
                 {service.title}
               </h2>
 
               {/* Description */}
-              <p className="text-sm text-white/75 leading-relaxed font-light max-w-sm">
+              <p className="text-sm text-white/90 leading-relaxed font-light max-w-sm drop-shadow-md">
                 {service.description}
               </p>
 
