@@ -11,7 +11,6 @@ export default function AboutPage() {
   const heroAnimation = useScrollAnimation(0.1);
   const storyAnimation = useScrollAnimation(0.2);
   const approachAnimation = useScrollAnimation(0.2);
-  const valuesAnimation = useScrollAnimation(0.2);
 
   return (
     <div className="min-h-screen bg-white">
@@ -38,7 +37,7 @@ export default function AboutPage() {
             About Nashray
           </h1>
           <p className="text-base md:text-xl text-stone-300 max-w-2xl mx-auto leading-relaxed font-light">
-            Precision-driven interior photography for architects, developers, and luxury brands.
+            Architectural photography for spaces that deserve attention.
           </p>
         </div>
       </section>
@@ -60,7 +59,7 @@ export default function AboutPage() {
             >
               <Image
                 src="/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg"
-                alt="About Nashray Photography"
+                alt="Interior photography by Nashray"
                 fill
                 className="object-cover"
               />
@@ -84,23 +83,23 @@ export default function AboutPage() {
                   <div className="flex items-center gap-3 mb-4 md:mb-6">
                     <div className="w-10 h-px bg-gradient-to-r from-stone-300 to-transparent"></div>
                     <p className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-stone-400 font-medium">
-                      Our Story
+                      Who we are
                     </p>
                   </div>
 
                   <h2 className="text-2xl md:text-4xl font-serif font-extralight text-stone-900 mb-4 md:mb-6 leading-tight">
-                    Transforming spaces into refined visual narratives
+                    Spaces, translated.
                   </h2>
 
                   <div className="space-y-3 md:space-y-4 text-sm md:text-base text-stone-600 leading-relaxed font-light">
                     <p>
-                      Nashray specializes in architectural and interior photography, balancing technical precision with artistic vision.
+                      Nashray is a Dubai-based interior and architectural photography studio specializing in clarity, restraint, and timeless composition.
                     </p>
                     <p>
-                      Based in Dubai, we work with architects, developers, and luxury brands who demand excellence. From refined residential interiors to contemporary commercial developments, we create imagery that elevates brands.
+                      Every project begins with understanding the designer's intent—the way light moves, how materials interact, what the space wants to say. The work balances technical precision with editorial sensibility.
                     </p>
                     <p>
-                      Each project showcases luxury at its finest, creating imagery that inspires audiences and drives business results.
+                      From residential interiors to hospitality spaces, the approach remains consistent: capture what matters, remove what doesn't.
                     </p>
                   </div>
 
@@ -125,7 +124,7 @@ export default function AboutPage() {
           </div>
 
           <p className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-stone-400 mb-6 md:mb-8 text-center font-medium">
-            Our Approach
+            How it works
           </p>
 
           <h2 className="text-2xl md:text-5xl lg:text-6xl font-serif font-extralight text-stone-900 leading-tight mb-10 md:mb-20 max-w-4xl mx-auto text-center px-4">
@@ -160,7 +159,7 @@ export default function AboutPage() {
                 <div className="space-y-6 md:space-y-8 mb-6 md:mb-10">
                   <div>
                     <h3 className="text-lg md:text-2xl font-serif font-light text-stone-900 mb-2">
-                      Clarity in Planning
+                      Planning
                     </h3>
                     <p className="text-sm md:text-base text-stone-500 leading-relaxed font-light">
                       Meticulous preparation for every space.
@@ -169,19 +168,19 @@ export default function AboutPage() {
 
                   <div>
                     <h3 className="text-lg md:text-2xl font-serif font-light text-stone-900 mb-2">
-                      Respect for Design
+                      Respect
                     </h3>
                     <p className="text-sm md:text-base text-stone-500 leading-relaxed font-light">
-                      Honoring architectural intent.
+                      Honoring the designer's original intent.
                     </p>
                   </div>
 
                   <div>
                     <h3 className="text-lg md:text-2xl font-serif font-light text-stone-900 mb-2">
-                      Refined Post-Production
+                      Restraint
                     </h3>
                     <p className="text-sm md:text-base text-stone-500 leading-relaxed font-light">
-                      Clean, timeless final imagery.
+                      Clean, timeless imagery.
                     </p>
                   </div>
                 </div>
@@ -191,7 +190,7 @@ export default function AboutPage() {
                 </div>
 
                 <p className="text-sm md:text-base text-stone-600 leading-[1.8] font-light">
-                  From refined residential interiors to contemporary commercial developments, we combine timeless composition with modern techniques to create imagery that elevates brands.
+                  From penthouses to boutique hotels, the process balances natural light with architectural detail—creating images that feel both editorial and authentic.
                 </p>
               </div>
             </div>
@@ -207,15 +206,15 @@ export default function AboutPage() {
           </div>
 
           <p className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-stone-400 mb-6 text-center font-medium">
-            Our Expertise
+            Services
           </p>
 
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-extralight text-stone-900 text-center mb-12 md:mb-20 max-w-4xl mx-auto leading-tight">
-            Four Pillars of Excellence
+            Four specializations
           </h2>
 
-          <div className="space-y-16 md:space-y-24">
-            {/* Residential Excellence */}
+          <div className="space-y-16 md:space-y-20">
+            {/* Residential */}
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-2 md:order-1">
                 <Image
@@ -230,18 +229,15 @@ export default function AboutPage() {
                   <span className="text-xs text-stone-600 tracking-wider">01</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
-                  Residential Mastery
+                  Residential
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  We transform luxury residences into visual stories that captivate buyers. Our expertise in capturing penthouses, villas, and apartments showcases every architectural nuance and design detail with sophistication.
-                </p>
                 <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
-                  From natural light optimization to styling consultation, we ensure each residence is presented at its absolute finest—creating imagery that commands attention and drives results.
+                  Villas, penthouses, and apartments presented with attention to light, materiality, and spatial flow.
                 </p>
               </div>
             </div>
 
-            {/* Hospitality Excellence */}
+            {/* Hospitality */}
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
                 <Image
@@ -256,18 +252,15 @@ export default function AboutPage() {
                   <span className="text-xs text-stone-600 tracking-wider">02</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
-                  Hospitality Storytelling
+                  Hospitality
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  Hotels, restaurants, and resorts demand imagery that captures ambiance and experience. We specialize in conveying the five-star feeling—the warmth of welcome, the refinement of service, the allure of escape.
-                </p>
                 <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
-                  Our hospitality photography communicates luxury and comfort, inspiring guests to book their next experience before they even arrive.
+                  Hotels, restaurants, and resorts captured to convey atmosphere—the feeling guests will remember.
                 </p>
               </div>
             </div>
 
-            {/* Commercial Excellence */}
+            {/* Commercial */}
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-2 md:order-1">
                 <Image
@@ -282,18 +275,15 @@ export default function AboutPage() {
                   <span className="text-xs text-stone-600 tracking-wider">03</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
-                  Commercial Precision
+                  Commercial
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  Office spaces, retail environments, and showrooms require photography that speaks to function and brand identity. We capture the professional elegance and strategic design that defines commercial success.
-                </p>
                 <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
-                  Our commercial work helps businesses showcase their spaces as destinations where innovation happens, deals close, and brands thrive.
+                  Office spaces, retail environments, and showrooms photographed to reflect brand identity and function.
                 </p>
               </div>
             </div>
 
-            {/* Custom Excellence */}
+            {/* Custom */}
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
                 <Image
@@ -308,88 +298,12 @@ export default function AboutPage() {
                   <span className="text-xs text-stone-600 tracking-wider">04</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
-                  Artisanal Detail
+                  Details
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  Beyond full spaces, we excel at capturing the artistry in details—bespoke furniture, designer lighting, architectural elements, and material textures that deserve their own spotlight.
-                </p>
                 <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
-                  These images become visual poetry, perfect for portfolios, catalogs, and marketing materials that demand extraordinary attention to craft and composition.
+                  Architectural elements, furniture, lighting—the details that deserve their own frame.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-12 md:py-32 px-6 md:px-16 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-center mb-6 md:mb-8">
-            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
-          </div>
-
-          <p className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-stone-400 mb-6 md:mb-8 text-center font-medium">
-            Our Values
-          </p>
-
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-serif font-extralight text-stone-900 text-center mb-12 md:mb-24 max-w-4xl mx-auto leading-tight px-4">
-            The principles that guide our work
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-10 md:gap-20 max-w-6xl mx-auto">
-            <div className="text-center md:text-left group">
-              <div className="flex justify-center md:justify-start mb-4 md:mb-6">
-                <div className="w-12 h-px bg-stone-300 transition-all duration-500 group-hover:w-16"></div>
-              </div>
-              <h3 className="text-xl md:text-3xl font-serif font-light text-stone-900 mb-3 md:mb-4">Precision</h3>
-              <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light max-w-xs mx-auto md:mx-0">
-                Every angle, every light, every detail is carefully considered to create perfect compositions.
-              </p>
-            </div>
-
-            <div className="text-center md:text-left group">
-              <div className="flex justify-center md:justify-start mb-4 md:mb-6">
-                <div className="w-12 h-px bg-stone-300 transition-all duration-500 group-hover:w-16"></div>
-              </div>
-              <h3 className="text-xl md:text-3xl font-serif font-light text-stone-900 mb-3 md:mb-4">Excellence</h3>
-              <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light max-w-xs mx-auto md:mx-0">
-                We deliver the highest quality images that exceed expectations and elevate your brand.
-              </p>
-            </div>
-
-            <div className="text-center md:text-left group">
-              <div className="flex justify-center md:justify-start mb-4 md:mb-6">
-                <div className="w-12 h-px bg-stone-300 transition-all duration-500 group-hover:w-16"></div>
-              </div>
-              <h3 className="text-xl md:text-3xl font-serif font-light text-stone-900 mb-3 md:mb-4">Partnership</h3>
-              <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light max-w-xs mx-auto md:mx-0">
-                We work closely with our clients to understand their vision and bring it to life.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 md:py-32 px-6 md:px-16 bg-gradient-to-b from-white to-stone-50/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-serif font-extralight text-stone-800 mb-2 md:mb-3">50</div>
-              <p className="text-stone-500 tracking-[0.12em] uppercase text-[10px] md:text-xs font-light">Projects</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-serif font-extralight text-stone-800 mb-2 md:mb-3">50+</div>
-              <p className="text-stone-500 tracking-[0.12em] uppercase text-[10px] md:text-xs font-light">Clients</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-serif font-extralight text-stone-800 mb-2 md:mb-3">4</div>
-              <p className="text-stone-500 tracking-[0.12em] uppercase text-[10px] md:text-xs font-light">Years</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-serif font-extralight text-stone-800 mb-2 md:mb-3">100%</div>
-              <p className="text-stone-500 tracking-[0.12em] uppercase text-[10px] md:text-xs font-light">Satisfaction</p>
             </div>
           </div>
         </div>
@@ -406,16 +320,16 @@ export default function AboutPage() {
           </div>
 
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-extralight text-white mb-4 md:mb-6 tracking-tight px-4">
-            Let's work together
+            Begin a conversation
           </h2>
           <p className="text-base md:text-xl text-stone-400 mb-10 md:mb-12 font-light max-w-2xl mx-auto px-4">
-            Get in touch to discuss your next project.
+            Discuss your project and what you'd like to achieve.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 px-10 py-4 md:px-12 md:py-5 bg-white text-stone-900 hover:bg-stone-50 transition-all duration-300 text-sm font-medium tracking-[0.1em] uppercase rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1"
           >
-            Contact Us
+            Get in touch
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
