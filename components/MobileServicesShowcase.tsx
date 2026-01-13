@@ -131,20 +131,20 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
                 </div>
 
                 {/* Navigation Arrows */}
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex flex-col items-center justify-center gap-3">
                   {/* Up Arrow */}
                   <button
                     onClick={() => scrollToCard(currentIndex - 1)}
                     disabled={currentIndex === 0}
-                    className={`p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 ${
+                    className={`transition-all duration-300 ${
                       currentIndex === 0
-                        ? 'opacity-30 cursor-not-allowed'
-                        : 'opacity-100 hover:bg-white/20 active:scale-95'
+                        ? 'opacity-20 cursor-not-allowed'
+                        : 'opacity-60 hover:opacity-100 active:scale-95'
                     }`}
                     aria-label="Previous service"
                   >
                     <svg
-                      className={`w-5 h-5 text-white ${currentIndex !== 0 ? 'animate-bounce' : ''}`}
+                      className={`w-6 h-6 text-white ${currentIndex !== 0 ? 'animate-bounce' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -158,15 +158,15 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
                   <button
                     onClick={() => scrollToCard(currentIndex + 1)}
                     disabled={currentIndex === services.length - 1}
-                    className={`p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 ${
+                    className={`transition-all duration-300 ${
                       currentIndex === services.length - 1
-                        ? 'opacity-30 cursor-not-allowed'
-                        : 'opacity-100 hover:bg-white/20 active:scale-95'
+                        ? 'opacity-20 cursor-not-allowed'
+                        : 'opacity-60 hover:opacity-100 active:scale-95'
                     }`}
                     aria-label="Next service"
                   >
                     <svg
-                      className={`w-5 h-5 text-white ${currentIndex !== services.length - 1 ? 'animate-bounce' : ''}`}
+                      className={`w-6 h-6 text-white ${currentIndex !== services.length - 1 ? 'animate-bounce' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
