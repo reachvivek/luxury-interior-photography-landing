@@ -3,10 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Service {
   title: string;
@@ -23,26 +19,21 @@ interface MobileServicesShowcaseProps {
 export default function MobileServicesShowcase({ services }: MobileServicesShowcaseProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const cards = cardsRef.current;
+    const container = containerRef.current;
+    if (!container) return;
 
-    cards.forEach((card, index) => {
-      if (!card) return;
+    const handleScroll = () => {
+      const scrollTop = container.scrollTop;
+      const cardHeight = container.clientHeight;
+      const newIndex = Math.round(scrollTop / cardHeight);
+      setCurrentIndex(Math.min(newIndex, services.length - 1));
+    };
 
-      // Set up scroll trigger for progress tracking only
-      ScrollTrigger.create({
-        trigger: card,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => setCurrentIndex(index),
-        onEnterBack: () => setCurrentIndex(index),
-      });
-    });
-
+    container.addEventListener('scroll', handleScroll);
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      container.removeEventListener('scroll', handleScroll);
     };
   }, [services]);
 
@@ -55,8 +46,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
       {services.map((service, index) => (
         <div
           key={index}
-          ref={(el) => { cardsRef.current[index] = el; }}
-          className="relative h-screen w-full snap-start snap-always flex-shrink-0 bg-stone-900"
+          className="relative min-h-screen w-full snap-start snap-always flex-shrink-0 bg-stone-900"
         >
           {/* Background Image */}
           <div className="service-image absolute inset-0">
