@@ -3,6 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface Service {
   title: string;
@@ -18,58 +25,68 @@ interface MobileServicesShowcaseProps {
 
 export default function MobileServicesShowcase({ services }: MobileServicesShowcaseProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
+    const wrapper = wrapperRef.current;
     const container = containerRef.current;
-    if (!container) return;
+    const sections = sectionsRef.current;
 
-    const handleScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = container.clientWidth;
-      const newIndex = Math.round(scrollLeft / cardWidth);
-      setCurrentIndex(Math.min(newIndex, services.length - 1));
-    };
+    if (!wrapper || !container || sections.length === 0) return;
 
-    container.addEventListener('scroll', handleScroll);
+    // Create the horizontal scroll animation
+    const scrollTween = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: wrapper,
+        pin: true,
+        scrub: 1,
+        end: () => "+=" + (container.offsetWidth - window.innerWidth),
+      }
+    });
+
+    // Track current index based on scroll position
+    ScrollTrigger.create({
+      trigger: wrapper,
+      start: "top top",
+      end: () => "+=" + (container.offsetWidth - window.innerWidth),
+      onUpdate: (self) => {
+        const newIndex = Math.round(self.progress * (sections.length - 1));
+        setCurrentIndex(newIndex);
+      }
+    });
+
     return () => {
-      container.removeEventListener('scroll', handleScroll);
+      scrollTween.scrollTrigger?.kill();
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger === wrapper) {
+          trigger.kill();
+        }
+      });
     };
   }, [services]);
 
-  const scrollToCard = (index: number) => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const cardWidth = container.clientWidth;
-    container.scrollTo({
-      left: cardWidth * index,
-      behavior: 'smooth'
-    });
-  };
-
   return (
     <div
-      ref={containerRef}
-      className="relative w-full md:hidden overflow-x-auto snap-x snap-mandatory hide-scrollbar"
-      style={{
-        height: '100vh',
-        scrollBehavior: 'smooth',
-        scrollbarWidth: 'none',
-        msOverflowStyle: 'none'
-      }}
+      ref={wrapperRef}
+      className="relative w-full md:hidden overflow-hidden"
+      style={{ height: '100vh' }}
     >
-      <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
-
-      <div className="flex h-full" style={{ width: `${services.length * 100}vw` }}>
+      <div
+        ref={containerRef}
+        className="flex h-full"
+        style={{ width: `${services.length * 100}vw` }}
+      >
         {services.map((service, index) => (
           <div
             key={service.href}
-            className="relative h-full flex-shrink-0 snap-start snap-always bg-stone-900"
+            ref={(el) => {
+              if (el) sectionsRef.current[index] = el;
+            }}
+            className="relative h-full flex-shrink-0 bg-stone-900"
             style={{ width: '100vw' }}
           >
             {/* Background Image */}
@@ -149,51 +166,11 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
                     </span>
                   </div>
 
-                  {/* Navigation Arrows */}
-                  <div className="flex items-center justify-center gap-8">
-                    {/* Left Arrow */}
-                    <button
-                      onClick={() => scrollToCard(currentIndex - 1)}
-                      disabled={currentIndex === 0}
-                      className={`transition-all duration-300 ${
-                        currentIndex === 0
-                          ? 'opacity-20 cursor-not-allowed'
-                          : 'opacity-60 hover:opacity-100 active:scale-95'
-                      }`}
-                      aria-label="Previous service"
-                    >
-                      <svg
-                        className={`w-6 h-6 text-white ${currentIndex !== 0 ? 'animate-pulse' : ''}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        style={{ animationDuration: '2s' }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </button>
-
-                    {/* Right Arrow */}
-                    <button
-                      onClick={() => scrollToCard(currentIndex + 1)}
-                      disabled={currentIndex === services.length - 1}
-                      className={`transition-all duration-300 ${
-                        currentIndex === services.length - 1
-                          ? 'opacity-20 cursor-not-allowed'
-                          : 'opacity-60 hover:opacity-100 active:scale-95'
-                      }`}
-                      aria-label="Next service"
-                    >
-                      <svg
-                        className={`w-6 h-6 text-white ${currentIndex !== services.length - 1 ? 'animate-pulse' : ''}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        style={{ animationDuration: '2s' }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
+                  {/* Scroll Indicator */}
+                  <div className="text-center">
+                    <span className="text-white/30 text-[10px] font-light tracking-wider uppercase">
+                      Scroll to explore
+                    </span>
                   </div>
                 </div>
               </div>
