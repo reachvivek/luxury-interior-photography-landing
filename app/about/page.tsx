@@ -291,7 +291,7 @@ export default function AboutPage() {
                 </div>
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">04</span>
-                  <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Details</h3>
+                  <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Custom Interiors</h3>
                   <p className="text-xs text-stone-600 leading-relaxed font-light">
                     Architectural elements, furniture, lighting—the details that deserve their own frame.
                   </p>
@@ -386,7 +386,7 @@ export default function AboutPage() {
                   <span className="text-xs text-stone-600 tracking-wider">04</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
-                  Details
+                  Custom Interiors
                 </h3>
                 <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
                   Architectural elements, furniture, lighting—the details that deserve their own frame.
