@@ -26,12 +26,14 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
   const wrapperRef = useRef<HTMLDivElement>(null);
   const sectionsRef = useRef<HTMLDivElement[]>([]);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
   const lastScrollTweenRef = useRef<number>(Date.now());
   const snapProgressRef = useRef<number>(0);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
-    const sections = sectionsRef.current;
+    const sections = sectionsRef.current.filter(Boolean);
+
     if (!wrapper || sections.length === 0) return;
 
     const scrollSpeed = 4;
@@ -94,10 +96,13 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
       let position = 0;
       const distance = maxWidth - window.innerWidth;
 
+      // Clear existing labels
+      const labels = Object.keys(tl.labels);
+      labels.forEach(label => tl.removeLabel(label));
+
       // Add labels for each section
       tl.add("label0", 0);
       sections.forEach((section, i) => {
-        const progress = position;
         position += section.offsetWidth / distance;
         tl.add("label" + (i + 1), position);
       });
@@ -106,7 +111,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
     init();
 
     // Create ScrollTrigger
-    ScrollTrigger.create({
+    const st = ScrollTrigger.create({
       animation: tl,
       trigger: wrapper,
       pin: true,
@@ -123,18 +128,36 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
       }
     });
 
-    ScrollTrigger.addEventListener("refreshInit", init);
+    scrollTriggerRef.current = st;
+
+    const handleRefresh = () => {
+      init();
+    };
+
+    ScrollTrigger.addEventListener("refreshInit", handleRefresh);
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      ScrollTrigger.removeEventListener("refreshInit", init);
+      // Clean up properly
+      ScrollTrigger.removeEventListener("refreshInit", handleRefresh);
+
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
+      }
+
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+        timelineRef.current = null;
+      }
+
+      // Reset transforms on sections
+      gsap.set(sections, { clearProps: "x" });
     };
-  }, [services]);
+  }, [services.length]);
 
   const scrollToCard = (index: number) => {
-    const sections = sectionsRef.current;
-    const tl = timelineRef.current;
-    if (sections.length === 0 || !tl) return;
+    const sections = sectionsRef.current.filter(Boolean);
+    if (sections.length === 0 || !scrollTriggerRef.current) return;
 
     const maxWidth = sections.reduce((val, section) => val + section.offsetWidth, 0);
     const distance = maxWidth - window.innerWidth;
@@ -148,8 +171,10 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
     lastScrollTweenRef.current = Date.now();
 
     const scrollSpeed = 4;
+    const scrollTarget = scrollTriggerRef.current.start + (maxWidth / scrollSpeed) * position;
+
     gsap.to(window, {
-      scrollTo: (maxWidth / scrollSpeed) * position,
+      scrollTo: scrollTarget,
       duration: 1,
       ease: "power2.inOut",
       overwrite: "auto"
@@ -157,10 +182,10 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
   };
 
   return (
-    <div ref={wrapperRef} className="relative w-full md:hidden h-screen overflow-hidden flex">
+    <div ref={wrapperRef} className="relative w-full md:hidden h-screen overflow-hidden flex flex-nowrap">
       {services.map((service, index) => (
         <div
-          key={index}
+          key={service.href}
           ref={(el) => {
             if (el) sectionsRef.current[index] = el;
           }}
