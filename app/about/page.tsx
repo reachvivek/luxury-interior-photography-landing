@@ -220,7 +220,7 @@ export default function AboutPage() {
               <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
-                    src="/images/residential/penthouses/penthouse-interior-1.jpg"
+                    src="/images/residential/penthouses/modern-penthouse-living-room.jpg"
                     alt="Residential"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -241,7 +241,7 @@ export default function AboutPage() {
               <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
-                    src="/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg"
+                    src="/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg"
                     alt="Hospitality"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -262,7 +262,7 @@ export default function AboutPage() {
               <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
-                    src="/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg"
+                    src="/images/commercial/retail-stores/beauty-salon-interior-1.jpg"
                     alt="Commercial"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -283,7 +283,7 @@ export default function AboutPage() {
               <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
-                    src="/images/custom/design-details/luxury-chandelier-interior.jpg"
+                    src="/images/custom/design-details/art-gallery-gold-framed-artwork.jpg"
                     alt="Details"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -306,7 +306,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-2 md:order-1">
                 <Image
-                  src="/images/residential/penthouses/penthouse-interior-1.jpg"
+                  src="/images/residential/penthouses/modern-penthouse-living-room.jpg"
                   alt="Residential Photography"
                   fill
                   className="object-cover"
@@ -329,7 +329,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg"
+                  src="/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg"
                   alt="Hospitality Photography"
                   fill
                   className="object-cover"
@@ -352,7 +352,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-2 md:order-1">
                 <Image
-                  src="/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg"
+                  src="/images/commercial/retail-stores/beauty-salon-interior-1.jpg"
                   alt="Commercial Photography"
                   fill
                   className="object-cover"
@@ -375,7 +375,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/custom/design-details/luxury-chandelier-interior.jpg"
+                  src="/images/custom/design-details/art-gallery-gold-framed-artwork.jpg"
                   alt="Custom Interior Photography"
                   fill
                   className="object-cover"
