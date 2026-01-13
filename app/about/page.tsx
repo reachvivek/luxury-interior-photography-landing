@@ -209,11 +209,99 @@ export default function AboutPage() {
             Services
           </p>
 
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-extralight text-stone-900 text-center mb-12 md:mb-20 max-w-4xl mx-auto leading-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-extralight text-stone-900 text-center mb-8 md:mb-20 max-w-4xl mx-auto leading-tight">
             Four specializations
           </h2>
 
-          <div className="space-y-16 md:space-y-20">
+          {/* Mobile: Compact Cards */}
+          <div className="space-y-6 md:hidden">
+            {/* Residential */}
+            <Link href="/residential" className="block group">
+              <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src="/images/residential/penthouses/penthouse-interior-1.jpg"
+                    alt="Residential"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">01</span>
+                  <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Residential</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                    Villas, penthouses, and apartments presented with attention to light, materiality, and spatial flow.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Hospitality */}
+            <Link href="/hospitality" className="block group">
+              <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src="/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg"
+                    alt="Hospitality"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">02</span>
+                  <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Hospitality</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                    Hotels, restaurants, and resorts captured to convey atmosphere—the feeling guests will remember.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Commercial */}
+            <Link href="/commercial" className="block group">
+              <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src="/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg"
+                    alt="Commercial"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">03</span>
+                  <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Commercial</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                    Office spaces, retail environments, and showrooms photographed to reflect brand identity and function.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Details */}
+            <Link href="/custom-interiors" className="block group">
+              <div className="bg-stone-50/50 rounded-xl overflow-hidden shadow-lg">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src="/images/custom/design-details/luxury-chandelier-interior.jpg"
+                    alt="Details"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">04</span>
+                  <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Details</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                    Architectural elements, furniture, lighting—the details that deserve their own frame.
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Desktop: Original Layout */}
+          <div className="hidden md:block space-y-20">
             {/* Residential */}
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-2 md:order-1">
