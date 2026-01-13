@@ -61,10 +61,10 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
           </div>
 
           {/* Content */}
-          <div className="relative h-full flex flex-col justify-between z-10">
-            {/* Top: Number Badge and Content with dark background */}
-            <div className="service-content space-y-4 bg-gradient-to-b from-black/70 via-black/40 to-transparent p-8 pt-24">
-              <div className="inline-block">
+          <div className="relative h-full flex flex-col justify-center z-10 p-8">
+            {/* Centered Content */}
+            <div className="service-content space-y-4 mb-auto mt-auto">
+              <div className="inline-block mb-4">
                 <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
                   <span className="text-white text-sm font-light tracking-wider">
                     {service.number}
@@ -73,30 +73,34 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               </div>
 
               {/* Title */}
-              <h2 className="text-3xl font-serif font-light text-white leading-tight max-w-xs">
+              <h2 className="text-4xl md:text-5xl font-serif font-light text-white leading-tight max-w-sm">
                 {service.title}
               </h2>
 
               {/* Description */}
-              <p className="text-sm text-white/95 leading-relaxed font-light max-w-sm">
+              <p className="text-base text-white/90 leading-relaxed font-light max-w-md">
                 {service.description}
               </p>
-
-              {/* Explore Button */}
-              <Link
-                href={service.href}
-                className="inline-flex items-center gap-1.5 text-white/95 hover:text-white transition-colors duration-300 group"
-              >
-                <span className="text-xs font-light tracking-wider uppercase">Explore</span>
-                <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
             </div>
 
-            {/* Bottom: Progress Indicators */}
-            <div className="space-y-3 p-6 pb-8">
-              <div className="flex gap-1.5 justify-center">
+            {/* Bottom: Explore and Progress Indicators */}
+            <div className="mt-auto space-y-6">
+              {/* Explore Button */}
+              <div className="flex justify-end">
+                <Link
+                  href={service.href}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 group"
+                >
+                  <span className="text-sm font-light tracking-wide">Explore</span>
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* Progress Indicators */}
+              <div className="space-y-3">
+                <div className="flex gap-1.5 justify-center">
                 {services.map((_, idx) => (
                   <div
                     key={idx}
@@ -109,10 +113,11 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
                 ))}
               </div>
 
-              <div className="text-center">
-                <span className="text-white/40 text-xs font-light tracking-wider">
-                  {currentIndex + 1} / {services.length}
-                </span>
+                <div className="text-center">
+                  <span className="text-white/40 text-xs font-light tracking-wider">
+                    {currentIndex + 1} / {services.length}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
