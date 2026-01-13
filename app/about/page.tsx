@@ -229,9 +229,15 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">01</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Residential</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
                     Villas, penthouses, and apartments presented with attention to light, materiality, and spatial flow.
                   </p>
+                  <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
+                    <span>Explore</span>
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>
@@ -250,9 +256,15 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">02</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Hospitality</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
                     Hotels, restaurants, and resorts captured to convey atmosphere—the feeling guests will remember.
                   </p>
+                  <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
+                    <span>Explore</span>
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>
@@ -271,9 +283,15 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">03</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Commercial</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
                     Office spaces, retail environments, and showrooms photographed to reflect brand identity and function.
                   </p>
+                  <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
+                    <span>Explore</span>
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>
@@ -292,9 +310,15 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">04</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Custom Interiors</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light">
+                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
                     Architectural elements, furniture, lighting—the details that deserve their own frame.
                   </p>
+                  <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
+                    <span>Explore</span>
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>
@@ -303,13 +327,13 @@ export default function AboutPage() {
           {/* Desktop: Original Layout */}
           <div className="hidden md:block space-y-20">
             {/* Residential */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <Link href="/residential" className="grid md:grid-cols-2 gap-8 md:gap-12 items-center group cursor-pointer">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-2 md:order-1">
                 <Image
                   src="/images/residential/penthouses/modern-penthouse-living-room.jpg"
                   alt="Residential Photography"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="order-1 md:order-2">
@@ -319,20 +343,26 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Residential
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
+                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
                   Villas, penthouses, and apartments presented with attention to light, materiality, and spatial flow.
                 </p>
+                <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
+                  <span>Explore</span>
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Hospitality */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <Link href="/hospitality" className="grid md:grid-cols-2 gap-8 md:gap-12 items-center group cursor-pointer">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg"
                   alt="Hospitality Photography"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div>
@@ -342,20 +372,26 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Hospitality
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
+                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
                   Hotels, restaurants, and resorts captured to convey atmosphere—the feeling guests will remember.
                 </p>
+                <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
+                  <span>Explore</span>
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Commercial */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <Link href="/commercial" className="grid md:grid-cols-2 gap-8 md:gap-12 items-center group cursor-pointer">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-2 md:order-1">
                 <Image
                   src="/images/commercial/retail-stores/beauty-salon-interior-1.jpg"
                   alt="Commercial Photography"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="order-1 md:order-2">
@@ -365,20 +401,26 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Commercial
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
+                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
                   Office spaces, retail environments, and showrooms photographed to reflect brand identity and function.
                 </p>
+                <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
+                  <span>Explore</span>
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Custom */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <Link href="/custom-interiors" className="grid md:grid-cols-2 gap-8 md:gap-12 items-center group cursor-pointer">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/custom/design-details/art-gallery-gold-framed-artwork.jpg"
                   alt="Custom Interior Photography"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div>
@@ -388,11 +430,17 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Custom Interiors
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light">
+                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
                   Architectural elements, furniture, lighting—the details that deserve their own frame.
                 </p>
+                <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
+                  <span>Explore</span>
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
