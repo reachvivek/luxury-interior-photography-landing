@@ -18,19 +18,26 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-8 md:pt-40 md:pb-24 px-6 md:px-16 bg-white overflow-hidden">
+      <section className="pt-24 pb-12 md:pt-40 md:pb-32 px-6 md:px-16 bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900 overflow-hidden relative">
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6TTU2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6TTE2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
+
         <div
           ref={heroAnimation.elementRef}
-          className={`max-w-5xl mx-auto text-center transition-all duration-1000 ease-out ${
+          className={`max-w-5xl mx-auto text-center relative z-10 transition-all duration-1000 ease-out ${
             heroAnimation.isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-extralight text-stone-900 mb-6 md:mb-8 tracking-tight">
+          <div className="flex justify-center mb-8 md:mb-10">
+            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-600 to-transparent"></div>
+          </div>
+
+          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-extralight text-white mb-6 md:mb-8 tracking-tight">
             About Nashray
           </h1>
-          <p className="text-base md:text-xl text-stone-500 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-base md:text-xl text-stone-300 max-w-2xl mx-auto leading-relaxed font-light">
             Precision-driven interior photography for architects, developers, and luxury brands.
           </p>
         </div>
