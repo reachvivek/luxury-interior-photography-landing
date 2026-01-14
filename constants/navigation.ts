@@ -11,7 +11,7 @@ export const NAV_LINKS = {
   ] as NavLink[],
   right: [
     { href: "/blog", label: "Blog" },
-    { href: "/#faq", label: "FAQ" },
+    { href: "/faq", label: "FAQ" },
     { href: "/contact", label: "Contact" },
   ] as NavLink[],
 };
@@ -23,7 +23,7 @@ export const FOOTER_LINKS = {
     { href: "/#services", label: "Services" },
     { href: "/about", label: "About" },
     { href: "/blog", label: "Blog" },
-    { href: "/#faq", label: "FAQ" },
+    { href: "/faq", label: "FAQ" },
     { href: "/contact", label: "Contact" },
   ] as NavLink[],
   services: [
