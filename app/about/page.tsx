@@ -10,17 +10,13 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 export default function AboutPage() {
   const heroAnimation = useScrollAnimation(0.1);
   const storyAnimation = useScrollAnimation(0.2);
-  const approachAnimation = useScrollAnimation(0.2);
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 md:pt-40 md:pb-32 px-6 md:px-16 bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900 overflow-hidden relative">
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6TTU2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6TTE2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
-
+      <section className="pt-24 pb-12 md:pt-40 md:pb-32 px-6 md:px-16 bg-gradient-to-b from-stone-50/30 via-white to-white overflow-hidden relative">
         <div
           ref={heroAnimation.elementRef}
           className={`max-w-5xl mx-auto text-center relative z-10 transition-all duration-1000 ease-out ${
@@ -30,14 +26,14 @@ export default function AboutPage() {
           }`}
         >
           <div className="flex justify-center mb-8 md:mb-10">
-            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-600 to-transparent"></div>
+            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
           </div>
 
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-extralight text-white mb-6 md:mb-8 tracking-tight">
+          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-extralight text-stone-900 mb-8 md:mb-10 tracking-tight leading-[0.95]">
             About Nashray
           </h1>
-          <p className="text-base md:text-xl text-stone-300 max-w-2xl mx-auto leading-relaxed font-light">
-            Architectural photography for spaces that deserve attention.
+          <p className="text-base md:text-xl text-stone-600/90 max-w-2xl mx-auto leading-[1.65] font-light tracking-[0.01em]">
+            Interiors photographed with precision, restraint, and editorial intent.
           </p>
         </div>
       </section>
@@ -80,23 +76,23 @@ export default function AboutPage() {
                 <div className="absolute -top-3 -left-3 w-20 h-20 bg-stone-900/5 rounded-full blur-2xl"></div>
 
                 <div className="relative">
-                  <div className="flex items-center gap-3 mb-4 md:mb-6">
+                  <div className="flex items-center gap-3 mb-5 md:mb-7">
                     <div className="w-10 h-px bg-gradient-to-r from-stone-300 to-transparent"></div>
-                    <p className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-stone-400 font-medium">
-                      Who we are
+                    <p className="text-[10px] md:text-xs tracking-[0.16em] uppercase text-stone-400/80 font-medium">
+                      About the studio
                     </p>
                   </div>
 
-                  <h2 className="text-2xl md:text-4xl font-serif font-extralight text-stone-900 mb-4 md:mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-4xl font-serif font-extralight text-stone-900 mb-5 md:mb-7 leading-[1.15] tracking-[-0.01em]">
                     Spaces, translated.
                   </h2>
 
-                  <div className="space-y-3 md:space-y-4 text-sm md:text-base text-stone-600 leading-relaxed font-light">
+                  <div className="space-y-4 md:space-y-5 text-sm md:text-base text-stone-700/90 leading-[1.7] font-light max-w-[520px]">
                     <p>
                       Nashray is a Dubai-based interior and architectural photography studio specializing in clarity, restraint, and timeless composition.
                     </p>
                     <p>
-                      Every project begins with understanding the designer's intent—the way light moves, how materials interact, what the space wants to say. The work balances technical precision with editorial sensibility.
+                      Every project begins with understanding the designer's intent—the way light moves, how materials interact, what the space wants to say.
                     </p>
                     <p>
                       From residential interiors to hospitality spaces, the approach remains consistent: capture what matters, remove what doesn't.
@@ -123,13 +119,24 @@ export default function AboutPage() {
             <div className="w-px h-12 md:h-20 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
           </div>
 
-          <p className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-stone-400 mb-6 md:mb-8 text-center font-medium">
-            How it works
+          <p className="text-[10px] md:text-xs tracking-[0.16em] uppercase text-stone-400/70 mb-8 md:mb-12 text-center font-medium">
+            Our philosophy
           </p>
 
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-serif font-extralight text-stone-900 leading-tight mb-10 md:mb-20 max-w-4xl mx-auto text-center px-4">
-            Intentional. Calm. Precise.
-          </h2>
+          <div className="mb-10 md:mb-20 max-w-4xl mx-auto text-center px-4">
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-serif font-extralight text-stone-900 leading-[1.05] tracking-[0.02em]">
+              <span className="inline-block">Intentional.</span>
+              {" "}
+              <span className="inline-block">Calm.</span>
+              {" "}
+              <span className="inline-block">Precise.</span>
+            </h2>
+            <div className="flex justify-center mt-8 md:mt-10 gap-3">
+              <div className="w-12 h-px bg-stone-300"></div>
+              <div className="w-1 h-1 rounded-full bg-stone-400 self-center"></div>
+              <div className="w-12 h-px bg-stone-300"></div>
+            </div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-20 items-center max-w-6xl mx-auto">
             {/* Image Block */}
@@ -152,35 +159,35 @@ export default function AboutPage() {
                   <div className="w-8 h-px bg-stone-300"></div>
                 </div>
 
-                <p className="text-[10px] tracking-[0.12em] uppercase text-stone-400 mb-6 md:mb-10 font-medium">
-                  Three Principles
+                <p className="text-[10px] tracking-[0.14em] uppercase text-stone-400/70 mb-7 md:mb-12 font-medium">
+                  The process
                 </p>
 
-                <div className="space-y-6 md:space-y-8 mb-6 md:mb-10">
+                <div className="space-y-7 md:space-y-9 mb-7 md:mb-12">
                   <div>
-                    <h3 className="text-lg md:text-2xl font-serif font-light text-stone-900 mb-2">
+                    <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2.5 tracking-[-0.01em]">
                       Planning
                     </h3>
-                    <p className="text-sm md:text-base text-stone-500 leading-relaxed font-light">
-                      Meticulous preparation for every space.
+                    <p className="text-sm md:text-base text-stone-600/90 leading-[1.7] font-light">
+                      We study the space before shooting—light angles, sightlines, designer intent.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-lg md:text-2xl font-serif font-light text-stone-900 mb-2">
-                      Respect
+                    <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2.5 tracking-[-0.01em]">
+                      Execution
                     </h3>
-                    <p className="text-sm md:text-base text-stone-500 leading-relaxed font-light">
-                      Honoring the designer's original intent.
+                    <p className="text-sm md:text-base text-stone-600/90 leading-[1.7] font-light">
+                      Precision in composition, natural light prioritized, minimal intervention.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-lg md:text-2xl font-serif font-light text-stone-900 mb-2">
-                      Restraint
+                    <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900 mb-2.5 tracking-[-0.01em]">
+                      Refinement
                     </h3>
-                    <p className="text-sm md:text-base text-stone-500 leading-relaxed font-light">
-                      Clean, timeless imagery.
+                    <p className="text-sm md:text-base text-stone-600/90 leading-[1.7] font-light">
+                      Post-production focused on clarity—enhancing what's there, removing distraction.
                     </p>
                   </div>
                 </div>
@@ -205,11 +212,11 @@ export default function AboutPage() {
             <div className="w-px h-12 md:h-20 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
           </div>
 
-          <p className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-stone-400 mb-6 text-center font-medium">
-            Services
+          <p className="text-[10px] md:text-xs tracking-[0.16em] uppercase text-stone-400/70 mb-6 text-center font-medium">
+            What we photograph
           </p>
 
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-extralight text-stone-900 text-center mb-8 md:mb-20 max-w-4xl mx-auto leading-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-extralight text-stone-900 text-center mb-8 md:mb-20 max-w-4xl mx-auto leading-[1.15] tracking-[-0.01em]">
             Four specializations
           </h2>
 
@@ -229,8 +236,8 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">01</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Residential</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
-                    Villas, penthouses, and apartments presented with attention to light, materiality, and spatial flow.
+                  <p className="text-xs text-stone-600/90 leading-[1.65] font-light mb-3">
+                    How high-end homes should look in print—composed, not styled.
                   </p>
                   <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
                     <span>Explore</span>
@@ -256,8 +263,8 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">02</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Hospitality</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
-                    Hotels, restaurants, and resorts captured to convey atmosphere—the feeling guests will remember.
+                  <p className="text-xs text-stone-600/90 leading-[1.65] font-light mb-3">
+                    Capturing atmosphere without artifice—spaces that invite, not perform.
                   </p>
                   <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
                     <span>Explore</span>
@@ -283,8 +290,8 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">03</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Commercial</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
-                    Office spaces, retail environments, and showrooms photographed to reflect brand identity and function.
+                  <p className="text-xs text-stone-600/90 leading-[1.65] font-light mb-3">
+                    Workspaces and retail interiors that balance function with refinement.
                   </p>
                   <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
                     <span>Explore</span>
@@ -310,8 +317,8 @@ export default function AboutPage() {
                 <div className="p-4">
                   <span className="text-[10px] text-stone-400 tracking-wider mb-2 block">04</span>
                   <h3 className="text-lg font-serif font-light text-stone-900 mb-2">Custom Interiors</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light mb-3">
-                    Architectural elements, furniture, lighting—the details that deserve their own frame.
+                  <p className="text-xs text-stone-600/90 leading-[1.65] font-light mb-3">
+                    Material close-ups and architectural details—context removed, craft revealed.
                   </p>
                   <div className="flex items-center gap-1 text-stone-900 text-xs font-light">
                     <span>Explore</span>
@@ -343,8 +350,8 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Residential
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  Villas, penthouses, and apartments presented with attention to light, materiality, and spatial flow.
+                <p className="text-sm md:text-base text-stone-600/90 leading-[1.7] font-light mb-4">
+                  How high-end homes should look in print—composed, not styled.
                 </p>
                 <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
                   <span>Explore</span>
@@ -372,8 +379,8 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Hospitality
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  Hotels, restaurants, and resorts captured to convey atmosphere—the feeling guests will remember.
+                <p className="text-sm md:text-base text-stone-600/90 leading-[1.7] font-light mb-4">
+                  Capturing atmosphere without artifice—spaces that invite, not perform.
                 </p>
                 <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
                   <span>Explore</span>
@@ -401,8 +408,8 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Commercial
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  Office spaces, retail environments, and showrooms photographed to reflect brand identity and function.
+                <p className="text-sm md:text-base text-stone-600/90 leading-[1.7] font-light mb-4">
+                  Workspaces and retail interiors that balance function with refinement.
                 </p>
                 <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
                   <span>Explore</span>
@@ -430,8 +437,8 @@ export default function AboutPage() {
                 <h3 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-4">
                   Custom Interiors
                 </h3>
-                <p className="text-sm md:text-base text-stone-600 leading-relaxed font-light mb-4">
-                  Architectural elements, furniture, lighting—the details that deserve their own frame.
+                <p className="text-sm md:text-base text-stone-600/90 leading-[1.7] font-light mb-4">
+                  Material close-ups and architectural details—context removed, craft revealed.
                 </p>
                 <div className="inline-flex items-center gap-2 text-stone-900 text-sm font-light">
                   <span>Explore</span>
@@ -447,19 +454,31 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <section className="py-16 md:py-32 px-6 md:px-16 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 relative overflow-hidden">
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6TTU2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6TTE2IDE0YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHptMCAyMGMwIDIuMjEtMS43OSA0LTQgNHMtNC0xLjc5LTQtNCAxLjc5LTQgNC00IDQgMS43OSA0IDR6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
+        {/* Organic texture overlay - large scale, non-repeating feel */}
+        <div
+          className="absolute inset-0 opacity-[0.035] pointer-events-none"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 40%, transparent 70%),
+              url("data:image/svg+xml,%3Csvg width='800' height='800' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='white' fill-opacity='1'%3E%3Ccircle cx='120' cy='95' r='2.5'/%3E%3Ccircle cx='280' cy='140' r='2'/%3E%3Ccircle cx='450' cy='180' r='3'/%3E%3Ccircle cx='620' cy='120' r='2'/%3E%3Ccircle cx='740' cy='200' r='2.5'/%3E%3Ccircle cx='160' cy='280' r='2'/%3E%3Ccircle cx='340' cy='320' r='2.5'/%3E%3Ccircle cx='520' cy='360' r='2'/%3E%3Ccircle cx='680' cy='340' r='3'/%3E%3Ccircle cx='90' cy='460' r='2.5'/%3E%3Ccircle cx='240' cy='520' r='2'/%3E%3Ccircle cx='420' cy='540' r='2.5'/%3E%3Ccircle cx='580' cy='500' r='2'/%3E%3Ccircle cx='720' cy='560' r='3'/%3E%3Ccircle cx='140' cy='640' r='2'/%3E%3Ccircle cx='320' cy='680' r='2.5'/%3E%3Ccircle cx='500' cy='720' r='2'/%3E%3Ccircle cx='660' cy='700' r='2.5'/%3E%3Ccircle cx='200' cy='180' r='1.5'/%3E%3Ccircle cx='380' cy='220' r='1.5'/%3E%3Ccircle cx='540' cy='240' r='1.5'/%3E%3Ccircle cx='700' cy='280' r='1.5'/%3E%3Ccircle cx='80' cy='360' r='1.5'/%3E%3Ccircle cx='260' cy='400' r='1.5'/%3E%3Ccircle cx='440' cy='440' r='1.5'/%3E%3Ccircle cx='600' cy='420' r='1.5'/%3E%3Ccircle cx='180' cy='560' r='1.5'/%3E%3Ccircle cx='360' cy='600' r='1.5'/%3E%3Ccircle cx='540' cy='640' r='1.5'/%3E%3Ccircle cx='680' cy='620' r='1.5'/%3E%3C/g%3E%3C/svg%3E")
+            `,
+            backgroundSize: 'cover, 1400px 1400px',
+            backgroundPosition: 'center, 20% 30%',
+            backgroundRepeat: 'no-repeat, repeat',
+            mixBlendMode: 'screen'
+          }}
+        />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="flex justify-center mb-8 md:mb-10">
             <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-600 to-transparent"></div>
           </div>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-extralight text-white mb-4 md:mb-6 tracking-tight px-4">
-            Begin a conversation
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-extralight text-white mb-5 md:mb-7 tracking-tight leading-[1.1] px-4">
+            Let's discuss your space
           </h2>
-          <p className="text-base md:text-xl text-stone-400 mb-10 md:mb-12 font-light max-w-2xl mx-auto px-4">
-            Discuss your project and what you'd like to achieve.
+          <p className="text-base md:text-xl text-stone-400/90 mb-10 md:mb-12 font-light max-w-2xl mx-auto px-4 leading-[1.65]">
+            Share details about your project and we'll arrange a consultation.
           </p>
           <Link
             href="/contact"
