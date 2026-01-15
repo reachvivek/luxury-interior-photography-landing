@@ -161,15 +161,14 @@ export default function HeroCarousel() {
       <div className="absolute inset-0 bg-radial-gradient from-black/50 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/40 md:via-transparent md:to-transparent pointer-events-none" />
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce">
-        <p className="text-white text-xs tracking-widest uppercase opacity-80">Scroll</p>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
         <svg
-          className="w-5 h-5 text-white opacity-80"
+          className="w-8 h-8 text-white opacity-70"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
         </svg>
       </div>
 
