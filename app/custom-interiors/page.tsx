@@ -60,10 +60,10 @@ const portfolioCategories = [
 // Category filter options
 const categoryFilters = [
   { id: 'all', label: 'All' },
-  { id: 'architectural-elements', label: 'Architectural' },
-  { id: 'custom-furniture', label: 'Furniture' },
-  { id: 'materials', label: 'Materials' },
-  { id: 'design-details', label: 'Details' }
+  { id: 'architectural-elements', label: 'Architectural', href: '/custom-interiors/architectural-elements' },
+  { id: 'custom-furniture', label: 'Furniture', href: '/custom-interiors/custom-furniture' },
+  { id: 'materials', label: 'Materials', href: '/custom-interiors/materials' },
+  { id: 'design-details', label: 'Details', href: '/custom-interiors/design-details' }
 ];
 
 export default function CustomInteriorsPage() {

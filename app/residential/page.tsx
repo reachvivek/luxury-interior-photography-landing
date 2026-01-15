@@ -56,9 +56,9 @@ const portfolioCategories = [
 // Category filter options
 const categoryFilters = [
   { id: 'all', label: 'All' },
-  { id: 'villas', label: 'Villas' },
-  { id: 'apartments-penthouses', label: 'Apartments & Penthouses' },
-  { id: 'vacation-rentals', label: 'Vacation Rentals' }
+  { id: 'villas', label: 'Villas', href: '/residential/villas' },
+  { id: 'apartments-penthouses', label: 'Apartments & Penthouses', href: '/residential/apartments-penthouses' },
+  { id: 'vacation-rentals', label: 'Vacation Rentals', href: '/residential/vacation-rentals' }
 ];
 
 export default function ResidentialPage() {

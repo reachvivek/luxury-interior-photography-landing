@@ -60,10 +60,10 @@ const portfolioCategories = [
 // Category filter options
 const categoryFilters = [
   { id: 'all', label: 'All' },
-  { id: 'office-spaces', label: 'Office Spaces' },
-  { id: 'coworking-spaces', label: 'Co-working Spaces' },
-  { id: 'retail-stores', label: 'Retail Stores' },
-  { id: 'showrooms', label: 'Showrooms' }
+  { id: 'office-spaces', label: 'Office Spaces', href: '/commercial/office-spaces' },
+  { id: 'coworking-spaces', label: 'Co-working Spaces', href: '/commercial/coworking-spaces' },
+  { id: 'retail-stores', label: 'Retail Stores', href: '/commercial/retail-stores' },
+  { id: 'showrooms', label: 'Showrooms', href: '/commercial/showrooms' }
 ];
 
 export default function CommercialPage() {

@@ -67,10 +67,10 @@ const portfolioCategories = [
 // Category filter options
 const categoryFilters = [
   { id: 'all', label: 'All' },
-  { id: 'hotel-suites', label: 'Hotels' },
-  { id: 'resorts', label: 'Resorts' },
-  { id: 'restaurants', label: 'Restaurants' },
-  { id: 'event-spaces', label: 'Event Spaces' }
+  { id: 'hotel-suites', label: 'Hotels', href: '/hospitality/hotel-suites' },
+  { id: 'resorts', label: 'Resorts', href: '/hospitality/resorts' },
+  { id: 'restaurants', label: 'Restaurants', href: '/hospitality/restaurants' },
+  { id: 'event-spaces', label: 'Event Spaces', href: '/hospitality/event-spaces' }
 ];
 
 export default function HospitalityPage() {
