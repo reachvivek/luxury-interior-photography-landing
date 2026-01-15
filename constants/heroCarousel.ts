@@ -15,7 +15,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Luxury Living Redefined",
     description: "Professional photography for villas, apartments, and penthouses showcasing every detail",
     image: "/images/residential/villas/luxury-stone-villa-exterior.jpg",
-    ctaText: "View Portfolio",
+    ctaText: "Explore Residential",
     ctaLink: "/residential",
   },
   {
@@ -24,7 +24,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Elevating Guest Experiences",
     description: "Capture hotel suites, restaurants, and event spaces with imagery that attracts",
     image: "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg",
-    ctaText: "View Portfolio",
+    ctaText: "Explore Hospitality",
     ctaLink: "/hospitality",
   },
   {
@@ -33,7 +33,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Professional Spaces Captured",
     description: "Showcase offices, co-working spaces, and retail with photography that drives business",
     image: "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg",
-    ctaText: "View Portfolio",
+    ctaText: "Explore Commercial",
     ctaLink: "/commercial",
   },
   {
@@ -42,7 +42,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Architectural Artistry",
     description: "Highlight architectural elements and design details that make spaces unique",
     image: "/images/custom/design-details/luxury-chandelier-interior.jpg",
-    ctaText: "View Portfolio",
+    ctaText: "Explore Custom Work",
     ctaLink: "/custom-interiors",
   },
 ];
