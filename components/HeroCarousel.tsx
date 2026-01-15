@@ -46,6 +46,33 @@ export default function HeroCarousel() {
     }, 600);
   };
 
+  const scrollToNextSection = () => {
+    const targetPosition = window.innerHeight;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1000; // 1 second
+    let start: number | null = null;
+
+    const animation = (currentTime: number) => {
+      if (start === null) start = currentTime;
+      const timeElapsed = currentTime - start;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      // Easing function for smooth animation
+      const ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   // Auto-play: Change slides every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -161,7 +188,11 @@ export default function HeroCarousel() {
       <div className="absolute inset-0 bg-radial-gradient from-black/50 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/40 md:via-transparent md:to-transparent pointer-events-none" />
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+      <button
+        onClick={scrollToNextSection}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce cursor-pointer hover:opacity-100 transition-opacity"
+        aria-label="Scroll to next section"
+      >
         <svg
           className="w-8 h-8 text-white opacity-70"
           fill="none"
@@ -170,7 +201,7 @@ export default function HeroCarousel() {
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
         </svg>
-      </div>
+      </button>
 
       <style jsx>{`
         @keyframes slideUpIn {
