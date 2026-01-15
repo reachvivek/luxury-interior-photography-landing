@@ -214,34 +214,26 @@ export default function CategoryPageLayout({
             </button>
           ))}
         </div>
-
-        {/* Sub-category Navigation Links */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8 md:mt-10 border-t border-white/10 pt-8 md:pt-10">
-          {categoryFilters
-            .filter(filter => filter.href) // Only show filters with hrefs
-            .map((filter) => (
-              <Link
-                key={filter.id}
-                href={filter.href!}
-                className="group px-6 py-3 bg-white/5 border border-white/20 text-white hover:bg-white hover:text-stone-900 hover:border-white transition-all duration-300 text-xs md:text-sm tracking-wide uppercase rounded-full flex items-center gap-2"
-              >
-                <span>{filter.label}</span>
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            ))}
-        </div>
       </section>
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-16 md:py-24 px-6 md:px-16 bg-stone-50">
         <div className="max-w-7xl mx-auto">
+          {/* Sub-category Navigation Links */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16">
+            {categoryFilters
+              .filter(filter => filter.href) // Only show filters with hrefs
+              .map((filter) => (
+                <Link
+                  key={filter.id}
+                  href={filter.href!}
+                  className="px-6 py-3 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-300 text-xs md:text-sm tracking-wide uppercase rounded-full"
+                >
+                  {filter.label}
+                </Link>
+              ))}
+          </div>
+
           {/* Section Header */}
           <div className="text-center mb-12 md:mb-16">
             <div className="flex justify-center mb-6 md:mb-8">
