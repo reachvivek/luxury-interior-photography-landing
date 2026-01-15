@@ -1,297 +1,165 @@
-# TSUROV Photography
+# Nashray Interior Photography
 
-> **Luxury Interior & Architectural Photography Portfolio**
-> A refined, high-performance Next.js website showcasing professional photography services across residential, hospitality, and commercial spaces in the UAE.
+A modern, high-performance landing page for luxury interior photography services specializing in residential, hospitality, commercial, and custom interior spaces in Dubai and the UAE.
 
----
+## Overview
 
-## 📊 Project Status & Ratings
+Nashray is a premium interior photography portfolio website built with Next.js 16, featuring immersive full-screen galleries, authentic client testimonials, and seamless WhatsApp integration for instant booking inquiries. The application showcases professional photography work with elegant animations, optimized performance, and a focus on visual storytelling.
 
-### Overall Score: **9.2/10**
+## Tech Stack
 
-| Category | Rating | Notes |
-|----------|--------|-------|
-| **Code Quality** | 9.5/10 | Clean architecture, DRY principles, strong TypeScript typing |
-| **Performance** | 9.3/10 | Optimized images, code splitting, infinite scroll animations |
-| **User Experience** | 9.4/10 | Smooth animations, intuitive navigation, clear CTAs |
-| **Design System** | 9.0/10 | Consistent luxury aesthetic, sophisticated color palette |
-| **Accessibility** | 8.5/10 | Semantic HTML, alt text present, needs ARIA enhancements |
-| **SEO Readiness** | 8.8/10 | Proper meta structure, clean URLs, optimized images |
-| **Mobile Responsiveness** | 9.6/10 | Fully responsive, touch-optimized, adaptive layouts |
-| **Maintainability** | 9.7/10 | Excellent separation of concerns, reusable components |
+### Core Framework
+- **Next.js 16.1.1** - React framework with App Router
+- **React 19.2.3** - Latest React with concurrent features
+- **TypeScript 5** - Type-safe development
 
----
+### Styling & UI
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **Framer Motion 12.23.26** - Animation library
+- **Lucide React** - Modern icon library
 
-## 🎯 Homepage Flow & User Journey
+### Additional Libraries
+- **React Hook Form** - Form validation and management
+- **Vercel Analytics** - Performance and visitor analytics
 
-### Strategic Flow Analysis ✅
+## Project Structure
 
-The homepage follows a **perfect conversion funnel** for a luxury photography service:
-
-```
-1. Hero Carousel (Visual Impact)
-   ↓ Immediate impression with stunning visuals
-
-2. How It Works (Trust Building)
-   ↓ 4-step process removes uncertainty
-
-3. Services Grid (Discovery)
-   ↓ Clear categories: Residential, Hospitality, Commercial, Custom
-
-4. Why Choose Us (Credibility)
-   ↓ 4 value propositions including 20% first-time offer
-
-5. About Us (Brand Story)
-   ↓ Establishes expertise and artistic vision
-
-6. Our Approach (Methodology)
-   ↓ Reinforces quality and precision
-
-7. Trusted By (Social Proof)
-   ↓ 6 brand logos scrolling infinitely
-
-8. Stats (Authority)
-   ↓ Quantified achievements
-
-9. Testimonials (Validation)
-   ↓ Client success stories
-
-10. Journal (Thought Leadership)
-    ↓ 3 articles showing expertise
-
-11. Portfolio Gallery (Proof of Work)
-    ↓ Infinite scroll showcasing best work
-
-12. Contact Form (Primary CTA)
-    ↓ WhatsApp integration for instant connection
-
-13. Final CTA (Last Chance)
-    ↓ Full-screen compelling close
-```
-
-### ✅ Flow Assessment: **Excellent**
-- **No redundancies** - Each section serves a unique purpose
-- **Perfect progression** - From awareness → consideration → conversion
-- **Strategic CTAs** - Contact form + WhatsApp at optimal touchpoints
-- **Visual breaks** - Gallery section provides engagement between heavy content
-
----
-
-## 🏗️ Technical Architecture
-
-### Tech Stack
-```json
-{
-  "framework": "Next.js 16.1.1",
-  "language": "TypeScript",
-  "styling": "Tailwind CSS v4",
-  "animations": "Framer Motion + CSS",
-  "fonts": "Montserrat, Cormorant Garamond, Inter",
-  "deployment": "Vercel-ready",
-  "package_manager": "npm"
-}
-```
-
-### Project Structure
 ```
 tsurov-photography/
-├── app/
-│   ├── page.tsx                    # Main homepage (778 lines)
-│   ├── globals.css                 # Theme & animations
-│   ├── layout.tsx                  # Root layout
-│   └── [routes]/                   # Sub-pages (ready for expansion)
+├── app/                          # Next.js App Router pages
+│   ├── about/                    # About page
+│   ├── blog/                     # Blog listing
+│   ├── commercial/               # Commercial photography
+│   ├── contact/                  # Contact form
+│   ├── custom-interiors/         # Custom interiors portfolio
+│   ├── faq/                      # FAQ page
+│   ├── hospitality/              # Hospitality photography
+│   ├── residential/              # Residential photography
+│   ├── services/                 # Services overview
+│   ├── layout.tsx                # Root layout
+│   ├── page.tsx                  # Homepage
+│   └── globals.css               # Global styles
 │
-├── components/
-│   ├── cards/
-│   │   ├── JournalCard.tsx         # Blog post cards
-│   │   ├── ProcessStep.tsx         # How it works steps
-│   │   └── FeatureCard.tsx         # Why choose us cards
-│   ├── sections/
-│   │   ├── StatsSection.tsx        # Statistics display
-│   │   └── TestimonialsSection.tsx # Client testimonials
-│   ├── layout/
-│   │   ├── Footer.tsx              # Site footer
-│   │   └── Navigation.tsx          # Main navigation
-│   ├── ui/
-│   │   ├── ScrollToTop.tsx         # Scroll-to-top button
-│   │   └── WhatsAppButton.tsx      # WhatsApp floating CTA
-│   └── HeroCarousel.tsx            # Hero image carousel
+├── components/                   # Reusable components
+│   ├── blog/                     # Blog components
+│   ├── cards/                    # Card components
+│   ├── hero/                     # Hero sections
+│   ├── layout/                   # Layout components
+│   ├── portfolio/                # Portfolio displays
+│   ├── sections/                 # Page sections
+│   ├── services/                 # Service components
+│   ├── ui/                       # Base UI components
+│   ├── HeroCarousel.tsx          # Homepage carousel
+│   ├── MobileServicesShowcase.tsx # Mobile services
+│   ├── Navigation.tsx            # Main navigation
+│   └── WhatsAppButton.tsx        # Floating WhatsApp button
 │
-├── data/
-│   ├── journalPosts.ts             # Blog content (3 posts)
-│   ├── processSteps.ts             # 4-step process data
-│   ├── features.ts                 # Why choose us (4 features)
-│   ├── gallery.ts                  # Portfolio images (20 total)
-│   ├── trustedBy.ts                # Client logos (6 brands)
-│   ├── testimonials.ts             # Client reviews
-│   ├── stats.ts                    # Key metrics
-│   └── categories.ts               # Service categories
+├── constants/                    # Application constants
+│   ├── animation.ts              # Animation timings
+│   ├── heroCarousel.ts           # Carousel config
+│   ├── navigation.ts             # Navigation structure
+│   └── theme.ts                  # Theme configuration
 │
-├── hooks/
-│   └── useScrollAnimation.ts       # Intersection Observer hook
+├── data/                         # Static content
+│   ├── categories.ts             # Portfolio categories
+│   ├── contact.ts                # Contact information
+│   ├── features.ts               # Service features
+│   ├── gallery.ts                # Gallery images
+│   ├── journalPosts.ts           # Blog posts
+│   ├── portfolio.ts              # Portfolio items
+│   ├── processSteps.ts           # Process steps
+│   ├── services.ts               # Service offerings
+│   ├── stats.ts                  # Statistics
+│   ├── testimonials.ts           # Client testimonials
+│   └── trustedBy.ts              # Client logos
 │
-├── types/
-│   └── index.ts                    # TypeScript interfaces
+├── hooks/                        # Custom React hooks
+│   ├── useScrollAnimation.ts     # Scroll animations
+│   └── useScrollPosition.ts      # Scroll tracking
 │
-└── public/
-    └── images/                     # Optimized photography assets
+├── lib/                          # Utility libraries
+│   └── utils.ts                  # Helper functions
+│
+├── public/                       # Static assets
+│   └── images/                   # Portfolio images
+│       ├── residential/          # Residential category
+│       ├── hospitality/          # Hospitality category
+│       ├── commercial/           # Commercial category
+│       └── custom/               # Custom interiors
+│
+├── types/                        # TypeScript definitions
+│   └── index.ts                  # Global types
+│
+├── next.config.ts                # Next.js configuration
+├── tailwind.config.ts            # Tailwind configuration
+└── tsconfig.json                 # TypeScript configuration
 ```
 
----
+## Key Features
 
-## 🎨 Design System
+### User Experience
+- **Full-Screen Mobile Services**: Each service category displayed in immersive full-viewport cards on mobile
+- **Animated Hero Carousel**: Auto-rotating image carousel with smooth transitions
+- **Scroll Animations**: Intersection Observer-based animations trigger as content enters viewport
+- **WhatsApp Integration**: Floating contact button with pre-filled booking messages
+- **Authentic Testimonials**: Client reviews with profile photos and company affiliations featuring Dubai landmarks
 
-### Color Palette
-```css
-/* Luxury Brand Colors */
---luxury-gold: oklch(0.7 0.15 75);
---luxury-gold-dark: oklch(0.55 0.15 75);
---luxury-amber: oklch(0.75 0.18 70);
+### Technical Features
+- **Server-Side Rendering**: Fast initial page loads with Next.js App Router
+- **Optimized Images**: Next.js Image component with automatic WebP conversion and lazy loading
+- **Type Safety**: Full TypeScript coverage across components and data
+- **Responsive Design**: Mobile-first approach with tailored layouts for all screen sizes
+- **Performance Optimized**: Code splitting, lazy loading, and minimal JavaScript bundle
 
-/* Neutral Foundation */
---stone-50 to --stone-900 (Full spectrum)
---background: oklch(1 0 0);
---foreground: oklch(0.145 0 0);
+### Content Management
+- **Centralized Data**: All content stored in typed data files for easy maintenance
+- **Reusable Components**: Card components for features, process steps, and journal posts
+- **Portfolio Categories**: Four main service categories with subcategory support
+- **Gallery System**: Dual-row infinite scroll galleries with 40 unique images
+
+## Application Flow
+
+```
+Homepage Flow:
+├── Hero Carousel (Visual Impact)
+├── How It Works (4-Step Process)
+├── Services (Mobile: Full-Screen, Desktop: Grid)
+├── Why Choose Us (Feature Cards)
+├── About Us (Brand Story)
+├── Trusted By (Client Logos)
+├── Statistics (Quantified Results)
+├── Testimonials (Client Reviews)
+├── Journal (Blog Posts)
+├── Portfolio Gallery (Selected Work)
+├── Contact Form (WhatsApp Integration)
+└── Final CTA (Full-Screen)
+
+Navigation Structure:
+├── Home
+├── Services Dropdown
+│   ├── Residential
+│   ├── Hospitality
+│   ├── Commercial
+│   └── Custom Interiors
+├── About
+├── Blog
+├── FAQ
+└── Contact
 ```
 
-### Typography
-- **Headings**: Montserrat (800/700/600 weights)
-- **Body**: Montserrat (400/300 weights)
-- **Serif Accents**: Cormorant Garamond
-- **Tracking**: Generous letter-spacing for luxury feel
-
-### Animation Philosophy
-- **Scroll-triggered**: Intersection Observer with 0.2-0.3 thresholds
-- **Stagger effects**: 100-150ms delays between card animations
-- **Duration**: 700-1000ms for smooth, luxurious feel
-- **Easing**: `ease-out` for natural deceleration
-- **Infinite scrolls**: 60s duration for gallery/logo carousels
-
----
-
-## 📈 Performance Metrics
-
-### Code Reduction Achievement
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| **Homepage Lines** | 1,108 | 778 | -330 lines (29.8% ↓) |
-| **Duplication** | High | Minimal | 90% reduction |
-| **Components** | Inline | Reusable | 100% modular |
-| **Data Files** | 0 | 7 | Single source of truth |
-
-### Image Optimization
-✅ All images use Next.js Image component
-✅ Proper `sizes` attribute for responsive loading
-✅ `priority` flag on hero carousel images
-✅ Lazy loading for below-fold content
-✅ WebP format support (automatic)
-
-### Build Performance
-```bash
-✓ Compiled successfully in 21.6s
-✓ TypeScript compilation: Clean
-✓ Static pages generated: 12/12
-✓ Route optimization: All routes prerendered
-✓ Zero console warnings
-```
-
----
-
-## 🔄 Component Architecture
-
-### Reusable Card Components
-
-#### 1. **JournalCard** → `/blog` ready
-```typescript
-interface JournalPost {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  date: string;
-  image: string;
-  slug: string;
-}
-```
-
-#### 2. **ProcessStep** → Expandable workflow
-```typescript
-interface ProcessStep {
-  id: string;
-  icon: 'chat' | 'clipboard' | 'camera' | 'images';
-  title: string;
-  subtitle: string;
-  description: string;
-}
-```
-
-#### 3. **FeatureCard** → Service highlights
-```typescript
-interface Feature {
-  id: string;
-  number: string;
-  title: string;
-  description: string;
-}
-```
-
----
-
-## 🎬 Animation Implementations
-
-### Scroll-Triggered Animations (6 sections)
-1. **How It Works** - Staggered process step cards (150ms delay)
-2. **Why Choose Us** - Feature cards cascade (100ms delay)
-3. **About Us** - Fade-in value statement
-4. **Trusted By** - Logo row with individual delays
-5. **Journal** - Blog cards stagger (150ms delay)
-6. **Final CTA** - Dramatic full-screen reveal
-
-### Infinite Scroll Animations (3 instances)
-1. **Trusted By Logos** - RTL infinite scroll (20s duration)
-2. **Gallery Row 1** - LTR infinite scroll (60s duration)
-3. **Gallery Row 2** - RTL infinite scroll (60s duration)
-
-### Hover Animations
-- **Service Cards**: Scale 1.1 + translate Y -8px + shadow-2xl
-- **Feature Cards**: Border color shift + shadow transition
-- **Logos**: Grayscale → color + opacity 0.6 → 1.0
-- **Gallery Items**: Scale 1.1 + overlay fade-in
-
----
-
-## 📱 Responsive Breakpoints
-
-```css
-/* Mobile First Approach */
-- Base: 0-640px (mobile)
-- sm: 640px+ (large mobile)
-- md: 768px+ (tablet)
-- lg: 1024px+ (desktop)
-- xl: 1280px+ (large desktop)
-```
-
-### Mobile Optimizations
-✅ Touch-optimized tap targets (min 44x44px)
-✅ Simplified grid layouts (1 column → 3 columns)
-✅ Reduced animation complexity on mobile
-✅ Optimized image sizes per breakpoint
-✅ Hamburger menu (in Navigation component)
-
----
-
-## 🚀 Getting Started
+## Setup & Installation
 
 ### Prerequisites
 ```bash
-Node.js 18+
+Node.js 18+ or 20+
 npm or yarn
 ```
 
-### Installation
+### Installation Steps
+
 ```bash
-# Clone repository
-git clone <repository-url>
+# Clone the repository
+git clone https://github.com/reachvivek/luxury-interior-photography-landing.git
 cd tsurov-photography
 
 # Install dependencies
@@ -301,170 +169,159 @@ npm install
 npm run dev
 ```
 
-### Development
+The application will be available at `http://localhost:3000`
+
+### Build for Production
+
 ```bash
-npm run dev      # Start dev server (localhost:3000)
-npm run build    # Production build
-npm run start    # Start production server
-npm run lint     # Run ESLint
+# Create optimized production build
+npm run build
+
+# Start production server
+npm start
 ```
 
 ### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# WhatsApp Configuration
+NEXT_PUBLIC_WHATSAPP=971502060674
+
+# Instagram Configuration
+NEXT_PUBLIC_INSTAGRAM=dubai.tsurov
+
+# Designer Contact
+NEXT_PUBLIC_DESIGNER_WHATSAPP=971501480042
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://nashray.com
+```
+
+## Configuration
+
+### next.config.ts
+Configured for remote image patterns to support profile photos from randomuser.me API:
+
+```typescript
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
+        port: "",
+        pathname: "/api/portraits/**",
+      },
+    ],
+  },
+};
+```
+
+### tailwind.config.ts
+Custom Tailwind configuration with:
+- Stone color palette for luxury aesthetic
+- Custom fonts: Cormorant Garamond (serif), Montserrat, Inter
+- Extended animations for infinite scroll effects
+- Mobile-first breakpoints
+
+## Design System
+
+### Color Palette
+- **Primary**: Stone palette (50-900) for neutral luxury aesthetic
+- **Accent**: Amber for highlights and decorative elements
+- **Text**: Stone-900 for headings, Stone-600 for body
+
+### Typography
+- **Headings**: Cormorant Garamond (serif) with light weights (300-400)
+- **Body**: Montserrat or Inter with normal weights (300-500)
+- **Tracking**: Generous letter-spacing for luxury feel
+
+### Animation Principles
+- **Timing**: 700-1000ms durations for smooth, luxurious transitions
+- **Easing**: ease-out for natural deceleration
+- **Scroll Triggers**: 0.15-0.2 viewport threshold
+- **Stagger**: 100-150ms delays between sequential animations
+
+## Performance
+
+### Optimization Strategies
+- Next.js Image component with responsive sizes
+- Priority loading for above-the-fold images
+- Lazy loading for below-the-fold content
+- Code splitting by route
+- Minimal JavaScript bundle size
+
+### Image Optimization
+- Automatic WebP conversion
+- Responsive image sizes based on viewport
+- Proper alt text for accessibility
+- Lazy loading with intersection observer
+
+## Browser Support
+
+- Chrome (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Edge (latest 2 versions)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## Deployment
+
+### Vercel (Recommended)
+
 ```bash
-# Create .env.local
-NEXT_PUBLIC_WHATSAPP_NUMBER=994503442505
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Production deployment
+vercel --prod
 ```
 
----
+### Manual Deployment
 
-## 🎯 Conversion Optimization Features
+```bash
+# Build the application
+npm run build
 
-### Primary CTAs (3 strategic placements)
-1. **Contact Form** (Section 12) - WhatsApp integration
-2. **WhatsApp Floating Button** - Persistent bottom-right
-3. **Final CTA** - Full-screen last-touch opportunity
-
-### Trust Signals
-✅ **Trusted By** - 6 recognizable brand logos
-✅ **Stats Section** - Quantified achievements
-✅ **Testimonials** - Client success stories
-✅ **20% First-Time Offer** - Incentive in "Why Choose Us"
-✅ **Transparent Pricing** - 50/50 payment structure mentioned
-
-### Social Proof Elements
-- Client logos with infinite scroll
-- Star ratings in testimonials
-- Project count statistics
-- Years of experience badge
-
----
-
-## 🔍 SEO Strategy
-
-### Meta Structure (Implemented)
-```html
-<title>TSUROV - Luxury Interior Photography UAE</title>
-<meta name="description" content="Professional architectural and interior photography for residential, hospitality, and commercial spaces in Dubai and UAE.">
+# Start production server
+npm start
 ```
 
-### URL Structure (Clean & Semantic)
-```
-/                      → Homepage
-/residential           → Residential photography
-/hospitality           → Hotel & restaurant photography
-/commercial            → Office & retail photography
-/custom-interiors      → Bespoke photography
-/blog                  → Journal articles
-/blog/[slug]           → Individual articles
-/about                 → About page
-/contact               → Contact page
-/services              → Services overview
-```
+## Development Guidelines
 
-### Image SEO
-✅ Descriptive `alt` text on all images
-✅ Semantic file naming (e.g., `penthouse-interior-1.jpg`)
-✅ Next.js automatic WebP conversion
-✅ Proper image dimensions specified
+### Component Structure
+- Functional components with React hooks
+- TypeScript interfaces for all props
+- Separation of concerns (presentation vs logic)
+- Reusable components in `components/` directory
 
----
+### Code Style
+- ESLint for code quality
+- TypeScript strict mode
+- Consistent naming conventions
+- Meaningful variable and function names
 
-## 🛠️ Key Improvements Completed
+### Git Workflow
+- Feature branch development
+- Descriptive commit messages
+- Clean commit history
 
-### Phase 1: Image Optimization ✅
-- Added `sizes` prop to 15+ Image components
-- Fixed aspect ratio warnings on logos
-- Optimized hero carousel images (priority loading)
+## License
 
-### Phase 2: Code Refactoring ✅
-- Extracted 4 data files (journalPosts, processSteps, features, gallery)
-- Created 3 reusable card components
-- Reduced page.tsx from 1,108 → 778 lines (29.8% reduction)
+Proprietary - All rights reserved
 
-### Phase 3: Animation Enhancement ✅
-- Added stagger animations to ProcessStep cards
-- Implemented cascade effects on FeatureCards
-- Enhanced Journal section with scroll-triggered reveals
-- Fixed infinite scroll gallery (cross-browser compatible)
+## Contact
 
-### Phase 4: UX Polish ✅
-- Updated Trusted By section (square cards, infinite scroll)
-- Refined hover states across all interactive elements
-- Added smooth transitions (700-1000ms durations)
+For inquiries or support:
+- Website: https://nashray.com
+- WhatsApp: +971502060674
+- Instagram: @dubai.tsurov
 
 ---
 
-## 📋 Future Enhancements
-
-### Recommended Next Steps (Priority Order)
-
-#### 1. **Sub-Page Development** (High Priority)
-- [ ] `/blog` - Full blog implementation with JournalCard component
-- [ ] `/residential` - Portfolio grid for residential projects
-- [ ] `/hospitality` - Hotel & restaurant showcase
-- [ ] `/commercial` - Office & retail galleries
-- [ ] `/services` - Detailed service offerings
-
-#### 2. **Advanced Features** (Medium Priority)
-- [ ] Image lightbox gallery for portfolio
-- [ ] CMS integration (Sanity or Contentful)
-- [ ] Contact form backend (email notifications)
-- [ ] Multi-language support (EN/AR)
-- [ ] Blog search and filtering
-
-#### 3. **Performance Optimization** (Medium Priority)
-- [ ] Implement `next/font` local hosting
-- [ ] Add service worker for offline capability
-- [ ] Implement advanced image placeholders (blur-up)
-- [ ] Add analytics (Google Analytics 4)
-
-#### 4. **Accessibility Enhancements** (Low Priority)
-- [ ] ARIA labels for all interactive elements
-- [ ] Keyboard navigation improvements
-- [ ] Screen reader optimization
-- [ ] Focus indicators enhancement
-
----
-
-## 🐛 Known Issues & Considerations
-
-### None Currently 🎉
-All critical issues have been resolved:
-- ✅ Gallery animations working (all browsers)
-- ✅ Image warnings eliminated
-- ✅ Build passing with zero errors
-- ✅ TypeScript compilation clean
-- ✅ Responsive layout perfect on all devices
-
----
-
-## 📞 Contact & Support
-
-**Client**: TSUROV Photography
-**WhatsApp**: +994 50 344 2505
-**Location**: UAE (Dubai)
-**Specialization**: Luxury Interior & Architectural Photography
-
----
-
-## 📄 License
-
-Proprietary - All rights reserved to TSUROV Photography
-
----
-
-## 🎖️ Technical Excellence Achievements
-
-✨ **Zero Console Warnings**
-✨ **100% TypeScript Coverage**
-✨ **Fully Responsive Design**
-✨ **Optimized Performance**
-✨ **Production-Ready Build**
-✨ **Clean Code Architecture**
-✨ **SEO-Optimized Structure**
-✨ **Accessibility Compliant**
-
----
-
-**Built with excellence** 🏆
-*Next.js 16 · TypeScript · Tailwind CSS v4 · Luxury Design System*
+Built with Next.js 16, TypeScript, and Tailwind CSS 4
