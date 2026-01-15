@@ -188,11 +188,8 @@ export default function HeroCarousel() {
           0% {
             transform: scale(1);
           }
-          50% {
-            transform: scale(1.08);
-          }
           100% {
-            transform: scale(1);
+            transform: scale(1.1);
           }
         }
 
@@ -209,7 +206,7 @@ export default function HeroCarousel() {
         }
 
         .animate-kenBurns {
-          animation: kenBurns 15s ease-in-out infinite;
+          animation: kenBurns 5s ease-out forwards;
         }
       `}</style>
     </section>
