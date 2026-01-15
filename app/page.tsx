@@ -664,7 +664,7 @@ export default function Home() {
           {/* Desktop: Video & Form Side by Side | Mobile: Video Top, Form Bottom */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Video - Top on Mobile, Left on Desktop */}
-            <div className="order-1">
+            <div className="order-1 space-y-8">
               <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl">
                 <iframe
                   width="100%"
@@ -676,6 +676,54 @@ export default function Home() {
                   allowFullScreen
                   className="absolute inset-0"
                 ></iframe>
+              </div>
+
+              {/* What to Expect Section */}
+              <div className="space-y-6">
+                <h3 className="text-xl md:text-2xl font-serif font-light text-stone-900">
+                  What to Expect
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-stone-900 mb-1">Quick Response</h4>
+                      <p className="text-sm text-stone-600 leading-relaxed">
+                        We'll reply within 24 hours to discuss your project details and requirements.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-stone-900 mb-1">Custom Proposal</h4>
+                      <p className="text-sm text-stone-600 leading-relaxed">
+                        Receive a tailored photography package designed specifically for your space.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-stone-900 mb-1">Flexible Scheduling</h4>
+                      <p className="text-sm text-stone-600 leading-relaxed">
+                        Book a time that works for you, including evenings and weekends.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
