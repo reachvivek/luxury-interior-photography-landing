@@ -1,7 +1,14 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface Service {
   title: string;
@@ -16,67 +23,154 @@ interface MobileServicesShowcaseProps {
 }
 
 export default function MobileServicesShowcase({ services }: MobileServicesShowcaseProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const panelsRef = useRef<HTMLElement[]>([]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const panels = panelsRef.current.filter(Boolean);
+    if (panels.length === 0) return;
+
+    // Clone first panel for seamless looping
+    const copy = panels[0].cloneNode(true) as HTMLElement;
+    containerRef.current.appendChild(copy);
+    const allPanels = [...panels, copy];
+
+    // Pin each panel
+    const triggers = allPanels.map((panel) => {
+      return ScrollTrigger.create({
+        trigger: panel,
+        start: "top top",
+        pin: true,
+        pinSpacing: false,
+      });
+    });
+
+    let maxScroll: number;
+
+    // Snap to panels
+    const pageScrollTrigger = ScrollTrigger.create({
+      snap: (value) => {
+        const snappedValue = gsap.utils.snap(1 / panels.length, value);
+        if (snappedValue <= 0) {
+          return 1.05 / maxScroll;
+        } else if (snappedValue >= 1) {
+          return maxScroll / (maxScroll + 1.05);
+        }
+        return snappedValue;
+      },
+    });
+
+    const onResize = () => {
+      maxScroll = ScrollTrigger.maxScroll(window) - 1;
+    };
+
+    onResize();
+    window.addEventListener("resize", onResize);
+
+    // Handle infinite loop scrolling
+    const handleScroll = (e: Event) => {
+      const scroll = pageScrollTrigger.scroll();
+      if (scroll > maxScroll) {
+        pageScrollTrigger.scroll(1);
+        e.preventDefault();
+      } else if (scroll < 1) {
+        pageScrollTrigger.scroll(maxScroll - 1);
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: false });
+
+    return () => {
+      triggers.forEach((trigger) => trigger.kill());
+      pageScrollTrigger.kill();
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", handleScroll);
+      // Remove cloned panel
+      if (copy.parentNode) {
+        copy.parentNode.removeChild(copy);
+      }
+    };
+  }, [services]);
+
   return (
-    <div className="md:hidden py-12 px-6">
-      <div className="max-w-lg mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-10">
-          {/* Decorative Line */}
-          <div className="flex justify-center mb-4">
-            <div className="w-px h-12 bg-gradient-to-b from-transparent via-amber-600 to-transparent"></div>
+    <div ref={containerRef} className="md:hidden">
+      {services.map((service, index) => (
+        <section
+          key={service.href}
+          ref={(el) => {
+            if (el) panelsRef.current[index] = el;
+          }}
+          className="panel relative h-screen w-full"
+        >
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority={index === 0}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
           </div>
-          <h2 className="text-3xl font-serif font-light text-stone-900 mb-3">
-            Services
-          </h2>
-          <p className="text-sm text-stone-600">
-            Specialized photography services for every space
-          </p>
-        </div>
 
-        {/* Vertical Stack of Service Cards */}
-        <div className="space-y-6">
-          {services.map((service, index) => (
-            <Link
-              key={service.href}
-              href={service.href}
-              className="group block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  priority={index === 0}
-                />
-                {/* Text Overlay */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent pt-20 pb-6 px-6">
-                  <div className="flex items-end justify-between gap-4">
-                    {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-serif font-normal text-white mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm text-white/80 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    {/* Right Column - Explore Button */}
-                    <div className="flex items-center text-xs text-white/80 font-light flex-shrink-0">
-                      <span>Explore</span>
-                      <svg className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
+          {/* Content */}
+          <div className="relative h-full flex flex-col justify-between z-10 p-8">
+            {/* Top: Number Badge */}
+            <div className="flex justify-start">
+              <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
+                <span className="text-white text-lg font-light tracking-wider">
+                  {service.number}
+                </span>
               </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+            </div>
+
+            {/* Center: Title & Description */}
+            <div className="flex-1 flex flex-col justify-center space-y-6">
+              <h2
+                className="text-5xl font-serif font-light text-white leading-tight"
+                style={{ textShadow: "0 4px 20px rgba(0,0,0,0.8)" }}
+              >
+                {service.title}
+              </h2>
+
+              <p
+                className="text-lg text-white/90 leading-relaxed font-light max-w-md"
+                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.9)" }}
+              >
+                {service.description}
+              </p>
+            </div>
+
+            {/* Bottom: Explore Button */}
+            <div className="flex justify-end">
+              <Link
+                href={service.href}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full hover:bg-white/20 transition-all duration-500 group"
+              >
+                <span className="text-sm font-light tracking-wide">Explore</span>
+                <svg
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+      ))}
     </div>
   );
 }
