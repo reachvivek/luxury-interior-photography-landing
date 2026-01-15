@@ -19,8 +19,6 @@ export const NAV_LINKS = {
 export const FOOTER_LINKS = {
   navigation: [
     { href: "/", label: "Home" },
-    { href: "/#portfolio", label: "Portfolio" },
-    { href: "/#services", label: "Services" },
     { href: "/about", label: "About" },
     { href: "/blog", label: "Blog" },
     { href: "/faq", label: "FAQ" },
