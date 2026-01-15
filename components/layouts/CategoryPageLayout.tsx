@@ -220,16 +220,20 @@ export default function CategoryPageLayout({
       <section id="portfolio" className="py-16 md:py-24 px-6 md:px-16 bg-stone-50">
         <div className="max-w-7xl mx-auto">
           {/* Sub-category Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-16 md:mb-20">
             {categoryFilters
               .filter(filter => filter.href) // Only show filters with hrefs
               .map((filter) => (
                 <Link
                   key={filter.id}
                   href={filter.href!}
-                  className="px-6 py-3 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-300 text-xs md:text-sm tracking-wide uppercase rounded-full"
+                  className="group relative px-8 md:px-10 py-4 md:py-5 border border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900 transition-all duration-500 text-xs md:text-sm font-medium tracking-[0.2em] uppercase overflow-hidden"
                 >
-                  {filter.label}
+                  <span className="relative z-10">{filter.label}</span>
+                  <div className="absolute inset-0 bg-stone-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+                  <span className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 text-white transition-opacity duration-500 tracking-[0.2em]">
+                    {filter.label}
+                  </span>
                 </Link>
               ))}
           </div>
