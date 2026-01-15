@@ -62,15 +62,17 @@ export default function HeroCarousel() {
     <section className="relative min-h-screen overflow-hidden">
       {/* Current Image - Always visible when not animating */}
       <div className="absolute inset-0">
-        <div className="relative w-full h-screen">
-          <Image
-            src={current.image}
-            alt={current.title}
-            fill
-            sizes="100vw"
-            className="object-cover object-center animate-kenBurns"
-            priority
-          />
+        <div key={`current-${currentSlide}`} className="relative w-full h-screen overflow-hidden">
+          <div className="w-full h-full animate-kenBurns">
+            <Image
+              src={current.image}
+              alt={current.title}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+              priority
+            />
+          </div>
         </div>
       </div>
 
@@ -83,15 +85,17 @@ export default function HeroCarousel() {
               : 'animate-slideDownIn'
           }`}
         >
-          <div className="relative w-full h-screen">
-            <Image
-              src={next.image}
-              alt={next.title}
-              fill
-              sizes="100vw"
-              className="object-cover object-center animate-kenBurns"
-              priority
-            />
+          <div key={`next-${nextSlide}`} className="relative w-full h-screen overflow-hidden">
+            <div className="w-full h-full animate-kenBurns">
+              <Image
+                src={next.image}
+                alt={next.title}
+                fill
+                sizes="100vw"
+                className="object-cover object-center"
+                priority
+              />
+            </div>
           </div>
         </div>
       )}
@@ -189,7 +193,7 @@ export default function HeroCarousel() {
             transform: scale(1);
           }
           100% {
-            transform: scale(1.1);
+            transform: scale(1.15);
           }
         }
 
@@ -206,7 +210,8 @@ export default function HeroCarousel() {
         }
 
         .animate-kenBurns {
-          animation: kenBurns 5s ease-out forwards;
+          animation: kenBurns 5s ease-in-out forwards;
+          transform-origin: center center;
         }
       `}</style>
     </section>
