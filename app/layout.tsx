@@ -3,6 +3,8 @@ import { Montserrat, Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
 import Navigation from "@/components/Navigation";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CONTACT } from "@/data/contact";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -164,6 +166,10 @@ export default function RootLayout({
         <Preloader />
         <Navigation />
         {children}
+        <WhatsAppButton
+          phoneNumber={CONTACT.whatsapp.number}
+          message="Hi! I'm interested in booking a professional interior photography shoot."
+        />
       </body>
     </html>
   );
