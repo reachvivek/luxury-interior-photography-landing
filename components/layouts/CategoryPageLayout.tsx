@@ -125,48 +125,29 @@ export default function CategoryPageLayout({
 
             {/* Center/Right: Category Filters */}
             <div className="flex flex-wrap gap-2 md:gap-3">
-              {categoryFilters.map((filter) => {
-                const isActive = activeCategory === filter.id;
-                const buttonClasses = `px-4 py-2 text-xs md:text-sm tracking-wide uppercase rounded-full transition-all duration-300 backdrop-blur-sm ${
-                  isActive
-                    ? 'bg-white text-stone-900 shadow-lg'
-                    : 'bg-white/10 text-white border border-white/30 hover:bg-white/20 hover:border-white/50'
-                }`;
-
-                // If href is provided, render as Link, otherwise as button
-                if (filter.href) {
-                  return (
-                    <Link
-                      key={filter.id}
-                      href={filter.href}
-                      className={buttonClasses}
-                    >
-                      {filter.label}
-                    </Link>
-                  );
-                }
-
-                // "All" filter remains as a button
-                return (
-                  <button
-                    key={filter.id}
-                    onClick={() => {
-                      if (activeCategory !== filter.id) {
-                        setIsFiltering(true);
-                        setActiveCategory(filter.id);
-                        // Smooth scroll to portfolio section
-                        setTimeout(() => {
-                          document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }, 100);
-                        setTimeout(() => setIsFiltering(false), 600);
-                      }
-                    }}
-                    className={buttonClasses}
-                  >
-                    {filter.label}
-                  </button>
-                );
-              })}
+              {categoryFilters.map((filter) => (
+                <button
+                  key={filter.id}
+                  onClick={() => {
+                    if (activeCategory !== filter.id) {
+                      setIsFiltering(true);
+                      setActiveCategory(filter.id);
+                      // Smooth scroll to portfolio section
+                      setTimeout(() => {
+                        document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }, 100);
+                      setTimeout(() => setIsFiltering(false), 600);
+                    }
+                  }}
+                  className={`px-4 py-2 text-xs md:text-sm tracking-wide uppercase rounded-full transition-all duration-300 backdrop-blur-sm ${
+                    activeCategory === filter.id
+                      ? 'bg-white text-stone-900 shadow-lg'
+                      : 'bg-white/10 text-white border border-white/30 hover:bg-white/20 hover:border-white/50'
+                  }`}
+                >
+                  {filter.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -232,6 +213,29 @@ export default function CategoryPageLayout({
               />
             </button>
           ))}
+        </div>
+
+        {/* Sub-category Navigation Links */}
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8 md:mt-10 border-t border-white/10 pt-8 md:pt-10">
+          {categoryFilters
+            .filter(filter => filter.href) // Only show filters with hrefs
+            .map((filter) => (
+              <Link
+                key={filter.id}
+                href={filter.href!}
+                className="group px-6 py-3 bg-white/5 border border-white/20 text-white hover:bg-white hover:text-stone-900 hover:border-white transition-all duration-300 text-xs md:text-sm tracking-wide uppercase rounded-full flex items-center gap-2"
+              >
+                <span>{filter.label}</span>
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            ))}
         </div>
       </section>
 
