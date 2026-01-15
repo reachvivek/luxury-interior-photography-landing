@@ -68,7 +68,7 @@ export default function HeroCarousel() {
             alt={current.title}
             fill
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center animate-kenBurns"
             priority
           />
         </div>
@@ -89,7 +89,7 @@ export default function HeroCarousel() {
               alt={next.title}
               fill
               sizes="100vw"
-              className="object-cover object-center"
+              className="object-cover object-center animate-kenBurns"
               priority
             />
           </div>
@@ -184,6 +184,18 @@ export default function HeroCarousel() {
           }
         }
 
+        @keyframes kenBurns {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.08);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
         .animate-slideUpIn {
           animation: slideUpIn 0.6s ease-in-out forwards;
         }
@@ -194,6 +206,10 @@ export default function HeroCarousel() {
 
         .animate-fadeIn {
           animation: fadeIn 0.4s ease-in forwards;
+        }
+
+        .animate-kenBurns {
+          animation: kenBurns 15s ease-in-out infinite;
         }
       `}</style>
     </section>
