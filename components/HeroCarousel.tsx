@@ -190,10 +190,10 @@ export default function HeroCarousel() {
 
         @keyframes kenBurns {
           0% {
-            transform: scale(1);
+            transform: scale(1.15);
           }
           100% {
-            transform: scale(1.15);
+            transform: scale(1);
           }
         }
 
