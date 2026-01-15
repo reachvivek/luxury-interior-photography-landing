@@ -24,11 +24,11 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#EBE6E5] border border-stone-300 text-stone-900 hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
+      className="fixed bottom-24 right-6 md:bottom-28 md:right-8 z-50 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#EBE6E5] border border-stone-300 text-stone-900 hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
       aria-label="Scroll to top"
     >
       <svg
-        className="w-5 h-5 transform group-hover:scale-110 transition-transform"
+        className="w-5 h-5 md:w-6 md:h-6 transform group-hover:scale-110 transition-transform"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
