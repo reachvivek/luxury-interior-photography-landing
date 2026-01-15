@@ -50,20 +50,19 @@ export default function HeroCarousel() {
     const targetPosition = window.innerHeight;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
-    const duration = 1000; // 1 second
+    const duration = 1800; // 1.8 seconds
     let start: number | null = null;
+
+    const easeInOutCubic = (t: number): number => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
 
     const animation = (currentTime: number) => {
       if (start === null) start = currentTime;
       const timeElapsed = currentTime - start;
       const progress = Math.min(timeElapsed / duration, 1);
 
-      // Easing function for smooth animation
-      const ease = progress < 0.5
-        ? 4 * progress * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-      window.scrollTo(0, startPosition + distance * ease);
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
 
       if (timeElapsed < duration) {
         requestAnimationFrame(animation);
