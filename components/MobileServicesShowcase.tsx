@@ -1,14 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 interface Service {
   title: string;
@@ -23,87 +16,12 @@ interface MobileServicesShowcaseProps {
 }
 
 export default function MobileServicesShowcase({ services }: MobileServicesShowcaseProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const panelsRef = useRef<HTMLElement[]>([]);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const panels = panelsRef.current.filter(Boolean);
-    if (panels.length === 0) return;
-
-    // Clone first panel for seamless looping
-    const copy = panels[0].cloneNode(true) as HTMLElement;
-    containerRef.current.appendChild(copy);
-    const allPanels = [...panels, copy];
-
-    // Pin each panel
-    const triggers = allPanels.map((panel) => {
-      return ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
-      });
-    });
-
-    let maxScroll: number;
-
-    // Snap to panels
-    const pageScrollTrigger = ScrollTrigger.create({
-      snap: (value) => {
-        const snappedValue = gsap.utils.snap(1 / panels.length, value);
-        if (snappedValue <= 0) {
-          return 1.05 / maxScroll;
-        } else if (snappedValue >= 1) {
-          return maxScroll / (maxScroll + 1.05);
-        }
-        return snappedValue;
-      },
-    });
-
-    const onResize = () => {
-      maxScroll = ScrollTrigger.maxScroll(window) - 1;
-    };
-
-    onResize();
-    window.addEventListener("resize", onResize);
-
-    // Handle infinite loop scrolling
-    const handleScroll = (e: Event) => {
-      const scroll = pageScrollTrigger.scroll();
-      if (scroll > maxScroll) {
-        pageScrollTrigger.scroll(1);
-        e.preventDefault();
-      } else if (scroll < 1) {
-        pageScrollTrigger.scroll(maxScroll - 1);
-        e.preventDefault();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: false });
-
-    return () => {
-      triggers.forEach((trigger) => trigger.kill());
-      pageScrollTrigger.kill();
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("scroll", handleScroll);
-      // Remove cloned panel
-      if (copy.parentNode) {
-        copy.parentNode.removeChild(copy);
-      }
-    };
-  }, [services]);
-
   return (
-    <div ref={containerRef} className="md:hidden">
+    <div className="md:hidden">
       {services.map((service, index) => (
         <section
           key={service.href}
-          ref={(el) => {
-            if (el) panelsRef.current[index] = el;
-          }}
-          className="panel relative h-screen w-full"
+          className="relative h-screen w-full"
         >
           {/* Background Image */}
           <div className="absolute inset-0">
@@ -121,7 +39,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
           {/* Content */}
           <div className="relative h-full flex flex-col justify-between z-10 p-8">
             {/* Top: Number Badge */}
-            <div className="flex justify-start">
+            <div className="flex justify-start pt-4">
               <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
                 <span className="text-white text-lg font-light tracking-wider">
                   {service.number}
@@ -147,7 +65,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
             </div>
 
             {/* Bottom: Explore Button */}
-            <div className="flex justify-end">
+            <div className="flex justify-end pb-4">
               <Link
                 href={service.href}
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full hover:bg-white/20 transition-all duration-500 group"
