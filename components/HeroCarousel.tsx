@@ -189,7 +189,7 @@ export default function HeroCarousel() {
       {/* Scroll Down Indicator */}
       <button
         onClick={scrollToNextSection}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce cursor-pointer hover:opacity-100 transition-opacity"
+        className="absolute bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce cursor-pointer hover:opacity-100 transition-opacity"
         aria-label="Scroll to next section"
       >
         <svg
