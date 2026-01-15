@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useImageCarousel } from "@/hooks/useImageCarousel";
 
 interface GalleryImage {
   src: string;
@@ -18,76 +19,28 @@ export default function ServiceGalleryHero({
   galleryImages,
   mainCategory,
 }: ServiceGalleryHeroProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [previousImageIndex, setPreviousImageIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<'up' | 'down'>('down');
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const {
+    currentImageIndex,
+    previousImageIndex,
+    slideDirection,
+    isTransitioning,
+    handlePrevious,
+    handleNext,
+    handleThumbnailClick,
+  } = useImageCarousel({
+    totalImages: galleryImages.length,
+    autoRotateInterval: 3000,
+    transitionDuration: 900,
+    enableKeyboardNav: true,
+  });
 
   // Trigger entrance animation after mount
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
-
-  // Auto-rotate images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPreviousImageIndex(currentImageIndex);
-      setSlideDirection('down');
-      setIsTransitioning(true);
-      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-      setTimeout(() => setIsTransitioning(false), 900);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [galleryImages.length, currentImageIndex]);
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        handlePrevious();
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        handleNext();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentImageIndex, galleryImages.length]);
-
-  const handlePrevious = () => {
-    setPreviousImageIndex(currentImageIndex);
-    setSlideDirection('up');
-    setIsTransitioning(true);
-    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
-    setTimeout(() => setIsTransitioning(false), 900);
-  };
-
-  const handleNext = () => {
-    setPreviousImageIndex(currentImageIndex);
-    setSlideDirection('down');
-    setIsTransitioning(true);
-    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-    setTimeout(() => setIsTransitioning(false), 900);
-  };
-
-  const handleThumbnailClick = (index: number) => {
-    if (index === currentImageIndex) return;
-    setPreviousImageIndex(currentImageIndex);
-    setIsTransitioning(true);
-    // Determine direction based on whether we're moving forward or backward
-    if (index > currentImageIndex) {
-      setSlideDirection('down');
-    } else if (index < currentImageIndex) {
-      setSlideDirection('up');
-    }
-    setCurrentImageIndex(index);
-    setTimeout(() => setIsTransitioning(false), 900);
-  };
 
   const currentImage = galleryImages[currentImageIndex];
   const previousImage = galleryImages[previousImageIndex];

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useImageCarousel } from "@/hooks/useImageCarousel";
 
 interface GalleryImage {
   src: string;
@@ -15,28 +15,17 @@ interface CategoryHeroProps {
 }
 
 export default function CategoryHero({ images, mainCategory, arrowOrientation = 'vertical' }: CategoryHeroProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<'up' | 'down'>('down');
-
-  // Auto-rotate images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideDirection('down');
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  const handlePrevious = () => {
-    setSlideDirection('up');
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  const handleNext = () => {
-    setSlideDirection('down');
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
+  const {
+    currentImageIndex,
+    slideDirection,
+    handlePrevious,
+    handleNext,
+    handleThumbnailClick,
+    setCurrentImageIndex,
+  } = useImageCarousel({
+    totalImages: images.length,
+    autoRotateInterval: 3000,
+  });
 
   const currentImage = images[currentImageIndex];
 
@@ -119,7 +108,7 @@ export default function CategoryHero({ images, mainCategory, arrowOrientation = 
           {images.map((image, index) => (
             <button
               key={index}
-              onClick={() => setCurrentImageIndex(index)}
+              onClick={() => handleThumbnailClick(index)}
               className={`relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-300 ${
                 currentImageIndex === index
                   ? 'ring-2 ring-white scale-105'

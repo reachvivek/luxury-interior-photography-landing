@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import { CONTACT } from "@/data/contact";
+import { useImageCarousel } from "@/hooks/useImageCarousel";
 
 interface GalleryImage {
   src: string;
@@ -46,51 +47,22 @@ export default function CategoryPageLayout({
   ctaDescription,
   basePath,
 }: CategoryPageLayoutProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [previousImageIndex, setPreviousImageIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<'up' | 'down'>('down');
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [isFiltering, setIsFiltering] = useState(false);
 
-  // Auto-rotate images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideDirection('down');
-      setPreviousImageIndex(currentImageIndex);
-      setIsTransitioning(true);
-      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-      setTimeout(() => setIsTransitioning(false), 900);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [currentImageIndex, galleryImages.length]);
-
-  const handlePrevious = () => {
-    setSlideDirection('up');
-    setPreviousImageIndex(currentImageIndex);
-    setIsTransitioning(true);
-    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
-    setTimeout(() => setIsTransitioning(false), 900);
-  };
-
-  const handleNext = () => {
-    setSlideDirection('down');
-    setPreviousImageIndex(currentImageIndex);
-    setIsTransitioning(true);
-    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-    setTimeout(() => setIsTransitioning(false), 900);
-  };
-
-  const handleThumbnailClick = (index: number) => {
-    if (index === currentImageIndex) return;
-
-    setSlideDirection(index > currentImageIndex ? 'down' : 'up');
-    setPreviousImageIndex(currentImageIndex);
-    setIsTransitioning(true);
-    setCurrentImageIndex(index);
-    setTimeout(() => setIsTransitioning(false), 900);
-  };
+  const {
+    currentImageIndex,
+    previousImageIndex,
+    slideDirection,
+    isTransitioning,
+    handlePrevious,
+    handleNext,
+    handleThumbnailClick,
+  } = useImageCarousel({
+    totalImages: galleryImages.length,
+    autoRotateInterval: 3000,
+    transitionDuration: 900,
+  });
 
   const currentImage = galleryImages[currentImageIndex];
   const previousImage = galleryImages[previousImageIndex];
