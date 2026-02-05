@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FOOTER_LINKS } from "@/constants/navigation";
 import { CONTACT } from "@/data/contact";
+import { SEO_CONFIG } from "@/constants/seo";
 
 export default function Footer() {
   return (
@@ -14,15 +15,15 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-white rounded-md p-0 shadow-sm w-[50px] h-[50px] overflow-hidden flex items-center justify-center">
                 <Image
-                  src="/logo/LOGO-NASHRAY.png"
-                  alt="NASHRAY"
+                  src="/favicon.svg"
+                  alt={SEO_CONFIG.siteName}
                   width={50}
                   height={50}
                   className="object-cover w-full h-full"
                 />
               </div>
               <h3 className="text-3xl font-serif font-light text-stone-900 tracking-[0.02em]">
-                NASHRAY
+                {SEO_CONFIG.siteName}
               </h3>
             </div>
             <p className="text-sm text-stone-600 leading-relaxed">
@@ -96,7 +97,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-stone-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-stone-600">
-              © {new Date().getFullYear()} Nashray Photography. All rights reserved.
+              © {new Date().getFullYear()} {SEO_CONFIG.siteName}. All rights reserved.
             </p>
             <p className="text-xs text-stone-600">
               Designed by{' '}

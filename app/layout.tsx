@@ -5,6 +5,7 @@ import Preloader from "@/components/Preloader";
 import Navigation from "@/components/Navigation";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CONTACT } from "@/data/contact";
+import { SEO_CONFIG } from "@/constants/seo";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -27,9 +28,7 @@ const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
 });
 
-const siteUrl = "https://nashray.com"; // Update with your actual domain
-const siteName = "NASHRAY";
-const siteDescription = "Exceptional interior photography capturing luxury, elegance, and detail. Specializing in residential, hospitality, commercial, and custom interior spaces.";
+const { siteUrl, siteName, siteDescription, twitterHandle, locale } = SEO_CONFIG;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -62,10 +61,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo/1.png", sizes: "any" },
-      { url: "/logo/1.png", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
     ],
-    apple: "/logo/1.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
@@ -79,7 +78,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "NASHRAY - Exceptional Interior Photography",
+        alt: "MyVisual.Space - Exceptional Interior Photography",
         type: "image/jpeg",
       }
     ],
@@ -89,7 +88,7 @@ export const metadata: Metadata = {
     title: `${siteName} | Luxury Interior Photography`,
     description: siteDescription,
     images: ["/images/og-image.jpg"],
-    creator: "@nashray", // Update with actual Twitter handle
+    creator: twitterHandle,
   },
   robots: {
     index: true,
@@ -124,12 +123,12 @@ export default function RootLayout({
     "name": siteName,
     "description": siteDescription,
     "url": siteUrl,
-    "logo": `${siteUrl}/logo/LOGO-NASHRAY.png`,
+    "logo": `${siteUrl}/favicon.svg`,
     "image": `${siteUrl}/images/og-image.jpg`,
     "priceRange": "$$$",
     "areaServed": {
       "@type": "Country",
-      "name": "United States"
+      "name": "United Arab Emirates"
     },
     "serviceType": [
       "Interior Photography",
@@ -145,9 +144,8 @@ export default function RootLayout({
       "Real Estate Photography"
     ],
     "sameAs": [
-      // "https://instagram.com/tsurov", // Add your social media URLs
-      // "https://facebook.com/tsurov",
-      // "https://linkedin.com/company/tsurov"
+      `https://instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAM || "dubai.tsurov"}`,
+      `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP || "971502060674"}`
     ]
   };
 
