@@ -17,11 +17,11 @@ interface MobileServicesShowcaseProps {
 
 export default function MobileServicesShowcase({ services }: MobileServicesShowcaseProps) {
   return (
-    <div className="md:hidden px-4 py-6 space-y-6 bg-stone-100">
+    <div className="md:hidden px-4 py-8 space-y-8 bg-stone-100">
       {services.map((service, index) => (
         <section
           key={service.href}
-          className="relative h-[85vh] w-full rounded-3xl overflow-hidden shadow-lg"
+          className="relative h-[85vh] w-full rounded-[32px] overflow-hidden shadow-lg"
         >
           {/* Background Image */}
           <div className="absolute inset-0">
