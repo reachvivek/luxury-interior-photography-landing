@@ -34,7 +34,7 @@ export default function Home() {
     {
       title: "Hotels Photography",
       description: "Hotel suites, restaurants, and hospitality spaces with refined detail",
-      image: "/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg",
+      image: "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg",
       href: "/hospitality",
       number: "02"
     },
