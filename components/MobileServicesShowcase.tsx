@@ -96,11 +96,20 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/15 backdrop-blur-md text-white border border-white/30 rounded-full hover:bg-white/25 transition-all duration-500 group"
               >
                 <span className="text-sm font-light tracking-wide">Explore</span>
-                <svg
-                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                <motion.svg
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  animate={{
+                    x: [0, 4, 0, -2, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatDelay: 1,
+                    ease: "easeInOut",
+                  }}
                 >
                   <path
                     strokeLinecap="round"
@@ -108,7 +117,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
                     strokeWidth={1.5}
                     d="M9 5l7 7-7 7"
                   />
-                </svg>
+                </motion.svg>
               </Link>
             </motion.div>
           </div>
