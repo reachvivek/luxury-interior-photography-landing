@@ -39,9 +39,9 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               priority={index === 0}
             />
             {/* Multiple overlay layers for cross-browser compatibility */}
-            <div className="absolute inset-0 bg-black/50" /> {/* Solid fallback */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/40" />
+            <div className="absolute inset-0 bg-black/25" /> {/* Solid fallback - reduced */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/30" />
           </div>
 
           {/* Content */}
