@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import HeroCarousel from "@/components/HeroCarousel";
 import Footer from "@/components/layout/Footer";
 import StatsSection from "@/components/sections/StatsSection";
@@ -125,19 +126,7 @@ export default function Home() {
 
             <div className="grid lg:grid-cols-4 gap-6 lg:gap-8">
               {processSteps.map((step, index) => (
-                <div
-                  key={step.id}
-                  className={`transition-all duration-700 ease-out ${
-                    howItWorksAnimation.isVisible
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-8'
-                  }`}
-                  style={{
-                    transitionDelay: howItWorksAnimation.isVisible ? `${index * 150}ms` : '0ms'
-                  }}
-                >
-                  <ProcessStep step={step} />
-                </div>
+                <ProcessStep key={step.id} step={step} index={index} />
               ))}
             </div>
           </div>
@@ -387,19 +376,7 @@ export default function Home() {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {features.map((feature, index) => (
-              <div
-                key={feature.id}
-                className={`transition-all duration-700 ease-out ${
-                  whyChooseUsAnimation.isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-8'
-                }`}
-                style={{
-                  transitionDelay: whyChooseUsAnimation.isVisible ? `${index * 100}ms` : '0ms'
-                }}
-              >
-                <FeatureCard feature={feature} />
-              </div>
+              <FeatureCard key={feature.id} feature={feature} index={index} />
             ))}
           </div>
         </div>
@@ -523,35 +500,35 @@ export default function Home() {
           {/* Journal Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mt-12 md:mt-16">
             {journalPosts.slice(0, 3).map((post, index) => (
-              <div
-                key={post.id}
-                className="transition-all duration-700 ease-out opacity-100"
-                style={{
-                  animation: `fadeInUp 0.8s ease-out ${0.2 + index * 0.15}s both`
-                }}
-              >
-                <JournalCard post={post} />
-              </div>
+              <JournalCard key={post.id} post={post} index={index} />
             ))}
           </div>
 
           {/* Subtle CTA */}
-          <div className="flex justify-center mt-12 md:mt-16">
+          <motion.div
+            className="flex justify-center mt-12 md:mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <Link
               href="/blog"
               className="group inline-flex items-center gap-2 text-sm tracking-wide text-stone-700 hover:text-stone-900 transition-colors duration-300"
             >
               <span>Explore the Journal</span>
-              <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              <motion.svg
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              </motion.svg>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 

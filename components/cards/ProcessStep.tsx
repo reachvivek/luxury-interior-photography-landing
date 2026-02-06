@@ -1,7 +1,11 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ProcessStep as ProcessStepType } from "@/data/processSteps";
 
 interface ProcessStepProps {
   step: ProcessStepType;
+  index?: number;
 }
 
 const iconMap = {
@@ -30,25 +34,59 @@ const iconMap = {
   ),
 };
 
-export default function ProcessStep({ step }: ProcessStepProps) {
+export default function ProcessStep({ step, index = 0 }: ProcessStepProps) {
   return (
-    <div className="relative flex flex-col items-center text-center lg:items-center">
+    <motion.div
+      className="relative flex flex-col items-center text-center lg:items-center"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}
+    >
       {/* Icon Circle */}
-      <div className="relative mb-3 md:mb-6">
-        <div className="w-16 h-16 md:w-24 md:h-24 rounded-full border border-stone-200 bg-white flex items-center justify-center">
+      <motion.div
+        className="relative mb-3 md:mb-6"
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: index * 0.15 + 0.1 }}
+        whileHover={{ scale: 1.1, rotate: 5 }}
+      >
+        <motion.div
+          className="w-16 h-16 md:w-24 md:h-24 rounded-full border border-stone-200 bg-white flex items-center justify-center shadow-sm"
+          whileHover={{ boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+        >
           {iconMap[step.icon]}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <h3 className="text-base md:text-lg font-serif font-light text-stone-900 mb-1 md:mb-2">
+      <motion.h3
+        className="text-base md:text-lg font-serif font-light text-stone-900 mb-1 md:mb-2"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
+      >
         {step.title}
-      </h3>
-      <p className="text-[10px] md:text-xs text-stone-400 uppercase tracking-wider mb-2 md:mb-3 font-light">
+      </motion.h3>
+      <motion.p
+        className="text-[10px] md:text-xs text-stone-400 uppercase tracking-wider mb-2 md:mb-3 font-light"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: index * 0.15 + 0.25 }}
+      >
         {step.subtitle}
-      </p>
-      <p className="text-stone-600 text-xs md:text-sm leading-snug md:leading-relaxed max-w-xs font-light">
+      </motion.p>
+      <motion.p
+        className="text-stone-600 text-xs md:text-sm leading-snug md:leading-relaxed max-w-xs font-light"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
+      >
         {step.description}
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 }
