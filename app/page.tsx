@@ -27,7 +27,7 @@ export default function Home() {
     {
       title: "Residential Photography",
       description: "Luxury villas, apartments, and penthouses captured with elegance",
-      image: "/images/residential/penthouses/penthouse-interior-1.jpg",
+      image: "/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg",
       href: "/residential",
       number: "01"
     },
