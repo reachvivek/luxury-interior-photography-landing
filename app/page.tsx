@@ -27,14 +27,14 @@ export default function Home() {
     {
       title: "Residential Photography",
       description: "Luxury villas, apartments, and penthouses captured with elegance",
-      image: "/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg",
+      image: "/images/residential/penthouses/penthouse-interior-1.jpg",
       href: "/residential",
       number: "01"
     },
     {
       title: "Hotels Photography",
       description: "Hotel suites, restaurants, and hospitality spaces with refined detail",
-      image: "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg",
+      image: "/images/residential/villas/luxury-villa-master-bedroom.jpg",
       href: "/hospitality",
       number: "02"
     },
