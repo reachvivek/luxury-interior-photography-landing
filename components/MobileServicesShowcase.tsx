@@ -38,7 +38,10 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               className="object-cover"
               priority={index === 0}
             />
+            {/* Multiple overlay layers for cross-browser compatibility */}
+            <div className="absolute inset-0 bg-black/50" /> {/* Solid fallback */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/40" />
           </div>
 
           {/* Content */}
@@ -51,8 +54,8 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="w-14 h-14 bg-white/15 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
-                <span className="text-white text-lg font-light tracking-wider">
+              <div className="w-14 h-14 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40 shadow-lg">
+                <span className="text-white text-lg font-light tracking-wider drop-shadow-md">
                   {service.number}
                 </span>
               </div>
@@ -61,8 +64,11 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
             {/* Center: Title & Description */}
             <div className="flex-1 flex flex-col justify-center space-y-6">
               <motion.h2
-                className="text-5xl font-serif font-light text-white leading-tight"
-                style={{ textShadow: "0 4px 30px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)" }}
+                className="text-5xl font-serif font-light text-white leading-tight drop-shadow-2xl"
+                style={{
+                  textShadow: "0 2px 4px rgba(0,0,0,1), 0 4px 8px rgba(0,0,0,0.9), 0 8px 30px rgba(0,0,0,0.8)",
+                  WebkitTextStroke: "0.5px rgba(0,0,0,0.1)"
+                }}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -72,8 +78,10 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               </motion.h2>
 
               <motion.p
-                className="text-lg text-white leading-relaxed font-light max-w-md"
-                style={{ textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 8px rgba(0,0,0,0.9)" }}
+                className="text-lg text-white leading-relaxed font-light max-w-md drop-shadow-xl"
+                style={{
+                  textShadow: "0 1px 3px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,0.95), 0 4px 20px rgba(0,0,0,0.9)"
+                }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -93,7 +101,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
             >
               <Link
                 href={service.href}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white/15 backdrop-blur-md text-white border border-white/30 rounded-full hover:bg-white/25 transition-all duration-500 group"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-black/40 backdrop-blur-md text-white border border-white/40 rounded-full hover:bg-black/50 transition-all duration-500 group shadow-lg"
               >
                 <span className="text-sm font-light tracking-wide">Explore</span>
                 <motion.svg

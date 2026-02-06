@@ -133,17 +133,26 @@ export default function HeroCarousel() {
           className="max-w-4xl w-full animate-fadeIn text-center"
         >
           {/* Category */}
-          <p className="text-white text-xs md:text-xs font-normal tracking-[0.3em] md:tracking-[0.4em] uppercase mb-6 md:mb-10 drop-shadow-[0_4px_20px_rgba(0,0,0,1)]">
+          <p
+            className="text-white text-xs md:text-xs font-normal tracking-[0.3em] md:tracking-[0.4em] uppercase mb-6 md:mb-10 drop-shadow-2xl"
+            style={{ textShadow: "0 1px 3px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,0.9), 0 4px 20px rgba(0,0,0,0.8)" }}
+          >
             {current.category}
           </p>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal text-white mb-4 md:mb-7 leading-[1.1] tracking-normal drop-shadow-[0_6px_30px_rgba(0,0,0,1)] [text-shadow:_0_2px_20px_rgb(0_0_0_/_90%)]">
+          <h1
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal text-white mb-4 md:mb-7 leading-[1.1] tracking-normal drop-shadow-2xl"
+            style={{ textShadow: "0 2px 4px rgba(0,0,0,1), 0 4px 12px rgba(0,0,0,0.95), 0 8px 30px rgba(0,0,0,0.9)" }}
+          >
             {current.title}
           </h1>
 
           {/* Description */}
-          <p className="text-white text-sm md:text-base lg:text-lg mb-7 md:mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_4px_20px_rgba(0,0,0,1)] font-light px-4 md:px-0">
+          <p
+            className="text-white text-sm md:text-base lg:text-lg mb-7 md:mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-xl font-light px-4 md:px-0"
+            style={{ textShadow: "0 1px 3px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,0.95), 0 4px 16px rgba(0,0,0,0.9)" }}
+          >
             {current.description}
           </p>
 
@@ -180,11 +189,14 @@ export default function HeroCarousel() {
         </button>
       </div>
 
+      {/* Solid fallback for browsers that don't support gradients well */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+
       {/* Gradient Overlay for better text readability - Stronger on mobile */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 md:from-black/50 md:via-black/40 md:to-black/60 pointer-events-none" />
 
       {/* Additional gradient from center for text protection on mobile */}
-      <div className="absolute inset-0 bg-radial-gradient from-black/50 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/40 md:via-transparent md:to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/50 pointer-events-none" />
 
       {/* Scroll Down Indicator */}
       <button
