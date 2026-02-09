@@ -4,6 +4,7 @@ import "./globals.css";
 import Preloader from "@/components/Preloader";
 import Navigation from "@/components/Navigation";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { MainSiteOnly } from "@/components/ConditionalLayout";
 import { CONTACT } from "@/data/contact";
 import { SEO_CONFIG } from "@/constants/seo";
 
@@ -161,13 +162,17 @@ export default function RootLayout({
         className={`${montserrat.variable} ${inter.variable} ${cormorantGaramond.variable} antialiased`}
         suppressHydrationWarning
       >
-        <Preloader />
-        <Navigation />
+        <MainSiteOnly>
+          <Preloader />
+          <Navigation />
+        </MainSiteOnly>
         {children}
-        <WhatsAppButton
-          phoneNumber={CONTACT.whatsapp.number}
-          message="Hi! I'm interested in booking a professional interior photography shoot."
-        />
+        <MainSiteOnly>
+          <WhatsAppButton
+            phoneNumber={CONTACT.whatsapp.number}
+            message="Hi! I'm interested in booking a professional interior photography shoot."
+          />
+        </MainSiteOnly>
       </body>
     </html>
   );
