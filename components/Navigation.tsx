@@ -156,7 +156,7 @@ export default function Navigation() {
               </div>
               <h1 className={`font-serif text-2xl md:text-3xl tracking-[0.2em] cursor-pointer transition-colors duration-300 uppercase font-light ${
                 isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
-              }`} style={!isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8)' } : {}}>
+              }`}>
                 NASHRAY
               </h1>
             </Link>
@@ -165,7 +165,7 @@ export default function Navigation() {
             <div className="flex gap-8 items-center">
               <nav className={`flex gap-8 items-center transition-colors duration-300 ${
                 isScrolled ? 'text-stone-900' : 'text-white'
-              }`} style={!isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8)' } : {}}>
+              }`}>
                 {NAV_LINKS.left.map((link) => (
                   link.label === "Services" ? (
                     <ServicesDropdown key={link.href} isScrolled={isScrolled} />

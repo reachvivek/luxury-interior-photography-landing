@@ -39,9 +39,9 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               priority={index === 0}
             />
             {/* Multiple overlay layers for cross-browser compatibility */}
-            <div className="absolute inset-0 bg-black/25" /> {/* Solid fallback - reduced */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-black/35" /> {/* Solid fallback - darkened for text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/55" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/35" />
           </div>
 
           {/* Content */}
@@ -64,11 +64,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
             {/* Center: Title & Description */}
             <div className="flex-1 flex flex-col justify-center space-y-6">
               <motion.h2
-                className="text-5xl font-serif font-light text-white leading-tight drop-shadow-2xl"
-                style={{
-                  textShadow: "0 2px 4px rgba(0,0,0,1), 0 4px 8px rgba(0,0,0,0.9), 0 8px 30px rgba(0,0,0,0.8)",
-                  WebkitTextStroke: "0.5px rgba(0,0,0,0.1)"
-                }}
+                className="text-5xl font-serif font-light text-white leading-tight"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -78,10 +74,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
               </motion.h2>
 
               <motion.p
-                className="text-lg text-white leading-relaxed font-light max-w-md drop-shadow-xl"
-                style={{
-                  textShadow: "0 1px 3px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,0.95), 0 4px 20px rgba(0,0,0,0.9)"
-                }}
+                className="text-lg text-white leading-relaxed font-light max-w-md"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}

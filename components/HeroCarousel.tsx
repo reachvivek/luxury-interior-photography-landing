@@ -134,24 +134,21 @@ export default function HeroCarousel() {
         >
           {/* Category */}
           <p
-            className="text-white text-xs md:text-xs font-normal tracking-[0.3em] md:tracking-[0.4em] uppercase mb-6 md:mb-10 drop-shadow-2xl"
-            style={{ textShadow: "0 1px 3px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,0.9), 0 4px 20px rgba(0,0,0,0.8)" }}
+            className="text-white text-xs md:text-xs font-normal tracking-[0.3em] md:tracking-[0.4em] uppercase mb-6 md:mb-10"
           >
             {current.category}
           </p>
 
           {/* Title */}
           <h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal text-white mb-4 md:mb-7 leading-[1.1] tracking-normal drop-shadow-2xl"
-            style={{ textShadow: "0 2px 4px rgba(0,0,0,1), 0 4px 12px rgba(0,0,0,0.95), 0 8px 30px rgba(0,0,0,0.9)" }}
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal text-white mb-4 md:mb-7 leading-[1.1] tracking-normal"
           >
             {current.title}
           </h1>
 
           {/* Description */}
           <p
-            className="text-white text-sm md:text-base lg:text-lg mb-7 md:mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-xl font-light px-4 md:px-0"
-            style={{ textShadow: "0 1px 3px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,0.95), 0 4px 16px rgba(0,0,0,0.9)" }}
+            className="text-white text-sm md:text-base lg:text-lg mb-7 md:mb-10 max-w-2xl mx-auto leading-relaxed font-light px-4 md:px-0"
           >
             {current.description}
           </p>
