@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  outputFileTracingExcludes: {
+    "/api/admin/images": ["public/images/**/*"],
+    "/api/admin/upload": ["public/images/**/*"],
+    "/api/admin/content": ["public/images/**/*"],
+  },
 };
 
 export default nextConfig;
