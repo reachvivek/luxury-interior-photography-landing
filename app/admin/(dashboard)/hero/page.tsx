@@ -13,6 +13,7 @@ import {
   Loader2,
   GripVertical,
   Eye,
+  Upload,
 } from "lucide-react";
 
 interface HeroSlide {
@@ -36,6 +37,7 @@ export default function HeroAdminPage() {
   const [availableImages, setAvailableImages] = useState<Record<string, string[]>>({});
   const [imageSearch, setImageSearch] = useState("");
   const [previewSlide, setPreviewSlide] = useState<number | null>(null);
+  const [uploading, setUploading] = useState(false);
 
   // Fetch slides
   useEffect(() => {
@@ -132,6 +134,34 @@ export default function HeroAdminPage() {
     }
     return result;
   }, [availableImages, imageSearch]);
+
+  const handleUpload = async (file: File) => {
+    if (imagePicker === null) return;
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("folder", "hero");
+
+      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || "Upload failed");
+
+      // Use the uploaded image and add it to available images
+      updateSlide(imagePicker, "image", data.path);
+      setAvailableImages((prev) => ({
+        ...prev,
+        hero: [...(prev.hero || []), data.path],
+      }));
+      setImagePicker(null);
+      setImageSearch("");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Upload failed");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -267,29 +297,12 @@ export default function HeroAdminPage() {
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[10px] uppercase tracking-widest text-stone-500 mb-1">
-                      Button Text
-                    </label>
-                    <input
-                      type="text"
-                      value={slide.ctaText}
-                      onChange={(e) => updateSlide(index, "ctaText", e.target.value)}
-                      className="w-full px-3 py-2 bg-stone-800/50 border border-stone-700/50 rounded-lg text-sm text-stone-200 placeholder-stone-600 focus:outline-none focus:ring-1 focus:ring-stone-600 transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] uppercase tracking-widest text-stone-500 mb-1">
-                      Button Link
-                    </label>
-                    <input
-                      type="text"
-                      value={slide.ctaLink}
-                      onChange={(e) => updateSlide(index, "ctaLink", e.target.value)}
-                      className="w-full px-3 py-2 bg-stone-800/50 border border-stone-700/50 rounded-lg text-sm text-stone-200 placeholder-stone-600 focus:outline-none focus:ring-1 focus:ring-stone-600 transition-all"
-                    />
-                  </div>
+                {/* Button text & link are locked — tied to site navigation */}
+                <div className="flex items-center gap-2 px-3 py-2 bg-stone-800/30 border border-stone-800/40 rounded-lg">
+                  <span className="text-[10px] uppercase tracking-widest text-stone-600">Button:</span>
+                  <span className="text-xs text-stone-400">{slide.ctaText}</span>
+                  <span className="text-stone-700">&rarr;</span>
+                  <span className="text-xs text-stone-500 font-mono">{slide.ctaLink}</span>
                 </div>
               </div>
 
@@ -377,6 +390,40 @@ export default function HeroAdminPage() {
                 autoFocus
                 className="w-full px-3 py-2 bg-stone-800/50 border border-stone-700/50 rounded-lg text-sm text-stone-200 placeholder-stone-600 focus:outline-none focus:ring-1 focus:ring-stone-600"
               />
+            </div>
+
+            {/* Upload zone */}
+            <div className="px-5 pt-4">
+              <label
+                className={`flex flex-col items-center justify-center gap-2 p-4 border-2 border-dashed rounded-xl cursor-pointer transition-all
+                  ${uploading ? "border-stone-600 bg-stone-800/30" : "border-stone-700/50 hover:border-stone-500 hover:bg-stone-800/20"}`}
+              >
+                {uploading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 text-stone-400 animate-spin" />
+                    <span className="text-xs text-stone-400">Uploading...</span>
+                  </>
+                ) : (
+                  <>
+                    <Upload className="w-5 h-5 text-stone-500" />
+                    <span className="text-xs text-stone-400">
+                      Drop an image here or <span className="text-stone-200 underline">browse</span>
+                    </span>
+                    <span className="text-[10px] text-stone-600">JPG, PNG, WebP up to 10MB</span>
+                  </>
+                )}
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/avif"
+                  className="hidden"
+                  disabled={uploading}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) handleUpload(file);
+                    e.target.value = "";
+                  }}
+                />
+              </label>
             </div>
 
             {/* Image grid */}
