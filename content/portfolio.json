@@ -1,0 +1,664 @@
+{
+  "residential": {
+    "mainCategory": "Residential Photography",
+    "basePath": "/residential",
+    "galleryImages": [
+      { "src": "/images/residential/penthouses/modern-penthouse-living-room.jpg", "category": "Apartments & Penthouses" },
+      { "src": "/images/residential/villas/luxury-villa-grand-entrance.jpg", "category": "Villas" },
+      { "src": "/images/residential/penthouses/penthouse-bedroom-cityview.jpg", "category": "Apartments & Penthouses" },
+      { "src": "/images/residential/villas/luxury-villa-staircase.jpg", "category": "Villas" },
+      { "src": "/images/residential/villas/luxury-villa-patio-view.jpg", "category": "Vacation Rentals" },
+      { "src": "/images/residential/apartments/modern-apartment-building-exterior.jpg", "category": "Apartments & Penthouses" },
+      { "src": "/images/residential/penthouses/penthouse-bathroom-skyline.jpg", "category": "Apartments & Penthouses" },
+      { "src": "/images/residential/villas/luxury-villa-master-bedroom.jpg", "category": "Vacation Rentals" }
+    ],
+    "portfolioCategories": [
+      {
+        "id": "villas",
+        "title": "Luxury Villas",
+        "description": "Spacious estates and contemporary villas showcasing refined living",
+        "images": [
+          "/images/residential/villas/luxury-villa-grand-entrance.jpg",
+          "/images/residential/villas/luxury-villa-staircase.jpg",
+          "/images/residential/villas/luxury-villa-patio-view.jpg",
+          "/images/residential/villas/luxury-villa-master-bedroom.jpg",
+          "/images/residential/villas/luxury-stone-villa-exterior.jpg"
+        ]
+      },
+      {
+        "id": "apartments-penthouses",
+        "title": "Apartments & Penthouses",
+        "description": "Contemporary urban living from modern apartments to luxury penthouses with panoramic city views",
+        "images": [
+          "/images/residential/apartments/modern-apartment-building-exterior.jpg",
+          "/images/residential/penthouses/modern-penthouse-living-room.jpg",
+          "/images/residential/penthouses/penthouse-bedroom-cityview.jpg",
+          "/images/residential/penthouses/penthouse-bathroom-skyline.jpg",
+          "/images/residential/penthouses/penthouse-interior-1.jpg"
+        ]
+      },
+      {
+        "id": "vacation-rentals",
+        "title": "Vacation Rentals",
+        "description": "Airbnb and short-term rental properties with lifestyle-focused photography that drives bookings",
+        "images": [
+          "/images/residential/villas/luxury-villa-patio-view.jpg",
+          "/images/residential/villas/luxury-villa-master-bedroom.jpg",
+          "/images/residential/penthouses/modern-penthouse-living-room.jpg",
+          "/images/residential/villas/luxury-villa-grand-entrance.jpg"
+        ]
+      }
+    ],
+    "categoryFilters": [
+      { "id": "all", "label": "All" },
+      { "id": "villas", "label": "Villas", "href": "/residential/villas" },
+      { "id": "apartments-penthouses", "label": "Apartments & Penthouses", "href": "/residential/apartments-penthouses" },
+      { "id": "vacation-rentals", "label": "Vacation Rentals", "href": "/residential/vacation-rentals" }
+    ],
+    "ctaImage": "/images/residential/villas/luxury-villa-patio-view.jpg",
+    "ctaTitle": "Ready to showcase your property?",
+    "ctaDescription": "Let's create stunning visuals that capture the unique character and luxury of your residential space.",
+    "subcategories": {
+      "villas": {
+        "mainCategory": "Residential",
+        "subcategoryTitle": "Luxury Villas Photography",
+        "description": "Exquisite photography capturing the grandeur and elegance of luxury villa interiors, from spacious living areas to intimate private spaces.",
+        "heroImage": "/images/residential/villas/luxury-villa-grand-entrance.jpg",
+        "approachTitle": "Harmonizing Exterior and Interior Excellence",
+        "approachDescription": "Villa photography requires a unique understanding of how exterior aesthetics harmonize with interior design and window views to create a unified atmosphere. The aesthetics of the villa's exterior, the interior spaces, and the views from the windows must work together seamlessly. We capture this holistic experience - whether showcasing day and night views, or the stunning colors of sunset moments that define luxury villa living. Each villa demands its own specific approach in technique and lighting strategy.",
+        "processTitle": "The Technical Excellence Behind Every Shot",
+        "processSteps": [
+          "Pre-shoot consultation with detailed technical specifications, providing visual guidelines and clear photography direction tailored to your property's unique features.",
+          "Strategic use of external light sources for both interior and exterior shots, creating attractive color tones that convey comfort and uniqueness while maintaining realism.",
+          "Diverse lens selection to capture volume, atmosphere, and depth - paying special attention to luxury details like unique furniture, expensive marble, wood, textiles, and glass reflections.",
+          "Comprehensive shoot coverage including large interior shots, panoramic photography, day and evening sessions, timelapses, and aerial photography for villas and gated complexes.",
+          "Professional space preparation with strategic furniture arrangement (coordinated with designers when needed) to create deeper, more attractive compositions with maximum visual impact."
+        ],
+        "impactTitle": "Fast, Quality Results That Sell",
+        "impactDescription": "Our approach delivers maximum effectiveness in minimum time. We provide free consultations to discuss all project complexities, quickly prepare detailed work plans with dates and angle examples, and deliver high-quality results that showcase your property's true value. This combination of quality, competitive pricing, and fast turnaround makes our photography both profitable and convenient for luxury villa marketing.",
+        "galleryImages": [
+          { "src": "/images/residential/villas/luxury-villa-grand-entrance.jpg", "alt": "Luxury villa grand entrance" },
+          { "src": "/images/residential/villas/luxury-villa-master-bedroom.jpg", "alt": "Luxury villa master bedroom" },
+          { "src": "/images/residential/villas/luxury-villa-staircase.jpg", "alt": "Luxury villa staircase" },
+          { "src": "/images/residential/villas/luxury-villa-patio-view.jpg", "alt": "Villa patio view" },
+          { "src": "/images/residential/villas/luxury-stone-villa-exterior.jpg", "alt": "Luxury stone villa exterior" },
+          { "src": "/images/residential/villas/stone-villa-entrance-car.jpg", "alt": "Stone villa entrance" }
+        ]
+      },
+      "apartments-penthouses": {
+        "mainCategory": "Residential",
+        "subcategoryTitle": "Apartments & Penthouses Photography",
+        "description": "Professional photography showcasing modern apartment living from cozy studios to luxury penthouses with panoramic city views, capturing sophisticated design and premium finishes.",
+        "heroImage": "/images/residential/apartments/modern-apartment-building-exterior.jpg",
+        "approachTitle": "Mastering Color Palettes and Lighting Atmosphere",
+        "approachDescription": "Apartment and penthouse photography requires careful attention to specific color palettes and atmosphere created through interior lighting. To achieve professional and attractive results, we use additional artificial light with varying temperatures that complement the property's design. Each property type - from contemporary apartments to luxury penthouses - demands its own unique technical approach with specific techniques for capturing both the living spaces and the dramatic city views that define elevated urban living.",
+        "processTitle": "Technical Precision for Professional Results",
+        "processSteps": [
+          "Detailed pre-shoot planning with technical specifications including color balancing, distortion preferences (straight lines vs. creative perspectives), and style requirements tailored to your property.",
+          "Strategic use of external light sources to create attractive interior color tones that convey comfort and uniqueness while maintaining realistic proximity to actual conditions.",
+          "Various lens types to capture volume, atmosphere, and depth of rooms, with special attention to materials, finishes, and architectural details that define quality urban living.",
+          "Comprehensive coverage including daytime and evening shots, wide interior perspectives, and panoramic photography showcasing both intimate spaces and expansive city views.",
+          "Professional space preparation with strategic furniture arrangement (coordinated with designers or client agreement) to create deeper, more attractive images with maximum visual effect."
+        ],
+        "impactTitle": "Efficient, Professional Results",
+        "impactDescription": "Our apartment and penthouse photography delivers maximum results in minimum time. We offer free consultations to discuss all project details, quickly prepare detailed work plans with dates and angle examples, and deliver high-quality images that effectively market your properties. This combination of quality, competitive pricing, and fast turnaround makes our service profitable and convenient for residential property marketing in Dubai's competitive real estate market.",
+        "galleryImages": [
+          { "src": "/images/residential/apartments/modern-apartment-building-exterior.jpg", "alt": "Modern apartment building exterior" },
+          { "src": "/images/residential/penthouses/modern-penthouse-living-room.jpg", "alt": "Modern penthouse living room" },
+          { "src": "/images/residential/penthouses/penthouse-interior-1.jpg", "alt": "Luxury penthouse interior" },
+          { "src": "/images/residential/penthouses/penthouse-bedroom-cityview.jpg", "alt": "Penthouse bedroom with city view" },
+          { "src": "/images/residential/penthouses/penthouse-bathroom-skyline.jpg", "alt": "Penthouse bathroom with skyline view" },
+          { "src": "/images/residential/penthouses/penthouse-interior-2.jpg", "alt": "Contemporary apartment interior" },
+          { "src": "/images/residential/penthouses/penthouse-interior-3.jpg", "alt": "Penthouse with city views" }
+        ]
+      },
+      "vacation-rentals": {
+        "mainCategory": "Residential",
+        "subcategoryTitle": "Vacation Rentals Photography",
+        "description": "Specialized photography for Airbnb and vacation rental properties that drives bookings, showcasing lifestyle amenities, location highlights, and guest experiences that convert browsers into bookers.",
+        "heroImage": "/images/residential/villas/luxury-villa-patio-view.jpg",
+        "approachTitle": "Booking-Driven Photography for Short-Term Rentals",
+        "approachDescription": "Vacation rental photography differs fundamentally from traditional real estate photography - it sells experiences, not just spaces. Nashray understands what drives Airbnb and vacation rental bookings: lifestyle imagery showing how guests will live, comprehensive amenity coverage demonstrating value, location context highlighting convenience, and aspirational moments that create emotional connections. Our photography answers the question 'What will my stay be like?' before guests even arrive, directly impacting your booking rates and nightly rates.",
+        "processTitle": "Complete Coverage for Maximum Bookings",
+        "processSteps": [
+          "Strategic shot list development covering all listing essentials: hero images, room details, amenities, outdoor spaces, views, neighborhood context, and unique features that differentiate your property.",
+          "Lifestyle-focused composition showing spaces in use - dining areas set for meals, living rooms arranged for relaxation, bedrooms styled for comfort - helping potential guests envision their stay.",
+          "Comprehensive amenity documentation capturing everything guests search for: fully-equipped kitchens, entertainment systems, work-from-home setups, pools, gyms, parking, and special features.",
+          "Multiple lighting scenarios including natural daylight, golden hour exteriors, and evening ambiance shots that showcase different moods and 24-hour appeal of your property.",
+          "Platform-optimized delivery with images sized and formatted specifically for Airbnb, Booking.com, and vacation rental sites - including vertical shots for mobile browsing where 80% of bookings originate."
+        ],
+        "impactTitle": "Proven ROI for Property Owners and Managers",
+        "impactDescription": "Professional vacation rental photography delivers measurable returns. Properties using Nashray's imagery report 40-65% increases in booking inquiries, 25-35% higher nightly rates supported by premium positioning, and 50% reduction in time-to-booking as quality visuals build immediate guest confidence. For property managers handling multiple listings, our efficient workflow and consistent quality across portfolios create a professional brand that commands premium positioning on all platforms. Investment in professional photography typically returns 300-500% in the first year through increased bookings and rate optimization.",
+        "galleryImages": [
+          { "src": "/images/residential/villas/luxury-villa-patio-view.jpg", "alt": "Luxury villa patio with outdoor living" },
+          { "src": "/images/residential/villas/luxury-villa-grand-entrance.jpg", "alt": "Vacation rental grand entrance" },
+          { "src": "/images/residential/penthouses/modern-penthouse-living-room.jpg", "alt": "Modern vacation rental living space" },
+          { "src": "/images/residential/villas/luxury-villa-master-bedroom.jpg", "alt": "Luxury vacation rental bedroom" },
+          { "src": "/images/residential/penthouses/penthouse-bedroom-cityview.jpg", "alt": "Vacation rental with city views" },
+          { "src": "/images/residential/villas/luxury-villa-staircase.jpg", "alt": "Elegant vacation property interior" },
+          { "src": "/images/residential/penthouses/penthouse-bathroom-skyline.jpg", "alt": "Luxury vacation rental bathroom" }
+        ]
+      }
+    }
+  },
+  "hospitality": {
+    "mainCategory": "Hospitality Photography",
+    "basePath": "/hospitality",
+    "galleryImages": [
+      { "src": "/images/hospitality/restaurants/art-gallery-dining-room.jpg", "category": "Restaurants" },
+      { "src": "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg", "category": "Resorts" },
+      { "src": "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg", "category": "Resorts" },
+      { "src": "/images/hospitality/restaurants/modern-cafe-interior-1.jpg", "category": "Restaurants" },
+      { "src": "/images/hospitality/restaurants/contemporary-cafe-lounge.jpg", "category": "Restaurants" },
+      { "src": "/images/hospitality/restaurants/sunset-dining-terrace.jpg", "category": "Restaurants" },
+      { "src": "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg", "category": "Event Spaces" },
+      { "src": "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg", "category": "Resorts" },
+      { "src": "/images/hospitality/event-spaces/pool-terrace-evening.jpg", "category": "Event Spaces" }
+    ],
+    "portfolioCategories": [
+      {
+        "id": "hotel-suites",
+        "title": "Hotel Suites & Lobbies",
+        "description": "Luxurious accommodations and welcoming spaces that define hospitality",
+        "images": [
+          "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg",
+          "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg",
+          "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg",
+          "/images/hospitality/hotel-suites/luxury-garden-terrace-night.jpg"
+        ]
+      },
+      {
+        "id": "resorts",
+        "title": "Resorts & Destinations",
+        "description": "Paradise destinations where luxury meets natural beauty",
+        "images": [
+          "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg",
+          "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg",
+          "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg",
+          "/images/hospitality/event-spaces/pool-terrace-evening.jpg"
+        ]
+      },
+      {
+        "id": "restaurants",
+        "title": "Restaurants & Dining",
+        "description": "Culinary spaces where ambiance meets gastronomy",
+        "images": [
+          "/images/hospitality/restaurants/art-gallery-dining-room.jpg",
+          "/images/hospitality/restaurants/sunset-dining-terrace.jpg",
+          "/images/hospitality/restaurants/colorful-restaurant-interior.jpg",
+          "/images/hospitality/restaurants/modern-cafe-interior-1.jpg",
+          "/images/hospitality/restaurants/contemporary-cafe-lounge.jpg",
+          "/images/hospitality/restaurants/minimalist-cafe-design.jpg"
+        ]
+      },
+      {
+        "id": "event-spaces",
+        "title": "Event Spaces & Venues",
+        "description": "Venues designed for memorable experiences and celebrations",
+        "images": [
+          "/images/hospitality/event-spaces/resort-event-pathway.jpg",
+          "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg",
+          "/images/hospitality/event-spaces/lake-resort-panoramic-view-1.jpg"
+        ]
+      }
+    ],
+    "categoryFilters": [
+      { "id": "all", "label": "All" },
+      { "id": "hotel-suites", "label": "Hotels", "href": "/hospitality/hotel-suites" },
+      { "id": "resorts", "label": "Resorts", "href": "/hospitality/resorts" },
+      { "id": "restaurants", "label": "Restaurants", "href": "/hospitality/restaurants" },
+      { "id": "event-spaces", "label": "Event Spaces", "href": "/hospitality/event-spaces" }
+    ],
+    "ctaImage": "/images/hospitality/restaurants/art-gallery-dining-room.jpg",
+    "ctaTitle": "Ready to showcase your venue?",
+    "ctaDescription": "Let's create captivating imagery that attracts guests and elevates your hospitality brand.",
+    "subcategories": {
+      "hotel-suites": {
+        "mainCategory": "Hotels & Hospitality",
+        "subcategoryTitle": "Hotel Suites Photography",
+        "description": "Elegant photography capturing the luxury and comfort of hotel suites, from boutique rooms to presidential suites with world-class amenities.",
+        "heroImage": "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg",
+        "approachTitle": "Luxury Hospitality Reimagined",
+        "approachDescription": "Nashray's hotel suite photography transforms rooms into destinations, capturing the indulgent experience that drives bookings and justifies premium rates. We go beyond standard room documentation to showcase the emotional journey guests crave - from the welcoming ambiance of thoughtfully designed spaces to the exquisite details that define five-star hospitality. Whether capturing intimate boutique suites or sprawling presidential accommodations, our imagery tells a story of escape, comfort, and memorable experiences that resonate with luxury travelers worldwide.",
+        "processTitle": "Crafting Your Guest Experience Story",
+        "processSteps": [
+          "Detailed briefing to understand your property's unique positioning, signature amenities, and target guest demographics",
+          "Strategic timing for optimal natural lighting in suites while capturing atmospheric evening shots of common areas",
+          "Comprehensive coverage including suite layouts, bathroom luxury, views, and lifestyle-focused vignettes",
+          "Both wide architectural perspectives and intimate detail shots of premium linens, fixtures, and finishing touches",
+          "Professional editing that enhances the aspirational quality while maintaining authentic representation of your offerings"
+        ],
+        "impactTitle": "Driving Direct Bookings and Revenue",
+        "impactDescription": "Professional hotel photography directly impacts your revenue per available room. Properties featuring Nashray's imagery see 70% higher engagement on booking platforms and 50% increases in direct website bookings. Our photography reduces dependency on OTA commissions by creating compelling reasons for guests to book directly. Luxury properties using our imagery command 15-25% rate premiums and achieve higher guest satisfaction scores, as expectations align perfectly with the actual experience.",
+        "galleryImages": [
+          { "src": "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg", "alt": "Luxury resort lobby entrance" },
+          { "src": "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg", "alt": "Hotel lobby with colorful sofas" },
+          { "src": "/images/hospitality/hotel-suites/hotel-courtyard-fountain-night.jpg", "alt": "Hotel courtyard with fountain at night" },
+          { "src": "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg", "alt": "Modern resort exterior at sunset" },
+          { "src": "/images/hospitality/hotel-suites/luxury-garden-terrace-night.jpg", "alt": "Luxury garden terrace at night" },
+          { "src": "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg", "alt": "Resort pool with archway view" }
+        ]
+      },
+      "resorts": {
+        "mainCategory": "Hotels & Hospitality",
+        "subcategoryTitle": "Resorts Photography",
+        "description": "Breathtaking resort photography capturing the essence of luxury destinations, from beachfront paradises to mountain retreats, showcasing both grand amenities and intimate guest experiences.",
+        "heroImage": "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg",
+        "approachTitle": "Capturing Paradise and Possibility",
+        "approachDescription": "Resort photography transcends simple documentation - it sells dreams, escapes, and transformative experiences. Nashray captures the complete resort narrative: stunning architecture harmonizing with natural surroundings, world-class amenities that define luxury, and those perfect moments that make destinations unforgettable. From sunrise over infinity pools to sunset dining terraces, we create imagery that drives bookings and positions your resort as the ultimate destination for discerning travelers seeking exceptional experiences.",
+        "processTitle": "Comprehensive Resort Coverage",
+        "processSteps": [
+          "Multi-day shooting capturing golden hour magic, day and evening ambiance, seasonal variations, and diverse weather conditions that showcase your resort's year-round appeal",
+          "Strategic coverage of signature spaces - grand lobbies, luxury suites, infinity pools, spa facilities, dining venues, beaches, and recreational areas",
+          "Lifestyle photography showing guest experiences without staged models, capturing authentic moments that resonate with target demographics",
+          "Aerial and elevated perspectives showcasing resort scale, beachfront positioning, surrounding landscapes, and architectural integration with natural beauty",
+          "Detail work highlighting luxury finishes, resort amenities, culinary presentations, and those small touches that differentiate five-star properties"
+        ],
+        "impactTitle": "Driving Direct Bookings and Premium Rates",
+        "impactDescription": "Professional resort photography directly impacts revenue by reducing dependency on OTAs, supporting premium pricing strategies, and driving direct bookings. Resorts featuring Nashray's imagery report 45-60% increases in direct website bookings, 30% higher conversion rates, and the ability to command 15-20% rate premiums. Our photography becomes the cornerstone of integrated marketing campaigns across social media, print advertising, and partnership materials that establish your resort as a bucket-list destination.",
+        "galleryImages": [
+          { "src": "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg", "alt": "Beachfront resort architecture" },
+          { "src": "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg", "alt": "Modern resort exterior at sunset" },
+          { "src": "/images/hospitality/hotel-suites/resort-pool-archway-view.jpg", "alt": "Resort pool through archway" },
+          { "src": "/images/hospitality/event-spaces/lake-resort-panoramic-view-1.jpg", "alt": "Lake resort panoramic view" },
+          { "src": "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg", "alt": "Luxury resort lobby entrance" },
+          { "src": "/images/hospitality/event-spaces/pool-terrace-evening.jpg", "alt": "Pool terrace evening ambiance" }
+        ]
+      },
+      "restaurants": {
+        "mainCategory": "Hotels & Hospitality",
+        "subcategoryTitle": "Restaurants Photography",
+        "description": "Stunning restaurant photography that captures the ambiance, design, and culinary atmosphere of fine dining establishments and casual eateries.",
+        "heroImage": "/images/hospitality/restaurants/salt-restaurant-outdoor-terrace-1.jpg",
+        "approachTitle": "Where Ambiance Meets Appetite",
+        "approachDescription": "Nashray's restaurant photography goes beyond capturing beautiful interiors - we create visual invitations that make diners crave the experience. Understanding that restaurants sell atmosphere as much as cuisine, our approach emphasizes mood lighting, intimate table settings, and the unique personality that defines each establishment. From Michelin-starred fine dining to trendy casual eateries, we capture the sensory experience that drives reservations and social media buzz.",
+        "processTitle": "The Full Dining Experience",
+        "processSteps": [
+          "Comprehensive venue walkthrough during service hours to understand flow, lighting transitions, and signature design elements",
+          "Strategic shooting during golden hour, twilight, and evening service to capture ambiance at its peak",
+          "Focus on hero spaces - bar areas, outdoor terraces, private dining rooms - that define your restaurant's unique appeal",
+          "Detail shots of table settings, lighting fixtures, and architectural elements that convey attention to quality",
+          "Color grading that enhances warmth and appetite appeal while maintaining authentic representation of your brand"
+        ],
+        "impactTitle": "Driving Bookings and Social Engagement",
+        "impactDescription": "Our restaurant photography transforms marketing materials into powerful booking drivers. Restaurants featuring Nashray's imagery see 60-80% increases in social media engagement, with images regularly shared by diners and influencers. More importantly, these visuals translate to measurable business results - 25-40% increases in online reservations and enhanced ability to command premium pricing for special events and private bookings.",
+        "galleryImages": [
+          { "src": "/images/hospitality/restaurants/salt-restaurant-outdoor-terrace-1.jpg", "alt": "Salt restaurant outdoor terrace" },
+          { "src": "/images/hospitality/restaurants/salt-restaurant-terrace-view.jpg", "alt": "Salt restaurant terrace view" },
+          { "src": "/images/hospitality/restaurants/restaurant-dining-gallery.jpg", "alt": "Restaurant dining gallery" },
+          { "src": "/images/hospitality/restaurants/colorful-restaurant-interior.jpg", "alt": "Colorful restaurant interior" },
+          { "src": "/images/hospitality/restaurants/modern-cafe-interior-1.jpg", "alt": "Modern cafe interior" },
+          { "src": "/images/hospitality/restaurants/minimalist-cafe-design.jpg", "alt": "Minimalist cafe design" }
+        ]
+      },
+      "event-spaces": {
+        "mainCategory": "Hotels & Hospitality",
+        "subcategoryTitle": "Event Spaces Photography",
+        "description": "Professional photography of event venues and spaces, showcasing versatile settings for weddings, conferences, and special occasions.",
+        "heroImage": "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg",
+        "approachTitle": "Spaces That Inspire Celebrations",
+        "approachDescription": "Nashray captures event spaces in their most aspirational light - showing not just empty venues, but the promise of unforgettable moments. Our photography tells the story of transformation potential, whether it's an intimate wedding, corporate gala, or destination conference. We emphasize versatility, capacity, and the unique atmosphere that makes planners and hosts choose your venue over competitors, capturing both grand scale and intimate details.",
+        "processTitle": "Showcasing Every Occasion",
+        "processSteps": [
+          "Multi-configuration shoots showing versatility - ceremony setups, cocktail receptions, banquet configurations, and conference arrangements",
+          "Strategic timing to capture natural light advantages, sunset backdrops, and elegant evening ambiance with dramatic lighting",
+          "Wide-angle perspectives demonstrating capacity and flow while maintaining the intimate, welcoming feel that attracts bookings",
+          "Architectural and landscape integration highlighting unique features - waterfront views, garden settings, or city skylines",
+          "Post-production that enhances the 'blank canvas' appeal while showcasing the venue's distinct character and atmosphere"
+        ],
+        "impactTitle": "Converting Inquiries to Bookings",
+        "impactDescription": "Our event space photography directly impacts venue booking rates by helping planners envision their perfect event. Venues showcasing Nashray's imagery report 50-65% increases in qualified inquiries and 35% higher conversion rates from site visits to bookings. By presenting spaces that inspire emotional connections and practical confidence, we help venues command premium pricing and secure high-value corporate contracts and destination weddings.",
+        "galleryImages": [
+          { "src": "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg", "alt": "Beach wedding pavilion" },
+          { "src": "/images/hospitality/event-spaces/lake-resort-panoramic-view-1.jpg", "alt": "Lake resort panoramic view" },
+          { "src": "/images/hospitality/event-spaces/pool-terrace-evening.jpg", "alt": "Pool terrace evening event space" },
+          { "src": "/images/hospitality/event-spaces/resort-event-pathway.jpg", "alt": "Resort event pathway" },
+          { "src": "/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg", "alt": "Outdoor patio courtyard" },
+          { "src": "/images/hospitality/event-spaces/cityscape-sunset-view.jpg", "alt": "Event space with cityscape sunset view" }
+        ]
+      }
+    }
+  },
+  "commercial": {
+    "mainCategory": "Commercial Photography",
+    "basePath": "/commercial",
+    "galleryImages": [
+      { "src": "/images/commercial/office-spaces/modern-commercial-building-night.jpg", "category": "Office Spaces" },
+      { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg", "category": "Co-working Spaces" },
+      { "src": "/images/commercial/retail-stores/beauty-salon-interior-1.jpg", "category": "Retail Stores" },
+      { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-seating-area.jpg", "category": "Co-working Spaces" },
+      { "src": "/images/commercial/retail-stores/beauty-salon-interior-2.jpg", "category": "Retail Stores" },
+      { "src": "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg", "category": "Co-working Spaces" },
+      { "src": "/images/commercial/retail-stores/hair-salon-wide-angle.jpg", "category": "Retail Stores" },
+      { "src": "/images/commercial/retail-stores/salon-workstation-detail.jpg", "category": "Retail Stores" }
+    ],
+    "portfolioCategories": [
+      {
+        "id": "office-spaces",
+        "title": "Office Spaces",
+        "description": "Professional corporate environments designed for productivity and collaboration",
+        "images": [
+          "/images/commercial/office-spaces/modern-commercial-building-night.jpg"
+        ]
+      },
+      {
+        "id": "coworking-spaces",
+        "title": "Co-working Spaces",
+        "description": "Modern workspaces designed for collaboration and productivity",
+        "images": [
+          "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg",
+          "/images/commercial/coworking-spaces/cofiesto-cafe-seating-area.jpg",
+          "/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg",
+          "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg"
+        ]
+      },
+      {
+        "id": "retail-stores",
+        "title": "Retail Stores",
+        "description": "Commercial spaces that drive customer engagement and sales",
+        "images": [
+          "/images/commercial/retail-stores/beauty-salon-interior-1.jpg",
+          "/images/commercial/retail-stores/nail-salon-workspace.jpg",
+          "/images/commercial/retail-stores/beauty-salon-interior-2.jpg",
+          "/images/commercial/retail-stores/hair-salon-wide-angle.jpg",
+          "/images/commercial/retail-stores/salon-workstation-detail.jpg"
+        ]
+      },
+      {
+        "id": "showrooms",
+        "title": "Showrooms",
+        "description": "Elegant display spaces showcasing products and brands",
+        "images": [
+          "/images/commercial/retail-stores/retail-store-product-shelving.jpg"
+        ]
+      }
+    ],
+    "categoryFilters": [
+      { "id": "all", "label": "All" },
+      { "id": "office-spaces", "label": "Office Spaces", "href": "/commercial/office-spaces" },
+      { "id": "coworking-spaces", "label": "Co-working Spaces", "href": "/commercial/coworking-spaces" },
+      { "id": "retail-stores", "label": "Retail Stores", "href": "/commercial/retail-stores" },
+      { "id": "showrooms", "label": "Showrooms", "href": "/commercial/showrooms" }
+    ],
+    "ctaImage": "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg",
+    "ctaTitle": "Ready to elevate your brand?",
+    "ctaDescription": "Let's create professional imagery that showcases your commercial space and strengthens your brand presence.",
+    "subcategories": {
+      "office-spaces": {
+        "mainCategory": "Commercial & Industry",
+        "subcategoryTitle": "Office Spaces Photography",
+        "description": "Professional office photography showcasing modern workspaces, executive offices, and collaborative environments designed for productivity and innovation.",
+        "heroImage": "/images/commercial/office-spaces/modern-commercial-building-night.jpg",
+        "approachTitle": "Corporate Excellence in Every Frame",
+        "approachDescription": "Nashray's office photography goes beyond standard documentation to capture the innovative spirit and professional culture that defines modern workplaces. We specialize in telling your company's story through imagery that showcases not just the physical space, but the collaboration, innovation, and prestige it represents. From sleek executive suites to dynamic open-plan environments, our photography attracts top talent and impresses clients by visually communicating your organization's values and commitment to employee experience.",
+        "processTitle": "Showcasing Your Professional Environment",
+        "processSteps": [
+          "Comprehensive walkthrough to identify key spaces, brand elements, and architectural highlights",
+          "Strategic scheduling around business hours to capture both active workplace energy and pristine empty spaces",
+          "Architectural photography techniques for lobbies, conference rooms, and executive areas emphasizing scale and prestige",
+          "Lifestyle shots incorporating employees to demonstrate culture and collaborative energy (when requested)",
+          "Post-production enhancement maintaining professional authenticity while optimizing visual impact for marketing materials"
+        ],
+        "impactTitle": "Attracting Talent and Clients",
+        "impactDescription": "Professional office photography delivers measurable ROI through multiple channels. Companies using Nashray's office imagery in recruitment materials report 45% higher application rates from qualified candidates. Commercial real estate listings featuring our photography lease 30% faster and command rental premiums, while corporate websites with professional workspace imagery see significantly improved client conversion rates and longer visitor engagement.",
+        "galleryImages": [
+          { "src": "/images/commercial/office-spaces/modern-commercial-building-night.jpg", "alt": "Modern commercial building at night" },
+          { "src": "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg", "alt": "Modern workspace lounge seating" },
+          { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg", "alt": "Open plan office workspace" },
+          { "src": "/images/residential/home-offices/contemporary-office-space.jpg", "alt": "Contemporary executive office" },
+          { "src": "/images/residential/home-offices/modern-workspace-window-seating.jpg", "alt": "Office with window seating" },
+          { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-interior-counter.jpg", "alt": "Office reception and lounge area" }
+        ]
+      },
+      "coworking-spaces": {
+        "mainCategory": "Commercial & Industry",
+        "subcategoryTitle": "Co-working Spaces Photography",
+        "description": "Dynamic photography of collaborative co-working environments, hot desks, private booths, and community spaces that inspire creativity and connection.",
+        "heroImage": "/images/commercial/coworking-spaces/cofiesto-cafe-full-view.jpg",
+        "approachTitle": "Community and Productivity in Harmony",
+        "approachDescription": "Nashray captures the unique energy of coworking spaces by balancing the dual narrative of professional productivity and vibrant community. Our photography highlights the versatility of these environments - from focused quiet zones to collaborative hubs - while showcasing the design elements that attract remote workers, freelancers, and startups. We understand that coworking photography must communicate flexibility, connectivity, and the lifestyle advantages that differentiate your space from traditional offices and home setups.",
+        "processTitle": "Bringing Your Community to Life",
+        "processSteps": [
+          "Site analysis identifying diverse work zones, amenity areas, and architectural features that define your brand",
+          "Timing shoots to capture authentic energy - both the buzz of peak hours and the serene productivity of quieter periods",
+          "Varied compositions showcasing hot desks, private offices, meeting rooms, and social spaces to appeal to different user types",
+          "Emphasis on connectivity features, natural lighting, and design details that enhance productivity and creativity",
+          "Dynamic editing that conveys the vibrant, entrepreneurial atmosphere while maintaining professional polish"
+        ],
+        "impactTitle": "Driving Membership Growth",
+        "impactDescription": "Our coworking space photography directly impacts occupancy rates and membership conversion. Spaces featuring Nashray's imagery consistently see 50-70% increases in virtual tour engagement and 40% higher conversion rates from inquiry to membership. By visually communicating the community vibe, amenity quality, and professional environment, we help operators attract the right members and justify premium pricing in competitive markets.",
+        "galleryImages": [
+          { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-full-view.jpg", "alt": "Coworking cafe full view" },
+          { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg", "alt": "Wide coworking interior" },
+          { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-seating-area.jpg", "alt": "Coworking seating area" },
+          { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg", "alt": "Window seating workspace" },
+          { "src": "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg", "alt": "Modern workspace lounge" },
+          { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-outdoor-seating.jpg", "alt": "Outdoor coworking space" }
+        ]
+      },
+      "retail-stores": {
+        "mainCategory": "Commercial & Industry",
+        "subcategoryTitle": "Retail Stores Photography",
+        "description": "Captivating retail photography that highlights store layouts, product displays, and shopping experiences from boutiques to flagship stores.",
+        "heroImage": "/images/commercial/retail-stores/beauty-salon-interior-1.jpg",
+        "approachTitle": "Transforming Browsers into Buyers",
+        "approachDescription": "Nashray's retail photography captures the shopping experience your customers crave before they even walk through the door. We go beyond basic storefront documentation to create compelling visual stories that showcase your merchandising expertise, brand aesthetic, and customer journey. From intimate boutique atmospheres to expansive flagship locations, our images drive foot traffic by conveying the quality, curation, and unique shopping experience that sets your retail space apart in a crowded marketplace.",
+        "processTitle": "Showcasing Your Retail Vision",
+        "processSteps": [
+          "Consultation to understand brand identity, target demographics, and key seasonal merchandise displays",
+          "Strategic shoot timing to capture optimal lighting and perfectly styled product presentations",
+          "Comprehensive coverage including storefront, interior flow, merchandising displays, and detail shots of signature products",
+          "Multiple angles emphasizing both the curated aesthetic and the functional shopping experience",
+          "Editing that enhances product colors, lighting ambiance, and visual appeal while maintaining authentic representation"
+        ],
+        "impactTitle": "Increasing Foot Traffic and Sales",
+        "impactDescription": "Professional retail photography delivers direct impact on your bottom line. Stores using Nashray's imagery in their marketing materials experience 55% higher engagement on social media and 35% more in-store visits from online discovery. Our photography helps boutiques and specialty retailers compete with e-commerce by showcasing the tactile, experiential advantages of in-person shopping, resulting in higher conversion rates and increased average transaction values.",
+        "galleryImages": [
+          { "src": "/images/commercial/retail-stores/beauty-salon-interior-1.jpg", "alt": "Beauty salon interior" },
+          { "src": "/images/commercial/retail-stores/hair-salon-wide-angle.jpg", "alt": "Hair salon wide angle" },
+          { "src": "/images/commercial/retail-stores/salon-workstation-detail.jpg", "alt": "Salon workstation detail" },
+          { "src": "/images/commercial/retail-stores/nail-salon-workspace.jpg", "alt": "Nail salon workspace" },
+          { "src": "/images/commercial/retail-stores/retail-store-product-shelving.jpg", "alt": "Retail store product shelving" },
+          { "src": "/images/commercial/retail-stores/cofiesto-storefront-exterior.jpg", "alt": "Storefront exterior" }
+        ]
+      },
+      "showrooms": {
+        "mainCategory": "Commercial & Industry",
+        "subcategoryTitle": "Showrooms Photography",
+        "description": "Professional showroom photography showcasing product displays, automotive showrooms, furniture galleries, and design exhibitions in their best light.",
+        "heroImage": "/images/residential/villas/luxury-villa-with-porsche.jpg",
+        "approachTitle": "Prestige Products Presented Flawlessly",
+        "approachDescription": "Nashray's showroom photography elevates product presentation to an art form, whether showcasing luxury automobiles, designer furniture, or architectural materials. We understand that showrooms are theater - every display is carefully curated to inspire desire and communicate quality. Our photography captures the aspirational essence of your products while highlighting the immersive brand experience your showroom provides. From dramatic automotive reveals to elegant furniture vignettes, we create imagery that drives qualified buyers through your doors.",
+        "processTitle": "Perfecting Product Presentation",
+        "processSteps": [
+          "Detailed planning session to understand featured products, brand positioning, and target clientele",
+          "Precision lighting setup that enhances product finishes, textures, and premium details without distortion",
+          "Strategic composition emphasizing both individual product excellence and cohesive display design",
+          "Multiple perspectives capturing showroom flow, featured installations, and intimate product details",
+          "Meticulous post-production ensuring accurate color representation and luxurious visual appeal"
+        ],
+        "impactTitle": "Converting Browsers to Buyers",
+        "impactDescription": "Professional showroom photography accelerates the sales cycle by pre-qualifying prospects and building desire before the first visit. Automotive showrooms using Nashray's imagery report 60% more qualified appointments, while furniture and design showrooms see 45% longer customer dwell time and significantly higher conversion rates. Our photography becomes a powerful sales tool across digital marketing, print catalogs, and social media, establishing your showroom as the premier destination for discerning buyers.",
+        "galleryImages": [
+          { "src": "/images/residential/villas/luxury-villa-with-porsche.jpg", "alt": "Luxury automotive showroom" },
+          { "src": "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg", "alt": "Modern showroom entrance" },
+          { "src": "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg", "alt": "Furniture showroom display" },
+          { "src": "/images/custom/custom-furniture/art-gallery-custom-seating.jpg", "alt": "Design gallery with custom seating" },
+          { "src": "/images/commercial/retail-stores/retail-store-product-shelving.jpg", "alt": "Product display showroom" },
+          { "src": "/images/custom/design-details/luxury-chandelier-interior.jpg", "alt": "Lighting design showroom" }
+        ]
+      }
+    }
+  },
+  "custom-interiors": {
+    "mainCategory": "Custom Interior Photography",
+    "basePath": "/custom-interiors",
+    "galleryImages": [
+      { "src": "/images/custom-interiors/architectural-elements/resort-archway-night.jpg", "category": "Architectural Elements" },
+      { "src": "/images/custom-interiors/design-details/luxury-serving-detail.jpg", "category": "Design Details" },
+      { "src": "/images/custom-interiors/architectural-elements/ornate-bathroom-ceiling.jpg", "category": "Architectural Elements" },
+      { "src": "/images/custom-interiors/materials/marble-gold-bathroom.jpg", "category": "Materials" },
+      { "src": "/images/custom-interiors/custom-furniture/bespoke-bedroom-furniture.jpg", "category": "Custom Furniture" },
+      { "src": "/images/custom-interiors/design-details/custom-drapery-detail.jpg", "category": "Design Details" },
+      { "src": "/images/custom-interiors/materials/white-brick-wall-texture.jpg", "category": "Materials" },
+      { "src": "/images/custom-interiors/architectural-elements/luxury-ceiling-detail.jpg", "category": "Architectural Elements" }
+    ],
+    "portfolioCategories": [
+      {
+        "id": "architectural-elements",
+        "title": "Architectural Elements",
+        "description": "Unique structural features, ceilings, archways, and architectural statements",
+        "images": [
+          "/images/custom-interiors/architectural-elements/ornate-bathroom-ceiling.jpg",
+          "/images/custom-interiors/architectural-elements/resort-archway-night.jpg",
+          "/images/custom-interiors/architectural-elements/luxury-ceiling-detail.jpg"
+        ]
+      },
+      {
+        "id": "custom-furniture",
+        "title": "Custom Furniture",
+        "description": "Bespoke furniture pieces, custom shelving, and built-in elements",
+        "images": [
+          "/images/custom-interiors/custom-furniture/bespoke-bedroom-furniture.jpg",
+          "/images/custom-interiors/custom-furniture/luxury-bathroom-vanity.jpg"
+        ]
+      },
+      {
+        "id": "materials",
+        "title": "Material Close-Ups",
+        "description": "Textures, finishes, and premium materials that define luxury spaces",
+        "images": [
+          "/images/custom-interiors/materials/white-brick-wall-texture.jpg",
+          "/images/custom-interiors/materials/marble-gold-bathroom.jpg",
+          "/images/custom-interiors/materials/luxury-wall-finish.jpg"
+        ]
+      },
+      {
+        "id": "design-details",
+        "title": "Design Details",
+        "description": "Decorative elements, styling touches, and exquisite details",
+        "images": [
+          "/images/custom-interiors/design-details/luxury-serving-detail.jpg",
+          "/images/custom-interiors/design-details/custom-drapery-detail.jpg",
+          "/images/custom-interiors/design-details/decorative-table-setting.jpg"
+        ]
+      }
+    ],
+    "categoryFilters": [
+      { "id": "all", "label": "All" },
+      { "id": "architectural-elements", "label": "Architectural", "href": "/custom-interiors/architectural-elements" },
+      { "id": "custom-furniture", "label": "Furniture", "href": "/custom-interiors/custom-furniture" },
+      { "id": "materials", "label": "Materials", "href": "/custom-interiors/materials" },
+      { "id": "design-details", "label": "Details", "href": "/custom-interiors/design-details" }
+    ],
+    "ctaImage": "/images/custom-interiors/design-details/custom-drapery-detail.jpg",
+    "ctaTitle": "Ready to highlight your craftsmanship?",
+    "ctaDescription": "Let's create stunning imagery that showcases the unique details and artistry of your custom interior work.",
+    "subcategories": {
+      "architectural-elements": {
+        "mainCategory": "Custom Interiors",
+        "subcategoryTitle": "Architectural Elements Photography",
+        "description": "Detailed photography capturing unique architectural features, from custom staircases and columns to decorative ceilings and structural design elements.",
+        "heroImage": "/images/custom-interiors/architectural-elements/resort-archway-night.jpg",
+        "approachTitle": "Celebrating Architectural Craftsmanship",
+        "approachDescription": "Nashray's architectural element photography honors the artistry and engineering behind bespoke design features. From hand-carved moldings to contemporary geometric staircases, we capture the details that define architectural excellence. Our approach emphasizes texture, scale, and the interplay of light and shadow that brings structural elements to life, creating portfolio-worthy images for architects, designers, and craftspeople who take pride in exceptional execution.",
+        "processTitle": "Precision Detail Documentation",
+        "processSteps": [
+          "Collaborative planning with architects and designers to identify signature elements and optimal shooting angles",
+          "Controlled lighting setups that enhance three-dimensional form, texture, and material quality",
+          "Multiple perspectives - wide establishing shots showing integration, and macro details revealing craftsmanship",
+          "Technical photography capturing structural innovation, material junctions, and construction precision",
+          "Specialized post-production maintaining architectural accuracy while enhancing visual drama and detail clarity"
+        ],
+        "impactTitle": "Portfolio Excellence That Wins Projects",
+        "impactDescription": "Our architectural element photography elevates design portfolios and marketing materials, helping architects and craftspeople showcase their expertise to high-value clients. These images become powerful sales tools - demonstrating technical capability, design innovation, and attention to quality that justifies premium pricing. Clients report that Nashray's detailed architectural photography helps them win 30-45% more bespoke commissions by clearly communicating their mastery of complex design challenges.",
+        "galleryImages": [
+          { "src": "/images/custom-interiors/architectural-elements/resort-archway-night.jpg", "alt": "Resort archway at night" },
+          { "src": "/images/custom-interiors/architectural-elements/arched-poolside-view.jpg", "alt": "Arched poolside view" },
+          { "src": "/images/custom-interiors/architectural-elements/luxury-ceiling-detail.jpg", "alt": "Luxury ceiling detail" },
+          { "src": "/images/custom-interiors/architectural-elements/ornate-bathroom-ceiling.jpg", "alt": "Ornate bathroom ceiling" },
+          { "src": "/images/custom/architectural-elements/pool-area-cityscape-view.jpg", "alt": "Pool area with cityscape architectural view" },
+          { "src": "/images/custom/architectural-elements/flame-towers-night-illuminated.jpg", "alt": "Architectural night illumination" }
+        ]
+      },
+      "custom-furniture": {
+        "mainCategory": "Custom Interiors",
+        "subcategoryTitle": "Custom Furniture Photography",
+        "description": "Exquisite photography of bespoke furniture pieces, showcasing craftsmanship, materials, and unique design in custom-made furnishings.",
+        "heroImage": "/images/custom-interiors/custom-furniture/bespoke-bedroom-furniture.jpg",
+        "approachTitle": "Artistry in Every Detail",
+        "approachDescription": "Nashray captures custom furniture as fine art - celebrating the vision of designers and the mastery of artisans who create one-of-a-kind pieces. Our photography reveals the story behind each piece: the grain of exotic woods, the precision of joinery, the luxurious feel of upholstery, and the functional beauty of bespoke design. We understand that custom furniture represents significant investment and artistic expression, deserving imagery that commands attention and conveys true value.",
+        "processTitle": "Showcasing Bespoke Excellence",
+        "processSteps": [
+          "Detailed consultation to understand design intent, unique features, and the narrative behind each custom piece",
+          "Studio-quality lighting setup emphasizing material textures, finish quality, and three-dimensional form",
+          "Multiple angles capturing both overall aesthetic and construction details - joinery, hardware, fabric work, and finishes",
+          "In-situ photography showing pieces in their intended environment, demonstrating scale and contextual harmony",
+          "Refined post-production highlighting material richness and craftsmanship without losing authentic character"
+        ],
+        "impactTitle": "Elevating Craftsmanship to Investment",
+        "impactDescription": "Our custom furniture photography transforms artisan work into sought-after collectibles. Furniture makers and interior designers using Nashray's imagery report 45-60% increases in high-value commissions, as clients immediately recognize the quality difference. These images become enduring portfolio pieces that justify premium pricing, attract design publication features, and establish makers as leaders in bespoke luxury furniture creation.",
+        "galleryImages": [
+          { "src": "/images/custom-interiors/custom-furniture/bespoke-bedroom-furniture.jpg", "alt": "Bespoke bedroom furniture" },
+          { "src": "/images/custom-interiors/custom-furniture/luxury-bathroom-vanity.jpg", "alt": "Luxury bathroom vanity" },
+          { "src": "/images/custom-interiors/custom-furniture/custom-salon-divider.jpg", "alt": "Custom salon divider" },
+          { "src": "/images/custom/custom-furniture/art-gallery-custom-seating.jpg", "alt": "Art gallery custom seating" },
+          { "src": "/images/custom/custom-furniture/horse-sculpture-restaurant-detail.jpg", "alt": "Custom restaurant sculpture detail" },
+          { "src": "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg", "alt": "Custom hotel lobby furniture" }
+        ]
+      },
+      "materials": {
+        "mainCategory": "Custom Interiors",
+        "subcategoryTitle": "Material Close-ups Photography",
+        "description": "Detailed macro photography highlighting textures, finishes, and material quality in interior design, from luxurious fabrics to natural stone and exotic woods.",
+        "heroImage": "/images/custom-interiors/materials/marble-gold-bathroom.jpg",
+        "approachTitle": "The Language of Luxury Materials",
+        "approachDescription": "Nashray's material photography speaks to the tactile and visual qualities that define luxury - the depth of hand-finished plaster, the veining in rare marble, the luster of silk upholstery, the warmth of exotic hardwoods. Our macro and detail work captures what makes premium materials worth their investment, creating images that communicate quality to discerning clients who appreciate the difference between standard and exceptional. This level of detail photography is essential for material suppliers, designers, and luxury brands.",
+        "processTitle": "Revealing Material Excellence",
+        "processSteps": [
+          "Specialized macro photography equipment capturing minute details, textures, and finish quality at high resolution",
+          "Controlled lighting techniques revealing three-dimensional texture, color depth, and material characteristics",
+          "Multiple exposures showcasing materials in different lighting conditions - natural, ambient, and dramatic",
+          "Focus stacking for maximum sharpness and detail throughout the frame, from surface texture to depth elements",
+          "Color-accurate post-production maintaining material authenticity while emphasizing luxury appeal and tactile qualities"
+        ],
+        "impactTitle": "Selling the Substance of Luxury",
+        "impactDescription": "Our material photography transforms specification sheets into compelling visual stories that close sales. Material suppliers and luxury brands using Nashray's imagery report that clients make confident purchasing decisions faster, reducing sales cycles by 25-35%. These images become essential marketing assets - demonstrating quality differences that justify premium pricing and helping clients visualize how materials will elevate their projects to exceptional status.",
+        "galleryImages": [
+          { "src": "/images/custom-interiors/materials/marble-gold-bathroom.jpg", "alt": "Marble and gold bathroom materials" },
+          { "src": "/images/custom-interiors/materials/luxury-wall-finish.jpg", "alt": "Luxury wall finish texture" },
+          { "src": "/images/custom-interiors/materials/ornate-upholstery-fabric.jpg", "alt": "Ornate upholstery fabric" },
+          { "src": "/images/custom-interiors/materials/white-brick-wall-texture.jpg", "alt": "White brick wall texture" },
+          { "src": "/images/custom-interiors/materials/luxury-drapery-detail.jpg", "alt": "Luxury drapery material detail" },
+          { "src": "/images/custom/material-closeups/material-texture-detail.jpg", "alt": "Material texture close-up detail" }
+        ]
+      },
+      "design-details": {
+        "mainCategory": "Custom Interiors",
+        "subcategoryTitle": "Design Details Photography",
+        "description": "Artistic close-up photography of design elements that make spaces unique, from hardware and fixtures to decorative accents and finishing touches.",
+        "heroImage": "/images/custom-interiors/design-details/gold-tableware-display.jpg",
+        "approachTitle": "The Devil Is in the Details",
+        "approachDescription": "Nashray understands that luxury lives in the details - the weight of a custom door handle, the precision of a lighting fixture, the artistry in decorative hardware, the finishing touches that separate exceptional from ordinary. Our detail photography elevates these elements from functional necessities to design statements, creating a visual language of quality that resonates with clients who expect perfection. These images tell the story of thoughtful design and meticulous execution.",
+        "processTitle": "Capturing Refined Excellence",
+        "processSteps": [
+          "Careful identification of signature details that define the space's character and quality level",
+          "Artistic lighting that creates drama while revealing the three-dimensional beauty of fixtures, hardware, and accents",
+          "Varied perspectives - intimate close-ups revealing craftsmanship and contextual shots showing integration within the design",
+          "Styling and composition that presents details as design features worthy of attention and appreciation",
+          "Artistic post-production emphasizing the luxury qualities - luster, texture, precision - that justify premium investment"
+        ],
+        "impactTitle": "Completing the Luxury Narrative",
+        "impactDescription": "Our design detail photography provides the finishing touches that luxury marketing demands. Interior designers and luxury brands using these images report that detail shots significantly enhance perceived value - clients who see this level of attention to quality are 40-50% more likely to approve higher budgets and premium specifications. These images become portfolio signatures that demonstrate a commitment to excellence in every aspect of design execution.",
+        "galleryImages": [
+          { "src": "/images/custom-interiors/design-details/gold-tableware-display.jpg", "alt": "Gold tableware display" },
+          { "src": "/images/custom-interiors/design-details/decorative-table-setting.jpg", "alt": "Decorative table setting" },
+          { "src": "/images/custom-interiors/design-details/luxury-serving-detail.jpg", "alt": "Luxury serving detail" },
+          { "src": "/images/custom-interiors/design-details/custom-drapery-detail.jpg", "alt": "Custom drapery detail" },
+          { "src": "/images/custom/design-details/luxury-chandelier-interior.jpg", "alt": "Luxury chandelier interior" },
+          { "src": "/images/custom/design-details/art-gallery-gold-framed-artwork.jpg", "alt": "Gold framed artwork detail" }
+        ]
+      }
+    }
+  }
+}
