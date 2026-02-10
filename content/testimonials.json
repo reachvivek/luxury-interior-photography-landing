@@ -1,0 +1,101 @@
+[
+  {
+    "id": "test-001",
+    "name": "Sarah Mitchell",
+    "role": "Interior Designer",
+    "company": "Luxe Interiors Dubai",
+    "quote": "Working with Nashray was honestly one of the best decisions we made for our portfolio. The photos came out stunning - they really captured the vibe we were going for. There was a slight delay in delivery but totally worth the wait! Our clients have been raving about the shots ever since.",
+    "image": "https://randomuser.me/api/portraits/women/44.jpg",
+    "rating": 5
+  },
+  {
+    "id": "test-002",
+    "name": "Ahmed Al-Rashid",
+    "role": "Property Developer",
+    "company": "Emirates Real Estate Group",
+    "quote": "Absolutely blown away by the quality. We've worked with several photographers before but these guys really understand luxury property photography. Had to reshoot one room due to lighting issue, but they were super professional about it and the final results exceeded our expectations.",
+    "image": "https://randomuser.me/api/portraits/men/32.jpg",
+    "rating": 5
+  },
+  {
+    "id": "test-003",
+    "name": "Jennifer Park",
+    "role": "Hotel Manager",
+    "company": "The Residence Collection",
+    "quote": "We needed photos for our new hotel launch and Nashray delivered beautifully. Communication was great throughout, though I wish we had more time for the shoot (our fault for tight deadline!). The images look incredible on our website and marketing materials.",
+    "image": "https://randomuser.me/api/portraits/women/68.jpg",
+    "rating": 5
+  },
+  {
+    "id": "test-004",
+    "name": "Marco Lombardi",
+    "role": "Architect",
+    "company": "Studio Architetti",
+    "quote": "Their eye for detail is impressive. They managed to capture the architectural elements exactly as I envisioned them. Sometimes they were a bit picky about angles and timing (waiting for perfect light), but I guess that's what makes the difference. Would definitely recommend for high-end projects.",
+    "image": "https://randomuser.me/api/portraits/men/57.jpg",
+    "rating": 4
+  },
+  {
+    "id": "test-005",
+    "name": "Priya Sharma",
+    "role": "Showroom Director",
+    "company": "Contemporary Living",
+    "quote": "We used their services for our new showroom opening and couldn't be happier! The photos really showcase our furniture collections perfectly. One small thing - wish they offered faster turnaround for social media content, but the quality makes up for it. Our Instagram engagement has doubled since posting these shots.",
+    "image": "https://randomuser.me/api/portraits/women/21.jpg",
+    "rating": 5
+  },
+  {
+    "id": "test-006",
+    "name": "David Chen",
+    "role": "Restaurant Owner",
+    "company": "Neon & Noir Dubai",
+    "quote": "Hired them for our restaurant interiors and they absolutely nailed the moody ambiance we wanted. There were some back-and-forth on editing style but they were patient and really listened to what we needed. The final photos look amazing on our website - exactly the aesthetic we were going for!",
+    "image": "https://randomuser.me/api/portraits/men/18.jpg",
+    "rating": 5
+  },
+  {
+    "id": "test-007",
+    "name": "Fatima Al-Zaabi",
+    "role": "Villa Owner",
+    "company": "Private Residence - Palm Jumeirah",
+    "quote": "I wanted to document our newly renovated villa before listing it and these guys did an amazing job! The photos look so professional, even better than I expected actually. Only took them like 2-3 hours to shoot the whole place which was impressive. My real estate agent said these are some of the best property photos she's seen in Dubai Marina area.",
+    "image": "https://randomuser.me/api/portraits/women/89.jpg",
+    "rating": 5
+  },
+  {
+    "id": "test-008",
+    "name": "Khalid bin Suleiman",
+    "role": "Managing Director",
+    "company": "Al Barari Developments",
+    "quote": "We've been working with Nashray for our luxury villa projects in Emirates Hills and honestly couldn't ask for better. They understand what high-end buyers in the UAE market are looking for. Communication is smooth, they show up on time (very important for us), and the final deliverables are always top quality. Highly recommend for any premium property development.",
+    "image": "https://randomuser.me/api/portraits/men/91.jpg",
+    "rating": 5
+  },
+  {
+    "id": "test-009",
+    "name": "Layla Hassan",
+    "role": "Boutique Owner",
+    "company": "Desert Rose Concept Store",
+    "quote": "Got them to shoot our new boutique in City Walk last month and the results were beautiful mashaAllah! The way they captured the lighting and our traditional mashrabiya screens was perfect. Took a bit longer than expected for editing (maybe 2 weeks?) but worth it. Already getting so many compliments on our Instagram from the photos!",
+    "image": "https://randomuser.me/api/portraits/women/95.jpg",
+    "rating": 4
+  },
+  {
+    "id": "test-010",
+    "name": "Omar Abdullah",
+    "role": "Investment Manager",
+    "company": "Gulf Capital Properties",
+    "quote": "We needed professional photography for our entire portfolio of properties across Business Bay and Downtown Dubai. Nashray team handled it really well - they were flexible with scheduling around tenant availability which was a big help. Photos came out sharp and professional, perfect for our investor presentations. One small thing, wish the initial quote included the drone shots separately so we knew the total cost upfront, but overall very satisfied with their work.",
+    "image": "https://randomuser.me/api/portraits/men/83.jpg",
+    "rating": 4
+  },
+  {
+    "id": "test-011",
+    "name": "Amira Youssef",
+    "role": "General Manager",
+    "company": "The Majlis Luxury Hotel & Spa",
+    "quote": "We commissioned them for our hotel's new wing photography and couldn't be happier with the outcome! The photos really showcase the Arabian-inspired design elements we worked so hard on. They were very professional, respectful of our guests' privacy during the shoot, and delivered everything on schedule. The images are now featured across all our booking platforms and we've definitely seen an increase in reservations. Excellent service from start to finish!",
+    "image": "https://randomuser.me/api/portraits/women/72.jpg",
+    "rating": 5
+  }
+]
