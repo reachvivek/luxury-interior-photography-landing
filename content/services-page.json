@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "title": "Our Services",
+    "subtitle": "Premium interior photography services tailored for architects, developers, and luxury brands across the UAE."
+  },
+  "services": [
+    {
+      "title": "Interior Photography",
+      "description": "Professional photography that captures the essence of your interior spaces with precision lighting and expert composition.",
+      "features": [
+        "High-resolution images",
+        "Professional lighting setups",
+        "Multiple angles and perspectives",
+        "Same-day delivery option available"
+      ],
+      "image": "/images/_DSC4745.jpg"
+    },
+    {
+      "title": "Architectural Photography",
+      "description": "Showcase your architectural projects with stunning imagery that highlights design details and spatial relationships.",
+      "features": [
+        "Exterior and interior shots",
+        "Drone photography available",
+        "Twilight photography",
+        "HDR processing"
+      ],
+      "image": "/images/_DSC7135.jpg"
+    },
+    {
+      "title": "Real Estate Photography",
+      "description": "Increase property appeal with professional photography designed to attract buyers and boost sales.",
+      "features": [
+        "Virtual staging available",
+        "360-degree virtual tours",
+        "Floorplan photography",
+        "Optimized for MLS listings"
+      ],
+      "image": "/images/_DSC4757.jpg"
+    },
+    {
+      "title": "Hospitality Photography",
+      "description": "Capture the ambiance and luxury of hotels, restaurants, and event spaces to attract guests and clients.",
+      "features": [
+        "Hotel room photography",
+        "Restaurant and bar photography",
+        "Event space documentation",
+        "Lifestyle photography"
+      ],
+      "image": "/images/_DSC6300.jpg"
+    }
+  ],
+  "cta": {
+    "title": "Ready to get started?",
+    "description": "Book a consultation to discuss your photography needs.",
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact"
+  }
+}

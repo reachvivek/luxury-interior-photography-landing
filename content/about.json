@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "About Nashray",
+    "subtitle": "Interiors photographed with precision, restraint, and editorial intent."
+  },
+  "story": {
+    "sectionLabel": "About the studio",
+    "title": "Spaces, translated.",
+    "paragraphs": [
+      "Nashray is a Dubai-based interior and architectural photography studio specializing in clarity, restraint, and timeless composition.",
+      "Every project begins with understanding the designer's intent\u2014the way light moves, how materials interact, what the space wants to say.",
+      "From residential interiors to hospitality spaces, the approach remains consistent: capture what matters, remove what doesn't."
+    ],
+    "image": "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg"
+  },
+  "philosophy": {
+    "sectionLabel": "Our philosophy",
+    "keywords": ["Intentional.", "Calm.", "Precise."],
+    "image": "/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg",
+    "processLabel": "The process",
+    "steps": [
+      {
+        "title": "Planning",
+        "description": "We study the space before shooting\u2014light angles, sightlines, designer intent."
+      },
+      {
+        "title": "Execution",
+        "description": "Precision in composition, natural light prioritized, minimal intervention."
+      },
+      {
+        "title": "Refinement",
+        "description": "Post-production focused on clarity\u2014enhancing what's there, removing distraction."
+      }
+    ],
+    "summary": "From penthouses to boutique hotels, the process balances natural light with architectural detail\u2014creating images that feel both editorial and authentic."
+  },
+  "specializations": {
+    "sectionLabel": "What we photograph",
+    "title": "Four specializations",
+    "items": [
+      {
+        "number": "01",
+        "title": "Residential",
+        "description": "How high-end homes should look in print\u2014composed, not styled.",
+        "image": "/images/residential/penthouses/modern-penthouse-living-room.jpg",
+        "href": "/residential"
+      },
+      {
+        "number": "02",
+        "title": "Hospitality",
+        "description": "Capturing atmosphere without artifice\u2014spaces that invite, not perform.",
+        "image": "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg",
+        "href": "/hospitality"
+      },
+      {
+        "number": "03",
+        "title": "Commercial",
+        "description": "Workspaces and retail interiors that balance function with refinement.",
+        "image": "/images/commercial/retail-stores/beauty-salon-interior-1.jpg",
+        "href": "/commercial"
+      },
+      {
+        "number": "04",
+        "title": "Custom Interiors",
+        "description": "Material close-ups and architectural details\u2014context removed, craft revealed.",
+        "image": "/images/custom/design-details/art-gallery-gold-framed-artwork.jpg",
+        "href": "/custom-interiors"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Let\u2019s discuss your space",
+    "description": "Share details about your project and we'll arrange a consultation.",
+    "buttonText": "Get in touch",
+    "buttonHref": "/contact"
+  }
+}

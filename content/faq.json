@@ -1,0 +1,99 @@
+{
+  "hero": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about working with Nashray."
+  },
+  "categories": [
+    {
+      "category": "General Questions",
+      "questions": [
+        {
+          "question": "What types of properties do you photograph?",
+          "answer": "We specialize in residential interiors (villas, penthouses, apartments), hospitality spaces (hotels, restaurants, resorts), commercial environments (offices, retail stores, showrooms), and custom interior details. Each project receives the same level of precision and editorial focus."
+        },
+        {
+          "question": "Where are you based and do you travel?",
+          "answer": "We're based in Dubai, UAE. We work throughout the Middle East and are available for international projects. Travel costs are calculated based on location and project scope."
+        },
+        {
+          "question": "How far in advance should I book?",
+          "answer": "We recommend booking 2-4 weeks in advance, though we can accommodate urgent requests when our schedule allows. For larger projects or specific dates, earlier booking is advisable."
+        }
+      ]
+    },
+    {
+      "category": "Process & Timeline",
+      "questions": [
+        {
+          "question": "What does your process look like?",
+          "answer": "Our process has three phases: Planning (site visit, light study, shot list), Execution (photography session with natural light prioritized), and Refinement (post-production focused on clarity and composition). Each phase ensures the final images reflect both the space and the designer's intent."
+        },
+        {
+          "question": "How long does a typical shoot take?",
+          "answer": "Most residential shoots take 3-5 hours. Larger properties or commercial spaces may require a full day or multiple sessions. We prioritize quality over speed\u2014rushing compromises the work."
+        },
+        {
+          "question": "When will I receive my photos?",
+          "answer": "Edited images are delivered within 7-10 business days for standard projects. Rush delivery is available for an additional fee. You'll receive a curated selection of high-resolution images, fully edited and ready for use."
+        }
+      ]
+    },
+    {
+      "category": "Pricing & Packages",
+      "questions": [
+        {
+          "question": "How is pricing structured?",
+          "answer": "Pricing depends on project scope, property size, location, and usage rights. We offer transparent quotes after an initial consultation. Contact us for a detailed proposal tailored to your needs."
+        },
+        {
+          "question": "Do you offer packages?",
+          "answer": "Yes. We have packages for residential, hospitality, and commercial projects. Custom packages are available for ongoing partnerships or large-scale developments. Get in touch to discuss what works best for your project."
+        },
+        {
+          "question": "What's included in the shoot?",
+          "answer": "All shoots include pre-shoot planning, on-site photography, professional editing, color correction, and high-resolution digital files. Usage rights and licensing are discussed based on your intended use."
+        }
+      ]
+    },
+    {
+      "category": "Preparation & Requirements",
+      "questions": [
+        {
+          "question": "How should I prepare the space?",
+          "answer": "The space should be clean, decluttered, and styled as you want it photographed. We can guide you on styling details during the planning phase. Natural light is preferred, so shoot timing is coordinated around optimal lighting conditions."
+        },
+        {
+          "question": "Do you provide styling services?",
+          "answer": "We focus on photography. If styling assistance is needed, we can recommend trusted interior stylists in Dubai. Our role is to capture the space as designed, with minimal intervention."
+        },
+        {
+          "question": "What if the weather is bad on shoot day?",
+          "answer": "For projects dependent on natural light, we'll reschedule if weather conditions compromise the shoot. Interior shoots are less affected, but we monitor forecasts and adjust timing when needed."
+        }
+      ]
+    },
+    {
+      "category": "Usage & Deliverables",
+      "questions": [
+        {
+          "question": "Can I use the photos for marketing?",
+          "answer": "Yes. Standard packages include usage rights for marketing, portfolios, websites, and social media. Commercial licensing for large-scale advertising or publications is discussed separately."
+        },
+        {
+          "question": "Will you credit my work?",
+          "answer": "Absolutely. We credit designers, architects, and developers when sharing work. We expect the same\u2014proper photographer credit ensures our work reaches the right audience."
+        },
+        {
+          "question": "Can I request specific shots?",
+          "answer": "Yes. During planning, we discuss priorities and must-have shots. While we work with a curated eye, client input is valued. The final shot list balances your vision with what works photographically."
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Still have questions?",
+    "description": "Get in touch and we'll answer any questions about your project.",
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact"
+  }
+}

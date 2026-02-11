@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to elevate your space with professional photography? Let\u2019s discuss your project."
+  },
+  "form": {
+    "title": "Send us a message",
+    "submitText": "Send Message via WhatsApp",
+    "projectTypes": ["Residential", "Hospitality", "Commercial", "Custom Interiors", "Other"]
+  },
+  "info": {
+    "title": "Contact Information",
+    "location": "Dubai, United Arab Emirates",
+    "whatsappNumber": "971502060674",
+    "instagramHandle": "dubai.tsurov"
+  },
+  "hours": {
+    "title": "Working Hours",
+    "schedule": [
+      "Monday - Friday: 9:00 AM - 6:00 PM",
+      "Saturday: 10:00 AM - 4:00 PM",
+      "Sunday: Closed"
+    ]
+  }
+}
