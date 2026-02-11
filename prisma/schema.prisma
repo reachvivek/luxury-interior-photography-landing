@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model ContentSection {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  section String @unique
+  data    Json
+
+  @@map("content_sections")
+}

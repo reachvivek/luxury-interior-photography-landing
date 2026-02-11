@@ -3,10 +3,16 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { testimonials } from "@/data/testimonials";
+import { testimonials as defaultTestimonials } from "@/data/testimonials";
 import { ANIMATION } from "@/constants/animation";
 
-export default function TestimonialsSection() {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+interface TestimonialsSectionProps {
+  testimonialsData?: any[];
+}
+
+export default function TestimonialsSection({ testimonialsData }: TestimonialsSectionProps) {
+  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : defaultTestimonials;
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {

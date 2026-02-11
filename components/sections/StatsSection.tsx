@@ -2,25 +2,24 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { STATS_CONFIG } from "@/data/stats";
+import { stats as defaultStats } from "@/data/stats";
 import { ANIMATION } from "@/constants/animation";
 
-const statItems = [
-  { key: "projects", label: "Projects Completed", suffix: "+" },
-  { key: "experience", label: "Years Experience", suffix: "+" },
-  { key: "properties", label: "Properties Photographed", suffix: "+" },
-  { key: "satisfaction", label: "Client Satisfaction", suffix: "%" },
-];
+interface StatItem {
+  label: string;
+  value: number;
+  suffix?: string;
+}
 
-export default function StatsSection() {
+interface StatsSectionProps {
+  statsData?: StatItem[];
+}
+
+export default function StatsSection({ statsData }: StatsSectionProps) {
+  const items: StatItem[] = statsData && statsData.length > 0 ? statsData : defaultStats;
   const [statsAnimated, setStatsAnimated] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
-  const [stats, setStats] = useState({
-    projects: 0,
-    experience: 0,
-    properties: 0,
-    satisfaction: 0
-  });
+  const [animatedValues, setAnimatedValues] = useState<number[]>(items.map(() => 0));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,15 +36,10 @@ export default function StatsSection() {
             step++;
             const progress = step / steps;
 
-            setStats({
-              projects: Math.floor(STATS_CONFIG.projects * progress),
-              experience: Math.floor(STATS_CONFIG.experience * progress),
-              properties: Math.floor(STATS_CONFIG.properties * progress),
-              satisfaction: Math.floor(STATS_CONFIG.satisfaction * progress)
-            });
+            setAnimatedValues(items.map((item) => Math.floor(item.value * progress)));
 
             if (step >= steps) {
-              setStats(STATS_CONFIG);
+              setAnimatedValues(items.map((item) => item.value));
               clearInterval(timer);
             }
           }, interval);
@@ -59,15 +53,15 @@ export default function StatsSection() {
     }
 
     return () => observer.disconnect();
-  }, [statsAnimated]);
+  }, [statsAnimated, items]);
 
   return (
     <section ref={statsRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 bg-stone-900">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          {statItems.map((item, index) => (
+          {items.map((item, index) => (
             <motion.div
-              key={item.key}
+              key={index}
               className="text-center"
               initial={{ opacity: 0, y: 40, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -85,7 +79,7 @@ export default function StatsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               >
-                {stats[item.key as keyof typeof stats]}{item.suffix}
+                {animatedValues[index]}{item.suffix || ""}
               </motion.div>
               <motion.div
                 className="text-xs md:text-sm text-stone-400 tracking-widest uppercase"

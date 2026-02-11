@@ -8,7 +8,6 @@ import {
   FolderOpen,
   FileText,
   MessageSquare,
-  Sparkles,
   BarChart3,
   Settings,
   LogOut,
@@ -24,12 +23,11 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/admin", icon: <LayoutDashboard className="w-5 h-5" /> },
-  { label: "Hero Slides", href: "/admin/hero", icon: <Image className="w-5 h-5" /> },
+  { label: "Services", href: "/admin/hero", icon: <Image className="w-5 h-5" /> },
   { label: "Gallery", href: "/admin/gallery", icon: <Images className="w-5 h-5" /> },
   { label: "Portfolio", href: "/admin/portfolio", icon: <FolderOpen className="w-5 h-5" /> },
   { label: "Blog / Journal", href: "/admin/blog", icon: <FileText className="w-5 h-5" /> },
   { label: "Testimonials", href: "/admin/testimonials", icon: <MessageSquare className="w-5 h-5" /> },
-  { label: "Services", href: "/admin/services", icon: <Sparkles className="w-5 h-5" /> },
   { label: "Stats & Features", href: "/admin/stats", icon: <BarChart3 className="w-5 h-5" /> },
   { label: "Settings", href: "/admin/settings", icon: <Settings className="w-5 h-5" /> },
 ];

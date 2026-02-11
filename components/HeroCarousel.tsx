@@ -4,9 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { HERO_SLIDES } from "@/constants/heroCarousel";
+import type { HeroSlide } from "@/constants/heroCarousel";
+import { HERO_SLIDES as DEFAULT_SLIDES } from "@/constants/heroCarousel";
 
-export default function HeroCarousel() {
+interface HeroCarouselProps {
+  slides?: HeroSlide[];
+}
+
+export default function HeroCarousel({ slides }: HeroCarouselProps) {
+  const HERO_SLIDES = slides && slides.length > 0 ? slides : DEFAULT_SLIDES;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [nextSlide, setNextSlide] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -89,7 +95,7 @@ export default function HeroCarousel() {
       {/* Current Image - Always visible when not animating */}
       <div className="absolute inset-0">
         <div key={`current-${currentSlide}`} className="relative w-full h-screen overflow-hidden">
-          <div className="w-full h-full animate-kenBurns">
+          <div className="relative w-full h-full animate-kenBurns">
             <Image
               src={current.image}
               alt={current.title}
@@ -112,7 +118,7 @@ export default function HeroCarousel() {
           }`}
         >
           <div key={`next-${nextSlide}`} className="relative w-full h-screen overflow-hidden">
-            <div className="w-full h-full animate-kenBurns">
+            <div className="relative w-full h-full animate-kenBurns">
               <Image
                 src={next.image}
                 alt={next.title}

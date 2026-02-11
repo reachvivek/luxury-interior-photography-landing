@@ -1,0 +1,23 @@
+{
+  "site": {
+    "name": "MyVisual.Space",
+    "description": "Exceptional interior photography capturing luxury, elegance, and detail. Specializing in residential, hospitality, commercial, and custom interior spaces in Dubai and the UAE.",
+    "url": "https://www.myvisual.space",
+    "locale": "en_US"
+  },
+  "contact": {
+    "whatsapp": "971502060674",
+    "instagram": "dubai.tsurov",
+    "location": "Dubai, United Arab Emirates"
+  },
+  "hours": {
+    "weekdays": "9:00 AM - 6:00 PM",
+    "saturday": "10:00 AM - 4:00 PM",
+    "sunday": "Closed"
+  },
+  "seo": {
+    "twitterHandle": "@myvisualspace",
+    "themeColor": "#1c1917",
+    "ogImage": "/images/og-image.jpg"
+  }
+}

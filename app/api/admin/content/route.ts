@@ -18,7 +18,8 @@ export async function GET(request: NextRequest) {
 
   // If no section specified, return list of available sections
   if (!section) {
-    return NextResponse.json({ sections: listSections() });
+    const sections = await listSections();
+    return NextResponse.json({ sections });
   }
 
   if (!isValidSection(section)) {
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const data = readContent(section);
+    const data = await readContent(section);
     return NextResponse.json({ section, data });
   } catch (error) {
     return NextResponse.json(
@@ -56,7 +57,7 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: "Missing data field" }, { status: 400 });
     }
 
-    writeContent(section, data);
+    await writeContent(section, data);
     return NextResponse.json({ success: true, section });
   } catch (error) {
     return NextResponse.json(
