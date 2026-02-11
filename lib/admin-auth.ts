@@ -1,21 +1,41 @@
 import crypto from "crypto";
+import { prisma } from "./prisma";
 
-const ADMIN_SECRET =
-  process.env.ADMIN_SECRET || "nashray-change-this-secret-in-env";
 const COOKIE_NAME = "admin_session";
 const SESSION_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 export { COOKIE_NAME, SESSION_DURATION_MS };
 
-export function generateSessionToken(): string {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+async function getAdminSecret(): Promise<string> {
+  try {
+    const record = await prisma.contentSection.findUnique({
+      where: { section: "admin-auth" },
+    });
+    const password = (record?.data as any)?.password;
+    if (password) {
+      return crypto.createHash("sha256").update(password).digest("hex");
+    }
+  } catch {
+    // fall through to default
+  }
+  return crypto
+    .createHash("sha256")
+    .update("nashray2024")
+    .digest("hex");
+}
+
+export async function generateSessionToken(): Promise<string> {
+  const secret = await getAdminSecret();
   const timestamp = Date.now().toString();
-  const hmac = crypto.createHmac("sha256", ADMIN_SECRET);
+  const hmac = crypto.createHmac("sha256", secret);
   hmac.update(timestamp);
   const signature = hmac.digest("hex");
   return `${timestamp}.${signature}`;
 }
 
-export function validateSessionToken(token: string): boolean {
+export async function validateSessionToken(token: string): Promise<boolean> {
   try {
     const parts = token.split(".");
     if (parts.length !== 2) return false;
@@ -28,7 +48,8 @@ export function validateSessionToken(token: string): boolean {
     if (isNaN(tokenAge) || tokenAge > SESSION_DURATION_MS) return false;
 
     // Verify HMAC signature
-    const hmac = crypto.createHmac("sha256", ADMIN_SECRET);
+    const secret = await getAdminSecret();
+    const hmac = crypto.createHmac("sha256", secret);
     hmac.update(timestamp);
     const expectedSignature = hmac.digest("hex");
 
@@ -41,12 +62,21 @@ export function validateSessionToken(token: string): boolean {
   }
 }
 
-export function verifyPassword(password: string): boolean {
-  const adminPassword = process.env.ADMIN_PASSWORD || "nashray2024";
-  // Constant-time comparison to prevent timing attacks
-  const inputBuffer = Buffer.from(password);
-  const expectedBuffer = Buffer.from(adminPassword);
+export async function verifyPassword(password: string): Promise<boolean> {
+  try {
+    const record = await prisma.contentSection.findUnique({
+      where: { section: "admin-auth" },
+    });
+    const adminPassword =
+      (record?.data as any)?.password || "nashray2024";
 
-  if (inputBuffer.length !== expectedBuffer.length) return false;
-  return crypto.timingSafeEqual(inputBuffer, expectedBuffer);
+    // Constant-time comparison to prevent timing attacks
+    const inputBuffer = Buffer.from(password);
+    const expectedBuffer = Buffer.from(adminPassword);
+
+    if (inputBuffer.length !== expectedBuffer.length) return false;
+    return crypto.timingSafeEqual(inputBuffer, expectedBuffer);
+  } catch {
+    return false;
+  }
 }

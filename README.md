@@ -18,6 +18,10 @@ Nashray is a premium interior photography portfolio website built with Next.js 1
 - **Framer Motion 12.23.26** - Animation library
 - **Lucide React** - Modern icon library
 
+### Database & CMS
+- **MongoDB Atlas** - Cloud database for content storage
+- **Prisma 6** - ORM for MongoDB (schema-driven, type-safe queries)
+
 ### Additional Libraries
 - **React Hook Form** - Form validation and management
 - **Vercel Analytics** - Performance and visitor analytics
@@ -90,6 +94,30 @@ tsurov-photography/
 ├── types/                        # TypeScript definitions
 │   └── index.ts                  # Global types
 │
+├── prisma/                       # Database schema
+│   └── schema.prisma             # MongoDB model definitions
+│
+├── content/                      # JSON content (seed data & fallbacks)
+│   ├── hero.json                 # Hero carousel content
+│   ├── gallery.json              # Gallery images
+│   ├── services.json             # Homepage services section
+│   ├── services-page.json        # /services page content
+│   ├── features.json             # Why Choose Us features
+│   ├── process.json              # How It Works steps
+│   ├── testimonials.json         # Client testimonials
+│   ├── stats.json                # Statistics counters
+│   ├── journal.json              # Blog/journal posts
+│   ├── portfolio.json            # All portfolio categories & subcategories
+│   ├── about.json                # About page content
+│   ├── contact.json              # Contact page content
+│   ├── faq.json                  # FAQ page content
+│   ├── settings.json             # Site-wide settings
+│   └── image-manifest.json       # Available images for admin picker
+│
+├── scripts/                      # Build & utility scripts
+│   ├── seed-mongodb.ts           # Seed MongoDB from JSON files
+│   └── generate-image-manifest.mjs  # Build image manifest for admin
+│
 ├── next.config.ts                # Next.js configuration
 ├── tailwind.config.ts            # Tailwind configuration
 └── tsconfig.json                 # TypeScript configuration
@@ -111,11 +139,15 @@ tsurov-photography/
 - **Responsive Design**: Mobile-first approach with tailored layouts for all screen sizes
 - **Performance Optimized**: Code splitting, lazy loading, and minimal JavaScript bundle
 
-### Content Management
-- **Centralized Data**: All content stored in typed data files for easy maintenance
-- **Reusable Components**: Card components for features, process steps, and journal posts
-- **Portfolio Categories**: Four main service categories with subcategory support
-- **Gallery System**: Dual-row infinite scroll galleries with 40 unique images
+### Content Management (Admin Panel)
+- **Admin Dashboard**: Password-protected admin panel at `/admin` for full content management
+- **MongoDB-Backed**: All public page content served from MongoDB Atlas via Prisma 6
+- **Real-Time Updates**: Edit content in admin panel → changes reflect immediately on the live site
+- **14 Content Sections**: Hero, gallery, services, features, process, testimonials, stats, journal, portfolio, about, contact, FAQ, services-page, settings
+- **Image Picker**: Browse and select from all repository images when editing content
+- **Portfolio Manager**: Edit all 4 categories and 15 subcategories with dedicated editors
+- **Blog/Journal Editor**: Create, edit, and manage blog posts with section-level editing
+- **Fallback System**: All pages gracefully fall back to hardcoded defaults if MongoDB is unavailable
 
 ## Application Flow
 
@@ -186,6 +218,9 @@ npm start
 Create a `.env.local` file in the root directory:
 
 ```env
+# MongoDB (Required - connects to MongoDB Atlas for content management)
+DATABASE_URL="mongodb+srv://<user>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority"
+
 # WhatsApp Configuration
 NEXT_PUBLIC_WHATSAPP=971502060674
 
@@ -197,6 +232,48 @@ NEXT_PUBLIC_DESIGNER_WHATSAPP=971501480042
 
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=https://nashray.com
+```
+
+> **Vercel Deployment**: Add `DATABASE_URL` as an environment variable in your Vercel project settings (Settings → Environment Variables). This is required for the admin panel and dynamic content to work in production. The admin password is stored in MongoDB (seeded as `nashray2024` by default).
+
+## Admin Panel
+
+### Access
+Navigate to `/admin` and log in with the configured password. The admin panel provides a collapsible sidebar with editors for every content section on the site.
+
+### Available Editors
+| Editor | Route | What It Controls |
+|--------|-------|-----------------|
+| Hero Carousel | `/admin/hero` | Homepage hero images, titles, subtitles, CTA buttons |
+| Gallery | `/admin/gallery` | Homepage gallery images with drag-to-reorder |
+| Stats | `/admin/stats` | Statistics counters (projects, clients, etc.) |
+| Testimonials | `/admin/testimonials` | Client reviews and testimonial cards |
+| Blog/Journal | `/admin/blog` | Blog posts with section-level content editing |
+| Portfolio | `/admin/portfolio` | All 4 categories and 15 subcategories |
+| Settings | `/admin/settings` | Site-wide settings (WhatsApp, Instagram, etc.) |
+
+### Architecture
+```
+Admin Panel Flow:
+Browser → /admin/login → HMAC-SHA256 session cookie
+       → /admin/* editors → API routes (/api/admin/content)
+       → Prisma 6 → MongoDB Atlas (content_sections collection)
+       → Public pages read from MongoDB on each request (SSR)
+
+Content Model (single collection):
+┌─────────────────────────────┐
+│ content_sections             │
+├─────────────────────────────┤
+│ _id      : ObjectId         │
+│ section  : String (unique)  │
+│ data     : JSON (flexible)  │
+└─────────────────────────────┘
+```
+
+### Seeding the Database
+To populate MongoDB with initial content from the JSON files:
+```bash
+npx tsx scripts/seed-mongodb.ts
 ```
 
 ## Configuration

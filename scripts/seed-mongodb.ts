@@ -29,7 +29,20 @@ async function main() {
     console.log(`  ✓ ${section} → ${result.id}`);
   }
 
-  console.log(`\nDone! Seeded ${files.length} sections into MongoDB.`);
+  // Seed admin credentials (only if not already present)
+  const existing = await prisma.contentSection.findUnique({
+    where: { section: "admin-auth" },
+  });
+  if (!existing) {
+    await prisma.contentSection.create({
+      data: { section: "admin-auth", data: { password: "nashray2024" } },
+    });
+    console.log(`  ✓ admin-auth (created with default password)`);
+  } else {
+    console.log(`  ✓ admin-auth (already exists, skipped)`);
+  }
+
+  console.log(`\nDone! Seeded ${files.length} content sections + admin auth into MongoDB.`);
 }
 
 main()

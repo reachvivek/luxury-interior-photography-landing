@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
 import { readContent, writeContent, isValidSection, listSections } from "@/lib/content";
 
-function isAuthenticated(request: NextRequest): boolean {
+async function isAuthenticated(request: NextRequest): Promise<boolean> {
   const cookie = request.cookies.get(COOKIE_NAME);
   if (!cookie?.value) return false;
   return validateSessionToken(cookie.value);
@@ -10,7 +10,7 @@ function isAuthenticated(request: NextRequest): boolean {
 
 // GET /api/admin/content?section=hero
 export async function GET(request: NextRequest) {
-  if (!isAuthenticated(request)) {
+  if (!(await isAuthenticated(request))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 
 // PUT /api/admin/content?section=hero
 export async function PUT(request: NextRequest) {
-  if (!isAuthenticated(request)) {
+  if (!(await isAuthenticated(request))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

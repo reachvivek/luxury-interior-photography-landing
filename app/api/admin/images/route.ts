@@ -3,7 +3,7 @@ import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
 import fs from "node:fs";
 import path from "node:path";
 
-function isAuthenticated(request: NextRequest): boolean {
+async function isAuthenticated(request: NextRequest): Promise<boolean> {
   const cookie = request.cookies.get(COOKIE_NAME);
   if (!cookie?.value) return false;
   return validateSessionToken(cookie.value);
@@ -56,7 +56,7 @@ function scanImages(): { images: string[]; grouped: Record<string, string[]>; to
 
 // GET /api/admin/images — List all images
 export async function GET(request: NextRequest) {
-  if (!isAuthenticated(request)) {
+  if (!(await isAuthenticated(request))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

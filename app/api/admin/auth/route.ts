@@ -20,14 +20,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!verifyPassword(password)) {
+    if (!(await verifyPassword(password))) {
       return NextResponse.json(
         { error: "Invalid password" },
         { status: 401 }
       );
     }
 
-    const token = generateSessionToken();
+    const token = await generateSessionToken();
     const response = NextResponse.json({ success: true });
 
     response.cookies.set(COOKIE_NAME, token, {
@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ authenticated: false }, { status: 401 });
   }
 
-  const isValid = validateSessionToken(sessionCookie.value);
+  const isValid = await validateSessionToken(sessionCookie.value);
 
   if (!isValid) {
     const response = NextResponse.json(

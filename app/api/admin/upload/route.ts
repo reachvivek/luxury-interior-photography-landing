@@ -3,7 +3,7 @@ import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
 import fs from "fs";
 import path from "path";
 
-function isAuthenticated(request: NextRequest): boolean {
+async function isAuthenticated(request: NextRequest): Promise<boolean> {
   const cookie = request.cookies.get(COOKIE_NAME);
   if (!cookie?.value) return false;
   return validateSessionToken(cookie.value);
@@ -11,7 +11,7 @@ function isAuthenticated(request: NextRequest): boolean {
 
 // POST /api/admin/upload — Upload image to public/images/{folder}
 export async function POST(request: NextRequest) {
-  if (!isAuthenticated(request)) {
+  if (!(await isAuthenticated(request))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
