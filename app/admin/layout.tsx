@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Panel | Nashray",
+  title: "Admin Panel | MyVisual.Space",
   robots: { index: false, follow: false },
 };
 

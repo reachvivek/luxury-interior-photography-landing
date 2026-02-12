@@ -86,6 +86,17 @@ export default function ServicesPage({ servicesData }: ServicesPageProps) {
                     </li>
                   ))}
                 </ul>
+                {service.href && (
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center gap-2 px-6 py-3 border border-stone-300 text-stone-700 hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all duration-300 text-xs font-normal tracking-widest uppercase rounded-full"
+                  >
+                    Explore
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                )}
               </div>
             </div>
           ))}

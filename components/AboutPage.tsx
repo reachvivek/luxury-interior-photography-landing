@@ -68,7 +68,7 @@ export default function AboutPage({ aboutData }: AboutPageProps) {
             >
               <Image
                 src={story.image}
-                alt="Interior photography by Nashray"
+                alt="Interior photography by MyVisual.Space"
                 fill
                 className="object-cover"
               />

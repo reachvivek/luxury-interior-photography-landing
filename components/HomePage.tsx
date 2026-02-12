@@ -435,7 +435,7 @@ export default function HomePage({
 
             {/* Brief Description */}
             <p className="text-base md:text-lg text-stone-600 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
-              Nashray specializes in architectural and interior photography, transforming spaces into refined visual narratives. We work with architects, developers, and luxury brands who demand excellence, creating imagery that elevates brands and drives results.
+              MyVisual.Space specializes in architectural and interior photography, transforming spaces into refined visual narratives. We work with architects, developers, and luxury brands who demand excellence, creating imagery that elevates brands and drives results.
             </p>
 
             {/* Read More Button */}
@@ -672,7 +672,7 @@ export default function HomePage({
                   width="100%"
                   height="100%"
                   src="https://www.youtube.com/embed/hQ0n9gxAAmc"
-                  title="Nashray Photography Showreel"
+                  title="MyVisual.Space Photography Showreel"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -808,8 +808,8 @@ export default function HomePage({
               <div className="mt-10 pt-8 border-t border-stone-200/50">
                 <p className="text-xs text-stone-500 text-center">
                   Or reach us directly at{' '}
-                  <a href="mailto:hello@nashray.com" className="text-stone-700 hover:text-stone-900 underline">
-                    hello@nashray.com
+                  <a href="mailto:hello@myvisual.space" className="text-stone-700 hover:text-stone-900 underline">
+                    hello@myvisual.space
                   </a>
                 </p>
               </div>

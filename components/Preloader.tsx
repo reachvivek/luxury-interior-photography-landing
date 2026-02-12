@@ -90,8 +90,8 @@ export default function Preloader() {
           <div className="logo-brand-container">
             <div className="logo-wrapper">
               <Image
-                src="/logo/LOGO-NASHRAY.png"
-                alt="NASHRAY"
+                src="/logo/myvisualspace_logo.png"
+                alt="MyVisual.Space"
                 width={120}
                 height={120}
                 priority
@@ -99,7 +99,7 @@ export default function Preloader() {
               />
             </div>
             <div className="brand-text">
-              <div className="preloader-brand">NASHRAY</div>
+              <div className="preloader-brand">MyVisual.Space</div>
               <h1 className="preloader-headline">
                 {tagline}
               </h1>

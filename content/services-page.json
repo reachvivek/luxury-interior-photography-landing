@@ -5,54 +5,57 @@
   },
   "services": [
     {
-      "title": "Interior Photography",
-      "description": "Professional photography that captures the essence of your interior spaces with precision lighting and expert composition.",
+      "title": "Residential Photography",
+      "description": "Capturing the warmth, elegance, and character of luxury homes. From grand villas to sleek penthouses and curated vacation rentals, we bring residential spaces to life through expert composition and natural light.",
       "features": [
-        "High-resolution images",
-        "Professional lighting setups",
-        "Multiple angles and perspectives",
-        "Same-day delivery option available"
+        "Luxury Villas",
+        "Apartments & Penthouses",
+        "Vacation Rentals"
       ],
-      "image": "/images/_DSC4745.jpg"
+      "image": "/images/residential/penthouses/modern-penthouse-living-room.jpg",
+      "href": "/residential"
     },
     {
-      "title": "Architectural Photography",
-      "description": "Showcase your architectural projects with stunning imagery that highlights design details and spatial relationships.",
+      "title": "Hotels & Hospitality",
+      "description": "Showcasing the ambiance and experience of hospitality spaces. We photograph hotels, resorts, restaurants, and event venues with an eye for atmosphere that drives bookings and elevates brand perception.",
       "features": [
-        "Exterior and interior shots",
-        "Drone photography available",
-        "Twilight photography",
-        "HDR processing"
+        "Hotel Suites",
+        "Resorts",
+        "Restaurants",
+        "Event Spaces"
       ],
-      "image": "/images/_DSC7135.jpg"
+      "image": "/images/hospitality/restaurants/art-gallery-dining-room.jpg",
+      "href": "/hospitality"
     },
     {
-      "title": "Real Estate Photography",
-      "description": "Increase property appeal with professional photography designed to attract buyers and boost sales.",
+      "title": "Commercial & Industry",
+      "description": "Professional imagery for commercial environments that attract clients, tenants, and talent. We capture offices, co-working spaces, retail stores, and showrooms with precision and clarity.",
       "features": [
-        "Virtual staging available",
-        "360-degree virtual tours",
-        "Floorplan photography",
-        "Optimized for MLS listings"
+        "Office Spaces",
+        "Co-working Spaces",
+        "Retail Stores",
+        "Showrooms"
       ],
-      "image": "/images/_DSC4757.jpg"
+      "image": "/images/commercial/coworking-spaces/cofiesto-cafe-full-view.jpg",
+      "href": "/commercial"
     },
     {
-      "title": "Hospitality Photography",
-      "description": "Capture the ambiance and luxury of hotels, restaurants, and event spaces to attract guests and clients.",
+      "title": "Custom Interiors",
+      "description": "Highlighting the artistry of bespoke design. From architectural details and custom furniture to material textures and design accents, we document the craftsmanship that makes spaces unique.",
       "features": [
-        "Hotel room photography",
-        "Restaurant and bar photography",
-        "Event space documentation",
-        "Lifestyle photography"
+        "Architectural Elements",
+        "Custom Furniture",
+        "Material Close-ups",
+        "Design Details"
       ],
-      "image": "/images/_DSC6300.jpg"
+      "image": "/images/custom/design-details/luxury-chandelier-interior.jpg",
+      "href": "/custom-interiors"
     }
   ],
   "cta": {
-    "title": "Ready to get started?",
-    "description": "Book a consultation to discuss your photography needs.",
-    "buttonText": "Contact Us",
+    "title": "Ready to elevate your spaces?",
+    "description": "Book a consultation to discuss your photography needs and discover how we can showcase your spaces.",
+    "buttonText": "Get in Touch",
     "buttonHref": "/contact"
   }
 }

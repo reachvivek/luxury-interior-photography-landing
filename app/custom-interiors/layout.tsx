@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'design details photography UAE',
   ],
   openGraph: {
-    title: 'Custom Interiors Photography | NASHRAY',
+    title: 'Custom Interiors Photography | MyVisual.Space',
     description:
       'Professional custom interiors photography - Architectural Elements, Custom Furniture, Materials, and Design Details.',
     images: ['/images/og-image.jpg'],

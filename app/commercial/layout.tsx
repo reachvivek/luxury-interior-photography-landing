@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'coworking space photography',
   ],
   openGraph: {
-    title: 'Commercial Photography | NASHRAY',
+    title: 'Commercial Photography | MyVisual.Space',
     description:
       'Professional commercial interior photography - Office Spaces, Retail Stores, Showrooms, and Coworking Spaces in Dubai and the UAE.',
     images: ['/images/og-image.jpg'],

@@ -73,7 +73,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
             <Menu className="w-5 h-5" />
           </button>
           <span className="ml-3 text-sm font-serif text-stone-200 tracking-wide">
-            Nashray Admin
+            MyVisual.Space Admin
           </span>
         </header>
 

@@ -3,22 +3,22 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about NASHRAY - Dubai-based luxury interior and architectural photography studio specializing in clarity, restraint, and timeless composition.',
+    'Learn about MyVisual.Space - Dubai-based luxury interior and architectural photography studio specializing in clarity, restraint, and timeless composition.',
   keywords: [
-    'about NASHRAY',
+    'about MyVisual.Space',
     'interior photography studio',
     'Dubai photographer',
     'architectural photography Dubai',
     'luxury photography studio UAE',
   ],
   openGraph: {
-    title: 'About Us | NASHRAY',
+    title: 'About Us | MyVisual.Space',
     description:
       'Dubai-based interior and architectural photography studio specializing in clarity, restraint, and timeless composition.',
     images: ['/images/og-image.jpg'],
   },
   twitter: {
-    title: 'About Us | NASHRAY',
+    title: 'About Us | MyVisual.Space',
     description:
       'Dubai-based interior and architectural photography studio specializing in clarity, restraint, and timeless composition.',
   },

@@ -13,6 +13,7 @@ import {
   LogOut,
   X,
   Camera,
+  Briefcase,
 } from "lucide-react";
 
 interface NavItem {
@@ -23,7 +24,8 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/admin", icon: <LayoutDashboard className="w-5 h-5" /> },
-  { label: "Services", href: "/admin/hero", icon: <Image className="w-5 h-5" /> },
+  { label: "Hero Slides", href: "/admin/hero", icon: <Image className="w-5 h-5" /> },
+  { label: "Services Page", href: "/admin/services-page", icon: <Briefcase className="w-5 h-5" /> },
   { label: "Gallery", href: "/admin/gallery", icon: <Images className="w-5 h-5" /> },
   { label: "Portfolio", href: "/admin/portfolio", icon: <FolderOpen className="w-5 h-5" /> },
   { label: "Blog / Journal", href: "/admin/blog", icon: <FileText className="w-5 h-5" /> },
@@ -103,7 +105,7 @@ export default function AdminSidebar({
               }`}
             >
               <p className="text-sm font-serif font-light text-stone-100 tracking-wide leading-tight whitespace-nowrap">
-                Nashray
+                MyVisual.Space
               </p>
               <p className="text-[9px] text-stone-500 uppercase tracking-[0.2em] font-sans whitespace-nowrap">
                 Admin

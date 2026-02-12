@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'luxury home photography UAE',
   ],
   openGraph: {
-    title: 'Residential Photography | NASHRAY',
+    title: 'Residential Photography | MyVisual.Space',
     description:
       'Professional residential interior photography - Villas, Penthouses, Apartments, and Vacation Rentals in Dubai and the UAE.',
     images: ['/images/og-image.jpg'],

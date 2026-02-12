@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Blog & Insights',
   description:
-    'Explore insights on interior photography, architectural photography techniques, design trends, and the art of capturing exceptional spaces by NASHRAY.',
+    'Explore insights on interior photography, architectural photography techniques, design trends, and the art of capturing exceptional spaces by MyVisual.Space.',
   keywords: [
     'interior photography blog',
     'architectural photography tips',
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     'luxury photography journal',
   ],
   openGraph: {
-    title: 'Blog & Insights | NASHRAY',
+    title: 'Blog & Insights | MyVisual.Space',
     description:
       'Explore insights on interior photography, architectural photography techniques, and the art of capturing exceptional spaces.',
     images: ['/images/og-image.jpg'],
   },
   twitter: {
-    title: 'Blog & Insights | NASHRAY',
+    title: 'Blog & Insights | MyVisual.Space',
     description:
       'Explore insights on interior photography, architectural photography techniques, and the art of capturing exceptional spaces.',
   },

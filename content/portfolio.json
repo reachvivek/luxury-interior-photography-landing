@@ -51,9 +51,9 @@
     ],
     "categoryFilters": [
       { "id": "all", "label": "All" },
-      { "id": "villas", "label": "Villas", "href": "/residential/villas" },
-      { "id": "apartments-penthouses", "label": "Apartments & Penthouses", "href": "/residential/apartments-penthouses" },
-      { "id": "vacation-rentals", "label": "Vacation Rentals", "href": "/residential/vacation-rentals" }
+      { "id": "villas", "label": "Villas", "href": "/residential/luxury-villas-photography-dubai" },
+      { "id": "apartments-penthouses", "label": "Apartments & Penthouses", "href": "/residential/apartments-penthouses-photography-dubai" },
+      { "id": "vacation-rentals", "label": "Vacation Rentals", "href": "/residential/vacation-rentals-photography-dubai" }
     ],
     "ctaImage": "/images/residential/villas/luxury-villa-patio-view.jpg",
     "ctaTitle": "Ready to showcase your property?",
@@ -118,7 +118,7 @@
         "description": "Specialized photography for Airbnb and vacation rental properties that drives bookings, showcasing lifestyle amenities, location highlights, and guest experiences that convert browsers into bookers.",
         "heroImage": "/images/residential/villas/luxury-villa-patio-view.jpg",
         "approachTitle": "Booking-Driven Photography for Short-Term Rentals",
-        "approachDescription": "Vacation rental photography differs fundamentally from traditional real estate photography - it sells experiences, not just spaces. Nashray understands what drives Airbnb and vacation rental bookings: lifestyle imagery showing how guests will live, comprehensive amenity coverage demonstrating value, location context highlighting convenience, and aspirational moments that create emotional connections. Our photography answers the question 'What will my stay be like?' before guests even arrive, directly impacting your booking rates and nightly rates.",
+        "approachDescription": "Vacation rental photography differs fundamentally from traditional real estate photography - it sells experiences, not just spaces. MyVisual.Space understands what drives Airbnb and vacation rental bookings: lifestyle imagery showing how guests will live, comprehensive amenity coverage demonstrating value, location context highlighting convenience, and aspirational moments that create emotional connections. Our photography answers the question 'What will my stay be like?' before guests even arrive, directly impacting your booking rates and nightly rates.",
         "processTitle": "Complete Coverage for Maximum Bookings",
         "processSteps": [
           "Strategic shot list development covering all listing essentials: hero images, room details, amenities, outdoor spaces, views, neighborhood context, and unique features that differentiate your property.",
@@ -128,7 +128,7 @@
           "Platform-optimized delivery with images sized and formatted specifically for Airbnb, Booking.com, and vacation rental sites - including vertical shots for mobile browsing where 80% of bookings originate."
         ],
         "impactTitle": "Proven ROI for Property Owners and Managers",
-        "impactDescription": "Professional vacation rental photography delivers measurable returns. Properties using Nashray's imagery report 40-65% increases in booking inquiries, 25-35% higher nightly rates supported by premium positioning, and 50% reduction in time-to-booking as quality visuals build immediate guest confidence. For property managers handling multiple listings, our efficient workflow and consistent quality across portfolios create a professional brand that commands premium positioning on all platforms. Investment in professional photography typically returns 300-500% in the first year through increased bookings and rate optimization.",
+        "impactDescription": "Professional vacation rental photography delivers measurable returns. Properties using MyVisual.Space's imagery report 40-65% increases in booking inquiries, 25-35% higher nightly rates supported by premium positioning, and 50% reduction in time-to-booking as quality visuals build immediate guest confidence. For property managers handling multiple listings, our efficient workflow and consistent quality across portfolios create a professional brand that commands premium positioning on all platforms. Investment in professional photography typically returns 300-500% in the first year through increased bookings and rate optimization.",
         "galleryImages": [
           { "src": "/images/residential/villas/luxury-villa-patio-view.jpg", "alt": "Luxury villa patio with outdoor living" },
           { "src": "/images/residential/villas/luxury-villa-grand-entrance.jpg", "alt": "Vacation rental grand entrance" },
@@ -204,10 +204,10 @@
     ],
     "categoryFilters": [
       { "id": "all", "label": "All" },
-      { "id": "hotel-suites", "label": "Hotels", "href": "/hospitality/hotel-suites" },
-      { "id": "resorts", "label": "Resorts", "href": "/hospitality/resorts" },
-      { "id": "restaurants", "label": "Restaurants", "href": "/hospitality/restaurants" },
-      { "id": "event-spaces", "label": "Event Spaces", "href": "/hospitality/event-spaces" }
+      { "id": "hotel-suites", "label": "Hotels", "href": "/hospitality/hotel-suites-photography-dubai" },
+      { "id": "resorts", "label": "Resorts", "href": "/hospitality/resorts-photography-dubai" },
+      { "id": "restaurants", "label": "Restaurants", "href": "/hospitality/restaurants-photography-dubai" },
+      { "id": "event-spaces", "label": "Event Spaces", "href": "/hospitality/event-spaces-photography-dubai" }
     ],
     "ctaImage": "/images/hospitality/restaurants/art-gallery-dining-room.jpg",
     "ctaTitle": "Ready to showcase your venue?",
@@ -219,7 +219,7 @@
         "description": "Elegant photography capturing the luxury and comfort of hotel suites, from boutique rooms to presidential suites with world-class amenities.",
         "heroImage": "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg",
         "approachTitle": "Luxury Hospitality Reimagined",
-        "approachDescription": "Nashray's hotel suite photography transforms rooms into destinations, capturing the indulgent experience that drives bookings and justifies premium rates. We go beyond standard room documentation to showcase the emotional journey guests crave - from the welcoming ambiance of thoughtfully designed spaces to the exquisite details that define five-star hospitality. Whether capturing intimate boutique suites or sprawling presidential accommodations, our imagery tells a story of escape, comfort, and memorable experiences that resonate with luxury travelers worldwide.",
+        "approachDescription": "MyVisual.Space's hotel suite photography transforms rooms into destinations, capturing the indulgent experience that drives bookings and justifies premium rates. We go beyond standard room documentation to showcase the emotional journey guests crave - from the welcoming ambiance of thoughtfully designed spaces to the exquisite details that define five-star hospitality. Whether capturing intimate boutique suites or sprawling presidential accommodations, our imagery tells a story of escape, comfort, and memorable experiences that resonate with luxury travelers worldwide.",
         "processTitle": "Crafting Your Guest Experience Story",
         "processSteps": [
           "Detailed briefing to understand your property's unique positioning, signature amenities, and target guest demographics",
@@ -229,7 +229,7 @@
           "Professional editing that enhances the aspirational quality while maintaining authentic representation of your offerings"
         ],
         "impactTitle": "Driving Direct Bookings and Revenue",
-        "impactDescription": "Professional hotel photography directly impacts your revenue per available room. Properties featuring Nashray's imagery see 70% higher engagement on booking platforms and 50% increases in direct website bookings. Our photography reduces dependency on OTA commissions by creating compelling reasons for guests to book directly. Luxury properties using our imagery command 15-25% rate premiums and achieve higher guest satisfaction scores, as expectations align perfectly with the actual experience.",
+        "impactDescription": "Professional hotel photography directly impacts your revenue per available room. Properties featuring MyVisual.Space's imagery see 70% higher engagement on booking platforms and 50% increases in direct website bookings. Our photography reduces dependency on OTA commissions by creating compelling reasons for guests to book directly. Luxury properties using our imagery command 15-25% rate premiums and achieve higher guest satisfaction scores, as expectations align perfectly with the actual experience.",
         "galleryImages": [
           { "src": "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg", "alt": "Luxury resort lobby entrance" },
           { "src": "/images/hospitality/hotel-suites/hotel-lobby-colorful-sofas.jpg", "alt": "Hotel lobby with colorful sofas" },
@@ -245,7 +245,7 @@
         "description": "Breathtaking resort photography capturing the essence of luxury destinations, from beachfront paradises to mountain retreats, showcasing both grand amenities and intimate guest experiences.",
         "heroImage": "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg",
         "approachTitle": "Capturing Paradise and Possibility",
-        "approachDescription": "Resort photography transcends simple documentation - it sells dreams, escapes, and transformative experiences. Nashray captures the complete resort narrative: stunning architecture harmonizing with natural surroundings, world-class amenities that define luxury, and those perfect moments that make destinations unforgettable. From sunrise over infinity pools to sunset dining terraces, we create imagery that drives bookings and positions your resort as the ultimate destination for discerning travelers seeking exceptional experiences.",
+        "approachDescription": "Resort photography transcends simple documentation - it sells dreams, escapes, and transformative experiences. MyVisual.Space captures the complete resort narrative: stunning architecture harmonizing with natural surroundings, world-class amenities that define luxury, and those perfect moments that make destinations unforgettable. From sunrise over infinity pools to sunset dining terraces, we create imagery that drives bookings and positions your resort as the ultimate destination for discerning travelers seeking exceptional experiences.",
         "processTitle": "Comprehensive Resort Coverage",
         "processSteps": [
           "Multi-day shooting capturing golden hour magic, day and evening ambiance, seasonal variations, and diverse weather conditions that showcase your resort's year-round appeal",
@@ -255,7 +255,7 @@
           "Detail work highlighting luxury finishes, resort amenities, culinary presentations, and those small touches that differentiate five-star properties"
         ],
         "impactTitle": "Driving Direct Bookings and Premium Rates",
-        "impactDescription": "Professional resort photography directly impacts revenue by reducing dependency on OTAs, supporting premium pricing strategies, and driving direct bookings. Resorts featuring Nashray's imagery report 45-60% increases in direct website bookings, 30% higher conversion rates, and the ability to command 15-20% rate premiums. Our photography becomes the cornerstone of integrated marketing campaigns across social media, print advertising, and partnership materials that establish your resort as a bucket-list destination.",
+        "impactDescription": "Professional resort photography directly impacts revenue by reducing dependency on OTAs, supporting premium pricing strategies, and driving direct bookings. Resorts featuring MyVisual.Space's imagery report 45-60% increases in direct website bookings, 30% higher conversion rates, and the ability to command 15-20% rate premiums. Our photography becomes the cornerstone of integrated marketing campaigns across social media, print advertising, and partnership materials that establish your resort as a bucket-list destination.",
         "galleryImages": [
           { "src": "/images/hospitality/hotel-suites/beachfront-resort-architecture.jpg", "alt": "Beachfront resort architecture" },
           { "src": "/images/hospitality/hotel-suites/modern-resort-exterior-sunset.jpg", "alt": "Modern resort exterior at sunset" },
@@ -271,7 +271,7 @@
         "description": "Stunning restaurant photography that captures the ambiance, design, and culinary atmosphere of fine dining establishments and casual eateries.",
         "heroImage": "/images/hospitality/restaurants/salt-restaurant-outdoor-terrace-1.jpg",
         "approachTitle": "Where Ambiance Meets Appetite",
-        "approachDescription": "Nashray's restaurant photography goes beyond capturing beautiful interiors - we create visual invitations that make diners crave the experience. Understanding that restaurants sell atmosphere as much as cuisine, our approach emphasizes mood lighting, intimate table settings, and the unique personality that defines each establishment. From Michelin-starred fine dining to trendy casual eateries, we capture the sensory experience that drives reservations and social media buzz.",
+        "approachDescription": "MyVisual.Space's restaurant photography goes beyond capturing beautiful interiors - we create visual invitations that make diners crave the experience. Understanding that restaurants sell atmosphere as much as cuisine, our approach emphasizes mood lighting, intimate table settings, and the unique personality that defines each establishment. From Michelin-starred fine dining to trendy casual eateries, we capture the sensory experience that drives reservations and social media buzz.",
         "processTitle": "The Full Dining Experience",
         "processSteps": [
           "Comprehensive venue walkthrough during service hours to understand flow, lighting transitions, and signature design elements",
@@ -281,7 +281,7 @@
           "Color grading that enhances warmth and appetite appeal while maintaining authentic representation of your brand"
         ],
         "impactTitle": "Driving Bookings and Social Engagement",
-        "impactDescription": "Our restaurant photography transforms marketing materials into powerful booking drivers. Restaurants featuring Nashray's imagery see 60-80% increases in social media engagement, with images regularly shared by diners and influencers. More importantly, these visuals translate to measurable business results - 25-40% increases in online reservations and enhanced ability to command premium pricing for special events and private bookings.",
+        "impactDescription": "Our restaurant photography transforms marketing materials into powerful booking drivers. Restaurants featuring MyVisual.Space's imagery see 60-80% increases in social media engagement, with images regularly shared by diners and influencers. More importantly, these visuals translate to measurable business results - 25-40% increases in online reservations and enhanced ability to command premium pricing for special events and private bookings.",
         "galleryImages": [
           { "src": "/images/hospitality/restaurants/salt-restaurant-outdoor-terrace-1.jpg", "alt": "Salt restaurant outdoor terrace" },
           { "src": "/images/hospitality/restaurants/salt-restaurant-terrace-view.jpg", "alt": "Salt restaurant terrace view" },
@@ -297,7 +297,7 @@
         "description": "Professional photography of event venues and spaces, showcasing versatile settings for weddings, conferences, and special occasions.",
         "heroImage": "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg",
         "approachTitle": "Spaces That Inspire Celebrations",
-        "approachDescription": "Nashray captures event spaces in their most aspirational light - showing not just empty venues, but the promise of unforgettable moments. Our photography tells the story of transformation potential, whether it's an intimate wedding, corporate gala, or destination conference. We emphasize versatility, capacity, and the unique atmosphere that makes planners and hosts choose your venue over competitors, capturing both grand scale and intimate details.",
+        "approachDescription": "MyVisual.Space captures event spaces in their most aspirational light - showing not just empty venues, but the promise of unforgettable moments. Our photography tells the story of transformation potential, whether it's an intimate wedding, corporate gala, or destination conference. We emphasize versatility, capacity, and the unique atmosphere that makes planners and hosts choose your venue over competitors, capturing both grand scale and intimate details.",
         "processTitle": "Showcasing Every Occasion",
         "processSteps": [
           "Multi-configuration shoots showing versatility - ceremony setups, cocktail receptions, banquet configurations, and conference arrangements",
@@ -307,7 +307,7 @@
           "Post-production that enhances the 'blank canvas' appeal while showcasing the venue's distinct character and atmosphere"
         ],
         "impactTitle": "Converting Inquiries to Bookings",
-        "impactDescription": "Our event space photography directly impacts venue booking rates by helping planners envision their perfect event. Venues showcasing Nashray's imagery report 50-65% increases in qualified inquiries and 35% higher conversion rates from site visits to bookings. By presenting spaces that inspire emotional connections and practical confidence, we help venues command premium pricing and secure high-value corporate contracts and destination weddings.",
+        "impactDescription": "Our event space photography directly impacts venue booking rates by helping planners envision their perfect event. Venues showcasing MyVisual.Space's imagery report 50-65% increases in qualified inquiries and 35% higher conversion rates from site visits to bookings. By presenting spaces that inspire emotional connections and practical confidence, we help venues command premium pricing and secure high-value corporate contracts and destination weddings.",
         "galleryImages": [
           { "src": "/images/hospitality/event-spaces/beach-wedding-pavilion.jpg", "alt": "Beach wedding pavilion" },
           { "src": "/images/hospitality/event-spaces/lake-resort-panoramic-view-1.jpg", "alt": "Lake resort panoramic view" },
@@ -375,10 +375,10 @@
     ],
     "categoryFilters": [
       { "id": "all", "label": "All" },
-      { "id": "office-spaces", "label": "Office Spaces", "href": "/commercial/office-spaces" },
-      { "id": "coworking-spaces", "label": "Co-working Spaces", "href": "/commercial/coworking-spaces" },
-      { "id": "retail-stores", "label": "Retail Stores", "href": "/commercial/retail-stores" },
-      { "id": "showrooms", "label": "Showrooms", "href": "/commercial/showrooms" }
+      { "id": "office-spaces", "label": "Office Spaces", "href": "/commercial/office-spaces-photography-dubai" },
+      { "id": "coworking-spaces", "label": "Co-working Spaces", "href": "/commercial/coworking-spaces-photography-dubai" },
+      { "id": "retail-stores", "label": "Retail Stores", "href": "/commercial/retail-stores-photography-dubai" },
+      { "id": "showrooms", "label": "Showrooms", "href": "/commercial/showrooms-photography-dubai" }
     ],
     "ctaImage": "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg",
     "ctaTitle": "Ready to elevate your brand?",
@@ -390,7 +390,7 @@
         "description": "Professional office photography showcasing modern workspaces, executive offices, and collaborative environments designed for productivity and innovation.",
         "heroImage": "/images/commercial/office-spaces/modern-commercial-building-night.jpg",
         "approachTitle": "Corporate Excellence in Every Frame",
-        "approachDescription": "Nashray's office photography goes beyond standard documentation to capture the innovative spirit and professional culture that defines modern workplaces. We specialize in telling your company's story through imagery that showcases not just the physical space, but the collaboration, innovation, and prestige it represents. From sleek executive suites to dynamic open-plan environments, our photography attracts top talent and impresses clients by visually communicating your organization's values and commitment to employee experience.",
+        "approachDescription": "MyVisual.Space's office photography goes beyond standard documentation to capture the innovative spirit and professional culture that defines modern workplaces. We specialize in telling your company's story through imagery that showcases not just the physical space, but the collaboration, innovation, and prestige it represents. From sleek executive suites to dynamic open-plan environments, our photography attracts top talent and impresses clients by visually communicating your organization's values and commitment to employee experience.",
         "processTitle": "Showcasing Your Professional Environment",
         "processSteps": [
           "Comprehensive walkthrough to identify key spaces, brand elements, and architectural highlights",
@@ -400,7 +400,7 @@
           "Post-production enhancement maintaining professional authenticity while optimizing visual impact for marketing materials"
         ],
         "impactTitle": "Attracting Talent and Clients",
-        "impactDescription": "Professional office photography delivers measurable ROI through multiple channels. Companies using Nashray's office imagery in recruitment materials report 45% higher application rates from qualified candidates. Commercial real estate listings featuring our photography lease 30% faster and command rental premiums, while corporate websites with professional workspace imagery see significantly improved client conversion rates and longer visitor engagement.",
+        "impactDescription": "Professional office photography delivers measurable ROI through multiple channels. Companies using MyVisual.Space's office imagery in recruitment materials report 45% higher application rates from qualified candidates. Commercial real estate listings featuring our photography lease 30% faster and command rental premiums, while corporate websites with professional workspace imagery see significantly improved client conversion rates and longer visitor engagement.",
         "galleryImages": [
           { "src": "/images/commercial/office-spaces/modern-commercial-building-night.jpg", "alt": "Modern commercial building at night" },
           { "src": "/images/commercial/coworking-spaces/modern-workspace-lounge-seating.jpg", "alt": "Modern workspace lounge seating" },
@@ -416,7 +416,7 @@
         "description": "Dynamic photography of collaborative co-working environments, hot desks, private booths, and community spaces that inspire creativity and connection.",
         "heroImage": "/images/commercial/coworking-spaces/cofiesto-cafe-full-view.jpg",
         "approachTitle": "Community and Productivity in Harmony",
-        "approachDescription": "Nashray captures the unique energy of coworking spaces by balancing the dual narrative of professional productivity and vibrant community. Our photography highlights the versatility of these environments - from focused quiet zones to collaborative hubs - while showcasing the design elements that attract remote workers, freelancers, and startups. We understand that coworking photography must communicate flexibility, connectivity, and the lifestyle advantages that differentiate your space from traditional offices and home setups.",
+        "approachDescription": "MyVisual.Space captures the unique energy of coworking spaces by balancing the dual narrative of professional productivity and vibrant community. Our photography highlights the versatility of these environments - from focused quiet zones to collaborative hubs - while showcasing the design elements that attract remote workers, freelancers, and startups. We understand that coworking photography must communicate flexibility, connectivity, and the lifestyle advantages that differentiate your space from traditional offices and home setups.",
         "processTitle": "Bringing Your Community to Life",
         "processSteps": [
           "Site analysis identifying diverse work zones, amenity areas, and architectural features that define your brand",
@@ -426,7 +426,7 @@
           "Dynamic editing that conveys the vibrant, entrepreneurial atmosphere while maintaining professional polish"
         ],
         "impactTitle": "Driving Membership Growth",
-        "impactDescription": "Our coworking space photography directly impacts occupancy rates and membership conversion. Spaces featuring Nashray's imagery consistently see 50-70% increases in virtual tour engagement and 40% higher conversion rates from inquiry to membership. By visually communicating the community vibe, amenity quality, and professional environment, we help operators attract the right members and justify premium pricing in competitive markets.",
+        "impactDescription": "Our coworking space photography directly impacts occupancy rates and membership conversion. Spaces featuring MyVisual.Space's imagery consistently see 50-70% increases in virtual tour engagement and 40% higher conversion rates from inquiry to membership. By visually communicating the community vibe, amenity quality, and professional environment, we help operators attract the right members and justify premium pricing in competitive markets.",
         "galleryImages": [
           { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-full-view.jpg", "alt": "Coworking cafe full view" },
           { "src": "/images/commercial/coworking-spaces/cofiesto-cafe-wide-interior.jpg", "alt": "Wide coworking interior" },
@@ -442,7 +442,7 @@
         "description": "Captivating retail photography that highlights store layouts, product displays, and shopping experiences from boutiques to flagship stores.",
         "heroImage": "/images/commercial/retail-stores/beauty-salon-interior-1.jpg",
         "approachTitle": "Transforming Browsers into Buyers",
-        "approachDescription": "Nashray's retail photography captures the shopping experience your customers crave before they even walk through the door. We go beyond basic storefront documentation to create compelling visual stories that showcase your merchandising expertise, brand aesthetic, and customer journey. From intimate boutique atmospheres to expansive flagship locations, our images drive foot traffic by conveying the quality, curation, and unique shopping experience that sets your retail space apart in a crowded marketplace.",
+        "approachDescription": "MyVisual.Space's retail photography captures the shopping experience your customers crave before they even walk through the door. We go beyond basic storefront documentation to create compelling visual stories that showcase your merchandising expertise, brand aesthetic, and customer journey. From intimate boutique atmospheres to expansive flagship locations, our images drive foot traffic by conveying the quality, curation, and unique shopping experience that sets your retail space apart in a crowded marketplace.",
         "processTitle": "Showcasing Your Retail Vision",
         "processSteps": [
           "Consultation to understand brand identity, target demographics, and key seasonal merchandise displays",
@@ -452,7 +452,7 @@
           "Editing that enhances product colors, lighting ambiance, and visual appeal while maintaining authentic representation"
         ],
         "impactTitle": "Increasing Foot Traffic and Sales",
-        "impactDescription": "Professional retail photography delivers direct impact on your bottom line. Stores using Nashray's imagery in their marketing materials experience 55% higher engagement on social media and 35% more in-store visits from online discovery. Our photography helps boutiques and specialty retailers compete with e-commerce by showcasing the tactile, experiential advantages of in-person shopping, resulting in higher conversion rates and increased average transaction values.",
+        "impactDescription": "Professional retail photography delivers direct impact on your bottom line. Stores using MyVisual.Space's imagery in their marketing materials experience 55% higher engagement on social media and 35% more in-store visits from online discovery. Our photography helps boutiques and specialty retailers compete with e-commerce by showcasing the tactile, experiential advantages of in-person shopping, resulting in higher conversion rates and increased average transaction values.",
         "galleryImages": [
           { "src": "/images/commercial/retail-stores/beauty-salon-interior-1.jpg", "alt": "Beauty salon interior" },
           { "src": "/images/commercial/retail-stores/hair-salon-wide-angle.jpg", "alt": "Hair salon wide angle" },
@@ -468,7 +468,7 @@
         "description": "Professional showroom photography showcasing product displays, automotive showrooms, furniture galleries, and design exhibitions in their best light.",
         "heroImage": "/images/residential/villas/luxury-villa-with-porsche.jpg",
         "approachTitle": "Prestige Products Presented Flawlessly",
-        "approachDescription": "Nashray's showroom photography elevates product presentation to an art form, whether showcasing luxury automobiles, designer furniture, or architectural materials. We understand that showrooms are theater - every display is carefully curated to inspire desire and communicate quality. Our photography captures the aspirational essence of your products while highlighting the immersive brand experience your showroom provides. From dramatic automotive reveals to elegant furniture vignettes, we create imagery that drives qualified buyers through your doors.",
+        "approachDescription": "MyVisual.Space's showroom photography elevates product presentation to an art form, whether showcasing luxury automobiles, designer furniture, or architectural materials. We understand that showrooms are theater - every display is carefully curated to inspire desire and communicate quality. Our photography captures the aspirational essence of your products while highlighting the immersive brand experience your showroom provides. From dramatic automotive reveals to elegant furniture vignettes, we create imagery that drives qualified buyers through your doors.",
         "processTitle": "Perfecting Product Presentation",
         "processSteps": [
           "Detailed planning session to understand featured products, brand positioning, and target clientele",
@@ -478,7 +478,7 @@
           "Meticulous post-production ensuring accurate color representation and luxurious visual appeal"
         ],
         "impactTitle": "Converting Browsers to Buyers",
-        "impactDescription": "Professional showroom photography accelerates the sales cycle by pre-qualifying prospects and building desire before the first visit. Automotive showrooms using Nashray's imagery report 60% more qualified appointments, while furniture and design showrooms see 45% longer customer dwell time and significantly higher conversion rates. Our photography becomes a powerful sales tool across digital marketing, print catalogs, and social media, establishing your showroom as the premier destination for discerning buyers.",
+        "impactDescription": "Professional showroom photography accelerates the sales cycle by pre-qualifying prospects and building desire before the first visit. Automotive showrooms using MyVisual.Space's imagery report 60% more qualified appointments, while furniture and design showrooms see 45% longer customer dwell time and significantly higher conversion rates. Our photography becomes a powerful sales tool across digital marketing, print catalogs, and social media, establishing your showroom as the premier destination for discerning buyers.",
         "galleryImages": [
           { "src": "/images/residential/villas/luxury-villa-with-porsche.jpg", "alt": "Luxury automotive showroom" },
           { "src": "/images/hospitality/hotel-suites/luxury-resort-lobby-entrance.jpg", "alt": "Modern showroom entrance" },
@@ -546,10 +546,10 @@
     ],
     "categoryFilters": [
       { "id": "all", "label": "All" },
-      { "id": "architectural-elements", "label": "Architectural", "href": "/custom-interiors/architectural-elements" },
-      { "id": "custom-furniture", "label": "Furniture", "href": "/custom-interiors/custom-furniture" },
-      { "id": "materials", "label": "Materials", "href": "/custom-interiors/materials" },
-      { "id": "design-details", "label": "Details", "href": "/custom-interiors/design-details" }
+      { "id": "architectural-elements", "label": "Architectural", "href": "/custom-interiors/architectural-elements-photography-dubai" },
+      { "id": "custom-furniture", "label": "Furniture", "href": "/custom-interiors/custom-furniture-photography-dubai" },
+      { "id": "materials", "label": "Materials", "href": "/custom-interiors/material-closeups-photography-dubai" },
+      { "id": "design-details", "label": "Details", "href": "/custom-interiors/design-details-photography-dubai" }
     ],
     "ctaImage": "/images/custom-interiors/design-details/custom-drapery-detail.jpg",
     "ctaTitle": "Ready to highlight your craftsmanship?",
@@ -561,7 +561,7 @@
         "description": "Detailed photography capturing unique architectural features, from custom staircases and columns to decorative ceilings and structural design elements.",
         "heroImage": "/images/custom-interiors/architectural-elements/resort-archway-night.jpg",
         "approachTitle": "Celebrating Architectural Craftsmanship",
-        "approachDescription": "Nashray's architectural element photography honors the artistry and engineering behind bespoke design features. From hand-carved moldings to contemporary geometric staircases, we capture the details that define architectural excellence. Our approach emphasizes texture, scale, and the interplay of light and shadow that brings structural elements to life, creating portfolio-worthy images for architects, designers, and craftspeople who take pride in exceptional execution.",
+        "approachDescription": "MyVisual.Space's architectural element photography honors the artistry and engineering behind bespoke design features. From hand-carved moldings to contemporary geometric staircases, we capture the details that define architectural excellence. Our approach emphasizes texture, scale, and the interplay of light and shadow that brings structural elements to life, creating portfolio-worthy images for architects, designers, and craftspeople who take pride in exceptional execution.",
         "processTitle": "Precision Detail Documentation",
         "processSteps": [
           "Collaborative planning with architects and designers to identify signature elements and optimal shooting angles",
@@ -571,7 +571,7 @@
           "Specialized post-production maintaining architectural accuracy while enhancing visual drama and detail clarity"
         ],
         "impactTitle": "Portfolio Excellence That Wins Projects",
-        "impactDescription": "Our architectural element photography elevates design portfolios and marketing materials, helping architects and craftspeople showcase their expertise to high-value clients. These images become powerful sales tools - demonstrating technical capability, design innovation, and attention to quality that justifies premium pricing. Clients report that Nashray's detailed architectural photography helps them win 30-45% more bespoke commissions by clearly communicating their mastery of complex design challenges.",
+        "impactDescription": "Our architectural element photography elevates design portfolios and marketing materials, helping architects and craftspeople showcase their expertise to high-value clients. These images become powerful sales tools - demonstrating technical capability, design innovation, and attention to quality that justifies premium pricing. Clients report that MyVisual.Space's detailed architectural photography helps them win 30-45% more bespoke commissions by clearly communicating their mastery of complex design challenges.",
         "galleryImages": [
           { "src": "/images/custom-interiors/architectural-elements/resort-archway-night.jpg", "alt": "Resort archway at night" },
           { "src": "/images/custom-interiors/architectural-elements/arched-poolside-view.jpg", "alt": "Arched poolside view" },
@@ -587,7 +587,7 @@
         "description": "Exquisite photography of bespoke furniture pieces, showcasing craftsmanship, materials, and unique design in custom-made furnishings.",
         "heroImage": "/images/custom-interiors/custom-furniture/bespoke-bedroom-furniture.jpg",
         "approachTitle": "Artistry in Every Detail",
-        "approachDescription": "Nashray captures custom furniture as fine art - celebrating the vision of designers and the mastery of artisans who create one-of-a-kind pieces. Our photography reveals the story behind each piece: the grain of exotic woods, the precision of joinery, the luxurious feel of upholstery, and the functional beauty of bespoke design. We understand that custom furniture represents significant investment and artistic expression, deserving imagery that commands attention and conveys true value.",
+        "approachDescription": "MyVisual.Space captures custom furniture as fine art - celebrating the vision of designers and the mastery of artisans who create one-of-a-kind pieces. Our photography reveals the story behind each piece: the grain of exotic woods, the precision of joinery, the luxurious feel of upholstery, and the functional beauty of bespoke design. We understand that custom furniture represents significant investment and artistic expression, deserving imagery that commands attention and conveys true value.",
         "processTitle": "Showcasing Bespoke Excellence",
         "processSteps": [
           "Detailed consultation to understand design intent, unique features, and the narrative behind each custom piece",
@@ -597,7 +597,7 @@
           "Refined post-production highlighting material richness and craftsmanship without losing authentic character"
         ],
         "impactTitle": "Elevating Craftsmanship to Investment",
-        "impactDescription": "Our custom furniture photography transforms artisan work into sought-after collectibles. Furniture makers and interior designers using Nashray's imagery report 45-60% increases in high-value commissions, as clients immediately recognize the quality difference. These images become enduring portfolio pieces that justify premium pricing, attract design publication features, and establish makers as leaders in bespoke luxury furniture creation.",
+        "impactDescription": "Our custom furniture photography transforms artisan work into sought-after collectibles. Furniture makers and interior designers using MyVisual.Space's imagery report 45-60% increases in high-value commissions, as clients immediately recognize the quality difference. These images become enduring portfolio pieces that justify premium pricing, attract design publication features, and establish makers as leaders in bespoke luxury furniture creation.",
         "galleryImages": [
           { "src": "/images/custom-interiors/custom-furniture/bespoke-bedroom-furniture.jpg", "alt": "Bespoke bedroom furniture" },
           { "src": "/images/custom-interiors/custom-furniture/luxury-bathroom-vanity.jpg", "alt": "Luxury bathroom vanity" },
@@ -613,7 +613,7 @@
         "description": "Detailed macro photography highlighting textures, finishes, and material quality in interior design, from luxurious fabrics to natural stone and exotic woods.",
         "heroImage": "/images/custom-interiors/materials/marble-gold-bathroom.jpg",
         "approachTitle": "The Language of Luxury Materials",
-        "approachDescription": "Nashray's material photography speaks to the tactile and visual qualities that define luxury - the depth of hand-finished plaster, the veining in rare marble, the luster of silk upholstery, the warmth of exotic hardwoods. Our macro and detail work captures what makes premium materials worth their investment, creating images that communicate quality to discerning clients who appreciate the difference between standard and exceptional. This level of detail photography is essential for material suppliers, designers, and luxury brands.",
+        "approachDescription": "MyVisual.Space's material photography speaks to the tactile and visual qualities that define luxury - the depth of hand-finished plaster, the veining in rare marble, the luster of silk upholstery, the warmth of exotic hardwoods. Our macro and detail work captures what makes premium materials worth their investment, creating images that communicate quality to discerning clients who appreciate the difference between standard and exceptional. This level of detail photography is essential for material suppliers, designers, and luxury brands.",
         "processTitle": "Revealing Material Excellence",
         "processSteps": [
           "Specialized macro photography equipment capturing minute details, textures, and finish quality at high resolution",
@@ -623,7 +623,7 @@
           "Color-accurate post-production maintaining material authenticity while emphasizing luxury appeal and tactile qualities"
         ],
         "impactTitle": "Selling the Substance of Luxury",
-        "impactDescription": "Our material photography transforms specification sheets into compelling visual stories that close sales. Material suppliers and luxury brands using Nashray's imagery report that clients make confident purchasing decisions faster, reducing sales cycles by 25-35%. These images become essential marketing assets - demonstrating quality differences that justify premium pricing and helping clients visualize how materials will elevate their projects to exceptional status.",
+        "impactDescription": "Our material photography transforms specification sheets into compelling visual stories that close sales. Material suppliers and luxury brands using MyVisual.Space's imagery report that clients make confident purchasing decisions faster, reducing sales cycles by 25-35%. These images become essential marketing assets - demonstrating quality differences that justify premium pricing and helping clients visualize how materials will elevate their projects to exceptional status.",
         "galleryImages": [
           { "src": "/images/custom-interiors/materials/marble-gold-bathroom.jpg", "alt": "Marble and gold bathroom materials" },
           { "src": "/images/custom-interiors/materials/luxury-wall-finish.jpg", "alt": "Luxury wall finish texture" },
@@ -639,7 +639,7 @@
         "description": "Artistic close-up photography of design elements that make spaces unique, from hardware and fixtures to decorative accents and finishing touches.",
         "heroImage": "/images/custom-interiors/design-details/gold-tableware-display.jpg",
         "approachTitle": "The Devil Is in the Details",
-        "approachDescription": "Nashray understands that luxury lives in the details - the weight of a custom door handle, the precision of a lighting fixture, the artistry in decorative hardware, the finishing touches that separate exceptional from ordinary. Our detail photography elevates these elements from functional necessities to design statements, creating a visual language of quality that resonates with clients who expect perfection. These images tell the story of thoughtful design and meticulous execution.",
+        "approachDescription": "MyVisual.Space understands that luxury lives in the details - the weight of a custom door handle, the precision of a lighting fixture, the artistry in decorative hardware, the finishing touches that separate exceptional from ordinary. Our detail photography elevates these elements from functional necessities to design statements, creating a visual language of quality that resonates with clients who expect perfection. These images tell the story of thoughtful design and meticulous execution.",
         "processTitle": "Capturing Refined Excellence",
         "processSteps": [
           "Careful identification of signature details that define the space's character and quality level",

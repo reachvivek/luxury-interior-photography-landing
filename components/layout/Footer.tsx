@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-white rounded-md p-0 shadow-sm w-[50px] h-[50px] overflow-hidden flex items-center justify-center">
                 <Image
-                  src="/favicon.svg"
+                  src="/logo/myvisualspace_logo.png"
                   alt={SEO_CONFIG.siteName}
                   width={50}
                   height={50}

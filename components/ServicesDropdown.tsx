@@ -9,39 +9,39 @@ const servicesData = [
     title: "Residential",
     href: "/residential",
     subcategories: [
-      { title: "Luxury Villas", href: "/residential/villas" },
-      { title: "Apartments & Penthouses", href: "/residential/apartments-penthouses" },
-      { title: "Vacation Rentals", href: "/residential/vacation-rentals" }
+      { title: "Luxury Villas", href: "/residential/luxury-villas-photography-dubai" },
+      { title: "Apartments & Penthouses", href: "/residential/apartments-penthouses-photography-dubai" },
+      { title: "Vacation Rentals", href: "/residential/vacation-rentals-photography-dubai" }
     ]
   },
   {
     title: "Hotels & Hospitality",
     href: "/hospitality",
     subcategories: [
-      { title: "Hotel Suites", href: "/hospitality/hotel-suites" },
-      { title: "Resorts", href: "/hospitality/resorts" },
-      { title: "Restaurants", href: "/hospitality/restaurants" },
-      { title: "Event Spaces", href: "/hospitality/event-spaces" }
+      { title: "Hotel Suites", href: "/hospitality/hotel-suites-photography-dubai" },
+      { title: "Resorts", href: "/hospitality/resorts-photography-dubai" },
+      { title: "Restaurants", href: "/hospitality/restaurants-photography-dubai" },
+      { title: "Event Spaces", href: "/hospitality/event-spaces-photography-dubai" }
     ]
   },
   {
     title: "Commercial & Industry",
     href: "/commercial",
     subcategories: [
-      { title: "Office Spaces", href: "/commercial/office-spaces" },
-      { title: "Co-working Spaces", href: "/commercial/coworking-spaces" },
-      { title: "Retail Stores", href: "/commercial/retail-stores" },
-      { title: "Showrooms", href: "/commercial/showrooms" }
+      { title: "Office Spaces", href: "/commercial/office-spaces-photography-dubai" },
+      { title: "Co-working Spaces", href: "/commercial/coworking-spaces-photography-dubai" },
+      { title: "Retail Stores", href: "/commercial/retail-stores-photography-dubai" },
+      { title: "Showrooms", href: "/commercial/showrooms-photography-dubai" }
     ]
   },
   {
     title: "Custom Interiors",
     href: "/custom-interiors",
     subcategories: [
-      { title: "Architectural Elements", href: "/custom-interiors/architectural-elements" },
-      { title: "Custom Furniture", href: "/custom-interiors/custom-furniture" },
-      { title: "Material Close-ups", href: "/custom-interiors/materials" },
-      { title: "Design Details", href: "/custom-interiors/design-details" }
+      { title: "Architectural Elements", href: "/custom-interiors/architectural-elements-photography-dubai" },
+      { title: "Custom Furniture", href: "/custom-interiors/custom-furniture-photography-dubai" },
+      { title: "Material Close-ups", href: "/custom-interiors/material-closeups-photography-dubai" },
+      { title: "Design Details", href: "/custom-interiors/design-details-photography-dubai" }
     ]
   }
 ];

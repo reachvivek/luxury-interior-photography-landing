@@ -32,9 +32,9 @@ const FALLBACK = {
   ],
   categoryFilters: [
     { id: "all", label: "All" },
-    { id: "villas", label: "Villas", href: "/residential/villas" },
-    { id: "apartments-penthouses", label: "Apartments & Penthouses", href: "/residential/apartments-penthouses" },
-    { id: "vacation-rentals", label: "Vacation Rentals", href: "/residential/vacation-rentals" },
+    { id: "villas", label: "Villas", href: "/residential/luxury-villas-photography-dubai" },
+    { id: "apartments-penthouses", label: "Apartments & Penthouses", href: "/residential/apartments-penthouses-photography-dubai" },
+    { id: "vacation-rentals", label: "Vacation Rentals", href: "/residential/vacation-rentals-photography-dubai" },
   ],
   ctaImage: "/images/residential/villas/luxury-villa-patio-view.jpg",
   ctaTitle: "Ready to showcase your property?",

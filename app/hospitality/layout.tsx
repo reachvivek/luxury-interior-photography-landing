@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'event space photography',
   ],
   openGraph: {
-    title: 'Hospitality Photography | NASHRAY',
+    title: 'Hospitality Photography | MyVisual.Space',
     description:
       'Professional hospitality photography - Hotels, Restaurants, Resorts, and Event Spaces in Dubai and the UAE.',
     images: ['/images/og-image.jpg'],

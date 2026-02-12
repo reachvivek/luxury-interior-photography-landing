@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
             <Camera className="w-8 h-8 text-stone-300" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-serif font-light text-stone-100 tracking-wide">
-            Nashray
+            MyVisual.Space
           </h1>
           <p className="mt-2 text-sm text-stone-500 tracking-widest uppercase font-sans">
             Admin Panel
