@@ -10,6 +10,9 @@ import {
   Phone,
   Clock,
   Search,
+  Cloud,
+  Eye,
+  EyeOff,
 } from "lucide-react";
 
 interface SiteSettings {
@@ -102,8 +105,18 @@ function Field({
   );
 }
 
+interface CloudinarySettings {
+  cloudName: string;
+  apiKey: string;
+  apiSecret: string;
+}
+
+const DEFAULT_CLOUDINARY: CloudinarySettings = { cloudName: "", apiKey: "", apiSecret: "" };
+
 export default function SettingsAdminPage() {
   const [settings, setSettings] = useState<SiteSettings>(DEFAULT_SETTINGS);
+  const [cloudinary, setCloudinary] = useState<CloudinarySettings>(DEFAULT_CLOUDINARY);
+  const [showSecrets, setShowSecrets] = useState(false);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -111,12 +124,13 @@ export default function SettingsAdminPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/api/admin/content?section=settings")
-      .then((r) => r.json())
-      .then((res) => {
-        if (res.data) {
-          setSettings({ ...DEFAULT_SETTINGS, ...res.data });
-        }
+    Promise.all([
+      fetch("/api/admin/content?section=settings").then((r) => r.json()),
+      fetch("/api/admin/content?section=cloudinary").then((r) => r.json()),
+    ])
+      .then(([settingsRes, cloudinaryRes]) => {
+        if (settingsRes.data) setSettings({ ...DEFAULT_SETTINGS, ...settingsRes.data });
+        if (cloudinaryRes.data) setCloudinary({ ...DEFAULT_CLOUDINARY, ...cloudinaryRes.data });
         setLoading(false);
       })
       .catch(() => {
@@ -133,12 +147,19 @@ export default function SettingsAdminPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const res = await fetch("/api/admin/content?section=settings", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data: settings }),
-      });
-      if (!res.ok) throw new Error("Save failed");
+      const [res1, res2] = await Promise.all([
+        fetch("/api/admin/content?section=settings", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: settings }),
+        }),
+        fetch("/api/admin/content?section=cloudinary", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: cloudinary }),
+        }),
+      ]);
+      if (!res1.ok || !res2.ok) throw new Error("Save failed");
       setHasChanges(false);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
@@ -323,6 +344,47 @@ export default function SettingsAdminPage() {
             onChange={(v) => update("seo", "ogImage", v)}
             placeholder="/images/og-image.jpg"
           />
+        </SectionCard>
+
+        {/* Cloudinary */}
+        <SectionCard
+          icon={<Cloud className="w-4 h-4" />}
+          title="Cloudinary (Image Storage)"
+        >
+          <Field
+            label="Cloud Name"
+            value={cloudinary.cloudName}
+            onChange={(v) => { setCloudinary((p) => ({ ...p, cloudName: v })); markChanged(); }}
+            placeholder="your-cloud-name"
+          />
+          <Field
+            label="API Key"
+            value={cloudinary.apiKey}
+            onChange={(v) => { setCloudinary((p) => ({ ...p, apiKey: v })); markChanged(); }}
+            placeholder="123456789012345"
+          />
+          <div>
+            <label className="text-xs text-stone-500 mb-1 block">API Secret</label>
+            <div className="relative">
+              <input
+                type={showSecrets ? "text" : "password"}
+                value={cloudinary.apiSecret}
+                onChange={(e) => { setCloudinary((p) => ({ ...p, apiSecret: e.target.value })); markChanged(); }}
+                placeholder="••••••••••••••••••••"
+                className="w-full text-sm text-stone-300 bg-stone-800/50 border border-stone-700/40 rounded-lg px-3 py-2 pr-10 focus:border-stone-500 focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => setShowSecrets(!showSecrets)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-300 transition-colors"
+              >
+                {showSecrets ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
+            </div>
+          </div>
+          <p className="text-xs text-stone-600">
+            Credentials are stored securely in the database and cached for 5 minutes.
+          </p>
         </SectionCard>
       </div>
     </div>

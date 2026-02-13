@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
-import cloudinary, { CLOUDINARY_FOLDER } from "@/lib/cloudinary";
+import { getConfiguredCloudinary, CLOUDINARY_FOLDER } from "@/lib/cloudinary";
 
 async function isAuthenticated(request: NextRequest): Promise<boolean> {
   const cookie = request.cookies.get(COOKIE_NAME);
@@ -48,6 +48,7 @@ export async function POST(request: NextRequest) {
     const base64 = `data:${file.type};base64,${buffer.toString("base64")}`;
 
     // Upload to Cloudinary
+    const cloudinary = await getConfiguredCloudinary();
     const result = await cloudinary.uploader.upload(base64, {
       folder: `${CLOUDINARY_FOLDER}/${sanitizedFolder}`,
       resource_type: "image",

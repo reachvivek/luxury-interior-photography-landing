@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
 import fs from "node:fs";
 import path from "node:path";
-import cloudinary, { CLOUDINARY_FOLDER } from "@/lib/cloudinary";
+import { getConfiguredCloudinary, CLOUDINARY_FOLDER } from "@/lib/cloudinary";
 
 async function isAuthenticated(request: NextRequest): Promise<boolean> {
   const cookie = request.cookies.get(COOKIE_NAME);
@@ -61,6 +61,7 @@ async function getCloudinaryImages(): Promise<{ images: string[]; grouped: Recor
   const grouped: Record<string, string[]> = {};
 
   try {
+    const cloudinary = await getConfiguredCloudinary();
     let nextCursor: string | undefined;
     do {
       const result = await cloudinary.api.resources({
