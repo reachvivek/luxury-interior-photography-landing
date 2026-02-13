@@ -5,11 +5,15 @@ import {
   MessageSquare,
   Loader2,
   Trash2,
+  Pencil,
+  Check,
+  X,
   ChevronLeft,
   ChevronRight,
   RefreshCw,
   ExternalLink,
 } from "lucide-react";
+import { useToast } from "@/components/shared/Toast";
 
 interface CommentUser {
   id: string;
@@ -37,7 +41,11 @@ export default function AdminCommentsPage() {
   const [data, setData] = useState<CommentsResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const [deleting, setDeleting] = useState<string | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editContent, setEditContent] = useState("");
+  const [actionLoading, setActionLoading] = useState<string | null>(null);
+  const [deleteId, setDeleteId] = useState<string | null>(null);
+  const { showToast } = useToast();
 
   const fetchComments = useCallback(async () => {
     setLoading(true);
@@ -53,14 +61,38 @@ export default function AdminCommentsPage() {
     fetchComments();
   }, [fetchComments]);
 
-  const handleDelete = async (id: string) => {
-    if (!confirm("Delete this comment? This cannot be undone.")) return;
-    setDeleting(id);
+  const handleEdit = async (id: string) => {
+    if (!editContent.trim()) return;
+    setActionLoading(id);
     try {
-      const res = await fetch(`/api/admin/comments?id=${id}`, { method: "DELETE" });
-      if (res.ok) fetchComments();
+      const res = await fetch("/api/admin/comments", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, content: editContent.trim() }),
+      });
+      if (res.ok) {
+        setEditingId(null);
+        setEditContent("");
+        fetchComments();
+        showToast("Comment updated");
+      }
     } finally {
-      setDeleting(null);
+      setActionLoading(null);
+    }
+  };
+
+  const confirmDelete = async () => {
+    if (!deleteId) return;
+    setActionLoading(deleteId);
+    try {
+      const res = await fetch(`/api/admin/comments?id=${deleteId}`, { method: "DELETE" });
+      if (res.ok) {
+        fetchComments();
+        showToast("Comment deleted");
+      }
+    } finally {
+      setActionLoading(null);
+      setDeleteId(null);
     }
   };
 
@@ -132,10 +164,39 @@ export default function AdminCommentsPage() {
                     </div>
                   </div>
 
-                  {/* Comment content */}
-                  <p className="text-sm text-stone-300 leading-relaxed mb-3">
-                    {comment.content}
-                  </p>
+                  {/* Comment content — editable or static */}
+                  {editingId === comment.id ? (
+                    <div className="mb-3">
+                      <textarea
+                        value={editContent}
+                        onChange={(e) => setEditContent(e.target.value)}
+                        rows={3}
+                        maxLength={2000}
+                        className="w-full px-3 py-2 bg-stone-800/70 border border-stone-700/50 rounded-lg text-sm text-stone-200 focus:outline-none focus:border-stone-500 resize-none"
+                      />
+                      <div className="flex items-center gap-2 mt-2">
+                        <button
+                          onClick={() => handleEdit(comment.id)}
+                          disabled={!editContent.trim() || actionLoading === comment.id}
+                          className="flex items-center gap-1 px-3 py-1.5 bg-stone-200 text-stone-900 rounded-lg text-xs font-medium hover:bg-white disabled:opacity-40 transition-colors"
+                        >
+                          {actionLoading === comment.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Check className="w-3 h-3" />}
+                          Save
+                        </button>
+                        <button
+                          onClick={() => { setEditingId(null); setEditContent(""); }}
+                          className="flex items-center gap-1 px-3 py-1.5 text-stone-400 hover:text-stone-200 text-xs transition-colors"
+                        >
+                          <X className="w-3 h-3" />
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-sm text-stone-300 leading-relaxed mb-3">
+                      {comment.content}
+                    </p>
+                  )}
 
                   {/* Meta */}
                   <div className="flex items-center gap-4 text-xs text-stone-500">
@@ -154,19 +215,30 @@ export default function AdminCommentsPage() {
                   </div>
                 </div>
 
-                {/* Delete button */}
-                <button
-                  onClick={() => handleDelete(comment.id)}
-                  disabled={deleting === comment.id}
-                  className="p-2 text-stone-500 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors shrink-0"
-                  title="Delete comment"
-                >
-                  {deleting === comment.id ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : (
-                    <Trash2 className="w-4 h-4" />
-                  )}
-                </button>
+                {/* Action buttons */}
+                {editingId !== comment.id && (
+                  <div className="flex items-center gap-1 shrink-0">
+                    <button
+                      onClick={() => { setEditingId(comment.id); setEditContent(comment.content); }}
+                      className="p-2 text-stone-500 hover:text-stone-200 hover:bg-stone-800 rounded-lg transition-colors"
+                      title="Edit comment"
+                    >
+                      <Pencil className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setDeleteId(comment.id)}
+                      disabled={actionLoading === comment.id}
+                      className="p-2 text-stone-500 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
+                      title="Delete comment"
+                    >
+                      {actionLoading === comment.id ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Trash2 className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -202,6 +274,37 @@ export default function AdminCommentsPage() {
           <p className="text-stone-500 text-sm">
             No comments yet. Comments will appear here as users post them on blog articles.
           </p>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {deleteId && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setDeleteId(null)}>
+          <div className="bg-stone-900 border border-stone-700/60 rounded-2xl p-6 md:p-8 shadow-xl max-w-sm w-full mx-4" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-center mb-4">
+              <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center">
+                <Trash2 className="w-5 h-5 text-red-400" />
+              </div>
+            </div>
+            <h3 className="text-lg font-semibold text-stone-100 text-center mb-1">Delete comment?</h3>
+            <p className="text-sm text-stone-400 text-center mb-6">This action cannot be undone.</p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setDeleteId(null)}
+                className="flex-1 px-4 py-2.5 border border-stone-700 text-stone-300 rounded-xl text-sm font-medium hover:bg-stone-800 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDelete}
+                disabled={actionLoading === deleteId}
+                className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-xl text-sm font-medium hover:bg-red-700 disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
+              >
+                {actionLoading === deleteId ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+                Delete
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

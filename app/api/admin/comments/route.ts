@@ -32,6 +32,25 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({ comments, total, page, totalPages: Math.ceil(total / limit) });
 }
 
+// PUT /api/admin/comments - edit any comment as admin
+export async function PUT(request: NextRequest) {
+  if (!(await isAuthenticated(request))) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const { id, content } = await request.json();
+  if (!id || !content?.trim()) {
+    return NextResponse.json({ error: "Comment id and content required" }, { status: 400 });
+  }
+
+  const comment = await prisma.comment.update({
+    where: { id },
+    data: { content: content.trim() },
+  });
+
+  return NextResponse.json(comment);
+}
+
 // DELETE /api/admin/comments?id=xxx
 export async function DELETE(request: NextRequest) {
   if (!(await isAuthenticated(request))) {
