@@ -15,6 +15,7 @@ import {
   Briefcase,
   Activity,
   Users,
+  UserRound,
 } from "lucide-react";
 
 interface NavItem {
@@ -32,6 +33,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Blog / Journal", href: "/admin/blog", icon: <FileText className="w-5 h-5" /> },
   { label: "Testimonials", href: "/admin/testimonials", icon: <MessageSquare className="w-5 h-5" /> },
   { label: "Comments", href: "/admin/comments", icon: <MessageSquare className="w-5 h-5" /> },
+  { label: "Users", href: "/admin/users", icon: <UserRound className="w-5 h-5" /> },
   { label: "Leads", href: "/admin/leads", icon: <Users className="w-5 h-5" /> },
   { label: "Stats & Features", href: "/admin/stats", icon: <BarChart3 className="w-5 h-5" /> },
   { label: "Analytics", href: "/admin/analytics", icon: <Activity className="w-5 h-5" /> },
