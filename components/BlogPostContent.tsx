@@ -145,10 +145,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
       </article>
 
       {/* Comments Section */}
-      <CommentsSection
-        slug={post.slug}
-        comments={post.engagement?.comments}
-      />
+      <CommentsSection slug={post.slug} />
 
       {/* Related Articles */}
       {relatedPosts.length > 0 && (

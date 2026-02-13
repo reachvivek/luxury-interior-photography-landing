@@ -54,6 +54,15 @@ export async function POST(request: NextRequest) {
     },
   });
 
+  // Create admin notification (fire-and-forget)
+  prisma.notification.create({
+    data: {
+      type: "new_comment",
+      message: `${comment.user.name || "Someone"} commented on "${postSlug}"`,
+      postSlug,
+    },
+  }).catch(() => {});
+
   return NextResponse.json(comment, { status: 201 });
 }
 

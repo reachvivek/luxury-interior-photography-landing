@@ -177,6 +177,50 @@ export async function GET(request: NextRequest) {
       .filter((c) => c.views > 0)
       .sort((a, b) => b.views - a.views);
 
+    // --- Blog engagement ---
+    // Blog page views (individual posts only, not /blog listing)
+    const blogPageViews = await prisma.pageView.groupBy({
+      by: ["path"],
+      where: {
+        createdAt: { gte: since },
+        path: { startsWith: "/blog/" },
+        ...PAGE_VIEW_FILTER,
+      },
+      _count: { path: true },
+    });
+
+    // Comment counts per blog post
+    const commentsByPost = await prisma.comment.groupBy({
+      by: ["postSlug"],
+      _count: { id: true },
+      _max: { createdAt: true },
+    });
+
+    // Merge into a unified list
+    const blogSlugs = new Set<string>();
+    const blogViewMap: Record<string, number> = {};
+    for (const v of blogPageViews) {
+      const slug = v.path.replace("/blog/", "");
+      if (slug && slug !== "") {
+        blogSlugs.add(slug);
+        blogViewMap[slug] = (blogViewMap[slug] || 0) + v._count.path;
+      }
+    }
+    const blogCommentMap: Record<string, { count: number; latest: Date | null }> = {};
+    for (const c of commentsByPost) {
+      blogSlugs.add(c.postSlug);
+      blogCommentMap[c.postSlug] = { count: c._count.id, latest: c._max.createdAt };
+    }
+
+    const blogEngagement = Array.from(blogSlugs)
+      .map((slug) => ({
+        slug,
+        views: blogViewMap[slug] || 0,
+        comments: blogCommentMap[slug]?.count || 0,
+        latestComment: blogCommentMap[slug]?.latest || null,
+      }))
+      .sort((a, b) => b.views - a.views || b.comments - a.comments);
+
     return NextResponse.json({
       totalViews,
       uniqueVisitors: uniqueSessions.length,
@@ -204,6 +248,7 @@ export async function GET(request: NextRequest) {
       recentViews,
       recentViewsTotal,
       serviceCategoryViews,
+      blogEngagement,
     });
   } catch (error) {
     return NextResponse.json(

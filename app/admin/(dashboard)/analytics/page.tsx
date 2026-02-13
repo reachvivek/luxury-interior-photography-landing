@@ -17,6 +17,7 @@ import {
   Send,
   Target,
   ArrowRight,
+  FileText,
   Search,
   ChevronUp,
   ChevronDown,
@@ -54,6 +55,12 @@ interface AnalyticsData {
     createdAt: string;
   }[];
   recentViewsTotal: number;
+  blogEngagement: {
+    slug: string;
+    views: number;
+    comments: number;
+    latestComment: string | null;
+  }[];
 }
 
 const DEVICE_ICONS: Record<string, typeof Monitor> = {
@@ -450,6 +457,66 @@ export default function AnalyticsPage() {
               </div>
             </div>
           </div>
+
+          {/* Blog Engagement */}
+          {data.blogEngagement && data.blogEngagement.length > 0 && (
+            <div className="bg-stone-900/60 border border-stone-800/60 rounded-2xl p-5 mb-6">
+              <h2 className="text-sm font-semibold text-stone-300 uppercase tracking-widest mb-4">
+                <FileText className="w-4 h-4 inline mr-2 opacity-60" />
+                Blog Engagement
+              </h2>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="text-stone-500 border-b border-stone-800/60">
+                      <th className="text-left py-2 pr-4 font-medium">Blog Post</th>
+                      <th className="text-right py-2 px-4 font-medium">Views</th>
+                      <th className="text-right py-2 px-4 font-medium">Comments</th>
+                      <th className="text-right py-2 pl-4 font-medium">Latest Comment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.blogEngagement.map((post) => (
+                      <tr key={post.slug} className="border-b border-stone-800/30 last:border-0">
+                        <td className="py-2.5 pr-4 text-stone-300 font-medium">
+                          {post.slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                        </td>
+                        <td className="py-2.5 px-4 text-right">
+                          <span className="inline-flex items-center gap-1 text-blue-400">
+                            <Eye className="w-3 h-3" />
+                            {post.views}
+                          </span>
+                        </td>
+                        <td className="py-2.5 px-4 text-right">
+                          <span className="inline-flex items-center gap-1 text-amber-400">
+                            <MessageCircle className="w-3 h-3" />
+                            {post.comments}
+                          </span>
+                        </td>
+                        <td className="py-2.5 pl-4 text-right text-stone-500">
+                          {post.latestComment
+                            ? new Date(post.latestComment).toLocaleDateString()
+                            : "—"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {/* Summary */}
+              <div className="mt-4 pt-3 border-t border-stone-800/40 flex items-center gap-6 text-[11px] text-stone-500">
+                <span>
+                  {data.blogEngagement.length} posts
+                </span>
+                <span className="text-blue-400">
+                  {data.blogEngagement.reduce((a, p) => a + p.views, 0)} total views
+                </span>
+                <span className="text-amber-400">
+                  {data.blogEngagement.reduce((a, p) => a + p.comments, 0)} total comments
+                </span>
+              </div>
+            </div>
+          )}
 
           {/* Recent Activity */}
           <div className="bg-stone-900/60 border border-stone-800/60 rounded-2xl p-5">

@@ -68,7 +68,7 @@ export default function AdminCommentsPage() {
   const [commentsTotalPages, setCommentsTotalPages] = useState(1);
   const [commentsLoading, setCommentsLoading] = useState(false);
   const [search, setSearch] = useState("");
-  const searchTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const searchTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Edit / delete state
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -131,7 +131,7 @@ export default function AdminCommentsPage() {
   };
 
   const handleSearch = (value: string) => {
-    clearTimeout(searchTimeout.current);
+    if (searchTimeout.current) clearTimeout(searchTimeout.current);
     searchTimeout.current = setTimeout(() => {
       setSearch(value);
       setCommentsPage(1);

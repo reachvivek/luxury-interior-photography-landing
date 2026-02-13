@@ -90,3 +90,16 @@ model Comment {
   @@index([postSlug])
   @@map("comments")
 }
+
+model Notification {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  type      String
+  message   String
+  postSlug  String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read])
+  @@index([createdAt])
+  @@map("notifications")
+}
