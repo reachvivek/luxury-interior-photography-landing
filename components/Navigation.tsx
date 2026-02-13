@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ChevronDown, LogOut, User } from "lucide-react";
+import { useSession, signOut } from "next-auth/react";
 import { NAV_LINKS } from "@/constants/navigation";
 import { ANIMATION } from "@/constants/animation";
 import ServicesDropdown from "@/components/ServicesDropdown";
+import AuthModal from "@/components/AuthModal";
 
 const servicesData = [
   {
@@ -51,12 +53,27 @@ const servicesData = [
 ];
 
 export default function Navigation() {
+  const { data: session, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [showAuth, setShowAuth] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef<HTMLDivElement>(null);
+
+  // Close profile dropdown on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
+        setProfileOpen(false);
+      }
+    }
+    if (profileOpen) document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [profileOpen]);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -204,6 +221,62 @@ export default function Navigation() {
               >
                 Get in Touch
               </Link>
+
+              {/* Profile / Sign In */}
+              {status !== "loading" && (
+                session?.user ? (
+                  <div ref={profileRef} className="relative">
+                    <button
+                      onClick={() => setProfileOpen((o) => !o)}
+                      className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/20 hover:ring-white/40 transition-all"
+                    >
+                      {session.user.image ? (
+                        <Image
+                          src={session.user.image}
+                          alt={session.user.name || "Profile"}
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className={`w-full h-full flex items-center justify-center text-xs font-semibold ${
+                          isScrolled ? 'bg-stone-200 text-stone-700' : 'bg-white/20 text-white'
+                        }`}>
+                          {(session.user.name || "U")[0].toUpperCase()}
+                        </span>
+                      )}
+                    </button>
+
+                    {profileOpen && (
+                      <div className="absolute right-0 top-full mt-2 w-52 bg-white rounded-xl shadow-xl border border-stone-100 z-[80] overflow-hidden">
+                        <div className="px-4 py-3 border-b border-stone-100">
+                          <p className="text-sm font-medium text-stone-800 truncate">{session.user.name}</p>
+                          <p className="text-[11px] text-stone-400 truncate">{session.user.email}</p>
+                        </div>
+                        <button
+                          onClick={() => { setProfileOpen(false); signOut(); }}
+                          className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs text-stone-500 hover:text-red-500 hover:bg-stone-50 transition-colors"
+                        >
+                          <LogOut className="w-3.5 h-3.5" />
+                          Sign Out
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => setShowAuth(true)}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isScrolled
+                        ? 'bg-stone-100 text-stone-500 hover:bg-stone-200 hover:text-stone-700'
+                        : 'bg-white/15 text-white/70 hover:bg-white/25 hover:text-white'
+                    }`}
+                    aria-label="Sign in"
+                  >
+                    <User className="w-4 h-4" />
+                  </button>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -229,7 +302,35 @@ export default function Navigation() {
               MyVisual<span className={`font-extralight ${isScrolled ? 'text-stone-400' : 'text-white/55'}`}>.Space</span>
             </span>
           </Link>
-          <div className="flex justify-end">
+          <div className="flex items-center justify-end gap-2">
+            {status !== "loading" && (
+              session?.user ? (
+                <button
+                  onClick={() => setProfileOpen((o) => !o)}
+                  className="w-7 h-7 rounded-full overflow-hidden ring-2 ring-white/20"
+                >
+                  {session.user.image ? (
+                    <Image src={session.user.image} alt="" width={28} height={28} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className={`w-full h-full flex items-center justify-center text-[10px] font-semibold ${
+                      isScrolled ? 'bg-stone-200 text-stone-700' : 'bg-white/20 text-white'
+                    }`}>
+                      {(session.user.name || "U")[0].toUpperCase()}
+                    </span>
+                  )}
+                </button>
+              ) : (
+                <button
+                  onClick={() => setShowAuth(true)}
+                  className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors ${
+                    isScrolled ? 'bg-stone-100 text-stone-500' : 'bg-white/15 text-white/70'
+                  }`}
+                  aria-label="Sign in"
+                >
+                  <User className="w-3.5 h-3.5" />
+                </button>
+              )
+            )}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-1.5 transition-colors duration-300 ${
@@ -348,7 +449,7 @@ export default function Navigation() {
           </nav>
 
           {/* Menu Footer */}
-          <div className="p-5 border-t border-stone-100">
+          <div className="p-5 border-t border-stone-100 space-y-3">
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
@@ -356,9 +457,65 @@ export default function Navigation() {
             >
               Get in Touch
             </Link>
+            {status !== "loading" && (
+              session?.user ? (
+                <div className="flex items-center justify-between px-1">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-7 h-7 rounded-full overflow-hidden shrink-0">
+                      {session.user.image ? (
+                        <Image src={session.user.image} alt="" width={28} height={28} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="w-full h-full flex items-center justify-center bg-stone-200 text-stone-600 text-[10px] font-semibold">
+                          {(session.user.name || "U")[0].toUpperCase()}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-xs text-stone-600 truncate">{session.user.name}</span>
+                  </div>
+                  <button
+                    onClick={() => { setIsOpen(false); signOut(); }}
+                    className="text-stone-400 hover:text-red-500 transition-colors p-1"
+                    aria-label="Sign out"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => { setIsOpen(false); setShowAuth(true); }}
+                  className="flex items-center justify-center gap-2 w-full px-5 py-2.5 border border-stone-200 text-stone-500 hover:bg-stone-50 transition-all duration-200 text-[11px] font-normal tracking-[0.15em] uppercase rounded-full"
+                >
+                  <User className="w-3.5 h-3.5" />
+                  Sign In
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
+
+      {/* Mobile profile dropdown (shown outside drawer when tapping avatar in header bar) */}
+      {profileOpen && session?.user && (
+        <>
+          <div className="lg:hidden fixed inset-0 z-[75]" onClick={() => setProfileOpen(false)} />
+          <div className="lg:hidden fixed top-12 right-4 w-52 bg-white rounded-xl shadow-xl border border-stone-100 z-[80] overflow-hidden">
+            <div className="px-4 py-3 border-b border-stone-100">
+              <p className="text-sm font-medium text-stone-800 truncate">{session.user.name}</p>
+              <p className="text-[11px] text-stone-400 truncate">{session.user.email}</p>
+            </div>
+            <button
+              onClick={() => { setProfileOpen(false); signOut(); }}
+              className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs text-stone-500 hover:text-red-500 hover:bg-stone-50 transition-colors"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              Sign Out
+            </button>
+          </div>
+        </>
+      )}
+
+      {/* Auth Modal */}
+      {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
     </>
   );
 }
