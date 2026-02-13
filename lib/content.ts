@@ -14,7 +14,8 @@ export type ContentSection =
   | "about"
   | "contact"
   | "faq"
-  | "services-page";
+  | "services-page"
+  | "cloudinary";
 
 const VALID_SECTIONS: ContentSection[] = [
   "hero",
@@ -31,6 +32,7 @@ const VALID_SECTIONS: ContentSection[] = [
   "contact",
   "faq",
   "services-page",
+  "cloudinary",
 ];
 
 export function isValidSection(section: string): section is ContentSection {

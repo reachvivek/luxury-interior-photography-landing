@@ -62,6 +62,15 @@ export async function validateSessionToken(token: string): Promise<boolean> {
   }
 }
 
+/** Shared helper — checks admin session cookie on an incoming request */
+export async function isAuthenticated(request: {
+  cookies: { get(name: string): { value: string } | undefined };
+}): Promise<boolean> {
+  const cookie = request.cookies.get(COOKIE_NAME);
+  if (!cookie?.value) return false;
+  return validateSessionToken(cookie.value);
+}
+
 export async function verifyPassword(password: string): Promise<boolean> {
   try {
     const record = await prisma.contentSection.findUnique({

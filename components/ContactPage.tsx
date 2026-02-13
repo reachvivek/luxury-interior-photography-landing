@@ -23,16 +23,29 @@ export default function ContactPage({ contactData }: ContactPageProps) {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
 
     trackEvent("contact_form_submit", { source: formData.projectType || "unknown" });
+
+    // Save lead to database
+    try {
+      await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch {}
 
     // Create WhatsApp message
     const message = `Hi, I'm ${formData.name}.\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`;
     const whatsappUrl = `https://wa.me/${CONTACT.whatsapp.number}?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappUrl, "_blank");
+    setSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -146,9 +159,10 @@ export default function ContactPage({ contactData }: ContactPageProps) {
               </div>
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-full"
+                disabled={submitting}
+                className="w-full px-8 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-all duration-200 text-sm font-medium tracking-widest uppercase rounded-full disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {data.form?.submitText ?? contactDefaults.form.submitText}
+                {submitting ? "Sending..." : (data.form?.submitText ?? contactDefaults.form.submitText)}
               </button>
             </form>
           </div>

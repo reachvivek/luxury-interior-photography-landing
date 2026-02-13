@@ -1,12 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
+import { isAuthenticated } from "@/lib/admin-auth";
 import { getConfiguredCloudinary, CLOUDINARY_FOLDER } from "@/lib/cloudinary";
-
-async function isAuthenticated(request: NextRequest): Promise<boolean> {
-  const cookie = request.cookies.get(COOKIE_NAME);
-  if (!cookie?.value) return false;
-  return validateSessionToken(cookie.value);
-}
 
 // POST /api/admin/upload — Upload image to Cloudinary
 export async function POST(request: NextRequest) {

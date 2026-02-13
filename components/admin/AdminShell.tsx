@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Menu, ChevronLeft, ChevronRight } from "lucide-react";
 import AdminSidebar from "./AdminSidebar";
+import NotificationBell from "./NotificationBell";
+import ProfileDropdown from "./ProfileDropdown";
 
 const COLLAPSE_KEY = "admin_sidebar_collapsed";
 
@@ -64,17 +66,21 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
 
       {/* Main area */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        {/* Mobile top bar */}
-        <header className="lg:hidden flex items-center h-14 px-4 border-b border-stone-800/60 bg-stone-950/90 backdrop-blur-md shrink-0">
+        {/* Top bar */}
+        <header className="flex items-center h-14 px-4 border-b border-stone-800/60 bg-stone-950/90 backdrop-blur-md shrink-0">
           <button
             onClick={() => setMobileOpen(true)}
-            className="p-2 -ml-2 text-stone-400 hover:text-stone-200 rounded-lg hover:bg-stone-800/60 transition-colors"
+            className="lg:hidden p-2 -ml-2 text-stone-400 hover:text-stone-200 rounded-lg hover:bg-stone-800/60 transition-colors"
           >
             <Menu className="w-5 h-5" />
           </button>
-          <span className="ml-3 text-sm font-serif text-stone-200 tracking-wide">
+          <span className="lg:hidden ml-3 text-sm font-serif text-stone-200 tracking-wide">
             MyVisual.Space Admin
           </span>
+          <div className="ml-auto flex items-center gap-3">
+            <NotificationBell />
+            <ProfileDropdown />
+          </div>
         </header>
 
         {/* Content */}

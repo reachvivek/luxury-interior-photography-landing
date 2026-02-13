@@ -1,12 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
+import { isAuthenticated } from "@/lib/admin-auth";
 import { readContent, writeContent, isValidSection, listSections } from "@/lib/content";
-
-async function isAuthenticated(request: NextRequest): Promise<boolean> {
-  const cookie = request.cookies.get(COOKIE_NAME);
-  if (!cookie?.value) return false;
-  return validateSessionToken(cookie.value);
-}
 
 // GET /api/admin/content?section=hero
 export async function GET(request: NextRequest) {

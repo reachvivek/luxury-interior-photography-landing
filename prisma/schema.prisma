@@ -103,3 +103,20 @@ model Notification {
   @@index([createdAt])
   @@map("notifications")
 }
+
+model Lead {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  email       String
+  phone       String?
+  projectType String?
+  message     String
+  status      String   @default("new")
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("leads")
+}
