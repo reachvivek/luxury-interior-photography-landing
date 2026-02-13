@@ -30,18 +30,14 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
 
-        {/* Category Badge - Top Left */}
-        <div className="absolute top-24 md:top-32 left-6 md:left-16 z-20">
-          <span className="inline-block px-4 py-2 bg-white/95 backdrop-blur-sm text-xs tracking-widest uppercase text-stone-700 rounded-full">
-            {post.category}
-          </span>
-        </div>
-
-        {/* Title - Bottom */}
+        {/* Title + Meta - Bottom */}
         <div className="absolute bottom-0 left-0 right-0 z-20 px-6 md:px-16 py-8 md:py-12">
           <div className="max-w-4xl">
+            <span className="inline-block px-4 py-1.5 bg-white/95 backdrop-blur-sm text-[10px] md:text-xs tracking-widest uppercase text-stone-700 rounded-full mb-4 md:mb-5">
+              {post.category}
+            </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6">
               {post.title}
             </h1>
