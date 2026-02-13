@@ -1,4 +1,5 @@
 import { CONTACT } from "@/data/contact";
+import { trackEvent } from "@/lib/track";
 
 interface WhatsAppCTAButtonProps {
   message: string;
@@ -20,6 +21,7 @@ export default function WhatsAppCTAButton({
   className = '',
 }: WhatsAppCTAButtonProps) {
   const handleClick = () => {
+    trackEvent("whatsapp_click", { source: "cta_button" });
     const whatsappUrl = `${CONTACT.whatsapp.url}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };

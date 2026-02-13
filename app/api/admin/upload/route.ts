@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
-import fs from "fs";
-import path from "path";
+import cloudinary, { CLOUDINARY_FOLDER } from "@/lib/cloudinary";
 
 async function isAuthenticated(request: NextRequest): Promise<boolean> {
   const cookie = request.cookies.get(COOKIE_NAME);
@@ -9,7 +8,7 @@ async function isAuthenticated(request: NextRequest): Promise<boolean> {
   return validateSessionToken(cookie.value);
 }
 
-// POST /api/admin/upload — Upload image to public/images/{folder}
+// POST /api/admin/upload — Upload image to Cloudinary
 export async function POST(request: NextRequest) {
   if (!(await isAuthenticated(request))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -41,39 +40,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Sanitize folder name — only allow alphanumeric, hyphens, slashes
+    // Sanitize folder name
     const sanitizedFolder = folder.replace(/[^a-zA-Z0-9\-\/]/g, "");
 
-    // Sanitize filename — lowercase, replace spaces with hyphens
-    const ext = path.extname(file.name).toLowerCase();
-    const baseName = path
-      .basename(file.name, ext)
-      .toLowerCase()
-      .replace(/[^a-z0-9\-]/g, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "");
-    const fileName = `${baseName}${ext}`;
-
-    // Ensure target directory exists
-    const targetDir = path.join(process.cwd(), "public", "images", sanitizedFolder);
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-
-    // Check for name collision — append timestamp if exists
-    let finalName = fileName;
-    const targetPath = path.join(targetDir, finalName);
-    if (fs.existsSync(targetPath)) {
-      finalName = `${baseName}-${Date.now()}${ext}`;
-    }
-
-    // Write file
+    // Convert file to base64 data URI for Cloudinary upload
     const buffer = Buffer.from(await file.arrayBuffer());
-    fs.writeFileSync(path.join(targetDir, finalName), buffer);
+    const base64 = `data:${file.type};base64,${buffer.toString("base64")}`;
 
-    const publicPath = `/images/${sanitizedFolder}/${finalName}`;
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(base64, {
+      folder: `${CLOUDINARY_FOLDER}/${sanitizedFolder}`,
+      resource_type: "image",
+    });
 
-    return NextResponse.json({ success: true, path: publicPath, name: finalName });
+    return NextResponse.json({
+      success: true,
+      path: result.secure_url,
+      name: result.public_id.split("/").pop() || result.public_id,
+    });
   } catch (error) {
     return NextResponse.json(
       { error: `Upload failed: ${error instanceof Error ? error.message : "Unknown error"}` },

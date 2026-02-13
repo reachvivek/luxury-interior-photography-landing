@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import { CONTACT } from "@/data/contact";
 import contactDefaults from "@/content/contact.json";
+import { trackEvent } from "@/lib/track";
 
 interface ContactPageProps {
   contactData?: any;
@@ -24,6 +25,8 @@ export default function ContactPage({ contactData }: ContactPageProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    trackEvent("contact_form_submit", { source: formData.projectType || "unknown" });
 
     // Create WhatsApp message
     const message = `Hi, I'm ${formData.name}.\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`;

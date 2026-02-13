@@ -6,17 +6,19 @@
   "services": [
     {
       "title": "Residential Photography",
+      "shortDescription": "Luxury villas, apartments, and penthouses captured with elegance",
       "description": "Capturing the warmth, elegance, and character of luxury homes. From grand villas to sleek penthouses and curated vacation rentals, we bring residential spaces to life through expert composition and natural light.",
       "features": [
         "Luxury Villas",
         "Apartments & Penthouses",
         "Vacation Rentals"
       ],
-      "image": "/images/residential/penthouses/modern-penthouse-living-room.jpg",
+      "image": "/images/residential/penthouses/penthouse-interior-1.jpg",
       "href": "/residential"
     },
     {
       "title": "Hotels & Hospitality",
+      "shortDescription": "Hotel suites, restaurants, and hospitality spaces with refined detail",
       "description": "Showcasing the ambiance and experience of hospitality spaces. We photograph hotels, resorts, restaurants, and event venues with an eye for atmosphere that drives bookings and elevates brand perception.",
       "features": [
         "Hotel Suites",
@@ -24,11 +26,12 @@
         "Restaurants",
         "Event Spaces"
       ],
-      "image": "/images/hospitality/restaurants/art-gallery-dining-room.jpg",
+      "image": "/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg",
       "href": "/hospitality"
     },
     {
       "title": "Commercial & Industry",
+      "shortDescription": "Office spaces, retail stores, and showrooms with professional precision",
       "description": "Professional imagery for commercial environments that attract clients, tenants, and talent. We capture offices, co-working spaces, retail stores, and showrooms with precision and clarity.",
       "features": [
         "Office Spaces",
@@ -36,11 +39,12 @@
         "Retail Stores",
         "Showrooms"
       ],
-      "image": "/images/commercial/coworking-spaces/cofiesto-cafe-full-view.jpg",
+      "image": "/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg",
       "href": "/commercial"
     },
     {
       "title": "Custom Interiors",
+      "shortDescription": "Architectural elements, furniture, and design details beautifully composed",
       "description": "Highlighting the artistry of bespoke design. From architectural details and custom furniture to material textures and design accents, we document the craftsmanship that makes spaces unique.",
       "features": [
         "Architectural Elements",

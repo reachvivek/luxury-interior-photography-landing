@@ -21,6 +21,7 @@ import { features as defaultFeatures } from "@/data/features";
 import { galleryRow1Images as defaultRow1, galleryRow2Images as defaultRow2 } from "@/data/gallery";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import type { HeroSlide } from "@/constants/heroCarousel";
+import servicesDefaults from "@/content/services-page.json";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface HomePageProps {
@@ -31,6 +32,7 @@ export interface HomePageProps {
   journalData?: any[];
   statsData?: any[];
   testimonialsData?: any[];
+  servicesPageData?: any;
 }
 
 export default function HomePage({
@@ -41,43 +43,22 @@ export default function HomePage({
   journalData,
   statsData,
   testimonialsData,
+  servicesPageData,
 }: HomePageProps) {
   const features = featuresData && featuresData.length > 0 ? featuresData : defaultFeatures;
   const processSteps = processData && processData.length > 0 ? processData : defaultProcessSteps;
   const journalPosts = journalData && journalData.length > 0 ? journalData : defaultJournalPosts;
   const galleryRow1Images = galleryData?.row1 && galleryData.row1.length > 0 ? galleryData.row1 : defaultRow1;
   const galleryRow2Images = galleryData?.row2 && galleryData.row2.length > 0 ? galleryData.row2 : defaultRow2;
-  // Services data for mobile showcase
-  const services = [
-    {
-      title: "Residential Photography",
-      description: "Luxury villas, apartments, and penthouses captured with elegance",
-      image: "/images/hospitality/event-spaces/outdoor-patio-courtyard.jpg",
-      href: "/residential",
-      number: "01"
-    },
-    {
-      title: "Hotels Photography",
-      description: "Hotel suites, restaurants, and hospitality spaces with refined detail",
-      image: "/images/residential/villas/luxury-villa-master-bedroom.jpg",
-      href: "/hospitality",
-      number: "02"
-    },
-    {
-      title: "Commercial Photography",
-      description: "Office spaces, retail stores, and showrooms with professional precision",
-      image: "/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg",
-      href: "/commercial",
-      number: "03"
-    },
-    {
-      title: "Custom Interior Photography",
-      description: "Architectural elements, furniture, and design details beautifully composed",
-      image: "/images/custom/design-details/luxury-chandelier-interior.jpg",
-      href: "/custom-interiors",
-      number: "04"
-    }
-  ];
+  // Services data — pulled from same source as /services page (admin-editable)
+  const servicesRaw = servicesPageData?.services ?? servicesDefaults.services;
+  const services = servicesRaw.map((s: any, i: number) => ({
+    title: s.title,
+    description: s.shortDescription || s.description,
+    image: s.image,
+    href: s.href,
+    number: String(i + 1).padStart(2, "0"),
+  }));
 
   // Scroll animations
   const howItWorksAnimation = useScrollAnimation(0.2);
@@ -181,205 +162,57 @@ export default function HomePage({
             </div>
             {/* Services Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8">
-            {/* Residential Photography */}
-            <div
-              ref={service1Animation.elementRef}
-              className={`transition-all duration-1000 ease-out ${
-                service1Animation.isVisible
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-40 scale-85'
-              }`}
-            >
-              <Link
-                href="/residential"
-                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
-              >
-              <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
-                <Image
-                  src="/images/residential/penthouses/penthouse-interior-1.jpg"
-                  alt="Residential Photography"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`object-cover transition-all duration-1200 ease-out group-hover:scale-110 ${
-                    service1Animation.isVisible ? 'scale-100' : 'scale-120'
+            {services.map((service: any, index: number) => {
+              const animations = [service1Animation, service2Animation, service3Animation, service4Animation];
+              const delays = ['', 'delay-100', 'delay-200', 'delay-300'];
+              const anim = animations[index] || animations[0];
+              return (
+                <div
+                  key={service.href}
+                  ref={anim.elementRef}
+                  className={`transition-all duration-1000 ease-out ${delays[index] || ''} ${
+                    anim.isVisible
+                      ? 'opacity-100 scale-100'
+                      : 'opacity-40 scale-85'
                   }`}
-                />
-                {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
-                  <div className="flex items-end justify-between gap-4">
-                    {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1 min-h-0">
-                      <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
-                        Residential Photography
-                      </h3>
-                      {/* Subtitle: visible on mobile, hover-only on desktop */}
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
-                        Luxury villas, apartments, and penthouses captured with elegance
-                      </p>
-                    </div>
-
-                    {/* Right Column - Explore Button */}
-                    <div className="flex items-center text-xs text-white/80 font-light flex-shrink-0">
-                      <span>Explore</span>
-                      <svg className="w-3 h-3 ml-1 translate-y-[0.5px] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                >
+                  <Link
+                    href={service.href}
+                    className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
+                  >
+                  <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={`object-cover transition-all duration-1200 ease-out group-hover:scale-110 ${
+                        anim.isVisible ? 'scale-100' : 'scale-120'
+                      }`}
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
+                      <div className="flex items-end justify-between gap-4">
+                        <div className="flex-1 min-h-0">
+                          <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
+                            {service.title}
+                          </h3>
+                          <p className="text-sm text-white/80 leading-relaxed mt-2 md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
+                            {service.description}
+                          </p>
+                        </div>
+                        <div className="flex items-center text-xs text-white/80 font-light flex-shrink-0">
+                          <span>Explore</span>
+                          <svg className="w-3 h-3 ml-1 translate-y-[0.5px] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </Link>
                 </div>
-              </div>
-            </Link>
-            </div>
-
-            {/* Hotels Photography */}
-            <div
-              ref={service2Animation.elementRef}
-              className={`transition-all duration-1000 ease-out delay-100 ${
-                service2Animation.isVisible
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-40 scale-85'
-              }`}
-            >
-              <Link
-                href="/hospitality"
-                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
-              >
-              <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
-                <Image
-                  src="/images/hospitality/restaurants/restaurant-dining-brick-wall.jpg"
-                  alt="Hotels Photography"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`object-cover transition-all duration-1200 ease-out group-hover:scale-110 ${
-                    service2Animation.isVisible ? 'scale-100' : 'scale-120'
-                  }`}
-                />
-                {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
-                  <div className="flex items-end justify-between gap-4">
-                    {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1 min-h-0">
-                      <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
-                        Hotels Photography
-                      </h3>
-                      {/* Subtitle: visible on mobile, hover-only on desktop */}
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
-                        Hotel suites, restaurants, and hospitality spaces with refined detail
-                      </p>
-                    </div>
-
-                    {/* Right Column - Explore Button */}
-                    <div className="flex items-center text-xs text-white/80 font-light flex-shrink-0">
-                      <span>Explore</span>
-                      <svg className="w-3 h-3 ml-1 translate-y-[0.5px] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            </div>
-
-            {/* Commercial Photography */}
-            <div
-              ref={service3Animation.elementRef}
-              className={`transition-all duration-1000 ease-out delay-200 ${
-                service3Animation.isVisible
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-40 scale-85'
-              }`}
-            >
-              <Link
-                href="/commercial"
-                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
-              >
-              <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
-                <Image
-                  src="/images/commercial/coworking-spaces/cofiesto-cafe-window-seating.jpg"
-                  alt="Commercial Photography"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`object-cover transition-all duration-1200 ease-out group-hover:scale-110 ${
-                    service3Animation.isVisible ? 'scale-100' : 'scale-120'
-                  }`}
-                />
-                {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
-                  <div className="flex items-end justify-between gap-4">
-                    {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1 min-h-0">
-                      <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
-                        Commercial Photography
-                      </h3>
-                      {/* Subtitle: visible on mobile, hover-only on desktop */}
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
-                        Office spaces, retail stores, and showrooms with professional precision
-                      </p>
-                    </div>
-
-                    {/* Right Column - Explore Button */}
-                    <div className="flex items-center text-xs text-white/80 font-light flex-shrink-0">
-                      <span>Explore</span>
-                      <svg className="w-3 h-3 ml-1 translate-y-[0.5px] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            </div>
-
-            {/* Custom Interior Photography */}
-            <div
-              ref={service4Animation.elementRef}
-              className={`transition-all duration-1000 ease-out delay-300 ${
-                service4Animation.isVisible
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-40 scale-85'
-              }`}
-            >
-              <Link
-                href="/custom-interiors"
-                className="group block rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 shadow-xl transition-all duration-300"
-              >
-              <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[70vh] md:max-h-none overflow-hidden">
-                <Image
-                  src="/images/custom/design-details/luxury-chandelier-interior.jpg"
-                  alt="Custom Interior Photography"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`object-cover transition-all duration-1200 ease-out group-hover:scale-110 ${
-                    service4Animation.isVisible ? 'scale-100' : 'scale-120'
-                  }`}
-                />
-                {/* Text Overlay - 2 Column Layout */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-4 px-5 md:pt-24 md:pb-6 md:px-6">
-                  <div className="flex items-end justify-between gap-4">
-                    {/* Left Column - Title & Subtitle */}
-                    <div className="flex-1 min-h-0">
-                      <h3 className="text-xl md:text-2xl font-serif font-normal text-white mb-0">
-                        Custom Interior Photography
-                      </h3>
-                      {/* Subtitle: visible on mobile, hover-only on desktop */}
-                      <p className="text-sm text-white/80 leading-relaxed mt-2 md:h-0 md:opacity-0 md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500">
-                        Architectural elements, furniture, and design details beautifully composed
-                      </p>
-                    </div>
-
-                    {/* Right Column - Explore Button */}
-                    <div className="flex items-center text-xs text-white/80 font-light flex-shrink-0">
-                      <span>Explore</span>
-                      <svg className="w-3 h-3 ml-1 translate-y-[0.5px] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            </div>
+              );
+            })}
           </div>
         </div>
         </div>

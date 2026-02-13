@@ -5,6 +5,9 @@ import Preloader from "@/components/Preloader";
 import Navigation from "@/components/Navigation";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { MainSiteOnly } from "@/components/ConditionalLayout";
+import Analytics from "@/components/Analytics";
+import SessionProvider from "@/components/SessionProvider";
+import { ToastProvider } from "@/components/shared/Toast";
 import { CONTACT } from "@/data/contact";
 import { SEO_CONFIG } from "@/constants/seo";
 
@@ -66,8 +69,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -166,17 +168,22 @@ export default function RootLayout({
         className={`${montserrat.variable} ${inter.variable} ${cormorantGaramond.variable} antialiased`}
         suppressHydrationWarning
       >
-        <MainSiteOnly>
-          <Preloader />
-          <Navigation />
-        </MainSiteOnly>
-        {children}
-        <MainSiteOnly>
-          <WhatsAppButton
-            phoneNumber={CONTACT.whatsapp.number}
-            message="Hi! I'm interested in booking a professional interior photography shoot."
-          />
-        </MainSiteOnly>
+        <SessionProvider>
+          <ToastProvider>
+            <MainSiteOnly>
+              <Preloader />
+              <Navigation />
+            </MainSiteOnly>
+            {children}
+            <MainSiteOnly>
+              <WhatsAppButton
+                phoneNumber={CONTACT.whatsapp.number}
+                message="Hi! I'm interested in booking a professional interior photography shoot."
+              />
+            </MainSiteOnly>
+            <Analytics />
+          </ToastProvider>
+        </SessionProvider>
       </body>
     </html>
   );

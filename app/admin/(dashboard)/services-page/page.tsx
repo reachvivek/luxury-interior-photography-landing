@@ -16,6 +16,7 @@ import {
 
 interface ServiceItem {
   title: string;
+  shortDescription: string;
   description: string;
   features: string[];
   image: string;
@@ -144,6 +145,7 @@ export default function ServicesPageAdmin() {
         ...prev.services,
         {
           title: "New Service",
+          shortDescription: "Short tagline shown on homepage cards",
           description: "Add a description for this service",
           features: ["Feature 1"],
           image: "/images/residential/villas/luxury-stone-villa-exterior.jpg",
@@ -357,7 +359,20 @@ export default function ServicesPageAdmin() {
 
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-stone-500 mb-1">
-                    Description
+                    Short Description <span className="text-stone-600 normal-case">(shown on homepage cards)</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={service.shortDescription || ""}
+                    onChange={(e) => updateService(index, "shortDescription", e.target.value)}
+                    placeholder="Short tagline for homepage hover"
+                    className="w-full px-3 py-2 bg-stone-800/50 border border-stone-700/50 rounded-lg text-sm text-stone-200 placeholder-stone-600 focus:outline-none focus:ring-1 focus:ring-stone-600 transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[10px] uppercase tracking-widest text-stone-500 mb-1">
+                    Full Description <span className="text-stone-600 normal-case">(shown on /services page)</span>
                   </label>
                   <textarea
                     value={service.description}

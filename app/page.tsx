@@ -16,7 +16,7 @@ async function getContent(section: string) {
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  const [hero, gallery, features, process, journal, stats, testimonials] = await Promise.all([
+  const [hero, gallery, features, process, journal, stats, testimonials, servicesPage] = await Promise.all([
     getContent("hero"),
     getContent("gallery"),
     getContent("features"),
@@ -24,6 +24,7 @@ export default async function Page() {
     getContent("journal"),
     getContent("stats"),
     getContent("testimonials"),
+    getContent("services-page"),
   ]);
 
   return (
@@ -35,6 +36,7 @@ export default async function Page() {
       journalData={journal as any}
       statsData={stats as any}
       testimonialsData={testimonials as any}
+      servicesPageData={servicesPage as any}
     />
   );
 }

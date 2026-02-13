@@ -14,6 +14,7 @@ import {
   X,
   Camera,
   Briefcase,
+  Activity,
 } from "lucide-react";
 
 interface NavItem {
@@ -30,7 +31,9 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Portfolio", href: "/admin/portfolio", icon: <FolderOpen className="w-5 h-5" /> },
   { label: "Blog / Journal", href: "/admin/blog", icon: <FileText className="w-5 h-5" /> },
   { label: "Testimonials", href: "/admin/testimonials", icon: <MessageSquare className="w-5 h-5" /> },
+  { label: "Comments", href: "/admin/comments", icon: <MessageSquare className="w-5 h-5" /> },
   { label: "Stats & Features", href: "/admin/stats", icon: <BarChart3 className="w-5 h-5" /> },
+  { label: "Analytics", href: "/admin/analytics", icon: <Activity className="w-5 h-5" /> },
   { label: "Settings", href: "/admin/settings", icon: <Settings className="w-5 h-5" /> },
 ];
 

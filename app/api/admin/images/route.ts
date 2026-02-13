@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { validateSessionToken, COOKIE_NAME } from "@/lib/admin-auth";
 import fs from "node:fs";
 import path from "node:path";
+import cloudinary, { CLOUDINARY_FOLDER } from "@/lib/cloudinary";
 
 async function isAuthenticated(request: NextRequest): Promise<boolean> {
   const cookie = request.cookies.get(COOKIE_NAME);
@@ -54,14 +55,61 @@ function scanImages(): { images: string[]; grouped: Record<string, string[]>; to
   return { images, grouped, total: images.length };
 }
 
-// GET /api/admin/images — List all images
+// Fetch images from Cloudinary
+async function getCloudinaryImages(): Promise<{ images: string[]; grouped: Record<string, string[]> }> {
+  const images: string[] = [];
+  const grouped: Record<string, string[]> = {};
+
+  try {
+    let nextCursor: string | undefined;
+    do {
+      const result = await cloudinary.api.resources({
+        type: "upload",
+        prefix: CLOUDINARY_FOLDER,
+        max_results: 500,
+        next_cursor: nextCursor,
+      });
+
+      for (const resource of result.resources) {
+        const url = resource.secure_url as string;
+        images.push(url);
+
+        // Extract folder name for grouping: myvisualspace/hero/img -> "hero (cloud)"
+        const parts = (resource.public_id as string).split("/");
+        const folder = parts.length > 1 ? parts[1] : "uploads";
+        const groupKey = `${folder} (cloud)`;
+        if (!grouped[groupKey]) grouped[groupKey] = [];
+        grouped[groupKey].push(url);
+      }
+
+      nextCursor = result.next_cursor;
+    } while (nextCursor);
+  } catch {
+    // Cloudinary unavailable — return empty
+  }
+
+  return { images, grouped };
+}
+
+// GET /api/admin/images — List all images (local + Cloudinary)
 export async function GET(request: NextRequest) {
   if (!(await isAuthenticated(request))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Try manifest first (fast, works on Vercel), fall back to live scan (dev)
-  const data = getManifest() || scanImages();
+  // Get local images from manifest or filesystem scan
+  const local = getManifest() || scanImages();
 
-  return NextResponse.json(data);
+  // Get Cloudinary images
+  const cloud = await getCloudinaryImages();
+
+  // Merge both sources
+  const allImages = [...local.images, ...cloud.images];
+  const allGrouped = { ...local.grouped, ...cloud.grouped };
+
+  return NextResponse.json({
+    images: allImages,
+    grouped: allGrouped,
+    total: allImages.length,
+  });
 }

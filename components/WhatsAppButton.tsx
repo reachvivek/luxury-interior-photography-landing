@@ -2,6 +2,7 @@
 
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { trackEvent } from "@/lib/track";
 
 export interface WhatsAppButtonProps {
   phoneNumber: string;
@@ -13,6 +14,7 @@ export function WhatsAppButton({
   message = "Hi! I'm interested in your interior photography services.",
 }: WhatsAppButtonProps) {
   const handleClick = () => {
+    trackEvent("whatsapp_click", { source: "floating_button" });
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
