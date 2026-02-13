@@ -13,6 +13,7 @@ import {
   Cloud,
   Eye,
   EyeOff,
+  Shield,
 } from "lucide-react";
 
 interface SiteSettings {
@@ -113,9 +114,18 @@ interface CloudinarySettings {
 
 const DEFAULT_CLOUDINARY: CloudinarySettings = { cloudName: "", apiKey: "", apiSecret: "" };
 
+interface AuthCredentials {
+  authSecret: string;
+  googleId: string;
+  googleSecret: string;
+}
+
+const DEFAULT_AUTH_CREDS: AuthCredentials = { authSecret: "", googleId: "", googleSecret: "" };
+
 export default function SettingsAdminPage() {
   const [settings, setSettings] = useState<SiteSettings>(DEFAULT_SETTINGS);
   const [cloudinary, setCloudinary] = useState<CloudinarySettings>(DEFAULT_CLOUDINARY);
+  const [authCreds, setAuthCreds] = useState<AuthCredentials>(DEFAULT_AUTH_CREDS);
   const [showSecrets, setShowSecrets] = useState(false);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -127,10 +137,12 @@ export default function SettingsAdminPage() {
     Promise.all([
       fetch("/api/admin/content?section=settings").then((r) => r.json()),
       fetch("/api/admin/content?section=cloudinary").then((r) => r.json()),
+      fetch("/api/admin/content?section=auth-credentials").then((r) => r.json()),
     ])
-      .then(([settingsRes, cloudinaryRes]) => {
+      .then(([settingsRes, cloudinaryRes, authRes]) => {
         if (settingsRes.data) setSettings({ ...DEFAULT_SETTINGS, ...settingsRes.data });
         if (cloudinaryRes.data) setCloudinary({ ...DEFAULT_CLOUDINARY, ...cloudinaryRes.data });
+        if (authRes.data) setAuthCreds({ ...DEFAULT_AUTH_CREDS, ...authRes.data });
         setLoading(false);
       })
       .catch(() => {
@@ -147,7 +159,7 @@ export default function SettingsAdminPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const [res1, res2] = await Promise.all([
+      const [res1, res2, res3] = await Promise.all([
         fetch("/api/admin/content?section=settings", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -158,8 +170,13 @@ export default function SettingsAdminPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ data: cloudinary }),
         }),
+        fetch("/api/admin/content?section=auth-credentials", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: authCreds }),
+        }),
       ]);
-      if (!res1.ok || !res2.ok) throw new Error("Save failed");
+      if (!res1.ok || !res2.ok || !res3.ok) throw new Error("Save failed");
       setHasChanges(false);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
@@ -384,6 +401,60 @@ export default function SettingsAdminPage() {
           </div>
           <p className="text-xs text-stone-600">
             Credentials are stored securely in the database and cached for 5 minutes.
+          </p>
+        </SectionCard>
+
+        {/* Auth / Google OAuth */}
+        <SectionCard
+          icon={<Shield className="w-4 h-4" />}
+          title="Authentication (Google OAuth)"
+        >
+          <Field
+            label="Google Client ID"
+            value={authCreds.googleId}
+            onChange={(v) => { setAuthCreds((p) => ({ ...p, googleId: v })); markChanged(); }}
+            placeholder="123456789-xxxxx.apps.googleusercontent.com"
+          />
+          <div>
+            <label className="text-xs text-stone-500 mb-1 block">Google Client Secret</label>
+            <div className="relative">
+              <input
+                type={showSecrets ? "text" : "password"}
+                value={authCreds.googleSecret}
+                onChange={(e) => { setAuthCreds((p) => ({ ...p, googleSecret: e.target.value })); markChanged(); }}
+                placeholder="••••••••••••••••••••"
+                className="w-full text-sm text-stone-300 bg-stone-800/50 border border-stone-700/40 rounded-lg px-3 py-2 pr-10 focus:border-stone-500 focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => setShowSecrets(!showSecrets)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-300 transition-colors"
+              >
+                {showSecrets ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
+            </div>
+          </div>
+          <div>
+            <label className="text-xs text-stone-500 mb-1 block">Auth Secret (JWT Signing Key)</label>
+            <div className="relative">
+              <input
+                type={showSecrets ? "text" : "password"}
+                value={authCreds.authSecret}
+                onChange={(e) => { setAuthCreds((p) => ({ ...p, authSecret: e.target.value })); markChanged(); }}
+                placeholder="••••••••••••••••••••"
+                className="w-full text-sm text-stone-300 bg-stone-800/50 border border-stone-700/40 rounded-lg px-3 py-2 pr-10 focus:border-stone-500 focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => setShowSecrets(!showSecrets)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-300 transition-colors"
+              >
+                {showSecrets ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
+            </div>
+          </div>
+          <p className="text-xs text-stone-600">
+            Stored in MongoDB and cached for 5 minutes. Google redirect URI must be set to https://yourdomain.com/api/auth/callback/google in Google Cloud Console.
           </p>
         </SectionCard>
       </div>
