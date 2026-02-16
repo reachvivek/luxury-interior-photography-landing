@@ -457,19 +457,63 @@ function PostEditor({
             </div>
           )}
 
-          {/* Engagement Stats (read-only) */}
-          {post.engagement && (
-            <div className="pt-3 border-t border-stone-800/40">
-              <p className="text-xs font-medium text-stone-400 uppercase tracking-wider mb-3">
-                Engagement
-              </p>
-              <div className="flex gap-6 text-xs text-stone-500">
-                <span>{post.engagement.views.toLocaleString()} views</span>
-                <span>{post.engagement.likes} likes</span>
-                <span>{post.engagement.comments.length} comments</span>
+          {/* Engagement Base Numbers (editable) */}
+          <div className="pt-3 border-t border-stone-800/40">
+            <p className="text-xs font-medium text-stone-400 uppercase tracking-wider mb-3">
+              Base Engagement Numbers
+            </p>
+            <p className="text-[10px] text-stone-600 mb-3">
+              These base numbers are added to real user likes and page views for display.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div>
+                <label className="text-xs text-stone-500 mb-1 block">Base Views</label>
+                <input
+                  type="number"
+                  min="0"
+                  value={post.engagement?.views ?? 0}
+                  onChange={(e) => {
+                    const val = Math.max(0, parseInt(e.target.value) || 0);
+                    onChange({
+                      ...post,
+                      engagement: {
+                        views: val,
+                        likes: post.engagement?.likes ?? 0,
+                        comments: post.engagement?.comments ?? [],
+                      },
+                    });
+                  }}
+                  className="w-full text-sm text-stone-300 bg-stone-800/50 border border-stone-700/40 rounded-lg px-3 py-2 focus:border-stone-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="text-xs text-stone-500 mb-1 block">Base Likes</label>
+                <input
+                  type="number"
+                  min="0"
+                  value={post.engagement?.likes ?? 0}
+                  onChange={(e) => {
+                    const val = Math.max(0, parseInt(e.target.value) || 0);
+                    onChange({
+                      ...post,
+                      engagement: {
+                        views: post.engagement?.views ?? 0,
+                        likes: val,
+                        comments: post.engagement?.comments ?? [],
+                      },
+                    });
+                  }}
+                  className="w-full text-sm text-stone-300 bg-stone-800/50 border border-stone-700/40 rounded-lg px-3 py-2 focus:border-stone-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="text-xs text-stone-500 mb-1 block">Comments</label>
+                <div className="text-sm text-stone-500 bg-stone-800/30 border border-stone-800/40 rounded-lg px-3 py-2">
+                  {post.engagement?.comments?.length ?? 0} (from DB)
+                </div>
               </div>
             </div>
-          )}
+          </div>
 
           {/* Delete */}
           <div className="pt-3 border-t border-stone-800/40 flex justify-end">

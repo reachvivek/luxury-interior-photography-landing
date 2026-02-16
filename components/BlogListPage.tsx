@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navigation from "@/components/Navigation";
@@ -15,6 +16,33 @@ interface BlogListPageProps {
 
 export default function BlogListPage({ posts }: BlogListPageProps) {
   const journalPosts = posts && posts.length > 0 ? posts : defaultPosts;
+  const [realViews, setRealViews] = useState<Record<string, number>>({});
+  const [realLikes, setRealLikes] = useState<Record<string, number>>({});
+  const [commentCounts, setCommentCounts] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const slugs = journalPosts.map((p) => p.slug).join(",");
+    if (!slugs) return;
+
+    fetch(`/api/blog/views?slugs=${slugs}`)
+      .then((r) => r.json())
+      .then((d) => setRealViews(d.counts ?? {}))
+      .catch(() => {});
+
+    fetch(`/api/blog/likes?slugs=${slugs}`)
+      .then((r) => r.json())
+      .then((d) => setRealLikes(d.counts ?? {}))
+      .catch(() => {});
+
+    fetch(`/api/blog/comments?slugs=${slugs}`)
+      .then((r) => r.json())
+      .then((d) => setCommentCounts(d.counts ?? {}))
+      .catch(() => {});
+  }, [journalPosts]);
+
+  const getViews = (p: JournalPost) => (p.engagement?.views ?? 0) + (realViews[p.slug] ?? 0);
+  const getLikes = (p: JournalPost) => (p.engagement?.likes ?? 0) + (realLikes[p.slug] ?? 0);
+  const getComments = (p: JournalPost) => commentCounts[p.slug] ?? 0;
 
   return (
     <div className="min-h-screen bg-white">
@@ -102,14 +130,12 @@ export default function BlogListPage({ posts }: BlogListPageProps) {
                   </svg>
                 </Link>
               </div>
-              {journalPosts[0].engagement && (
-                <EngagementStats
-                  views={journalPosts[0].engagement.views}
-                  likes={journalPosts[0].engagement.likes}
-                  commentCount={journalPosts[0].engagement.comments.length}
-                  variant="full"
-                />
-              )}
+              <EngagementStats
+                views={getViews(journalPosts[0])}
+                likes={getLikes(journalPosts[0])}
+                commentCount={getComments(journalPosts[0])}
+                variant="full"
+              />
             </div>
           </div>
         </div>
@@ -171,14 +197,12 @@ export default function BlogListPage({ posts }: BlogListPageProps) {
                           </svg>
                         </span>
                       </div>
-                      {post.engagement && (
-                        <EngagementStats
-                          views={post.engagement.views}
-                          likes={post.engagement.likes}
-                          commentCount={post.engagement.comments.length}
-                          variant="compact"
-                        />
-                      )}
+                      <EngagementStats
+                        views={getViews(post)}
+                        likes={getLikes(post)}
+                        commentCount={getComments(post)}
+                        variant="compact"
+                      />
                     </div>
                   </div>
                 </Link>

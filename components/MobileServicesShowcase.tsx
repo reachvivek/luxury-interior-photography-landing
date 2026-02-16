@@ -18,18 +18,26 @@ interface MobileServicesShowcaseProps {
 
 export default function MobileServicesShowcase({ services }: MobileServicesShowcaseProps) {
   return (
-    <div className="md:hidden px-4 py-8 space-y-8 bg-stone-100">
+    <div className="md:hidden px-4 py-8 space-y-5 bg-stone-100">
       {services.map((service, index) => (
         <motion.section
           key={service.href}
-          className="relative h-[85vh] w-full rounded-[32px] overflow-hidden shadow-lg"
+          className="relative h-[65vh] w-full rounded-[32px] overflow-hidden shadow-lg"
           initial={{ opacity: 0, y: 60, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          whileTap={{ scale: 0.98 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          {/* Background Image */}
-          <div className="absolute inset-0">
+          {/* Background Image — zooms in when card scrolls into view + extra zoom on touch */}
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: 1.15 }}
+            whileInView={{ scale: 1 }}
+            whileTap={{ scale: 1.08 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
             <Image
               src={service.image}
               alt={service.title}
@@ -42,7 +50,7 @@ export default function MobileServicesShowcase({ services }: MobileServicesShowc
             <div className="absolute inset-0 bg-black/35" /> {/* Solid fallback - darkened for text legibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/55" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/35" />
-          </div>
+          </motion.div>
 
           {/* Content */}
           <div className="relative h-full flex flex-col justify-between z-10 p-8">

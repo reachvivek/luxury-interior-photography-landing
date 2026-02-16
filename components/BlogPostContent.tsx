@@ -1,12 +1,15 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import EngagementStats from "@/components/blog/EngagementStats";
 import CommentsSection from "@/components/blog/CommentsSection";
+import AuthModal from "@/components/AuthModal";
 import { CONTACT } from "@/data/contact";
 import type { JournalPost } from "@/data/journalPosts";
 
@@ -16,6 +19,84 @@ interface BlogPostContentProps {
 }
 
 export default function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
+  const { data: session, status } = useSession();
+  const baseViews = post.engagement?.views ?? 0;
+  const baseLikes = post.engagement?.likes ?? 0;
+  const [realViews, setRealViews] = useState(0);
+  const [realLikes, setRealLikes] = useState(0);
+  const [liked, setLiked] = useState(false);
+  const [commentCount, setCommentCount] = useState(0);
+  const [showAuth, setShowAuth] = useState(false);
+
+  // Track page view on mount
+  useEffect(() => {
+    const sid = sessionStorage.getItem("sid") || `s_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    sessionStorage.setItem("sid", sid);
+    fetch("/api/analytics/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: `/blog/${post.slug}`, referrer: document.referrer, sessionId: sid }),
+    }).catch(() => {});
+  }, [post.slug]);
+
+  // Fetch real views, likes, comments
+  const fetchEngagement = useCallback(() => {
+    fetch(`/api/blog/views?slug=${post.slug}`)
+      .then((r) => r.json())
+      .then((d) => setRealViews(d.count ?? 0))
+      .catch(() => {});
+
+    fetch(`/api/blog/like?slug=${post.slug}`)
+      .then((r) => r.json())
+      .then((d) => {
+        setRealLikes(d.count ?? 0);
+        setLiked(d.liked ?? false);
+      })
+      .catch(() => {});
+
+    fetch(`/api/comments?slug=${post.slug}`)
+      .then((r) => r.json())
+      .then((d) => setCommentCount(Array.isArray(d) ? d.length : 0))
+      .catch(() => {});
+  }, [post.slug]);
+
+  useEffect(() => {
+    fetchEngagement();
+  }, [fetchEngagement]);
+
+  const handleLike = useCallback(() => {
+    // If not logged in, show auth modal
+    if (status !== "authenticated" || !session?.user) {
+      setShowAuth(true);
+      return;
+    }
+
+    // Optimistic update
+    setLiked((prev) => !prev);
+    setRealLikes((prev) => prev + (liked ? -1 : 1));
+
+    fetch("/api/blog/like", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug: post.slug }),
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error();
+        return r.json();
+      })
+      .then((d) => {
+        setRealLikes(d.count ?? 0);
+        setLiked(d.liked ?? false);
+      })
+      .catch(() => {
+        // Revert optimistic update on error
+        fetchEngagement();
+      });
+  }, [post.slug, status, session, liked, fetchEngagement]);
+
+  const totalViews = baseViews + realViews;
+  const totalLikes = baseLikes + realLikes;
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -48,17 +129,17 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
               <span className="w-1 h-1 rounded-full bg-white/60"></span>
               <span>{post.readTime}</span>
             </div>
-            {post.engagement && (
-              <div className="mt-4">
-                <EngagementStats
-                  views={post.engagement.views}
-                  likes={post.engagement.likes}
-                  commentCount={post.engagement.comments.length}
-                  variant="full"
-                  theme="dark"
-                />
-              </div>
-            )}
+            <div className="mt-4">
+              <EngagementStats
+                views={totalViews}
+                likes={totalLikes}
+                commentCount={commentCount}
+                variant="full"
+                theme="dark"
+                liked={liked}
+                onLike={handleLike}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -112,16 +193,16 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
           </div>
 
           {/* Article Engagement Stats */}
-          {post.engagement && (
-            <div className="flex justify-center py-8 md:py-10 border-y border-stone-200 mb-8 md:mb-12">
-              <EngagementStats
-                views={post.engagement.views}
-                likes={post.engagement.likes}
-                commentCount={post.engagement.comments.length}
-                variant="full"
-              />
-            </div>
-          )}
+          <div className="flex justify-center py-8 md:py-10 border-y border-stone-200 mb-8 md:mb-12">
+            <EngagementStats
+              views={totalViews}
+              likes={totalLikes}
+              commentCount={commentCount}
+              variant="full"
+              liked={liked}
+              onLike={handleLike}
+            />
+          </div>
 
           {/* WhatsApp CTA */}
           <div className="flex justify-center pt-8 md:pt-12">
@@ -245,6 +326,16 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
 
       <Footer />
       <ScrollToTop />
+
+      {/* Auth modal for unauthenticated like clicks */}
+      {showAuth && (
+        <AuthModal
+          onClose={() => {
+            setShowAuth(false);
+            fetchEngagement();
+          }}
+        />
+      )}
     </div>
   );
 }
