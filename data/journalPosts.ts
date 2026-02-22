@@ -24,6 +24,8 @@ export interface JournalPost {
     }[];
     conclusion: string;
   };
+  htmlContent?: string;
+  status?: "draft" | "published";
   readTime?: string;
   author?: string;
   engagement?: {

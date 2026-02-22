@@ -147,50 +147,61 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
       {/* Article Content */}
       <article className="py-16 md:py-24 px-6 md:px-16">
         <div className="max-w-3xl mx-auto">
-          {/* Introduction */}
-          <div className="mb-12 md:mb-16">
-            <p className="text-lg md:text-xl text-stone-700 leading-relaxed font-light">
-              {post.content!.intro}
-            </p>
-          </div>
+          {post.htmlContent ? (
+            /* New rich content format */
+            <div
+              className="blog-content mb-12 md:mb-16"
+              dangerouslySetInnerHTML={{ __html: post.htmlContent }}
+            />
+          ) : post.content ? (
+            /* Legacy structured content format */
+            <>
+              {/* Introduction */}
+              <div className="mb-12 md:mb-16">
+                <p className="text-lg md:text-xl text-stone-700 leading-relaxed font-light">
+                  {post.content.intro}
+                </p>
+              </div>
 
-          {/* Decorative Divider */}
-          <div className="flex justify-center my-12 md:my-16">
-            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
-          </div>
+              {/* Decorative Divider */}
+              <div className="flex justify-center my-12 md:my-16">
+                <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
+              </div>
 
-          {/* Content Sections */}
-          <div className="space-y-12 md:space-y-16">
-            {post.content!.sections.map((section, index) => (
-              <section key={index}>
-                <h2 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-6 md:mb-8">
-                  {section.heading}
-                </h2>
-                <div className="space-y-6">
-                  {section.paragraphs.map((paragraph, pIndex) => (
-                    <p
-                      key={pIndex}
-                      className="text-base md:text-lg text-stone-600 leading-relaxed"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
+              {/* Content Sections */}
+              <div className="space-y-12 md:space-y-16">
+                {post.content.sections.map((section, index) => (
+                  <section key={index}>
+                    <h2 className="text-2xl md:text-3xl font-serif font-light text-stone-900 mb-6 md:mb-8">
+                      {section.heading}
+                    </h2>
+                    <div className="space-y-6">
+                      {section.paragraphs.map((paragraph, pIndex) => (
+                        <p
+                          key={pIndex}
+                          className="text-base md:text-lg text-stone-600 leading-relaxed"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
 
-          {/* Decorative Divider */}
-          <div className="flex justify-center my-12 md:my-16">
-            <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
-          </div>
+              {/* Decorative Divider */}
+              <div className="flex justify-center my-12 md:my-16">
+                <div className="w-px h-12 md:h-16 bg-gradient-to-b from-transparent via-stone-300 to-transparent"></div>
+              </div>
 
-          {/* Conclusion */}
-          <div className="mb-12 md:mb-16">
-            <p className="text-base md:text-lg text-stone-600 leading-relaxed">
-              {post.content!.conclusion}
-            </p>
-          </div>
+              {/* Conclusion */}
+              <div className="mb-12 md:mb-16">
+                <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+                  {post.content.conclusion}
+                </p>
+              </div>
+            </>
+          ) : null}
 
           {/* Article Engagement Stats */}
           <div className="flex justify-center py-8 md:py-10 border-y border-stone-200 mb-8 md:mb-12">

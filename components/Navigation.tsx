@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, LogOut, User } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
 import { NAV_LINKS } from "@/constants/navigation";
@@ -53,6 +54,7 @@ const servicesData = [
 ];
 
 export default function Navigation() {
+  const pathname = usePathname();
   const { data: session, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -179,36 +181,41 @@ export default function Navigation() {
               <nav className={`flex gap-7 items-center transition-colors duration-300 ${
                 isScrolled ? 'text-stone-600' : 'text-white/75'
               }`}>
-                {NAV_LINKS.left.map((link) => (
-                  link.label === "Services" ? (
-                    <ServicesDropdown key={link.href} isScrolled={isScrolled} />
-                  ) : (
+                {NAV_LINKS.left.map((link) => {
+                  if (link.label === "Services") {
+                    return <ServicesDropdown key={link.href} isScrolled={isScrolled} pathname={pathname} />;
+                  }
+                  const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                  return (
                     <Link
                       key={link.href}
                       href={link.href}
                       className={`transition-all duration-300 font-normal tracking-[0.15em] uppercase text-[11px] whitespace-nowrap hover:opacity-100 ${
-                        isScrolled
-                          ? 'opacity-70 hover:text-stone-900'
-                          : 'opacity-75 hover:text-white'
+                        isActive
+                          ? (isScrolled ? 'opacity-100 text-stone-900' : 'opacity-100 text-white')
+                          : (isScrolled ? 'opacity-70 hover:text-stone-900' : 'opacity-75 hover:text-white')
                       }`}
                     >
                       {link.label}
                     </Link>
-                  )
-                ))}
-                {NAV_LINKS.right.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`transition-all duration-300 font-normal tracking-[0.15em] uppercase text-[11px] whitespace-nowrap hover:opacity-100 ${
-                      isScrolled
-                        ? 'opacity-70 hover:text-stone-900'
-                        : 'opacity-75 hover:text-white'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                  );
+                })}
+                {NAV_LINKS.right.map((link) => {
+                  const isActive = pathname.startsWith(link.href);
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`transition-all duration-300 font-normal tracking-[0.15em] uppercase text-[11px] whitespace-nowrap hover:opacity-100 ${
+                        isActive
+                          ? (isScrolled ? 'opacity-100 text-stone-900' : 'opacity-100 text-white')
+                          : (isScrolled ? 'opacity-70 hover:text-stone-900' : 'opacity-75 hover:text-white')
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
               </nav>
               {/* CTA — soft pill, gallery concierge feel */}
               <Link

@@ -46,11 +46,15 @@ const servicesData = [
   }
 ];
 
+const SERVICE_PREFIXES = ["/services", "/residential", "/hospitality", "/commercial", "/custom-interiors"];
+
 interface ServicesDropdownProps {
   isScrolled?: boolean;
+  pathname?: string;
 }
 
-export default function ServicesDropdown({ isScrolled = false }: ServicesDropdownProps) {
+export default function ServicesDropdown({ isScrolled = false, pathname = "" }: ServicesDropdownProps) {
+  const isActive = SERVICE_PREFIXES.some((prefix) => pathname.startsWith(prefix));
   const [isOpen, setIsOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -76,8 +80,10 @@ export default function ServicesDropdown({ isScrolled = false }: ServicesDropdow
       onMouseLeave={handleMouseLeave}
     >
       <button
-        className={`flex items-center gap-1 transition-colors duration-300 font-normal tracking-wide uppercase text-xs ${
-          isScrolled ? 'text-stone-900 hover:text-stone-600' : 'text-white hover:text-stone-200'
+        className={`flex items-center gap-1 transition-all duration-300 font-normal tracking-[0.15em] uppercase text-[11px] ${
+          isActive
+            ? (isScrolled ? 'opacity-100 text-stone-900' : 'opacity-100 text-white')
+            : (isScrolled ? 'opacity-70 text-stone-600 hover:opacity-100 hover:text-stone-900' : 'opacity-75 text-white/75 hover:opacity-100 hover:text-white')
         }`}
       >
         Services

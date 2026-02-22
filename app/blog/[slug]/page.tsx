@@ -22,11 +22,11 @@ export default async function BlogPostPage({ params }: { readonly params: Promis
 
   const post = journalPosts.find((p: any) => p.slug === slug);
 
-  if (!post || !post.content) {
+  if (!post || (!post.content && !post.htmlContent) || post.status === "draft") {
     notFound();
   }
 
-  const relatedPosts = journalPosts.filter((p: any) => p.id !== post.id).slice(0, 2);
+  const relatedPosts = journalPosts.filter((p: any) => p.id !== post.id && p.status !== "draft").slice(0, 2);
 
   return <BlogPostContent post={post} relatedPosts={relatedPosts} />;
 }
