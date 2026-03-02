@@ -16,6 +16,7 @@ import {
   Eye,
   Trash2,
 } from "lucide-react";
+import ConfirmModal from "@/components/ui/ConfirmModal";
 
 const TipTapEditor = dynamic(() => import("@/components/admin/TipTapEditor"), {
   ssr: false,
@@ -229,6 +230,8 @@ function EditorContent() {
   const [imagePickerOpen, setImagePickerOpen] = useState(false);
   const [contentImagePickerOpen, setContentImagePickerOpen] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   // Load posts
   useEffect(() => {
@@ -352,7 +355,7 @@ function EditorContent() {
 
   const handleDelete = async () => {
     if (!post || isNew) return;
-    if (!confirm("Are you sure you want to delete this post?")) return;
+    setDeleting(true);
 
     const updatedPosts = allPosts.filter((p) => p.id !== post.id);
     try {
@@ -365,6 +368,8 @@ function EditorContent() {
       router.push("/admin/blog");
     } catch {
       setError("Failed to delete post");
+      setDeleting(false);
+      setShowDeleteConfirm(false);
     }
   };
 
@@ -659,7 +664,7 @@ function EditorContent() {
           {/* Delete */}
           {!isNew && (
             <button
-              onClick={handleDelete}
+              onClick={() => setShowDeleteConfirm(true)}
               className="w-full flex items-center justify-center gap-1.5 px-3 py-2 text-xs text-red-400/70 hover:text-red-400 hover:bg-red-400/10 rounded-lg border border-stone-800/40 transition-colors"
             >
               <Trash2 className="w-3.5 h-3.5" /> Delete Post
@@ -667,6 +672,18 @@ function EditorContent() {
           )}
         </div>
       </div>
+
+      {/* Delete confirmation modal */}
+      <ConfirmModal
+        open={showDeleteConfirm}
+        onClose={() => setShowDeleteConfirm(false)}
+        onConfirm={handleDelete}
+        title="Delete this post?"
+        message={`"${post.title}" will be permanently removed. This action cannot be undone.`}
+        confirmLabel="Delete Post"
+        variant="danger"
+        loading={deleting}
+      />
     </div>
   );
 }

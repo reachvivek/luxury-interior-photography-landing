@@ -16,6 +16,7 @@ import {
   Activity,
   Users,
   UserRound,
+  Video,
 } from "lucide-react";
 
 interface NavItem {
@@ -28,6 +29,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/admin", icon: <LayoutDashboard className="w-5 h-5" /> },
   { label: "Hero Slides", href: "/admin/hero", icon: <Image className="w-5 h-5" /> },
   { label: "Services Page", href: "/admin/services-page", icon: <Briefcase className="w-5 h-5" /> },
+  { label: "Service Videos", href: "/admin/service-videos", icon: <Video className="w-5 h-5" /> },
   { label: "Gallery", href: "/admin/gallery", icon: <Images className="w-5 h-5" /> },
   { label: "Portfolio", href: "/admin/portfolio", icon: <FolderOpen className="w-5 h-5" /> },
   { label: "Blog / Journal", href: "/admin/blog", icon: <FileText className="w-5 h-5" /> },

@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import WhatsAppCTAButton from "@/components/shared/WhatsAppCTAButton";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import VideoSection, { ServiceVideo } from "@/components/services/VideoSection";
 
 interface SubcategoryImage {
   src: string;
@@ -26,6 +27,7 @@ interface SubcategoryPageProps {
   processSteps: string[];
   impactTitle: string;
   impactDescription: string;
+  videos?: ServiceVideo[];
 }
 
 export default function SubcategoryPage({
@@ -40,6 +42,7 @@ export default function SubcategoryPage({
   processSteps,
   impactTitle,
   impactDescription,
+  videos,
 }: SubcategoryPageProps) {
   const galleryAnimation = useScrollAnimation(0.15);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -213,6 +216,11 @@ export default function SubcategoryPage({
           </div>
         </div>
       </section>
+
+      {/* Video Showcase Section */}
+      {videos && videos.length > 0 && (
+        <VideoSection videos={videos} subcategoryTitle={subcategoryTitle} />
+      )}
 
       {/* The Process - Experience Section */}
       <section className="py-16 md:py-20 px-6 md:px-16 bg-white border-t border-stone-100">

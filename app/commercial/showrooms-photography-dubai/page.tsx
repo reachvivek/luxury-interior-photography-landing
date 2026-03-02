@@ -1,5 +1,6 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
 import { prisma } from "@/lib/prisma";
+import { getServiceVideos } from "@/lib/service-videos";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 async function getSubcategoryData() {
@@ -64,6 +65,7 @@ export const dynamic = "force-dynamic";
 export default async function ShowroomsPage() {
   const data = await getSubcategoryData();
   const d = data ?? FALLBACK;
+  const videos = await getServiceVideos("commercial/showrooms");
 
   return (
     <SubcategoryPage
@@ -78,6 +80,7 @@ export default async function ShowroomsPage() {
       impactTitle={d.impactTitle}
       impactDescription={d.impactDescription}
       galleryImages={d.galleryImages}
+      videos={videos}
     />
   );
 }
