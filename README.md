@@ -4,6 +4,37 @@ A modern, high-performance landing page for luxury interior photography services
 
 **Production URL:** https://myvisual.space/ (canonical: https://www.myvisual.space/)
 
+## Performance Log
+
+### 2026-05-29 — Homepage TTFB: 30s → ~700ms (40x faster)
+
+**Symptom:** First visitor of every quiet period waited ~30 seconds before the homepage HTML returned. Subsequent visitors within ~5 minutes were instant.
+
+**Root cause:** MongoDB Atlas free-tier (M0) connections go cold after a few minutes of inactivity. When cold, the first query times out at exactly `30000ms` (the MongoDB driver's default `serverSelectionTimeoutMS`). Confirmed via Prisma query logs showing `30005ms` / `30008ms` — the millisecond-precision was the giveaway that it was a timeout, not raw latency. The homepage was set to `export const dynamic = "force-dynamic"`, so every request hit MongoDB and paid that cost whenever the cluster had gone idle.
+
+**Fix:** Switched `app/page.tsx` from `force-dynamic` to ISR with `export const revalidate = 300`. Now:
+
+- Homepage is pre-rendered at build time → cache populated by Vercel's build machine, not by a user
+- All visitors get static cached HTML (~700ms TTFB, no DB call)
+- Cache expires every 5 minutes; the next visitor receives the **stale** HTML instantly while a background re-render happens
+- The cold-DB cost still exists but lives inside that background regen — invisible to users
+- Admin content saves call `revalidatePath("/", "layout")` so edits appear immediately instead of waiting for the 5-min window
+
+**What did NOT fix it (ruled out along the way):**
+- Image optimization — images load *after* HTML; not the bottleneck
+- Query parallelization — `Promise.all` was already in place
+- Vercel cron warm-up endpoint — Hobby tier caps crons at once-per-day, so this approach failed at deploy time. Removed. ISR's stale-while-revalidate covers the same need without needing a pinger
+
+**Verification:** Live production headers after deploy:
+```
+X-Nextjs-Prerender: 1
+X-Nextjs-Stale-Time: 300
+X-Vercel-Cache: PRERENDER
+```
+Three sequential homepage requests: 0.64s, 0.78s, 0.90s.
+
+**Open follow-ups:** Apply the same ISR change to the other 25 `force-dynamic` pages (category, blog, services). Compress 316 MB of source JPEGs in `public/images/` with sharp at build time.
+
 ## Overview
 
 Nashray is a premium interior photography portfolio website built with Next.js 16, featuring immersive full-screen galleries, authentic client testimonials, and seamless WhatsApp integration for instant booking inquiries. The application showcases professional photography work with elegant animations, optimized performance, and a focus on visual storytelling.
