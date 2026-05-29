@@ -2,6 +2,8 @@
 
 A modern, high-performance landing page for luxury interior photography services specializing in residential, hospitality, commercial, and custom interior spaces in Dubai and the UAE.
 
+**Production URL:** https://myvisual.space/ (canonical: https://www.myvisual.space/)
+
 ## Overview
 
 Nashray is a premium interior photography portfolio website built with Next.js 16, featuring immersive full-screen galleries, authentic client testimonials, and seamless WhatsApp integration for instant booking inquiries. The application showcases professional photography work with elegant animations, optimized performance, and a focus on visual storytelling.

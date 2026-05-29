@@ -13,7 +13,9 @@ async function getContent(section: string) {
   }
 }
 
-export const dynamic = "force-dynamic";
+// ISR: page is statically cached and re-rendered at most every 5 min.
+// Admin save endpoints call revalidatePath() to bust this cache immediately.
+export const revalidate = 300;
 
 export default async function Page() {
   const [hero, gallery, features, process, journal, stats, testimonials, servicesPage] = await Promise.all([
