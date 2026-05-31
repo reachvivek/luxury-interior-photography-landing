@@ -62,6 +62,13 @@ async function getInstance(): Promise<AuthInstance> {
 
   const creds = await getAuthCreds();
 
+  // Don't cache an instance with empty secret — retry on next request once creds are available
+  if (!creds.authSecret) {
+    throw new Error(
+      "AUTH_SECRET missing. Set in MongoDB `auth-credentials` section or as AUTH_SECRET env var.",
+    );
+  }
+
   _instance = NextAuth({
     secret: creds.authSecret,
     trustHost: true,
@@ -127,14 +134,47 @@ async function getInstance(): Promise<AuthInstance> {
 /*  Exports — same interface as before, but lazily initialized        */
 /* ------------------------------------------------------------------ */
 
+/**
+ * Returns an empty session JSON response. Used as a safe fallback when
+ * NextAuth fails to initialize (e.g., missing AUTH_SECRET), so that
+ * <SessionProvider> on the client treats the user as anonymous instead
+ * of throwing and breaking hydration / client-side navigation.
+ */
+function emptySessionResponse(): Response {
+  return new Response("null", {
+    status: 200,
+    headers: { "content-type": "application/json" },
+  });
+}
+
 export const handlers = {
   async GET(req: NextRequest) {
-    const inst = await getInstance();
-    return inst.handlers.GET(req);
+    try {
+      const inst = await getInstance();
+      return inst.handlers.GET(req);
+    } catch (err) {
+      console.error("[auth] init failed:", err);
+      // For /session — return empty session so SessionProvider doesn't break the page
+      if (req.nextUrl.pathname.endsWith("/session")) {
+        return emptySessionResponse();
+      }
+      return new Response(
+        JSON.stringify({ error: "auth_not_configured" }),
+        { status: 503, headers: { "content-type": "application/json" } },
+      );
+    }
   },
   async POST(req: NextRequest) {
-    const inst = await getInstance();
-    return inst.handlers.POST(req);
+    try {
+      const inst = await getInstance();
+      return inst.handlers.POST(req);
+    } catch (err) {
+      console.error("[auth] init failed:", err);
+      return new Response(
+        JSON.stringify({ error: "auth_not_configured" }),
+        { status: 503, headers: { "content-type": "application/json" } },
+      );
+    }
   },
 };
 
