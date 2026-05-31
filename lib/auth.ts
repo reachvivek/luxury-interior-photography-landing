@@ -153,7 +153,10 @@ async function getInstance(): Promise<AuthInstance> {
  * of throwing and breaking hydration / client-side navigation.
  */
 function emptySessionResponse(): Response {
-  return new Response("null", {
+  // Returns `{}` (not `null`). NextAuth's React client calls Object.keys()
+  // on the parsed body — null would throw TypeError and crash <SessionProvider>,
+  // taking the whole client tree with it (broken nav, dead clicks).
+  return new Response("{}", {
     status: 200,
     headers: { "content-type": "application/json" },
   });

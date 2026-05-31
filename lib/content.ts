@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { prisma } from "./prisma";
 
 export type ContentSection =
@@ -60,6 +61,30 @@ export async function writeContent(section: ContentSection, data: unknown): Prom
     create: { section, data: data as object },
   });
 }
+
+/**
+ * Cached read of a ContentSection. Used by public pages so that the
+ * MongoDB roundtrip happens at most once every 5 minutes regardless of
+ * traffic. Pages stay `force-dynamic` (HTML re-rendered per request),
+ * but the DB call is cached — so a cold Atlas cluster only impacts the
+ * one visitor whose request triggers the next revalidation, and admin
+ * saves call `revalidateTag("content")` to bust the cache instantly.
+ *
+ * Wrapped in try/catch so DB failures return null instead of crashing
+ * the page (callers already fall back to hardcoded defaults).
+ */
+export const getCachedSection = unstable_cache(
+  async (section: ContentSection): Promise<unknown | null> => {
+    try {
+      const record = await prisma.contentSection.findUnique({ where: { section } });
+      return record?.data ?? null;
+    } catch {
+      return null;
+    }
+  },
+  ["content-section"],
+  { revalidate: 300, tags: ["content"] },
+);
 
 export async function listSections(): Promise<{ section: ContentSection; exists: boolean }[]> {
   const existing = await prisma.contentSection.findMany({

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { isAuthenticated } from "@/lib/admin-auth";
 import { readContent, writeContent, isValidSection, listSections } from "@/lib/content";
 
@@ -53,8 +53,11 @@ export async function PUT(request: NextRequest) {
     }
 
     await writeContent(section, data);
-    // Bust ISR cache for every public page so admin edits appear immediately.
+    // Bust both caches so admin edits appear immediately:
+    // - revalidatePath: page-level ISR cache (homepage)
+    // - revalidateTag: data-layer cache used by getCachedSection on other pages
     revalidatePath("/", "layout");
+    revalidateTag("content", "max");
     return NextResponse.json({ success: true, section });
   } catch (error) {
     return NextResponse.json(

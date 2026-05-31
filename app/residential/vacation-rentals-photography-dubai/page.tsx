@@ -1,15 +1,11 @@
 import SubcategoryPage from "@/components/services/SubcategoryPage";
-import { prisma } from "@/lib/prisma";
+import { getCachedSection } from "@/lib/content";
 import { getServiceVideos } from "@/lib/service-videos";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 async function getSubcategoryData() {
-  try {
-    const record = await prisma.contentSection.findUnique({ where: { section: "portfolio" } });
-    return (record?.data as any)?.residential?.subcategories?.["vacation-rentals"] ?? null;
-  } catch {
-    return null;
-  }
+  const data = await getCachedSection("portfolio");
+  return (data as any)?.residential?.subcategories?.["vacation-rentals"] ?? null;
 }
 
 const FALLBACK = {

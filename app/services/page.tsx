@@ -1,14 +1,10 @@
 import ServicesPage from "@/components/ServicesPage";
-import { prisma } from "@/lib/prisma";
+import { getCachedSection } from "@/lib/content";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 async function getServicesPageData() {
-  try {
-    const record = await prisma.contentSection.findUnique({ where: { section: "services-page" } });
-    return (record?.data as any) ?? null;
-  } catch {
-    return null;
-  }
+  const data = await getCachedSection("services-page");
+  return (data as any) ?? null;
 }
 
 export const dynamic = "force-dynamic";

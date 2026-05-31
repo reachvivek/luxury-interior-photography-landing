@@ -1,14 +1,10 @@
 import ContactPage from "@/components/ContactPage";
-import { prisma } from "@/lib/prisma";
+import { getCachedSection } from "@/lib/content";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 async function getContactData() {
-  try {
-    const record = await prisma.contentSection.findUnique({ where: { section: "contact" } });
-    return (record?.data as any) ?? null;
-  } catch {
-    return null;
-  }
+  const data = await getCachedSection("contact");
+  return (data as any) ?? null;
 }
 
 export const dynamic = "force-dynamic";

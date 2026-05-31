@@ -1,14 +1,10 @@
 import CategoryPageLayout from "@/components/layouts/CategoryPageLayout";
-import { prisma } from "@/lib/prisma";
+import { getCachedSection } from "@/lib/content";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 async function getPortfolioCategory() {
-  try {
-    const record = await prisma.contentSection.findUnique({ where: { section: "portfolio" } });
-    return (record?.data as any)?.["custom-interiors"] ?? null;
-  } catch {
-    return null;
-  }
+  const data = await getCachedSection("portfolio");
+  return (data as any)?.["custom-interiors"] ?? null;
 }
 
 // Hardcoded fallback

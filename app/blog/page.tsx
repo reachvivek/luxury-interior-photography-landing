@@ -1,14 +1,10 @@
 import BlogListPage from "@/components/BlogListPage";
-import { prisma } from "@/lib/prisma";
+import { getCachedSection } from "@/lib/content";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 async function getJournalPosts() {
-  try {
-    const record = await prisma.contentSection.findUnique({ where: { section: "journal" } });
-    return (record?.data as any) ?? null;
-  } catch {
-    return null;
-  }
+  const data = await getCachedSection("journal");
+  return (data as any) ?? null;
 }
 
 export const dynamic = "force-dynamic";
