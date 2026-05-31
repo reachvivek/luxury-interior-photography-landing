@@ -22,6 +22,18 @@ const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 async function getAuthCreds(): Promise<AuthCreds> {
   if (_cached && Date.now() - _cached.ts < CACHE_TTL) return _cached.creds;
 
+  // Try env vars FIRST (zero latency). Only fall through to MongoDB if env is
+  // incomplete — otherwise a cold Atlas cluster makes every /api/auth/session
+  // request hang for ~30s waiting for the connection.
+  const envSecret = process.env.AUTH_SECRET;
+  const envGoogleId = process.env.AUTH_GOOGLE_ID;
+  const envGoogleSecret = process.env.AUTH_GOOGLE_SECRET;
+  if (envSecret && envGoogleId && envGoogleSecret) {
+    const creds = { authSecret: envSecret, googleId: envGoogleId, googleSecret: envGoogleSecret };
+    _cached = { creds, ts: Date.now() };
+    return creds;
+  }
+
   try {
     const row = await prisma.contentSection.findUnique({
       where: { section: "auth-credentials" },
@@ -40,13 +52,13 @@ async function getAuthCreds(): Promise<AuthCreds> {
       }
     }
   } catch {
-    // DB unavailable — fall through to env vars
+    // DB unavailable — fall through to (possibly partial) env vars below
   }
 
   return {
-    authSecret: process.env.AUTH_SECRET || "",
-    googleId: process.env.AUTH_GOOGLE_ID || "",
-    googleSecret: process.env.AUTH_GOOGLE_SECRET || "",
+    authSecret: envSecret || "",
+    googleId: envGoogleId || "",
+    googleSecret: envGoogleSecret || "",
   };
 }
 
