@@ -1,6 +1,7 @@
+import "dotenv/config";
 import { readFileSync, readdirSync } from "node:fs";
 import { join, basename } from "node:path";
-import { PrismaClient } from "../lib/generated/prisma/client.ts";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
